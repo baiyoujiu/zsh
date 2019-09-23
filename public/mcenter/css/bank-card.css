@@ -1,0 +1,296 @@
+    .aui_content{padding-top: 0!important;}
+	.accountTab>li>a{font-size: 14px!important;}
+	.accountTab>li.active>a{
+		color: #e85352!important;
+		font-weight: normal!important;
+	}
+	.panel-body{
+		padding:0!important;
+	}
+	.form-group .control-label,.form-group span{
+		font-size: 14px;
+	}
+	.btn-sounds{
+		margin-left: 10px;
+		padding:7px 12px!important;
+	}
+	.verificationCode{
+		width: 159px!important;
+		height: 34px!important;
+	}
+
+	.input-short-10{
+		width: 159px!important;
+		height: 34px!important;
+	}
+	input.input-control,button.button-control,ul.menu-control{
+		width: 327px;
+	}
+	.arrow-down{
+		float: right;
+		margin-top: 7px;
+	}
+	.bank-btn{
+		text-align: left!important;
+		padding-left:20px!important;
+	}
+	.area-btn{
+		text-align: left!important;
+		width: 159px;
+	}
+	.region-btn{
+		margin-left: -55px!important;
+	}
+	.region-menu{
+		margin-left: -55px!important;
+	}
+	.show-uploadimg{
+		width: 142px!important;
+		height: 103px!important;
+		line-height: 103px;
+	}
+	.show-uploadimg img{
+		width: 100%;
+	}
+	.upload-img{
+		width: 158px!important;
+		height: 108px!important;
+		line-height: 98px;
+		text-align: center;
+		border: 1px solid #d2d2d2;
+		margin:0 22px;
+	}
+	.upload-img img{
+		width:100%;
+		height:100%;
+	}
+	.upload-btn{
+		width: 102px!important;
+		height: 34px!important;
+		line-height: 34px;
+		border:1px solid #d2d2d2;
+		color: #666;
+		text-align: center;
+		border-radius: 4px;
+		cursor: pointer;
+		font-size: 14px;
+	}
+	.upload-btn i{   
+		color: #e85352;
+		padding-left: 4px;
+	}
+	.upload-btn label{
+		cursor: pointer;
+		font-size: 14px;
+		height: 34px!important;
+	}
+	.bankzhlx{
+		width:65px;
+		height: 22px;
+		background: #e85352;
+		border-radius: 4px;
+		font-size: 12px;
+		padding-top: 0!important;
+		color: #fff!important;
+		line-height: 22px;
+		text-align: center;
+		margin-top: 9px;
+	}
+i{
+	font-style: normal;
+}
+
+.nav>li.disabled>a:hover, .nav>li.disabled>a:focus{
+	border-color: transparent!important;
+	cursor: pointer;
+}
+/*置灰银行卡样式*/
+ .bank_unavailable .bank-card-left{
+	background: #fdfdfd;
+	 border: 1px solid #dfdfdf;
+ }
+.bank_unavailable .bank-card-left-center a{
+	padding-left: 8px;
+	color: #adadad;
+}
+.bank_unavailable .bank-card-left-head{
+	background: #F5F5F5;
+}
+ .bank_unavailable strong{
+	 color: #868686;
+ }
+ .bank_unavailable .pull-right{
+	 color: #919191;
+ }
+ .bank_unavailable .bank-card-sign{
+	 background: #c9c9c9;
+	 color: #ffffff;
+     float: right!important;
+ }
+ .bank_unavailable .bank-card-left-center p{
+	 color: #868686;
+ }
+ .unavailable-text{
+	 padding-left: 7px;
+	 color: #adadad;
+ }
+ .bank_unavailable .bankzhlx{
+	 background: #c9c9c9;
+	 color: #ffffff;
+ }
+.icon-biaodanyanzheng_cuowu{
+	font-size: 14px;
+	color: #f95355;
+	vertical-align: middle;
+}
+.icon-biaodanyanzheng_zhengque{
+	font-size: 14px;
+	color: #56c53b;
+	vertical-align: middle;
+}
+#bankNameView{
+	vertical-align: middle;
+	padding-left: 8px;
+	font-size:14px;
+}
+.phone-tip{
+	font-size: 14px;
+}
+.icon-jinggao{
+	color: #ffab00;
+}
+.m-warning{
+	margin-top: 10px;
+	padding:0 10px;
+	background: #fff7e6;
+	font-size:12px;
+	color: #bb9855;
+	height: 35px;
+	line-height:35px;
+}
+.tipMessage{
+	/*margin-top: 0;*/
+	/*margin-bottom: 0;*/
+	display: block;
+}
+.cardnum-wrapper{
+	position: relative;
+}
+.support{
+	position: absolute;
+	top:0px;
+	right: 75px;
+	color: #1d93d1;
+	font-size: 12px;
+}
+
+/*支持的银行卡列表*/
+	#supportBank{
+		margin-top: 20px;
+		background: #FFFFFF;
+		width:500px;
+		/*border:1px solid #e5e5e5;*/
+		/*border-radius: 5px;*/
+		font-size: 14px;
+		line-height: 32px;
+	}
+	.aui_close{
+		right: 23px;
+		z-index: 9999;
+		color: #333;
+	}
+	.aui_close:hover{
+		color: #333;
+	}
+	.support-tab{
+		height:56px;
+		border-bottom:1px solid #e5e5e5 ;
+		position: relative;
+	}
+	.tab{
+		position: absolute;
+		width: 83px;
+		height: 42px;
+		text-align: center;
+		line-height: 42px;
+		border-top-left-radius:5px;
+		border-top-right-radius:5px;
+		border: 1px solid #e5e5e5;
+		background: #f9f9f9;
+	}
+	.tab-left{
+		left:25px;
+		bottom: -1px;
+	}
+	.tab-right{
+		left:120px;
+		bottom: -1px;
+	}
+	.red{
+		color: #e85352;
+		border-bottom: 1px solid #FFFFFF;
+		background: #FFFFFF;
+	}
+	.supportTab-content{
+		padding:13px 0;
+	}
+	.supportTab1,.supportTab2{
+		min-height:310px;
+		overflow-y:auto;
+		max-height:310px;
+	}
+	#pay-table{
+		width: 450px;
+		margin: 0 auto;
+	}
+	#pay-table tr{
+		width: 100%;
+	}
+	#pay-table th{
+		height: 55px;
+		width: 100px;
+		text-align: center;
+	}
+	#pay-table td{
+		height: 45px;
+		width: 100px;
+		text-align: center;
+	}
+	#pay-table tr{
+		border: 1px solid #e5e5e5;
+	}
+	#pay-table tr{
+		border-right: none;
+		border-left: none;
+	}
+
+	.bankList-tr td,.bankList-tr th{
+		border-right:1px solid #e5e5e5;
+	}
+	.bankList-tr  td:last-child,.bankList-tr th:last-child{
+		border-right: none;
+	}
+
+	.bankType-wrapper{
+		padding-left:23px;
+	}
+	.type-item{
+		display: inline-block;
+		width: 128px;
+		height: 50px;
+		border: 1px solid #e5e5e5;
+		border-radius: 5px;
+		margin-right: 20px;
+		margin-bottom: 24px;
+		text-align: center;
+		line-height: 50px;
+	}
+	.bankLogo{
+		width: 30px;
+		height: 30px;
+		margin-right: 10px;
+		vertical-align: middle;
+	}
+	.bankList-tr td:nth-of-type(1){
+		border-left: none;
+	}

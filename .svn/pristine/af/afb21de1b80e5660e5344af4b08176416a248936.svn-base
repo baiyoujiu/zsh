@@ -1,0 +1,183 @@
+<?php
+/* 商品分类及分类规格属性管理
+ * @author Bill
+ * @data 20190731
+ */
+namespace app\mcenter\controller;
+use think\Controller;
+use think\Validate;
+
+class Orders extends Controller
+{
+	public function __construct()
+	{
+		parent::__construct();
+		$mid = session('mid');
+		if(empty($mid)){
+			if (Request()->isAjax()){
+				return ['status'=>220,'msg'=>'请先登陆！'];
+			}else{
+				$this->redirect(url('members/index'));
+			}
+		}
+		$userInfo = array();
+		$userInfo = session('userInfo');
+		$this->assign('userInfo', $userInfo);
+
+		$statusArr = array('1'=>'下单','2'=>'卖家确认','3'=>'已发货','5'=>'买家确认收货','6'=>'系统收货','8'=>'卖家取消订单','9'=>'系统关闭未付款订单');
+		$this->assign('statusArr',$statusArr);
+
+		$paytypeArr = array('1'=>'余额支付','2'=>'支付宝','3'=>'微信');
+		$this->assign('paytypeArr',$paytypeArr);
+	}
+
+
+
+	/* 分类管理
+	 * @author Bill
+	* @date 20190731
+	*/
+	public function index()
+	{
+		$status = input('get.status/d');
+		$keyword = input('get.keyword','','addslashes,strip_tags');
+		$keyword = trim($keyword);
+		$page = input('get.page/d');
+		$pagesize = 20;
+		$urlArr = array();
+		$wheres = [];
+		//处理传值，以拉取需要的信息（选择）
+		if (!empty($keyword)) {
+			$wheres['order_no'] = ['like',"%$keyword%"];
+			$urlArr['keyword'] = $keyword;
+		}
+		if (!empty($status)) {
+			$wheres['status'] = $status;
+			$urlArr['status'] = $status;
+		}
+		$this->assign('keyword', $keyword);
+		$this->assign('status', $status);
+
+
+
+		//页码控制
+		$count = db('order')->where($wheres)->count();
+		$maxPage = ceil($count / $pagesize);
+		$page = $page > $maxPage ? $maxPage : $page;
+		$page = $page < 1 ? 1 : $page;
+
+		//拉取需要表单数据
+		$lists = db('order')->where($wheres)->order('id DESC')
+				->limit(($page - 1) * $pagesize, $pagesize)->select();
+		foreach ($lists as $k => $v) {
+			$wheres = [];
+			$wheres['order_no'] = $v['order_no'];
+			$glists = db('order_goods')->where($wheres)->order('addtime DESC')->select();
+			$buynum = 0;
+			foreach ($glists as $k1 => $v1) {
+				$buynum += $v1['num'];
+			}
+			$lists[$k]['glists'] = $glists;
+
+		}
+
+
+		$this->assign('lists', $lists);
+		//页码
+		$this->assign('pageStr', get_page_str($count, $urlArr, $page, $pagesize));
+
+
+		//驿站地址
+		$stagelist = db('system_stage')->field('code,area')->where('status',1)->select();
+		$stagelist = getArrOne($stagelist,'area','code');
+		$this->assign('stagelist',$stagelist);
+
+		return view();
+	}
+
+	public function inf()
+	{
+		//获取路由参数
+		$newsNo = request()->route('id');
+		if (empty($newsNo)) {
+			$this->redirect(url('orders/index'));
+		}
+		$info = db('order')->where('id=' . $newsNo)->find();
+		$info['address'] = json_decode(base64_decode($info['address']),true);
+		if (empty($info)) {
+			$this->redirect(url('orders/index'));
+		}
+		$this->assign('info', $info);
+
+		$wheres = [];
+		$wheres['order_no'] = $info['order_no'];
+		$glist = db('order_goods')->where($wheres)->order('addtime DESC')->select();
+		$this->assign('glist', $glist);
+
+		//所有有效地区
+		$arealist = db('system_area')->field('code,area')->where('status',1)->select();
+		$arealist = getArrOne($arealist,'area','code');
+		$this->assign('arealist',$arealist);
+
+		//驿站地址
+		$stagelist = db('system_stage')->field('code,area')->where('status',1)->select();
+		$stagelist = getArrOne($stagelist,'area','code');
+		$this->assign('stagelist',$stagelist);
+
+
+		$stagealist = db('system_stage')->where('status',1)->select();
+		$stagealist = getArrOne($stagealist,'address','code');
+		$this->assign('stagealist',$stagealist);
+		return view();
+	}
+
+	public function hnavsave()
+	{
+		if (!Request()->isAjax()) {
+			return ['status' => 220, 'msg' => '非法请求！'];
+		}
+		$rule = [
+				['objId', 'require', '参数不正确'],
+				['wl_com', 'require', '物流公司名称不正确'],
+				['wl_no', 'require|number', '物流公司编号不存在|物流公司编号不正确'],
+		];
+
+		$data = request()->post();
+		$validate = new Validate($rule);
+		$result = $validate->check($data);
+		if (!$result) {
+			return ['status' => 201, 'msg' => $validate->getError()];
+		}
+		$objId = $data['objId'];
+		unset($data['objId']);
+		$time = date('Y-m-d H:i:s');
+		$data['updatetime'] = $time;
+
+		$info = db('order')->where('order_no' . $objId)->find();
+		if ($info['status'] == 2) {
+			db('order')->where('order_no', $objId)->update($data);
+		} else {
+			$data['status'] = 2;
+			db('order')->where('order_no', $objId)->update($data);
+		}
+		return ['status' => 200, 'msg' => '成功'];
+	}
+
+	public function address(){
+		$userid = session('recname');
+		//地址列表
+		$lists = db('users_address')->where('userid',$userid)->order('id DESC')->select();
+		$this->assign('lists',$lists);
+
+		//所有有效地区
+
+
+		//省市（浙江杭州下的开放区县）
+		$wheres = ['p_code'=>330100,'status'=>1];
+		$alists = db('system_area')->where($wheres)->order('weight DESC')->select();
+		$this->assign('alists',$alists);
+		return view();
+	}
+
+}
+

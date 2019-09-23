@@ -1,0 +1,158 @@
+.form-control{box-shadow: none;}
+input.ui-input{
+	color:#666;
+	width:324px;
+	height:36px;
+	line-height:36px;
+	font-size: 14px;
+	margin:0;
+	padding-left:8px;
+	box-sizing: border-box;
+}
+input.ui-input:hover{
+	border:1px solid #03b1dd;
+}
+input.ui-input:focus{
+	box-shadow: -1px 0 4px rgba(3,177,221,.5);
+}
+input.ui-input::-webkit-input-placeholder{
+	color:#ccc;
+}
+div.phone-input{
+	width:334px;
+	height:36px;
+	overflow:hidden;
+}
+input.pInput1{
+	width:74px;
+	float:left;
+}
+input.pInput2{
+	width:226px;
+	display:inline-block;
+	margin-left:0;
+}
+div.phone-input span{
+	display:inline-block;
+	padding-left:9px;
+	padding-right:4px;
+}
+div.money{
+	width:324px;
+	height:36px;
+	position:relative;
+}
+div.money input{
+	padding-right:24px;
+}
+div.money span{
+	display:block;
+	position:absolute;
+	top:2px;
+	right:10px;
+}
+textarea.form-control{
+	width:324px;
+	height:78px;
+}
+textarea.form-control:hover{
+	border-color:#03b1dd ;
+}
+div.date-input{
+	width:334px;
+	height:36px;
+	overflow:hidden;
+}
+input.dInput1{
+	width:150px;
+	float:left;
+}
+input.dInput2{
+	width:150px;
+	display:inline-block;
+	margin-left:0;
+}
+div.date-input span{
+	display:inline-block;
+	padding-left:9px;
+	padding-right:4px;
+}
+input.time-choose{
+	width:214px;
+}
+p.controlHelp-block{
+	margin-top: 5px!important;
+	color: #666;
+}
+.form-group .control-label{
+	text-align: right;
+}
+/* 表单验证 */
+.form-check .check-formBox{
+	position: relative;
+	width: 324px;
+}
+.form-check .form-checkInput{
+	padding-right: 26px;
+}
+.form-check .form-checkInput.form-checkIcon:-ms-clear { display: none; }
+.form-check .form-checkInput:focus:valid +.form-checkIcon{
+	display: block!important;
+}
+.form-check .form-checkInput:invalid:focus{
+	border-color: #e85352;
+}
+.form-check .form-checkInput:invalid:focus +.form-checkHelp{
+	display: block!important;
+}
+.form-check .check-formBox .form-checkIcon{
+	position: absolute;
+	right: 9px;
+	top:6px;
+	font-size: 16px;
+	color: #56c538;
+	 display: none; 
+}
+.form-check .form-checkHelp{
+	color:#fa5454;
+}
+/* 表单验证插件 */
+.form-check .form-plugInput{
+	margin:8px 0px;
+}
+/* 日期选择插件 */
+.time-icon{
+	background: url(../../img/time-icon.png) no-repeat right 8px top 7px;
+    background-color: #fff;
+    cursor: pointer;
+}
+.daterangepicker .ranges .range_inputs .applyBtn{
+	color: #fff;
+    background-color: #e85352;
+    border-color: #e85352;
+}
+.daterangepicker .ranges .range_inputs .applyBtn:hover{
+	color: #fff;
+    background-color: #ea6564;
+    border-color: #ea6564;
+}
+.daterangepicker .ranges .range_inputs .applyBtn:active{
+	color: #fff;
+    background-color: #d04b4a;
+    border-color: #d04b4a;
+}
+.daterangepicker .ranges .range_inputs .cancelBtn{
+	color: #333;
+	background: #fff;
+	border-color: #ccc;
+}
+.daterangepicker .ranges .range_inputs .cancelBtn:hover{
+	color: #ea6564;
+	background: #fff;
+	border-color: #ea6564;
+}
+.daterangepicker .ranges .range_inputs .cancelBtn:active{
+	color: #d04b4a;
+	background: #fff;
+	border-color: #d04b4a;
+}

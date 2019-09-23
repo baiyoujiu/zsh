@@ -1,0 +1,318 @@
+<?php
+/* ??????
+ * @author Bill
+ * @data 21090218
+ */
+namespace app\mall\controller;
+use think\Controller;
+
+class goods extends Controller{
+	public function __construct() {
+		//if(isMobile()){
+			config('template.view_path','../template/mallm/');
+		//}
+		parent::__construct();
+		$userinfo = session('userinfo');
+		if(!empty($userinfo)){
+			$this->assign('userinfo',$userinfo);
+		}
+		//网站SEO标题
+		//$this->assign('webSet',get_webset());
+	}
+	
+	/* 商品分类列表
+	 * @author Bill
+	 * @data 21090219
+	 */
+	public function index(){
+		/*URL key参数
+    	 * 域名说明：分类 -排序 - 活动 - 属性1_属性1_属性2_属性3。
+    	 * 多活动'22_23';(活动ID需小于20)
+    	 * 多属性查询 '22_23';(属性值ID均大于20)
+    	 * 关键字搜索 是 ?k=1233
+    	 * 分页是 ?pn=5
+    	*/
+		$key = request()->route('key');
+		$ukarr = explode('-', $key);
+		
+		//已选属性值
+		$attriid = [];
+		foreach ($ukarr as $k=>$v){
+			switch ($k) {
+				case 0:
+				case 1:
+					$ukarr[$k] = intval($v);
+					break;
+				default:
+					$ukarr[$k] = explode('_', $v);
+					if($k>2){
+						$attriid = array_merge($attriid,$ukarr[$k]);
+					}
+					break;
+			}
+		}
+		
+		//热搜词
+		$hotserchkey = get_config(1003);
+		$this->assign('hotserchkey',$hotserchkey);
+		//print_r($hotserchkey);
+		
+		//已选属性值
+		$this->assign('attriid',$attriid);
+		
+		//无属性时，key 数组的长度
+		$uklength = 3;
+		
+		//商品分类
+		$cid = $ukarr[0];
+		
+		if($cid){
+			//分类属性
+			$wheresat = ['cid'=>$cid,'status'=>2];
+			$attrlist = db('good_cat_attr')->where($wheresat)->order('weight desc')->select();
+			
+			foreach($attrlist as $key=>$val){
+				//分类属性值
+				$wheresati = ['cid'=>$cid,'status'=>2,'attrid'=>$val['id']];
+				$attrlist[$key]['attritems'] = db('good_cat_attr_item')->where($wheresati)->order('weight desc')->select();
+			}
+			
+			$this->assign('cid',$cid);
+			$this->assign('attrlist',$attrlist);
+			
+			//有属性时的长度
+			$uklength = 4;
+		}
+		
+		//uk容错
+		$uklength2 = (count($ukarr)>$uklength)?count($ukarr):$uklength;
+		//格式化ukarr
+		for($i = 0; $i<$uklength2; $i++){
+			$ukarr[$i] = isset($ukarr[$i])?$ukarr[$i]:0;
+			$ukarr[$i] = is_array($ukarr[$i])?implode('_', $ukarr[$i]):$ukarr[$i];
+			
+			if($i>=$uklength){
+				unset($ukarr[$i]);
+			}
+		}
+		
+		$this->assign('ukarr',$ukarr);
+		
+		
+		
+		
+		//搜索关键字
+		$keywords = input('get.k','','addslashes,strip_tags');
+		$this->assign('keywords',$keywords);
+		$pn = input('get.pn/d');
+		
+		//平台活动
+		$wheres = ['status'=>2];
+		$actlists = db('activity')->where($wheres)->order('weight DESC')->select();
+		$this->assign('actlists',$actlists);
+		
+		
+		
+		$wheres = [];
+		$lists = db('good')->where($wheres)->order('weight DESC')->limit(10)->select();
+		$this->assign('lists',$lists);
+		return view();
+    }
+  
+    
+    
+    /* 足迹
+     * @author Bill
+    * @data 21090622
+    */
+    public function track(){
+    	$userid = session('userid');
+    	if(empty($userid)){
+    		$this->redirect(url('login/index'));
+    	}
+    	$wheres = ['collect.type'=>1,'collect.userid'=>$userid];
+    	$lists = db('users_collect')->alias('collect')->join('js_good good','collect.gno = good.gno')
+    	->where($wheres)->order('collect.id desc')->select();
+    	$this->assign('lists',$lists);
+    	return view();
+    }
+    
+    /* 商品详情
+     * @author Bill
+    * @data 21090219
+    */
+    public function inf(){
+    	 //商品图片
+    	//$a = ['/images/20190628/kc1.jpg','/images/20190628/kc2.jpg','/images/20190628/kc3.jpg','/images/20190628/kc4.jpg','/images/20190628/kc5.jpg'];
+    	//echo base64_encode(json_encode($a));
+    	//echo '<br>';
+		//$a = ['/images/20190628/ky1.jpg','/images/20190628/ky2.jpg','/images/20190628/ky3.jpg','/images/20190628/ky4.jpg','/images/20190628/ky5.jpg'];
+    	//echo base64_encode(json_encode($a));
+    	//echo '<br>';
+		//$a = [['name'=>'购买'],['name'=>'租借90天'],['name'=>'租借150天']];
+    	//echo base64_encode(json_encode($a));
+    	/*//商品规格值表
+    	$a = [['name'=>'套装'],['name'=>'上装'],['name'=>'长裤']];
+    	echo base64_encode(json_encode($a));
+    	
+    	echo '<br>';
+    	$a = [['name'=>'100cm'],['name'=>'110cm'],['name'=>'120cm'],['name'=>'130cm'],['name'=>'140cm'],['name'=>'150cm'],['name'=>'160cm'],['name'=>'170cm'],['name'=>'180cm']];
+    	echo base64_encode(json_encode($a)); */
+    	
+    	
+    	$gno = request()->route('id');
+    	$wheres = ['gno'=>$gno,'status'=>2];
+    	
+    	//商品详情
+    	$ginf = db('good')->where($wheres)->find();
+    	if(empty($ginf)){
+    		$this->redirect('http://'.request()->host().'/');
+    	}
+    	
+    	
+    	
+    	//是否收藏商品
+    	$collectgood = 0;
+    	$userid = session('userid');
+    	if($userid){
+	    	//收藏商品
+    		$wheres = ['type'=>0,'userid'=>$userid,'gno'=>$gno];
+	    	$inf = db('users_collect')->where($wheres)->find();
+	    	$collectgood = $inf?1:0;
+	    	
+	    	//浏览记录
+	    	$wheres = ['type'=>1,'userid'=>$userid,'gno'=>$gno];
+	    	db('users_collect')->where($wheres)->delete();
+	    	//添加
+	    	$data = ['userid'=>$userid,'type'=>1,'gno'=>$gno,'addtime'=>date('Y-m-d H:i:s')];
+	    	db('users_collect')->insert($data);
+    	}else{
+    		//添加浏览cook
+    		$ucollect = cookie('ucollect');
+    		$ucollect = is_array($ucollect)?$ucollect:[];
+    		//商品是否已存在
+    		$guckey = array_search($gno,$ucollect);
+    		if(isset($guckey)){
+    			unset($ucollect[$guckey]);
+    		}
+    		$ucollect[] = $gno;
+    		cookie('ucollect',$ucollect);
+    	}
+    	$this->assign('collectgood',$collectgood);
+    	
+    	$wheres = ['gno'=>$gno];
+    	$giinf = db('good_inf')->where($wheres)->find();
+    	$ginf['desc'] = $giinf['desc'];
+    	$this->assign('ginf',$ginf);
+    	
+    	//商品属性
+    	$listattr = db('good_attr')->where($wheres)->order('id asc')->select();
+    	$this->assign('listattr',$listattr);
+    	
+    	
+    	
+    	$listcatattr = db('good_cat_attr')->where('cid',$ginf['cid'])->select();
+    	$this->assign('listcatattr',getArrOne($listcatattr,'name','id'));
+    	$listcatattri = db('good_cat_attr_item')->where('cid',$ginf['cid'])->select();
+    	$this->assign('listcatattri',getArrOne($listcatattri,'name','id'));
+    	
+    	
+    	
+    	
+    	//商品规格价格
+    	$wheres = ['gno'=>$gno,'num'=>['gt',0]];
+    	$listcsp = db('good_spec_price')->where($wheres)->select();
+    	$this->assign('listcsp',$listcsp);
+    	
+    	//分类规格
+    	$wheres = ['cid'=>$ginf['cid'],'status'=>2];
+    	$listcs = db('good_cat_spec')->field('id,name')->where($wheres)->order('weight DESC')->select();
+    	
+    	//$this->assign('listcs',$listcs);
+    	
+    	//商品规格值
+    	$wheres = ['gno'=>$gno];
+    	$listcsi = db('good_cat_spec_item')->where($wheres)->select();
+    	//$this->assign('listcsi',$listcsi);
+    	
+    	//商品规格值统计
+    	$gspec = ['maxp'=>0,'minp'=>$listcsp[0]['price'],'maxgp'=>0,'mingp'=>$listcsp[0]['gprice'],'num'=>0];
+    	//最大/最小售价,库存
+    	foreach($listcsp as $v){
+    		if($gspec['maxp']<$v['price']){
+    			$gspec['maxp'] = $v['price'];
+    		}
+    		if($gspec['minp']>$v['price']){
+    			$gspec['minp'] = $v['price'];
+    		}
+    		//拼团价
+    		if($gspec['maxgp']<$v['gprice']){
+    			$gspec['maxgp'] = $v['gprice'];
+    		}
+    		if($gspec['mingp']>$v['gprice']){
+    			$gspec['mingp'] = $v['gprice'];
+    		}
+    		$gspec['num'] += $v['num'];
+    	}
+    	$this->assign('gspec',$gspec);
+    	
+    	
+    	//商品规格值
+    	$spec = [];
+    	foreach ($listcs as $val){
+    		$onespec = ['name'=>$val['name']];
+    		foreach ($listcsi as $v){
+    			if($val['id'] == $v['specid']){
+    				$onespec['items'] = json_decode(base64_decode($v['item']),true);
+    			}
+    			
+    		}
+    		$spec[] = $onespec;
+    	}
+    	$this->assign('spec',$spec);
+    	//print_r($listcsp);
+    	
+    	//摧荐商品
+    	$wheres = ['cid'=>$ginf['cid']];
+    	$listchot = db('good')->where($wheres)->limit(6)->select();
+    	$this->assign('listchot',$listchot);
+    	
+    	//拼购在购数据整理
+    	if($ginf['group']){
+    		
+    		/*拼单用户表：porder_users，无数据时，
+    		 * 取 默认拼单用户表：porder_dusers 数据
+    		 */
+    		
+    		
+    		//拼单用->orderRaw('rand()')
+    		$orderuds = db('porder_dusers')->where('endhour',['>',10])->order('rand()')->limit(10)->select();
+    		$ouidarr = getArrOne($orderuds,'id');
+    		$orderlists = db('porder_dusers')->where('id',['in',$ouidarr])->order('endhour asc,endmin asc')->limit(10)->select();
+    		
+    		//正在拼单用户
+    		foreach ($orderlists as $k=>$v){
+    			
+    			$orderlists[$k]['endtimes'] = date('Y-m-d '.$v['endhour'].':'.$v['endmin'].':d');
+    			unset($orderlists[$k]['endhour']);
+    			unset($orderlists[$k]['endmin']);
+    			unset($orderlists[$k]['id']);
+    		}
+    		$this->assign('orderlists',$orderlists);
+    		
+    		
+    		//拼单成功
+    		$orderuend = db('porder_dusers')->field('username,uicon')->order('rand()')->limit(20)->select();
+    		$this->assign('orderuend',$orderuend);
+    	}
+    	
+    	
+    	//网站SEO标题
+    	$keywords = $description = '租书会，专注中小学周边采购。主营：中小学教辅资料、中小学课外读物、文具、校服等';
+    	$webseo = ['title'=>$ginf['name'].'-租书会','keywords'=>$keywords,'description'=>$description];
+    	$this->assign('webseo',$webseo);
+ 
+    	return ($ginf['group']==1)?view('pingo'):view('inf');
+    }
+    
+}

@@ -1,0 +1,30 @@
+<?php
+$config = array (	
+		//应用ID,您的APPID。
+		'app_id' => "2018061960353676",
+
+		//商户私钥，您的原始格式RSA私钥
+		'merchant_private_key' => "MIIEpAIBAAKCAQEAyRK1zMKFPH/A/DMjbuCwAqJVe402Nr3dkNLvnWaT/SSVBq/y7W3N0UucPJCcI2h+jKby3u+rof05nSi2XyKNbxOR1YWHcHw8+QoAeiaDDLi4TakaEVlJoLgiXQfTGmSQZVeT1sDUJdA9x7HWAIL2Wk+ynkI+Q5dzKl/QrZcdH17YsIdpdoqx8gQcYgXVDfDw8EaZYePihzSMr3/Y5IAK9b7CZOH/HcqJ6TI+eQywi7lLZn8SMdUHiyKrl+OAwZIkNcphIqiKf/UGT8YK2+E+rKCn/uRnGBJN7YRtzg6xP31aABEFF0ODrnSgY0jHkTWoakRvwAbVq5iELGd7fFEEJwIDAQABAoIBACrpBUc3U/u/P84Sk8M7zBQj1J5TWniAOGKJwX0TwQ1K20rcDbnBryS1QBhkvA2KZUda8YXGHBir07nIUHMpConj4UFyB59nxBNZoRRwV5NFcH+SUO/W4DGeWicEXnbJc09NS02PRTb0o9qUBxmA2VYYoAPKG0ONdJRccko5b4ub7rXvryZ3ZE94ir+dc3wJsRQ78FPtYD6MXwVz/og74uHAV/10Kf0SUXVdeCrmsV+/srPmpWcPlBJN5RXwm/447KeulFqSjS2lQhkEkL07wTpnISmKM8SvX50v2zwVGGPSuQtRpoDYoIONR/z0Xmd+oV+MNewsWY+5tRbk0aquw4ECgYEA/OapFpzxMVyQr/roybQNFy4OQTTQY6K3uIGnAbAoF78uywEzjyFaBwnVfmrY4zyr2/p9mHk9SbTylPqzcEddEuSU9pLBGA0CW8WtxbRnXZ4VA9Lq3rB5IsNlWH2L5iTfgSxZcd31KzTBATSDfHy6d2Nu/Kd9wLfXnfnG7DFBj6ECgYEAy4l3ul/w8dVQ+KUycJ5J93L7Tv1q/FmDIh7t0TuxsUnn1JQvKVi5BaRoCLc0tk+U/I2ftUmnBeIoxyQYDPwAql1ER0mZn3kpzXVczgkLt5O4Dger054yVMcR3Cuj/Pvhz+41ZnFxK+uOb7v/eaXekQJ8LBsX0kmc3Kst20OVnscCgYEAmYnAJkZp+DnmbbC7G5oASI5hgRz7V0I2oAG2zsOP07ryQbUdBEyPR66kuvdLbcor3IWbMrKIjvMYQ3Jg9k2dKBc2iOxX5q4fPHArK9h22NNcltG6XjBtmrleEfdGtBa2ysmOFB9Y9T413vFu0mk3G7x2aVWWdyYl9XbrWgIdd4ECgYAV153CoXMg8Kxs0oWUMlhrtqojcuydQhnheoI49vf9t5mqZXCeNkg8w8TqUobUnbu2Uph2Av5qkjegD06Jbi3AGpwuLkbPJ1iGFPctoSjhvXd+AfK9lfd+w5I2F3TUvE8iWkTexoPHm9LASOOEsXkuBJ9AuHOY/I9Z2wDjy9/tlwKBgQDA6YB7yEU5qorQGpYbLEO5Kl+lVMBuldRj9+QxfWMtfzYN12jIW5rmYiQpKmXEgWU4JRQrNayYqk+Srg5yDMHOiw8sdB++Rlfc4k97hTRuTHLZ99BqU3TFj5Q7XYThBMoe41Uhgs0jHGZHq+q7krW+6E1KeYXcG60leaIpWv+MMg==",
+		
+		//异步通知地址
+		//'notify_url' => "http://工程公网访问地址/alipay.trade.wap.pay-PHP-UTF-8/notify_url.php",
+		'notify_url'=>'http://www.huanxifang.com/payfund/alinurl.html',
+		
+		//同步跳转
+		//'return_url' => "http://mitsein.com/alipay.trade.wap.pay-PHP-UTF-8/return_url.php",
+		'return_url'=>'http://www.huanxifang.com/pay/alirurl.html',
+
+		//编码格式
+		'charset' => "UTF-8",
+
+		//签名方式
+		'sign_type'=>"RSA2",
+
+		//支付宝网关
+		'gatewayUrl' => "https://openapi.alipay.com/gateway.do",
+
+		//支付宝公钥,查看地址：https://openhome.alipay.com/platform/keyManage.htm 对应APPID下的支付宝公钥。
+		'alipay_public_key' => "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAz4GTxfrXComVFmJC5AfXqYL8k6Oi4LCHr6N/kq5rBigchf6gUlvxbLiDBX7QgkfSXHGILYbFvG3jjwqnL+MaJwPzrMbawqZ1kit/fOUvL67bn34sgnWk0P7yjKQOQtWodMAKxDic8soSTWeXOfoUmYR7GQuYfusX5bTlDX+g8JDm73yxfkzlgEphk3zYdbC/bIsvqrAycPHOI6WhdC9lNMfVdH9o/9XgsWsO8YwDT50OVIb9I5buIxcK8WzUvdzLnbl+zVmkWpT9ApcPqAa60zWFNxxRwzgghbHhjQ3HlngoDATOfZo4/09lm7AZoBLozt7GuDicq8WWrizE+Q58mQIDAQAB",
+		
+	
+);

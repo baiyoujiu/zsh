@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: 
+Disallow: /login/
+Disallow: /uedit
+Disallow: /router
+Disallow: /software
+Sitemap: http://www.okpea.com/sitemap.xml

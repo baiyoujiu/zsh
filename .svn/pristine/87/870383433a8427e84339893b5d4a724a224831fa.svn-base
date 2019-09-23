@@ -1,0 +1,153 @@
+{include file="common/header" /}
+	<section class="zuji_ym">
+		<section class="dd_home">
+			<h2 class="fanhui_head">
+				<a href="javascript:history.back(-1);"><i class="icon-left"></i></a>
+				我的收藏
+				<span class="more_btn">
+					<img src="__IMG__/more.png" />
+				</span>
+			</h2>
+			<div class="zuji_caozuo clearfix">
+				<p class="fl">共<em><?php echo count($lists);?></em>条记录</p>
+				<span class="fr zuji_bj_btn" value="0">编辑</span>
+			</div>
+		</section>
+		<!--占位-->
+		<section class="zhanwei_hei65"></section>
+		<!--足迹列表-->
+		<section class="zuji_liebiao">
+			<nav class="sousuo_lists">
+			<form id="objform">
+            	<ul class="clearfix sp_lists">
+					<?php foreach($lists as $v){?>
+                    <a href="<?php echo url('goods/'.$v['gno']);?>">
+                    <li class="fl">
+						<img class="sp_img lazy" data-original="<?php $picarr = json_decode(base64_decode($v['pic']),true);echo $picarr[0];?>">
+						<div class="sp_lists_word">
+							<h4><?php echo $v['name'];?></h4>
+							<h5><?php echo $v['recommend'];?></h5>
+							<p class="clearfix">
+								<span class="fl"><em>￥<?php echo number_format($v['sales_price']/100,2);?></em>/<?php echo $v['units'];?></span>
+								<img class="fr buy_btn" src="__IMG__/shop_car1.png">
+							</p>
+						</div>
+						<span class="zuji_check">
+							<input type="checkbox" name="gno[]" value="<?php echo $v['gno'];?>"/>
+						</span>
+					</li>
+                    </a>
+                    <?php }?>
+				</ul>
+			</form>
+            </nav>
+		</section>
+		<!--占位-->
+		<section class="zhanwei_hei40"></section>
+		<section class="zuji_foot_caozuo">
+			<div class="clearfix">
+				<label>
+					<span class="zuji_check_box fl">
+						<input type="checkbox" id="zuji_box_check"/>
+					</span>
+					<i class="fl">全选</i>
+				</label>
+				<p class="fr zuji_del_btn">删除</p>
+			</div>
+		</section>
+		<!--更多弹窗-->
+		<section>
+			<div class="more_lists_ym">
+				<ul class="more_lists">
+					<a href="http://<?php echo request()->host();?>/">
+						<li class="fl">
+							<img src="__IMG__/home3.png"/>
+							<p class="active">首页</p>
+						</li>
+					</a>
+					<a href="<?php echo url('cat/index');?>">
+						<li>
+							<img src="__IMG__/fenlei3.png"/>
+							<p>分类</p>
+						</li>
+					</a>
+					<a href="<?php echo url('cart/index');?>">
+						<li class="foot_lists_car">
+							<img class="shopping-cart" src="__IMG__/shop_car4.png"/>
+							<span id="num">0</span>
+							<p>购物车</p>
+						</li>
+					</a>
+					<a href="<?php echo url('uinf/index');?>">
+						<li>
+							<img src="__IMG__/wode3.png"/>
+							<p>我的</p>
+						</li>
+					</a>
+					<a href="<?php echo url('goods/track');?>">
+						<li>
+							<img src="__IMG__/jilu3.png"/>
+							<p>浏览历史</p>
+						</li>
+					</a>
+				</ul>
+			</div>
+		</section>
+	</section>
+
+    <script type="text/javascript">
+		$(function(){
+			//图片懒加载 effect(特效),值有show(直接显示),fadeIn(淡入),slideDown(下拉)等,常用fadeIn
+			$("img.lazy").lazyload({effect: "fadeIn"});
+			
+			/*编辑购物车*/
+			$('.zuji_bj_btn').click(function(){
+				if($(this).val()==0){
+					$(this).text('完成');
+					$(this).val('1');
+					$('.zuji_liebiao').find('li').find('.zuji_check').show();
+					$('.zuji_foot_caozuo').show();
+				}else if($(this).val()==1){
+					$(this).text('编辑');
+					$(this).val('0');
+					$('.zuji_liebiao').find('li').find('.zuji_check').hide();
+					$('.zuji_foot_caozuo').hide();
+				}
+			});
+			//多选
+			$("#zuji_box_check").click(function(){
+				$("input[name='gno[]']").prop("checked",this.checked);
+			});
+			//单选
+			$("input[name='gno[]']").click(function(){
+				var $subs=$("input[name='gno[]']");
+				$("#zuji_box_check").prop("checked",$subs.length==$subs.filter(":checked").length?true:false);
+			});
+			/*删除*/
+			$(".zuji_del_btn").click(function(){
+				if($("input[name='gno[]']").is(':checked')){
+					$.ajax({ 
+						type:"POST", 
+						async:false, 
+						url:"/api/collectdel.html",
+						dataType: "json",
+						data:$("#objform").serialize(),//{ids:ids,i:Math.random()},
+						success:function(result){
+							if(result.status == 200){
+								//移除商品
+								$("input[name='gno[]']:checked").parent(".zuji_check").parent("li").remove();
+								$('.zuji_caozuo').find('em').html($("input[name='gno[]']").length);
+							}else{
+								layer.open({skin:'msg',content: result.msg,time:2});
+							}
+						},
+						error:function(XMLHttpRequest, textStatus, errorThrown){
+							layer.open({skin:'msg',content:'网络异常，请稍后重试！',time:2});
+						}	
+					});
+				};
+			});
+		});
+	</script>
+	</body>
+</html>

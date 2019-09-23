@@ -1,0 +1,20 @@
+/**pc端整理框架**/
+@charset "utf-8";.container{width:80%;min-width:1000px;padding-left: 0;padding-right: 0;}
+.row{margin:0;}
+.col-md-2,.main_left{display: block;float: left;-webkit-box-flex: 0;-webkit-flex: 0 0 auto;-ms-flex: 0 0 auto;flex: 0 0 auto;width: 16.666667%;}
+.col-md-10,.main_right{display: block;float: left;-webkit-box-flex: 0;-webkit-flex: 0 0 auto;-ms-flex: 0 0 auto;flex: 0 0 auto;width: 83.333333%;}
+.ui-card{width:auto;}
+
+@media screen and (min-width:1340px) {
+   .main_left{width:8.333333333333332%;display: block;float: left;-webkit-box-flex: 0;-webkit-flex: 0 0 auto;-ms-flex: 0 0 auto;flex: 0 0 auto;}
+   .main_right{width:91.66666666666666%;display: block;float: left;-webkit-box-flex: 0;-webkit-flex: 0 0 auto;-ms-flex: 0 0 auto;flex: 0 0 auto;}
+}
+@media screen and (min-width:1265px) and (max-width:1340px) {
+  .main_left{width:8.333333333333332%;display: block;float: left;-webkit-box-flex: 0;-webkit-flex: 0 0 auto;-ms-flex: 0 0 auto;flex: 0 0 auto;}
+   .main_right{width:91.66666666666667%;;display: block;float: left;-webkit-box-flex: 0;-webkit-flex: 0 0 auto;-ms-flex: 0 0 auto;flex: 0 0 auto;}
+}
+@media screen and (max-width:1265px) {
+  .main_left{width:11.2%;display: block;float: left;-webkit-box-flex: 0;-webkit-flex: 0 0 auto;-ms-flex: 0 0 auto;flex: 0 0 auto;}
+   .main_right{width:88.8%;;display: block;float: left;-webkit-box-flex: 0;-webkit-flex: 0 0 auto;-ms-flex: 0 0 auto;flex: 0 0 auto;}
+}
+

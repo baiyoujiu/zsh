@@ -1,0 +1,19 @@
+<IfModule mod_rewrite.c>
+  Options +FollowSymlinks -Multiviews
+  RewriteEngine On
+  RewriteCond %{http_host} ^huanxifang.com [NC]
+  RewriteRule ^(.*)$ http://www.huanxifang.com/$1 [R=301,L]
+  #RewriteRule ^(\S*)\/$ http://www.huanxifang.com/$1.html [L,R=301]
+  RewriteCond %{http_host} ^pz178.com [NC]
+  RewriteRule ^(.*)$ http://www.pz178.com/$1 [R=301,L]
+  #RewriteRule ^(\S*)\/$ http://www.pz178.com/$1.html [L,R=301]
+  RewriteCond %{http_host} ^cfe99.com [NC]
+  RewriteRule ^(.*)$ http://www.cfe99.com/$1 [R=301,L]
+  RewriteCond %{http_host} ^zckfzx.com [NC]
+  RewriteRule ^(.*)$ http://www.zckfzx.com/$1 [R=301,L]
+  RewriteCond %{http_host} ^zckfzx.cn [NC]
+  RewriteRule ^(.*)$ http://www.zckfzx.cn/$1 [R=301,L]
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
+</IfModule>

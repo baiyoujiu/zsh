@@ -1,0 +1,54 @@
+<?php
+/* 资讯文章
+ * @author Bill
+ * @data 21090218
+ */
+namespace app\mall\controller;
+use think\Controller;
+
+class News extends Controller{
+	public function __construct() {
+		//if(isMobile()){
+			config('template.view_path','../template/mallm/');
+		//}
+		if(!isMobile()){
+			$this->redirect('http://'.request()->host().'/');
+		}
+		parent::__construct();
+		$userinfo = session('userinfo');
+		if(!empty($userinfo)){
+			$this->assign('userinfo',$userinfo);
+		}
+		//网站SEO标题
+		$keywords = $description = '租书会，中小学必读经典书目租借平台。读好书，租经典，养成勤阅读的好习惯。';
+		$webseo = ['title'=>'分类-租书会','keywords'=>$keywords,'description'=>$description];
+		$this->assign('webseo',$webseo);
+	}
+	
+	/* 文章
+	 * @author Bill
+	* @data 21090822
+	*/
+	public function inf(){
+		$objid = request()->route('id');
+		
+		$wheres = ['type'=>$objid,'status'=>1];
+		$info = db('news')->where($wheres)->find();
+		$this->assign('info',$info);
+		//if($key<30){}
+		
+		return view('about');
+	}
+	/* 商品分类列表 --无用-----   和 good/index 重得，HTMl 是最新的  
+	 * @author Bill
+	 * @data 210900808
+	 */
+	public function lists(){
+			
+		$lists = db('good')->where('status',2)->order('weight DESC')->limit(10)->select();
+		$this->assign('lists',$lists);
+		
+		return view();
+    }
+    
+}

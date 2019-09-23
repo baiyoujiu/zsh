@@ -1,0 +1,37 @@
+ul.ui_navbar{/*width:216px;*/
+	height: auto;background:#fff;}
+ul.ui_navbar li{width:100%;height: auto;border-bottom:1px solid #eaeaea;border-left:2px solid transparent;overflow: hidden;}
+ul.ui_navbar li:last-child{border-bottom:none;}
+ul.ui_navbar li.active{border-left:2px solid #F00;}
+ul.ui_navbar > li:hover{border-left:2px solid #F00;}
+ul.ui_navbar li div{line-height: 56px;font-size: 14px;color: #333;font-weight: bold;padding: 0;margin: 0 12px;/*  cursor: default;*/
+}
+ul.ui_navbar li div i{font-size: 16px;text-align: left;float: left;color: #999;margin-right: 10px;font-weight: normal;}
+ul.ui_navbar li.actives div i{color:#F00;}
+ul.ui_navbar li div span.arrow-down {float:right;width: 15px;height: 15px;text-indent: 0;line-height: 45px;margin: 22px 0;background: url(../img/jt01.png) 0 0 no-repeat;display: inline-block;}
+ul.ui_navbar li div span.arrow {float:right;width: 15px;height: 15px;text-indent: 0;line-height: 45px;margin: 22px 0;background: url(../img/jt01.png) 0 -15px no-repeat;display: inline-block;}
+
+ul.ui_navbar li ul{float: left;width:100%;color: #666;font-size: 13px;padding: 0 0 12px 10px;}
+
+ul.ui_navbar li ul li{float: left;/*width: 50%;*/
+	width: 100%;border:none;line-height: 30px;}
+ul.ui_navbar li ul li a{color:#666;}
+ul.ui_navbar li ul li:focus,
+ul.ui_navbar li ul li:active,
+ul.ui_navbar li ul li a:focus,
+ul.ui_navbar li ul li a:active {color: #F00;}
+ul.ui_navbar li ul li:hover,
+ul.ui_navbar li ul li a:hover {text-decoration:underline;}
+ul.ui_navbar li ul li.activelist a{color:#F00;}
+
+
+/**��ť***/
+.btn-major {background-color: #F00;color: #fff;}
+.btn-major:hover {background-color: #ea6564;color: #fff;}
+.btn-major:active {background-color: #d04b4a;color: #fff;}
+.btn-major:focus {color: #fff;}
+.btn-minor {background-color: #fff;border: 1px solid #ccc;}
+.btn-minor:hover {border: 1px solid #F00;color: #F00;}
+.btn-minor:active {border: 1px solid #c44d4c;color: #c44d4c;}
+.btn-big {padding: 7px 29px;font-size: 14px;border-radius: 4px;}
+.btn-small {padding: 5.5px 23px;font-size: 12px;border-radius: 4px;}

@@ -1,0 +1,70 @@
+@charset "utf-8";body{line-height: 21px;}
+.card-content{color: #333;}
+.user-content{width:100%;display: table;}
+.user-content .userImg{width:100px;height:100px;display: table-cell;vertical-align: middle;position: relative;}
+.user-content .userImg img{display: block;width:100%;height:100%;border-radius: 5px;}
+.user-content .userImg .sm-icon{background-image: url(../img/sm-icon.png);background-repeat: no-repeat;background-size: 100%;position: absolute;width: 19px;height: 19px;right: -4px;bottom: -2px;}
+.user-content .userInfo{display: table-cell;vertical-align: middle;padding:0 0 0 34px;}
+
+
+.user-content .userInfo .name{font-size: 24px;line-height: 36px;}
+.user-content .userInfo .number{font-size: 14px;line-height: 21px;}
+.user-content .userInfo .operate{font-size: 14px;line-height: 21px;margin:0;padding:0;}
+.user-content .userInfo .operate a{color:#1d93d1;}
+.user-content .userInfo .operate .line{padding:0 8px;}
+.card-position{position: relative;}
+.card-position .userNo{position: absolute;top:0;right: 16px;padding:18px 8px;background-color: #e85352;color: #fff;text-align: center;}
+
+/*我的资产*/
+
+/*刷脸钱包*/
+.wallet{width:100%;display: inline-block;}
+.wallet .title{display: inline-block;padding:0 0 16px 0;}
+.wallet .wallet-info{display: table;background-color: #f7f7f7;padding:16px;width:100%;}
+.wallet .wallet-info .wallet-info-l,
+.wallet .wallet-info .wallet-info-r{display: table-cell;vertical-align: middle;}
+.wallet .wallet-info .wallet-info-l{position: relative;}
+.wallet .wallet-info .wallet-info-l .line{position: absolute;height: 100%;width: 1px;right: 0;top: 0;}
+.wallet .wallet-info .wallet-info-l .line:after{content: '';position: absolute;bottom: 0;right: 0;width: 1px;height: 100%;background-color: #eaeaea;transform: scale(1,.8);-webkit-transform: scale(1,.8);}
+
+.wallet-info-l .btn{margin-left: 12px;}
+.wallet-info .title-p{color:#999;}
+.wallet-info .title-p i{color:#1d93d1;font-size: 18px;margin-left: 12px;}
+.wallet-info .money-p{padding-top: 10px;font-size: 30px;display: table;}
+.wallet-info .money-p span{display: table-cell;vertical-align: middle;}
+
+.wallet-info .money-p a{margin-left:30px;}
+
+.wallet .wallet-info .wallet-info-r{width:48%;padding-left: 30px;}
+.wallet .wallet-info .wallet-info-r .wallet-title{color:#999;padding-bottom: 10px;}
+.wallet .wallet-info .wallet-info-r .withdrawalsing{color:#1bb290;}
+.bar-box{padding-bottom: 10px;}
+.bar-box .wallet-bar{line-height: 14px;}
+.bar-box .wallet-bar .money{padding-left: 12px;}
+.bar-box .wallet-bar .progress{width:70%;display: inline-block;height:8px;border-radius: 5px;background: transparent;margin: 0;-webkit-box-shadow:none;box-shadow:none;}
+.bar-box .wallet-bar .progress-bar-activity{border-radius: 5px;}
+.m-warning{font-size: 12px;line-height: 18px;color: #FFAA01;}
+.bar-box .wallet-bar .progress.income .progress-bar-activity{background-color:#ffb535;}
+.bar-box .wallet-bar .progress.expenditure .progress-bar-activity{background-color:#4496f0;}
+/*.bar-box .wallet-bar .progress.withdrawals{background-color:#cae8e4;}*/
+.bar-box .wallet-bar .progress.withdrawals .progress-bar-activity{background-color:#1bb290;}
+
+/*更多账户信息*/
+.user-content .userInfo .number{font-size: 14px;line-height: 21px;padding-bottom: 4px;}
+.user-content .userInfo .upload-pic{border: none;background: transparent;padding: 0;color: #1d93d1;}
+.user-content .userInfo .tips{color: #ccc;padding-left: 14px;}
+.card-position{position: relative;}
+.card-position .userNo{position: absolute;top:0;right: 16px;padding:18px 8px;background-color: #e85352;color: #fff;text-align: center;}
+
+.user-list{width: 100%;}
+.user-list li{width: 100%;display: table;height: 64px;padding:0 16px;border-top: 1px solid #dfdfdf;;}
+.user-list li .info,
+.user-list li .operate{display: table-cell;vertical-align: middle;}
+
+.user-list li .info span,
+.user-list li .info .main{display: inline-block;word-break:break-all;vertical-align:middle;}
+.user-list li .info span{width:100px;}
+.user-list li .info .main{font-size: 12px;line-height: 18px;color: #666;}
+
+.user-list li .operate{width: 50px;font-size: 12px;line-height: 18px;color: #1d93d1;}
+.user-list li .operate.unclick{color:#666;}

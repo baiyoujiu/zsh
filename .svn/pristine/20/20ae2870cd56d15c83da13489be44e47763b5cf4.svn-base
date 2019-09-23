@@ -1,0 +1,390 @@
+<?php
+// +----------------------------------------------------------------------
+// | ThinkPHP [ WE CAN DO IT JUST THINK ]
+// +----------------------------------------------------------------------
+// | Copyright (c) 2006-2016 http://thinkphp.cn All rights reserved.
+// +----------------------------------------------------------------------
+// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
+// +----------------------------------------------------------------------
+// | Author: 流年 <liu21st@gmail.com>
+// +----------------------------------------------------------------------
+
+// 应用公共文件
+error_reporting(E_ERROR | E_PARSE );
+//判断是否是手机端
+function isMobile() {
+	// 如果有HTTP_X_WAP_PROFILE则一定是移动设备
+	if (isset($_SERVER['HTTP_X_WAP_PROFILE'])) {
+		return true;
+	}
+	// 如果via信息含有wap则一定是移动设备,部分服务商会屏蔽该信息
+	if (isset($_SERVER['HTTP_VIA'])) {
+		// 找不到为flase,否则为true
+		return stristr($_SERVER['HTTP_VIA'], "wap") ? true : false;
+	}
+	// 脑残法，判断手机发送的客户端标志,兼容性有待提高。其中'MicroMessenger'是电脑微信
+	if (isset($_SERVER['HTTP_USER_AGENT'])) {
+		$clientkeywords = array('nokia','sony','ericsson','mot','samsung','htc','sgh','lg','sharp','sie-','philips','panasonic','alcatel','lenovo','iphone','ipod','blackberry','meizu','android','netfront','symbian','ucweb','windowsce','palm','operamini','operamobi','openwave','nexusone','cldc','midp','wap','mobile','MicroMessenger');
+		// 从HTTP_USER_AGENT中查找手机浏览器的关键字
+		if (preg_match("/(" . implode('|', $clientkeywords) . ")/i", strtolower($_SERVER['HTTP_USER_AGENT']))) {
+			return true;
+		}
+	}
+	// 协议法，因为有可能不准确，放到最后判断
+	if (isset ($_SERVER['HTTP_ACCEPT'])) {
+		// 如果只支持wml并且不支持html那一定是移动设备
+		// 如果支持wml和html但是wml在html之前则是移动设备
+		if ((strpos($_SERVER['HTTP_ACCEPT'], 'vnd.wap.wml') !== false) && (strpos($_SERVER['HTTP_ACCEPT'], 'text/html') === false || (strpos($_SERVER['HTTP_ACCEPT'], 'vnd.wap.wml') < strpos($_SERVER['HTTP_ACCEPT'], 'text/html')))) {
+			return true;
+		}
+	}
+	return false;
+}
+
+//判断是否是微信内置浏览器
+function isWeixin() {
+	if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {
+		return true;
+	} else {
+		return false;
+	}
+}
+/**
+ * 获取客户端IP地址
+ * @access Bill  2018-1-19
+ * @param integer $type 返回类型 0 返回IP地址 1 返回IPV4地址数字
+ * @return mixed
+ */
+function get_client_ip($type = 0) {
+	$type       =  $type ? 1 : 0;
+	static $ip  =   NULL;
+	if ($ip !== NULL) return $ip[$type];
+	if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+		$arr    =   explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+		$pos    =   array_search('unknown',$arr);
+		if(false !== $pos) unset($arr[$pos]);
+		$ip     =   trim($arr[0]);
+	}elseif (isset($_SERVER['HTTP_CLIENT_IP'])) {
+		$ip     =   $_SERVER['HTTP_CLIENT_IP'];
+	}elseif (isset($_SERVER['REMOTE_ADDR'])) {
+		$ip     =   $_SERVER['REMOTE_ADDR'];
+	}
+	// IP地址合法验证
+	$long = sprintf("%u",ip2long($ip));
+	$ip   = $long ? array($ip, $long) : array('0.0.0.0', 0);
+	return $ip[$type];
+}
+
+/*可逆加密方法
+ * @access Bill  2018-1-19
+*/
+// 加密
+function encryptd($Encrypt)
+{
+	$McryptKey = 'jsgo2019';
+	$iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_DES, MCRYPT_MODE_ECB), MCRYPT_RAND);
+	$passcrypt = mcrypt_encrypt(MCRYPT_DES, $McryptKey, $Encrypt, MCRYPT_MODE_ECB, $iv);
+	// base64
+	$Encode = base64_encode($passcrypt);
+	return $Encode;
+}
+// 解密
+function decryptd($Decrypt)
+{
+	$McryptKey = 'jsgo2019';
+	$decode = base64_decode($Decrypt);
+	$iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_DES, MCRYPT_MODE_ECB), MCRYPT_RAND);
+	$Decrypted = mcrypt_decrypt(MCRYPT_DES, $McryptKey, $decode, MCRYPT_MODE_ECB, $iv);
+	return rtrim($Decrypted);
+}
+
+//随机参数
+function create_salt($length){
+	$salt = '';
+
+	$c= "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+	srand((double)microtime()*1000000);
+
+	for($i=0; $i<$length; $i++) {
+		$salt.= $c[rand()%strlen($c)];
+	}
+	return $salt;
+}
+
+/* 取二维数组中一个值组成一维数组
+ * @param $lists arr 二维数组
+* @param $fieldValue str 一维数组中值的取值键
+* @param $fieldKey str -维数组中键的取值键
+* return array 一维
+*/
+function getArrOne($lists,$fieldValue = 'id',$fieldKey = '') {
+	$returnArr = array();
+	foreach ($lists as $v){
+		if($fieldKey){
+			$returnArr[$v[$fieldKey]] = $v[$fieldValue];
+		}else{
+			$returnArr[] = $v[$fieldValue];
+		}
+	}
+	return $returnArr;
+}
+/* 二维数组key值转换
+ * @param $lists arr 二维数组
+* @param $fieldKey str -维数组中key的取值键
+* return array 二维
+*/
+function getArrTwo($lists,$fieldKey = 'id') {
+	$returnArr = array();
+	foreach ($lists as $v){
+		$returnArr[$v[$fieldKey]] = $v;
+	}
+	return $returnArr;
+}
+
+/* 字符串截取
+ * @param $str arr 字符串
+* @param $length int 要截取的长度
+* @param $append boolean 补全...
+* return array 一维
+*/
+function sub_str($str, $length = 0, $append = true){
+	$str = trim($str);
+	$strlength = strlen($str);
+
+	if ($length == 0 || $length >= $strlength){
+		return $str;  //截取长度等于0或大于等于本字符串的长度，返回字符串本身
+	}elseif ($length < 0)  //如果截取长度为负数
+	{
+		$length = $strlength + $length;//那么截取长度就等于字符串长度减去截取长度
+		if ($length < 0){
+			$length = $strlength;//如果截取长度的绝对值大于字符串本身长度，则截取长度取字符串本身的长度
+		}
+	}
+
+	if (function_exists('mb_substr')){
+		$newstr = mb_substr($str, 0, $length, 'utf-8');
+	}elseif (function_exists('iconv_substr')){
+		$newstr = iconv_substr($str, 0, $length, 'utf-8');
+	}else{
+		//$newstr = trim_right(substr($str, 0, $length));
+		$newstr = substr($str, 0, $length);
+	}
+
+	if ($append && $str != $newstr){
+		$newstr .= '...';
+	}
+
+	return $newstr;
+}
+
+/**
+ * 各个业务的编号：10000起，由 年月日 + 类型 + 流水号组成。
+ * 流水号  隔日 从 10000 算起。
+ * @access Bill  2018-1-19
+ * @param int $type  类型:1-充值|2-提现|11-稿子|12-稿费|15-约稿订单|16-经典语录|60-收货人地址|100-商品编号（100开始）
+ *
+ * @return  int 当前的流水号
+ */
+function getSerialNumber($type){
+	$returnSerNum = ($type==100)?100:10000;
+	$nowDate = date('Y-m-d');
+
+	//获取当前的流水号
+	$systemInf = db('system_serialnum')->field('id,serial_number,date')
+	->where('type',$type)->find();
+	//如存在流水号 ，则流水号加 1
+	if(isset($systemInf['date']) && $nowDate == $systemInf['date']){
+		$returnSerNum = $systemInf['serial_number']+1;
+	}
+
+	//更新保存 系统流水号
+	$formData = array();
+	$formData['serial_number'] = $returnSerNum;
+	$formData['date'] = $nowDate;
+
+	//添加新的数据
+	if(empty($systemInf)){
+		//类型:1-官网|2-官网订单..........
+		$formData['type'] = $type;
+		db('system_serialnum')->insert($formData);
+	}else{
+		db('system_serialnum')->where('id',$systemInf['id'])->update($formData);
+	}
+	return ($type==100)?date('ymd').$returnSerNum:date('ymd').$type.$returnSerNum;
+}
+
+//获取系统配置
+function get_config($ckey){
+	$configInfo = db('system_config')
+	->field('config')
+	->where('ckey',$ckey)
+	->find();
+	if($configInfo['type'] ==1){
+		return $configInfo['config'];
+	}else{
+		return $configInfo?json_decode(base64_decode($configInfo['config']),true):array();
+	}
+}
+/* 获取商家开通省份列表 或 所有省份一维数组
+ * @access Bill  2018-1-19
+* @param $mweb 官网标识
+* return array
+*/
+function get_province($mweb=''){
+	$areaList = db('system_area')->field('code,area')
+	->where('level',1)
+	->where('status',1)->order('weight desc,pinyin asc')
+	->cache(true)->select();
+	return getArrOne($areaList,'area','code');
+}
+
+/* 获取地区编号所对应的一维数组
+ * @access Bill  2018-1-19
+ * @param $areaCodeArr array 城市 [110000,120000]
+ * return array
+ */
+function get_area($areaCodeArr){
+	$areaList = db('system_area')->field('code,area')
+								->where('status',1)
+								->where('code','in',$areaCodeArr)
+								->order('weight desc,pinyin asc')
+								->select();
+	return getArrOne($areaList,'area','code');
+}
+
+/* 获取地区详情
+ * @access Bill  2018-1-19
+* @param $areaCodeArr str 城市 110000
+* return array 一维
+*/
+function get_area_info($areaCode,$fieldStr='code,area'){
+	$returnArr = db('system_area')->field($fieldStr)->where('code',$areaCode)->cache(true)->find();
+	return $returnArr;
+}
+
+/* 获取子地区，二维数组
+ * @access Bill  2018-1-19
+ * @param $areaCode string 城市 110000
+ * @param $field string 表字段字符串
+* return array
+*/
+function get_child_area($areaCode =1,$field = 'code,area'){
+	$areaList = db('system_area')->field($field)
+			->where('status',1)
+			->where('p_code',$areaCode)->order('weight desc,pinyin asc')->select();
+	return $areaList;
+}
+
+/* 无限级分类获取子地区
+ * @param $areaCode string 城市 110000
+* return array 多维
+*/
+function get_childArea($areaCode = 1){
+	$returnArr = array();
+
+	$areaArr = cache('areaArr');
+	if(empty($areaArr)){
+		$areaArr = db('system_area')->field('code,p_code,area,level')->where('status = 1')
+		->order('level ASC,weight DESC,pinyin asc')->cache(true)->select();
+		array_unshift($areaArr,array('code'=>1,'p_code'=>0));
+
+		foreach ($areaArr as $k => $v){
+			$id_arr[$k] = $v['code'];
+		}
+		foreach ($areaArr as $k2 => &$v2){
+			//if($v2['code'] == $v2['p_code']) continue;
+			$tmp_key = array_search($v2['p_code'],$id_arr);
+			$areaArr[$tmp_key]['child'][] = &$v2;
+		}
+		//注销无用的子级--- 市以下的
+		foreach ($areaArr as $k3 => $v3){
+			if($v3['level']>2){
+				//$array_base[$k3];
+				unset($areaArr[$k3]);
+			}
+		}
+
+		cache('areaArr',$areaArr);
+	}
+
+	foreach ($areaArr as $v){
+		if($v['code'] == $areaCode){
+			return $v['child'];
+		}
+	}
+	return array();
+}
+
+/**
+* /创蓝发送短信接口URL ---253云通讯   发送短信
+* @param string $mobile 		手机号码
+* @param string $msg 			短信内容
+* @param string $mweb 官网标识
+* @param string $sign 			签名
+
+*/
+function sendsms($mobile,$msg,$sign = '【租书会】') {
+	if(empty($mobile) || empty($msg)){
+		return false;
+	}
+	
+	//创蓝发送短信接口URL ---253云通讯
+	$sendurl = 'http://sms.253.com/msg/send';
+	//创蓝账号 替换成你自己的账号
+	$account = 'N5510014eb15';
+	//创蓝密码 替换成你自己的密码
+	$password = 'YdUQ6wqr80eb48';
+	//创蓝签名
+	//$sign = '【众创客服中心】';
+	
+	$url = $sendurl;
+	$postFields = array (
+					    'un' => $account,
+						'pw' => $password,
+						'msg' => $sign.$msg,
+						'phone' => $mobile,
+						'rd' => 1
+						);
+	
+	$postFields = http_build_query($postFields);
+	$ch = curl_init ();
+	curl_setopt ( $ch, CURLOPT_POST, 1 );
+	curl_setopt ( $ch, CURLOPT_HEADER, 0 );
+	curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
+	curl_setopt ( $ch, CURLOPT_URL, $url );
+	curl_setopt ( $ch, CURLOPT_POSTFIELDS, $postFields );
+	$result = curl_exec ( $ch );
+	curl_close ( $ch );
+	
+	if(isset($result[1]) && $result[1]==0){
+		//echo '发送成功';
+		return true;
+	}else{
+		//echo "发送失败{$result[1]}";
+		return false;
+	}
+	return $result;
+}
+
+/* CURL实现GET和POST请求
+ * @param string $url 访问的URL;
+ * @param array $data：post数据(不填则为GET)
+ * return rs
+ */
+function https_request($url, $data = null){
+	$curl = curl_init();
+	curl_setopt($curl, CURLOPT_URL, $url);
+	curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+	curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
+	if (!empty($data)){
+		curl_setopt($curl, CURLOPT_POST, 1);
+		curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+	}
+	curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+	$output = curl_exec($curl);
+	curl_close($curl);
+	return $output;
+}
+
+/*************************************** 系统结束  ***************************************/
+

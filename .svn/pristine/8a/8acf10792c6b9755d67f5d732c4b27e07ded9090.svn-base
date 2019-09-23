@@ -1,0 +1,17 @@
+/* CSS Document */
+.contract h1 {font-weight: bold;font-size: 16px;text-align: center;padding-bottom: 30px;}
+.contract div {line-height: 1.5;}
+.contract td {border: 1px solid #000000;padding: 7px;}
+user agent stylesheettd, th {display: table-cell;vertical-align: inherit;}
+.contract .u-info {border-collapse: collapse;width: 100%;margin-top: 20px;}
+user agent stylesheettable {display: table;border-collapse: separate;border-spacing: 2px;border-color: gray;}
+.contract h2 {font-weight: bold;font-size: 14px;padding-top: 20px;}
+.contract p {padding-left: 0;line-height: 1.5;}
+.contract {width: 800px;margin: 0px auto;padding: 30px 0 30px;}
+user agent stylesheettable {display: table;border-collapse: separate;border-spacing: 2px;border-color: gray;}
+.contract-body {width: 900px;border: 1px solid #dcdcdc;margin: 20px auto;font-family: 'Microsoft YaHei';color: #000000;font-size: 12px;line-height: 200%;}
+.contract div, .agr_warp p {padding-top: 15px;}
+.font-bold {font-weight: bold;}
+.underline {color: #036;text-decoration: none;border-bottom: 1px solid #666;}
+.more_window table {width: 800px;height: 250px;margin: 0 auto; border-collapse: collapse; border: 1px solid #000;text-align: center;font-size: 12px;}
+.more_window table tr:nth-of-type(1) {background: #d2d2d2;}

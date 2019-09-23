@@ -1,0 +1,190 @@
+/*.font12{font-size:12px;}*/
+
+.from_font12 {
+    font-size: 12px;
+    color: #333;
+    border: 1px solid #e4e4e4;
+}
+
+.handle a {
+    font-size: 12px;
+    color: #2DB7F5;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.handle a:hover {
+    text-decoration: underline;
+}
+
+.form-group {
+    margin: 18px 0;
+}
+
+.form-control {
+    height: 30px;
+}
+
+.fontbold {
+    font-weight: bold;
+    color: #666;
+}
+
+.marginLeft {
+    margin-top: 16px;
+    padding-left: 16px;
+    margin-bottom: 12px;
+}
+
+.shopHelp {
+    float: right;
+    margin-top: -52px;
+    margin-right: 16px;
+}
+
+.btnTitle {
+    display: inline-block;
+    text-align: right;
+    float: left;
+    margin-left: 16px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.box .content {
+    padding: 16px;
+}
+
+.titleSpan {
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+    vertical-align: middle;
+    line-height: 36px;
+}
+
+.zhtgkF .form-group {
+    display: inline-block;
+}
+
+.form-horizontal .form-group {
+    margin: 0;
+}
+
+.form-horizontal .form-group {
+    line-height: 30px;
+}
+
+.main-level {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.ui-checkboxInput {
+    margin-right: 3px;
+}
+
+label {
+    margin-bottom: 0;
+}
+
+.second-level {
+    margin-left: 24px;
+}
+
+.second-level span {
+    font-size: 13px;
+}
+
+.ui-checkbox:disabled + .ui-checkboxInput:after {
+    background: url(../../img/huise.png) 0 0 no-repeat;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    height: 16px;
+    width: 16px;
+}
+
+.ui-label.disabled {
+    color: #a7a7a7;
+}
+
+.btn-big {
+    margin-left: 8px;
+}
+
+.aui_content form .control-label {
+    vertical-align: middle;
+}
+
+.headerTitle {
+    margin-bottom: 30px;
+}
+
+.xiugaiQx {
+    display: inline-block;
+    margin-left: 18px;
+    vertical-align: middle;
+}
+
+.treeDl {
+    margin-left: 26px;
+    font-size: 14px;
+    color: #666;
+    font-weight: normal;
+    float: left;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.treeDl dt {
+    font-weight: normal;
+}
+
+.treeDl dd {
+    margin-left: 14px;
+    width: 100%;
+    float: left;
+}
+
+.treeDl .firstChild span {
+    display: inline-block;
+    vertical-align: bottom;
+    float: left;
+    margin-left: 5px;
+    margin-top: 6px;
+    font-size:13px;
+}
+
+.treeDl .firstChild .lineBorder {
+    height: 16px;
+    width: 12px;
+    border-left: 1px solid #999;
+    border-bottom: 1px solid #999;
+    background: #fff;
+    display: inline-block;
+    float: left;
+}
+
+.treeDl .qtChild .lineBorder {
+    height: 20px;
+    margin-top: -8px;
+    width: 12px;
+    border-left: 1px solid #999;
+    border-bottom: 1px solid #999;
+    background: #fff;
+    display: inline-block;
+    float: left;
+}
+
+.treeDl .qtChild span {
+    display: inline-block;
+    vertical-align: bottom;
+    float: left;
+    margin-left: 5px;
+    margin-top: 1px;
+    font-size:13px;
+}
+.btn-save{
+    /*padding: 7px 16px!important;*/
+}

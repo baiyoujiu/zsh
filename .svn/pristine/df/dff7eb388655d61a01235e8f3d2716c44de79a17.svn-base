@@ -1,0 +1,368 @@
+@charset "UTF-8";
+input{
+	outline: none;
+}
+.container{
+	width: 100%;
+	background-image: url(../img/login.png);
+	background-repeat: no-repeat;
+	background-size:cover;
+	background-position: center 0;
+}
+.outsideBox{
+	width: 900px;
+	height: 100%;
+	margin:0 auto;
+	padding-top: 103px;
+}
+.loginBox{
+	width: 375px;
+	/* height: 451px; */
+	background: #fff;
+	float: right;
+	border-radius: 5px;
+	padding:36px 29px 19px 29px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.loginTitle{
+	text-align: center;
+	color: #c5af7f;
+	font-size: 22px;
+}
+.inputBox{
+	width: 100%;
+	height: 51px;
+	border: 1px solid #ccc;
+	padding:8px 13px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	margin-top: 35px;
+	display:-moz-box;
+	display:-webkit-box;
+	display:box;
+   	moz-box-align:center;
+	-webkit-box-align:center;
+	-o-box-align:center;
+	box-align:center;
+	position: relative;
+}
+.inputBox .inputImport{
+	-moz-box-flex:11;
+	-webkit-box-flex:11;
+	-o-box-flex:11;
+	box-flex:11;
+	margin-left: 12px;
+}
+.inputBox .inputIcon{
+	-moz-box-flex:1;
+	-webkit-box-flex:1;
+	-o-box-flex:1;
+	box-flex:1;
+	border-right: 1px solid #ccc;
+}
+
+.inputBox .inputImport input{
+	border: none;
+	font-size: 14px;
+	width: 100%;
+	height:24px;
+	line-height:24px;
+}
+.inputBox .inputIcon i{
+	color: #c5c5c5;
+}
+.inputBox.inputBoxNopadding{
+	margin-top: 18px;
+}
+.verCodeInput{
+	margin-top: 18px;
+	width: 100%;
+	height: 51px;
+	border: 1px solid #ccc;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	display:-moz-box;
+	display:-webkit-box;
+	display:box;
+   	moz-box-align:center;
+	-webkit-box-align:center;
+	-o-box-align:center;
+	box-align:center;
+	overflow: hidden;
+}
+.verCodeInput .verInput{
+	-moz-box-flex:8;
+	-webkit-box-flex:8;
+	-o-box-flex:8;
+	box-flex:8;
+	border-right: 1px solid #ccc;
+	height: 100%;
+	overflow: hidden;
+}
+.verCodeInput .verCodeImg{
+	-moz-box-flex:5;
+	-webkit-box-flex:5;
+	-o-box-flex:5;
+	box-flex:5;
+	text-align: center;
+	width:98px;
+}
+.verCodeInput .verInput input{
+	border: none;
+	font-size: 14px;
+	width: 100%;
+	height: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;;
+	padding-left: 10px;
+}
+.verCodeInput .verCodeImg img{
+	display: block;
+	width:100%;
+	height:49px;
+}
+.pwdBox{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	display:-moz-box;
+	display:-webkit-box;
+	display:box;
+   	moz-box-align:center;
+	-webkit-box-align:center;
+	-o-box-align:center;
+	box-align:center;
+	-moz-box-pack:justify;
+	-webkit-box-pack:justify;
+	-o-box-pack:justify;
+	box-pack:justify;
+	height: 51px;
+	margin:4px 0;
+}
+.pwdBox .pwdForget a{
+	font-size: 14px;
+	color: #c5af7f;
+}
+.pwdBox .pwdRem label{
+	font-size: 14px;
+}
+.loginBtn{
+	width:100%;
+	height: 51px;
+	background: #515260;
+	color: #fff;
+	text-align: center;
+	line-height: 51px;
+	cursor:default;
+}
+.loginTab{
+	width: 100%;
+	text-align: right;
+	color: #576b95;
+	margin-top: 17px;
+	cursor: pointer;
+}
+.countryArea{
+	background: #fff;
+	position: absolute;
+    left: -1px;
+    top: 51px;
+    width: 100%;
+    z-index: 100;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    display:none;
+}
+.countryArea li{
+	padding-left: 14px;
+	width: 100%;
+	height: 48px;
+	line-height: 48px;
+	cursor: pointer;
+}
+.countryArea li:hover{
+	background: #ccc;
+	color: #fff;
+}
+.countryArea li span:nth-of-type(2){
+	margin-left: 12px;
+}
+.countryArea {
+  max-height: 248px;
+  overflow: hidden;
+  overflow-y: auto;
+  font-size: 14px;
+  color: #333;
+}
+.countryArea::-webkit-scrollbar-track-piece {
+  background-color: rgba(0, 0, 0, 0);
+  border-left: 1px solid rgba(0, 0, 0, 0);
+}
+.countryArea::-webkit-scrollbar {
+  width: 5px;
+  height: 13px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.countryArea::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+  background-clip: padding-box;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  min-height: 28px;
+}
+.countryArea::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.oversizeBox .inputIcon{
+	max-width: 188px;
+	-moz-box-flex:1;
+	-webkit-box-flex:1;
+	box-flex:1;
+	font-size: 14px;
+	color: #999;
+	cursor: pointer;
+	display:flex;
+}
+.oversizeBox .inputIcon:span:last-child(1){
+	padding-right: 10px;
+}
+.oversizeBox .inputImport{
+	-moz-box-flex:1;
+	-webkit-box-flex:1;
+	box-flex:1;
+}
+
+/******/
+.ui-label{
+  display:inline-block;
+  padding-right:20px;
+}
+.hide{
+   display:none 
+}
+.ui-checkboxInput{
+  background: url(../img/ui-checkbox.png) 0 0 no-repeat;
+  display:inline-block;
+  width:16px;
+  height:16px;
+  margin-right:8px;
+  margin-top:-2px;
+  vertical-align:middle;
+}
+.ui-checkbox:checked + .ui-checkboxInput:after{
+  background: url(../img/ui-checkbox.png) 0 -16px no-repeat;
+  content:"";
+  display:inline-block;
+  position: absolute;
+  height:16px;
+  width:16px;
+}
+.ui-label.disabled{
+  color: #ccc;
+  pointer-events: auto;
+  cursor: not-allowed;
+  opacity: 1;
+  filter: alpha(opacity=1);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+input[type="radio"], input[type="checkbox"]{
+  /* display: none;  */
+}
+
+#indexArrowBox{
+	cursor: pointer;
+    font-size: 14px;
+    max-width: 120px;
+    padding-right: 8px;
+    display: -webkit-inline-flex;
+    display: -moz-inline-flex;
+    display: -o-inline-flex;
+    display: inline-flex;
+    -webkit-justify-content: flex-start;
+    -moz-justify-content: flex-start;
+    -o-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    color: #666;
+}
+   
+#indexArrowBox span:nth-of-type(1) {
+    max-width: 64px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.inputBoxcc{
+	position: relative;
+	width:100%;
+	height: 51px;
+	border: 1px solid #ccc;
+    padding: 8px 13px;
+    margin-top: 35px;
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    display: -webkit-box; 
+    display: -moz-box; 
+    display: -ms-box; 
+    display: -o-box; 
+    display: box; 
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-box-align: center;
+    -o-box-align: center;
+    box-align: center;
+}
+.inputBoxcc i{
+	color: #c5c5c5;
+	padding-right:8px;
+}
+.inputBoxcc .inputIcon{
+	border-right:1px solid #ccc;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -o-box-flex: 1;
+    box-flex: 1;
+    height:24px;
+    line-height:24px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: flex;
+}
+.inputBoxcc .inputImport{
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -o-box-flex: 1;
+    box-flex: 1;	
+    height:24px;
+    line-height:24px;
+}
+.inputBoxcc .inputImport input{
+	border:none;
+	margin-left:12px; 
+	width:93%;
+	height: 24px;
+    line-height: 24px;
+    font-size:14px;
+}

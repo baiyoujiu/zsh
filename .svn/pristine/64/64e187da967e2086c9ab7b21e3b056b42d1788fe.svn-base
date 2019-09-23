@@ -1,0 +1,100 @@
+{include file="common/header" /}
+<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xqltRQVqD5bh1G3NPyyQpuuTlgaYv4GR"></script>
+
+<!--新增地址-->
+<section class="xinzeng_dizhi">
+    <section class="dd_home">
+        <h2 class="fanhui_head"><a href="javascript:history.back(-1);"><i class="icon-left"></i></a><span id="adrtitle">租借驿站</span></h2>
+    </section>
+    <section>
+        <ul class="add_dizhi_lists">
+            <li class="right">
+                <div class="fl add_address_list_sec" style=" width:49%">
+                  <select class="pro_code" >
+                    <option value="">浙江省杭州市</option>
+                  </select>
+                </div>
+                <div class="add_address_list_sec fl" style=" width:49%">
+                  <select class="areacode" name="area" >
+                    <?php foreach($alists as $k=>$v){?>
+                      <option value="<?php echo $v['code'];?>"><?php echo $v['area'];?></option>
+                    <?php }?>
+                  </select>
+                </div>
+                
+                
+              </li>
+              <li class="right">
+                <div class="stagelists">
+                  <p>下沙东租借驿站 <span class="fr">　<i class="icon-location"></i>地图</span></p>
+                  <p>脸脸胗脸与号大街交叉口宋都晨光国际19幢号商铺</p>
+                </div>
+            </li>
+            <li class="right">
+                <div class="stagelists">
+                  <p>下沙东租借驿站 <span class="fr">　<i class="icon-location"></i>地图</span></p>
+                  <p>脸脸胗脸与号大街交叉口宋都晨光国际19幢号商铺</p>
+                </div>
+            </li>
+        </ul>
+
+        <div class="mapinf" id="mapinf">
+        </div>
+        
+    </section>
+    <!--选择地址-->
+    
+ 
+<script>
+var map = new BMap.Map("mapinf");            
+		map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
+		map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用 
+		
+		var longitude = 120.217217,latitude = 30.187274;
+		point = new BMap.Point(longitude,latitude);
+		map.centerAndZoom(point,17);  
+		var marker = new BMap.Marker(point);// 创建标注
+		map.addOverlay(marker);             // 将标注添加到地图中
+		/*var opts = {
+		  width : 200,     // 信息窗口宽度
+		  height: 90,     // 信息窗口高度
+		  title : area , // 信息窗口标题
+		}
+		var infoWindow = new BMap.InfoWindow(address+'<br>驿站图书租还时间(9:00—17:30)', opts);  // 创建信息窗口对象
+		map.openInfoWindow(infoWindow,point); //开启信息窗口 
+		marker.addEventListener("click", function(){          
+			map.openInfoWindow(infoWindow,point); //开启信息窗口
+		});*/
+
+
+
+
+	//无用
+	
+	
+	
+	$('#savebtn').click(function(){
+		$.ajax({ 
+			type:"POST", 
+			async:false, 
+			url:"/api/adrsave.html",
+			dataType: "json",
+			data:$("#objform").serialize(),
+			success:function(result){
+				if(result.status == 200){
+					layer.open({skin:'msg',content: result.msg,time:1,end:function(){window.location.reload();}});
+				}else{
+					layer.open({skin:'msg',content: result.msg,time:2});
+				}
+			},
+			error:function(XMLHttpRequest, textStatus, errorThrown){
+				layer.open({skin:'msg',content:'网络异常，请稍后重试！',time:2});
+			}	
+		});
+	});
+	
+</script>   
+   <!--占位-->
+    <section class="zhanwei40"></section>
+{include file="common/footer" /}     
+

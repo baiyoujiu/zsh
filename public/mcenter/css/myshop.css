@@ -1,0 +1,28 @@
+#modificationmsg{
+	display:none;
+	font-size: 12px;
+	color: #737373;
+	margin-top:8px;
+	padding-left:10px!important;
+}
+#errormsg{
+	display:none;
+}
+.errormsg{
+	height:34px;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -o-flex;	
+	display: flex;
+	-webkit-justify-content:flex-start;
+	-moz-justify-content:flex-start;
+	-o-justify-content:flex-start;
+	justify-content:flex-start;
+	-webkit-align-items: center;
+	-moz-align-items: center;
+	-o-align-items: center;
+	align-items: center;	
+}
+.errormsg i{
+	color:#e85352;
+}

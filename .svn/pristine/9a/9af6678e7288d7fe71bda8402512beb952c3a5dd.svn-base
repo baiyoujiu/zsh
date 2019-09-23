@@ -1,0 +1,297 @@
+{include file="common/uheader" /}
+<link rel="stylesheet" type="text/css" href="__CSS__/prolist-sell.css">
+<link rel="stylesheet" type="text/css" href="__CSS__/dsmc.css">
+{include file="common/uheaderNav" /}
+<!-- header end --> 
+<!-- body -->
+
+<div class="container" id="j-content">
+  <div class="row">
+    <!--left Nav start-->
+    {include file="common/usnav" /}
+    <!--left Nav end-->
+    <div class="col-md-11 main_right">
+      <div class="row">
+      	<form id="formPage" method="get">
+          <div class="box">
+            <div class="title help-course-f">
+              <ul class="nav nav-tabs" style="margin-top: 16px;padding-left: 16px;">
+
+<!--          这个为什么后面不(能)加.html   因为用了url 就变成地址了吗？不用的话就是完整网址     -->
+                <li class="active"><a href="<?php echo url('Orders/index');?>">订单列表</a></li>
+              </ul>
+            </div>
+            <div class="content" style="position:relative;">
+              <ul class="newpager">
+                <li class="previous">
+                  <div class="form-inline text-right marginTop">
+                     <div class="form-group">
+<!--搜索     -->
+                      <select class="form-control" name="status">
+                        <option value="0">状态</option>
+                        <?php foreach($statusArr as $k=>$v){?>
+                        <option value="<?php echo $k;?>" <?php echo ($status == $k)?'selected="selected"':'';?>><?php echo $v;?></option>
+                        <?php }?>
+                      </select>
+                     </div>
+                    <div class="form-group" style="position:relative;">
+                      <input class="form-control changeStyle ui-input" type="text" name="keyword" placeholder="请输入订单编号" value="<?php echo $keyword;?>">
+                      <div class="pull-right searchBtn">
+                        <div class="searchBtnStyle"> <span class="addBorder"></span> <i class="iconfont icon-seach"></i>
+                          <button type="submit" class="btn btnSearch">搜索</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <div class="personal_order_food_list">
+<!--               表头-->
+							<table class="food_listss">
+								<thead class="food_list_title">
+									<tr>
+										<th class="food_name">宝贝</th>
+										<th class="food_price">单价</th>
+										<th class="food_number">数量</th>
+										<th class="food_prices">小件总价</th>
+										<th class="food_holeprice">订单总价</th>
+										<th class="food_state">交易状态</th>
+										<th class="food_transaction">交易操作</th>
+									</tr>
+								</thead>
+							</table>
+<!--                -->
+		        	<nav class="food_lists" style="display:block;">
+
+<!--                为啥是这样写的，可以将php分开？-->
+						<?php if(empty($lists)){?>
+								<div class="no_data">
+									<div class="no_data_w">
+										<img src="../img/!.png" alt="">
+										<p>您还没有订单哦~</p>
+									</div>
+								</div>
+						<?php }else{
+
+//  开始遍历
+						foreach($lists as $v){
+						?>
+							<div class="mar_top10">
+								<table>
+									<thead class="food_list_head">
+										<tr>
+											<th class="food_dingdan">
+												<div class="clearfix">
+													<b class="fl"><?php echo substr($v['order_time'],0,10);?></b>
+													<span class="fl">订单号: <?php echo $v['order_no'];?></span>
+												</div>
+											</th>
+										</tr>
+									</thead>
+								</table>
+
+
+								<table>
+									<tbody class="food_list_lists">
+
+<!--                        插入另外一表内容    -->
+
+
+<!--图片，名称，描述-->
+									<?php foreach($v['glists'] as $k1=>$v1){?>
+										<tr>
+
+											<td class="food_name">
+												<div class="clearfix">
+													<img class="fl grzx_food_img" src="<?php echo $v1['pic'];?>" />
+													<section class="fl">
+														<p><?php echo $v1['name'];?></p>
+														<div class="food_name_fenlei"><span><?php echo $v1['keyv'];?></span></div>
+													</section>
+												</div>
+											</td>
+
+<!--标价，真实价格-->
+											<td class="food_price">
+												<div class="food_price_list">
+													<p class="yj">￥<?php echo number_format($v1['mprice']/100,2);?></p>
+													<p class="xj">￥<?php echo number_format($v1['price']/100,2);?></p>
+												</div>
+											</td>
+
+<!--购买数量，不清楚是不是，应该没填错表、、-->
+
+											<td class="food_number"><?php echo $v['goodnum'];?></td>
+
+
+<!--zongjia   有点问题，应该是单价与数量的乘积吧。。。-->
+<!--可能是建表不一样。。一会问问叔											-->
+
+											<td class="food_prices">
+												<div class="food_prices_list">
+													<p class="xj">￥<?php echo number_format($price_each = $v['goodnum'] * $v1['price']/100,2);?></p>
+													<p class="yf">(含运费：包邮)</p>
+												</div>
+
+
+
+<!--  这个判定，是什么意思？K1==0?  -->
+											<?php if($k1<1){?>
+												<td class="food_holeprice" rowspan="<?php echo count($v['glists']);?>">
+												<div class="food_holeprice_list">
+													<p class="xj">￥<?php echo number_format($v['amount']/100,2);?></p>
+													<p class="yf">(含运费：包邮)</p>
+												</div>
+											</td>
+
+
+												<td class="food_state" rowspan="<?php echo count($v['glists']);?>">
+													<div class="food_state_list">
+														<?php if($v['status'] == 1){?>
+															<p class="">买家下单</p>
+														<?php }elseif($v['status'] == 2){?>
+															<p class="">卖家确认并发货</p>
+														<?php }elseif($v['status'] == 5){?>
+															<p class="">买家确认收货</p>
+														<?php }elseif($v['status'] == 6){?>
+															<p class="">系统收货</p>
+														<?php }elseif($v['status'] == 8){?>
+															<p class="">卖家取消订单</p>
+														<?php }elseif($v['status'] == 9){?>
+															<p class="">系统关闭未付款订单</p>
+<!--		这个写法是啥啊。。。				    --><?php }?>
+
+<!--        这个。。，为什么每次返回的id都是28？                    -->
+														<a href="<?php echo '/Orders/inf/id/'.$v['id'].'.html';?>"><p class="">订单详情</p></a>
+													</div>
+												</td>
+
+
+<!--    状态     物流公司和物流编号。。。表没找到   -->
+												<td class="food_transaction" rowspan="<?php echo count($v['glist']);?>">
+													<div class="food_transaction_list">
+														<?php if($v['pay_status']==2 && $v['status']==1){?>
+															<p class="butedit" data-order="<?php echo $v['order_no'];?>" >确认发货</p>
+														<?php }?>
+
+														<?php if($v['pay_status']==2 && $v['status']==2){?>
+<!--  这行具体啥意思呢。。可以做到添加，怎么实现可以点击的，没找到啊 ，DATA是其中包含内容嘛     -->
+<!--  已解决,注意classclass="butedit"-->
+															<p class="butedit" data-order="<?php echo $v['order_no'];?>" data-com="<?php echo $v['wl_com'];?>" data-no="<?php echo $v['wl_no'];?>">编辑物流信息</p>
+														<?php }?>
+
+													</div>
+												</td>
+											<?php }?>
+											</td>
+										</tr>
+									<?php }?>
+									</tbody>
+								</table>
+							</div>
+<!--      遍历结束      -->
+						<?php }}?>
+					</nav>
+		        </div>
+            </div>
+
+<!--      整个结束掉      -->
+			  <?php echo $pageStr;?>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- body end! --> 
+<!-- 添加 -->
+<div id="addAdmin" style="display:none;width: 500px;">
+  <form class="form-horizontal" role="form" id="addLabel">
+
+
+
+    <input type="hidden" id="objId" name="objId" value="0">
+
+<!--    怎么实现让他不能输入的？-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="groupname">订单编号</label>
+      <div class="col-md-8">
+        <input id="objId1" name="objId1" type="text" class="form-control form-plugInput ui-input" disabled>
+      </div>
+    </div>
+<!--物流公司选择，没有对应的物流表-->
+  <div class="form-group">
+	  <label class="col-md-4 control-label" for="groupname"><b class="clr-attention">*</b>物流公司选择：</label>
+	  <div class="col-md-8">
+		  <select class="form-control" name="wl_com" id="wl_com">
+			  <option value="">请选择物流公司</option>
+			  <?php foreach($typeArr as $k=>$v){?>
+				  <option value="<?php echo $v['com'];?>"><?php echo $v['name'];?></option>
+			  <?php }?>
+		  </select>
+	  </div>
+  </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="groupname"><b class="clr-attention">*</b>物流编号：</label>
+      <div class="col-md-8">
+        <input id="wl_no" name="wl_no" type="text" class="form-control form-plugInput ui-input"  placeholder="输入物流编号">
+      </div>
+    </div>
+  </form>
+</div>
+
+<script type="text/javascript">
+	menuleft("ordersindex");
+
+//    实现编辑，CLICK事件    物流信息
+
+
+    $(function() {
+		$('.butedit').click(function(){
+//    预显示
+			var objId = $.trim($(this).data('order')),wl_com = $.trim($(this).data('com')),wl_no = $.trim($(this).data('no'));
+			$('#objId').val(objId);
+			$('#objId1').val(objId);
+			$('#wl_com').val(wl_com);
+			$('#wl_no').val(wl_no);
+			toAddAdmin();
+		})
+    });
+
+    function toAddAdmin() {
+
+//      所有class = error 的  title  元素？
+        $("title.error").remove();
+        $("title.error").hide();
+
+//      单独var  id 是干嘛用的()路由参数？？？
+        var id;
+
+//      这一行干哈的？（添加数据到 document.getElementById("addAdmin")  确认后触发事件）
+        normalDialog("物流信息", document.getElementById("addAdmin"), "确认", function(t) {
+			$("title.error").remove();
+			$("title.error").hide();
+				$.ajax({ 
+					type:"POST", 
+					async:false, 
+					url:"/Orders/hnavsave.html",
+					dataType: "json",
+					data:$("#addLabel").serialize(),
+					success:function(result){
+						if(result.status == 200){
+							window.location.reload();
+						}else{
+							art.dialog.alert(result.msg);
+						}
+					},
+					error:function(XMLHttpRequest, textStatus, errorThrown){
+						art.dialog.alert('网络异常，请稍后重试！');
+					}	
+				});
+        }, "取消", null);
+    }
+	
+	
+</script>
+{include file="common/ufooter" /}

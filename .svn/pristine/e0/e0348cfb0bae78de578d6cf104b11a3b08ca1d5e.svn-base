@@ -1,0 +1,89 @@
+@charset "utf-8";/*  
+* @description: 企业网站
+* @author: sf 
+* @update:
+*/
+body,h1,h2,h3,h4,h5,h6,dl,dt,dd,ul,ol,li,table,th,td,p,blockquote,pre,form,fieldset,legend,img{margin: 0;padding: 0;border: 0;}
+ul,ol,li {list-style-type: none;}
+a{color: #333;text-decoration: none;}
+a:hover{color: #000;text-decoration: none;}
+a:focus{outline: none;}
+body,h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {font-family:"microsoft yahei";}
+body {font-size: 14px;}
+textarea{resize: none;}
+label {font-weight: normal;}
+i{font-style:normal;}
+/* 页面头部样式 */
+
+/**左侧logo**/
+.text-right{position: relative;}
+.newsapp{width: 6px;text-align: center;display: inline-block;font-size: 12px;}
+.sanjiaoxing{display: inline-block;width: 11px;}
+.sanjiaoxing .sanjiaoxing_icon{position: relative;display: inline-block;}
+.sanjiaoxing .sanjiaoxing_icon:after{content:"";width:0;height:0;position:absolute;left:-6px;top:-6px;border-left:4px solid transparent;border-right:4px solid transparent;border-top:4px solid #fff;border-bottom:5px solid transparent;}
+.indexheader_l{float: left;width:25%;height:auto;/*margin:9px 0;*/
+}
+.indexheader_logo{float: left;}
+.indexheader_logo img{width: 100%;height:100%;margin:0;padding:0;}
+.indexheader_title{float: left;padding-left: 5%;}
+.indexheader_title_big{color: #565759;font-size: 16px;margin: 9px 0px;}
+.indexheader_title_small{color: #999;font-size: 14px;}
+
+.indexheader_r{float: left;padding-left: 16px;}
+.indexheader_user{float: right;padding: 27px 11px;font-size: 18px;color: #666;display: block;}
+
+
+/*******导航*********/
+ul.index_nav{width:100%;height:56px;padding:0;margin:0;line-height: 56px;}
+ul.index_nav li{float: left;margin-right:12px;}
+ul.index_nav li:last-child{margin-right:0;}
+ul.index_nav li a{padding:0 10px;font-size: 18px;color: #666;display: block;}
+ul.index_nav li.active>a{color: #F00;font-weight:bold;border-bottom: 4px solid transparent;}
+ul.index_nav li.actives>a{border-bottom: 4px #F00 solid;}
+ul.index_nav li>a:hover{border-bottom: 4px #F00 solid;}
+/* 右下角  */
+.rightCorner{width: 340px;height: 54px;line-height: 34px;position: fixed;z-index: 1000;right: 0;bottom: 0;background: #fff;box-shadow: -2px -2px 4px rgba(0, 0, 0, .1);font-size: 14px;padding:10px;border-radius: 5px 0 0 5px;}
+.rightCornerChat,.rightCornerNotice{float: left;width: 50%;height: 100%;text-align: center;}
+.rightCornerSingle{width: 170px;}
+.rightCornerSingle .rightCornerNotice{width: 100%;}
+.rightCornerChat a,.rightCornerNotice a{display:block;}
+.rightCornerChat a:link,
+.rightCornerNotice a:link,
+.rightCornerChat a:visited,
+.rightCornerNotice a:visited,
+.rightCornerChat a:hover,
+.rightCornerNotice a:hover,
+.rightCornerChat a:focus,
+.rightCornerNotice a:focus,
+.rightCornerChat a:active,
+.rightCornerNotice a:active{color:#333;}
+.rightCornerChat i,.rightCornerNotice i{color: #4a4646;font-size: 18px;margin-right: 5px;}
+.rightCornerChat{border-right: 1px solid #dfdfdf;}
+.rightCornerChat span,.rightCornerNotice span{display: inline-block;}
+
+.erweima{margin:13px;width:141px;height:148px;background:#fff url(/OWebsite/img/code.jpg) no-repeat 0 0;background-size:100% 100%;}
+.dhhm{width:156px;height:69px;background:#fff url(../img/dhhm.png) no-repeat 0 0;}
+
+
+/*蒙层样式*/
+.trackMatte{position: fixed;top:0;width: 100%;height: 100%;z-index: 10000;background: rgba(0,0,0,.6);}
+.trackMatte_main{width:300px;position: absolute;z-index: 99999;top: 0;left: 168px;/*margin-left: 630px;*/
+}
+.trackMatte_main p{margin-top:25px;text-align: center;}
+
+.trackMatte.none,.trackMatte_main.none{display: none;}
+.trackMattebtn:hover{text-decoration: none !important;}
+/*第三方应用*/
+.indexheader_r i.icon-sortsub.iconfont{font-size:8px;}
+.indexheader_r i.icon-sortsup.iconfont{font-size:8px;color:#fff;position:absolute;top:-27px;left:77px;}
+.index_nav li.xcj{height:79px!important;box-sizing: border-box;}
+.index_nav li.xcj>a{height:79px!important;position:relative;}
+.xcj .subnav{display:none;}
+.xcj.showTC .subnav{display:block;}
+.subnav{position:absolute;top:50px;width:102px;background:#fff;border:1px solid #fff;border-radius:5px;color:#333;z-index:999;box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);}
+.subnav li{height:50%;line-height:45px;height:45px;text-align:center;font-size:16px;}
+.subnav li a{font-size:16px!important;display:block;width:100%;height:100%;padding:0;}
+.subnav li a:hover{border:none!important;color:#F00;cursor:pointer;}
+.subnav li{display:block;width:100%;height:50%;line-height:35px;}
+.triangleThird{background:#fff;border-top:5px solid #999;border-left:5px solid transparent;border-right:5px solid transparent;padding-top:3px;margin-left:3px;display:inline-block;}
+.triangleThird.active{border-top:5px solid #F00;}

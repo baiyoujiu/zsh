@@ -1,0 +1,1598 @@
+---------------------------------------------------------------
+[ 2019-09-23T13:33:04+08:00 ] 127.0.0.1 GET /area/area.html?status=0&address=
+[ info ] www.jsg.co/area/area.html?status=0&address= [运行时间：0.090005s][吞吐率：11.11req/s] [内存消耗：1,998.97kb] [文件加载：42]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'area',
+    2 => 'area',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+  'status' => '0',
+  'address' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-09-23T13:33:04+08:00 ] 127.0.0.1 GET /users/index.html
+[ info ] www.jsg.co/users/index.html [运行时间：0.047003s][吞吐率：21.28req/s] [内存消耗：1,968.47kb] [文件加载：44]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'users',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=hn2fgopgn7qk2pd9jnhea6qis4',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\mcenter\controller\Users->index[ D:\wamp\work\zsh\apps\mcenter\controller\Users.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] ../template/mcenter/users\index.php [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-09-23T13:33:08+08:00 ] 127.0.0.1 POST /users/login.html
+[ info ] www.jsg.co/users/login.html [运行时间：0.063004s][吞吐率：15.87req/s] [内存消耗：3,161.22kb] [文件加载：48]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'users',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'content-length' => '72',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://www.jsg.co',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://www.jsg.co/users/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=hn2fgopgn7qk2pd9jnhea6qis4',
+)
+[ info ] [ PARAM ] array (
+  '__hash__' => 'f3b5861d9d006afaf431b02afdb84176',
+  'username' => 'qwert',
+  'password' => '123456',
+)
+[ info ] [ RUN ] app\mcenter\controller\Users->login[ D:\wamp\work\zsh\apps\mcenter\controller\Users.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:host=47.110.135.172;port=3306;dbname=jsg;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_manages` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_manages` WHERE  (  status=1 and username='qwert' ) LIMIT 1 [ RunTime:0.007000s ]
+---------------------------------------------------------------
+[ 2019-09-23T13:33:08+08:00 ] 127.0.0.1 GET /good/index.html
+[ info ] www.jsg.co/good/index.html [运行时间：0.094005s][吞吐率：10.64req/s] [内存消耗：3,290.55kb] [文件加载：53]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'good',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://www.jsg.co/users/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=hn2fgopgn7qk2pd9jnhea6qis4',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mcenter\controller\Good->index[ D:\wamp\work\zsh\apps\mcenter\controller\Good.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ../template/mcenter/good\index.php [ array (
+  0 => 'userInfo',
+  1 => 'groupArr',
+  2 => 'keyword',
+  3 => 'status',
+  4 => 'cid',
+  5 => 'statusArr',
+  6 => 'lists',
+  7 => 'pageStr',
+  8 => 'catlists',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.017001s ] mysql:host=47.110.135.172;port=3306;dbname=jsg;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_good` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `js_good` LIMIT 1 [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_good` ORDER BY id DESC LIMIT 0,10 [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_good_category` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_good_category` WHERE  `level` = 1  AND `status` = 2 ORDER BY weight DESC [ RunTime:0.007001s ]
+[ error ] [8]未定义数组索引: user_name[D:\wamp\work\zsh\runtime\temp\fa85e09f84404f5f1dc64ddd9d024e4a.php:34]
+[ error ] [8]未定义数组下标: 6[D:\wamp\work\zsh\runtime\temp\fa85e09f84404f5f1dc64ddd9d024e4a.php:167]
+[ error ] [8]未定义数组下标: 6[D:\wamp\work\zsh\runtime\temp\fa85e09f84404f5f1dc64ddd9d024e4a.php:167]
+[ error ] [8]未定义数组下标: 6[D:\wamp\work\zsh\runtime\temp\fa85e09f84404f5f1dc64ddd9d024e4a.php:167]
+[ error ] [8]未定义数组下标: 6[D:\wamp\work\zsh\runtime\temp\fa85e09f84404f5f1dc64ddd9d024e4a.php:167]
+---------------------------------------------------------------
+[ 2019-09-23T13:33:14+08:00 ] 127.0.0.1 GET /members/address.html
+[ info ] www.jsg.co/members/address.html [运行时间：0.071004s][吞吐率：14.08req/s] [内存消耗：2,978.80kb] [文件加载：52]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'members',
+    2 => 'address',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://www.jsg.co/good/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=hn2fgopgn7qk2pd9jnhea6qis4',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mcenter\controller\Members->address[ D:\wamp\work\zsh\apps\mcenter\controller\Members.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.017001s ] mysql:host=47.110.135.172;port=3306;dbname=jsg;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_users` [ RunTime:0.008000s ]
+[ error ] [10501]SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-20,20' at line 1[D:\wamp\work\zsh\thinkphp\library\think\db\Connection.php:388]
+---------------------------------------------------------------
+[ 2019-09-23T13:38:16+08:00 ] 127.0.0.1 GET /members/address.html
+[ info ] www.jsg.co/members/address.html [运行时间：0.071004s][吞吐率：14.08req/s] [内存消耗：2,979.07kb] [文件加载：52]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'members',
+    2 => 'address',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://www.jsg.co/good/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=hn2fgopgn7qk2pd9jnhea6qis4',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mcenter\controller\Members->address[ D:\wamp\work\zsh\apps\mcenter\controller\Members.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.017001s ] mysql:host=47.110.135.172;port=3306;dbname=jsg;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_users` [ RunTime:0.007000s ]
+[ error ] [10501]SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-20,20' at line 1[D:\wamp\work\zsh\thinkphp\library\think\db\Connection.php:388]
+---------------------------------------------------------------
+[ 2019-09-23T13:38:16+08:00 ] 127.0.0.1 GET /members/address.html
+[ info ] www.jsg.co/members/address.html [运行时间：0.066004s][吞吐率：15.15req/s] [内存消耗：2,979.07kb] [文件加载：52]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'members',
+    2 => 'address',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://www.jsg.co/good/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=hn2fgopgn7qk2pd9jnhea6qis4',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mcenter\controller\Members->address[ D:\wamp\work\zsh\apps\mcenter\controller\Members.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.017001s ] mysql:host=47.110.135.172;port=3306;dbname=jsg;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_users` [ RunTime:0.006000s ]
+[ error ] [10501]SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-20,20' at line 1[D:\wamp\work\zsh\thinkphp\library\think\db\Connection.php:388]
+---------------------------------------------------------------
+[ 2019-09-23T13:38:17+08:00 ] 127.0.0.1 GET /members/address.html
+[ info ] www.jsg.co/members/address.html [运行时间：0.067003s][吞吐率：14.92req/s] [内存消耗：2,979.07kb] [文件加载：52]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'members',
+    2 => 'address',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://www.jsg.co/good/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=hn2fgopgn7qk2pd9jnhea6qis4',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mcenter\controller\Members->address[ D:\wamp\work\zsh\apps\mcenter\controller\Members.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.017001s ] mysql:host=47.110.135.172;port=3306;dbname=jsg;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_users` [ RunTime:0.007001s ]
+[ error ] [10501]SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-20,20' at line 1[D:\wamp\work\zsh\thinkphp\library\think\db\Connection.php:388]
+---------------------------------------------------------------
+[ 2019-09-23T13:40:01+08:00 ] 127.0.0.1 GET /members/address.html
+[ info ] www.jsg.co/members/address.html [运行时间：0.203012s][吞吐率：4.93req/s] [内存消耗：3,319.91kb] [文件加载：53]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'members',
+    2 => 'address',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://www.jsg.co/good/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=hn2fgopgn7qk2pd9jnhea6qis4',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mcenter\controller\Members->address[ D:\wamp\work\zsh\apps\mcenter\controller\Members.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ../template/mcenter/members\address.php [ array (
+  0 => 'userInfo',
+  1 => 'keytel',
+  2 => 'lists',
+  3 => 'nlists',
+  4 => 'slists',
+  5 => 'clists',
+  6 => 'qlists',
+  7 => 'xlists',
+  8 => 'jlists',
+  9 => 'dlists',
+  10 => 'arealist',
+  11 => 'stagelist',
+  12 => 'stagealist',
+  13 => 'pageStr',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.018002s ] mysql:host=47.110.135.172;port=3306;dbname=jsg;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_users` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `js_users` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users` ORDER BY id DESC LIMIT 0,20 [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_users_address` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_system_area` [ RunTime:0.009001s ]
+[ sql ] [ SQL ] SELECT `code`,`area` FROM `js_system_area` WHERE  `status` = 1 [ RunTime:0.017001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_system_stage` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT `code`,`area` FROM `js_system_stage` WHERE  `status` = 1 [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_system_stage` WHERE  `status` = 1 [ RunTime:0.008000s ]
+[ error ] [8]未定义数组索引: user_name[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:34]
+[ error ] [8]未定义数组索引: bcd9349557ed5baf817c37bc6ad0c8e9[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: bcd9349557ed5baf817c37bc6ad0c8e9[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: bcd9349557ed5baf817c37bc6ad0c8e9[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: bcd9349557ed5baf817c37bc6ad0c8e9[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: bcd9349557ed5baf817c37bc6ad0c8e9[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: bcd9349557ed5baf817c37bc6ad0c8e9[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: bcd9349557ed5baf817c37bc6ad0c8e9[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6a92f395908068001205bf885c3c9012[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 6a92f395908068001205bf885c3c9012[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6a92f395908068001205bf885c3c9012[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6a92f395908068001205bf885c3c9012[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6a92f395908068001205bf885c3c9012[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6a92f395908068001205bf885c3c9012[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6a92f395908068001205bf885c3c9012[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f1bb277619fb3fd8a35b14ff01648178[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: f1bb277619fb3fd8a35b14ff01648178[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f1bb277619fb3fd8a35b14ff01648178[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f1bb277619fb3fd8a35b14ff01648178[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f1bb277619fb3fd8a35b14ff01648178[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f1bb277619fb3fd8a35b14ff01648178[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f1bb277619fb3fd8a35b14ff01648178[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 49ddbda7ac3b9e705690c79c65e79b0c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 49ddbda7ac3b9e705690c79c65e79b0c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 49ddbda7ac3b9e705690c79c65e79b0c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 49ddbda7ac3b9e705690c79c65e79b0c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 49ddbda7ac3b9e705690c79c65e79b0c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 49ddbda7ac3b9e705690c79c65e79b0c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 49ddbda7ac3b9e705690c79c65e79b0c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 72021f4d937d7aafda2e3e67792e7e48[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 72021f4d937d7aafda2e3e67792e7e48[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 72021f4d937d7aafda2e3e67792e7e48[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 72021f4d937d7aafda2e3e67792e7e48[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 72021f4d937d7aafda2e3e67792e7e48[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 72021f4d937d7aafda2e3e67792e7e48[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 72021f4d937d7aafda2e3e67792e7e48[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 948746b9e946836474cb4e9b8ca01991[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 948746b9e946836474cb4e9b8ca01991[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 948746b9e946836474cb4e9b8ca01991[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 948746b9e946836474cb4e9b8ca01991[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 948746b9e946836474cb4e9b8ca01991[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 948746b9e946836474cb4e9b8ca01991[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 948746b9e946836474cb4e9b8ca01991[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 02bc8e3ca7bd6fae36b6496f0700e103[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 02bc8e3ca7bd6fae36b6496f0700e103[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 02bc8e3ca7bd6fae36b6496f0700e103[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 02bc8e3ca7bd6fae36b6496f0700e103[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 02bc8e3ca7bd6fae36b6496f0700e103[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 02bc8e3ca7bd6fae36b6496f0700e103[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 02bc8e3ca7bd6fae36b6496f0700e103[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+---------------------------------------------------------------
+[ 2019-09-23T13:41:08+08:00 ] 127.0.0.1 GET /Members/address.html?1=1&page=2
+[ info ] www.jsg.co/Members/address.html?1=1&page=2 [运行时间：0.204012s][吞吐率：4.90req/s] [内存消耗：3,374.30kb] [文件加载：53]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'Members',
+    2 => 'address',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://www.jsg.co/members/address.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=hn2fgopgn7qk2pd9jnhea6qis4',
+)
+[ info ] [ PARAM ] array (
+  0 => '1',
+  'page' => '2',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mcenter\controller\Members->address[ D:\wamp\work\zsh\apps\mcenter\controller\Members.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ../template/mcenter/members\address.php [ array (
+  0 => 'userInfo',
+  1 => 'keytel',
+  2 => 'lists',
+  3 => 'nlists',
+  4 => 'slists',
+  5 => 'clists',
+  6 => 'qlists',
+  7 => 'xlists',
+  8 => 'jlists',
+  9 => 'dlists',
+  10 => 'arealist',
+  11 => 'stagelist',
+  12 => 'stagealist',
+  13 => 'pageStr',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.018001s ] mysql:host=47.110.135.172;port=3306;dbname=jsg;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_users` [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `js_users` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users` ORDER BY id DESC LIMIT 20,20 [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_users_address` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_system_area` [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT `code`,`area` FROM `js_system_area` WHERE  `status` = 1 [ RunTime:0.019001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_system_stage` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT `code`,`area` FROM `js_system_stage` WHERE  `status` = 1 [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_system_stage` WHERE  `status` = 1 [ RunTime:0.007000s ]
+[ error ] [8]未定义数组索引: user_name[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:34]
+[ error ] [8]未定义数组索引: 55aaed675dc374863b780a8f3a75a2f1[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 55aaed675dc374863b780a8f3a75a2f1[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 55aaed675dc374863b780a8f3a75a2f1[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 55aaed675dc374863b780a8f3a75a2f1[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 55aaed675dc374863b780a8f3a75a2f1[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 55aaed675dc374863b780a8f3a75a2f1[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 55aaed675dc374863b780a8f3a75a2f1[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 23fae79a25f99cb6858a8d6e7b1722e5[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 23fae79a25f99cb6858a8d6e7b1722e5[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 23fae79a25f99cb6858a8d6e7b1722e5[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 23fae79a25f99cb6858a8d6e7b1722e5[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 23fae79a25f99cb6858a8d6e7b1722e5[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 23fae79a25f99cb6858a8d6e7b1722e5[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 23fae79a25f99cb6858a8d6e7b1722e5[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: a49bf877a78caa4c7381c02f38e46878[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: a49bf877a78caa4c7381c02f38e46878[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: a49bf877a78caa4c7381c02f38e46878[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: a49bf877a78caa4c7381c02f38e46878[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: a49bf877a78caa4c7381c02f38e46878[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: a49bf877a78caa4c7381c02f38e46878[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: a49bf877a78caa4c7381c02f38e46878[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f551dac71fd738578ea524d59d065ffb[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: f551dac71fd738578ea524d59d065ffb[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f551dac71fd738578ea524d59d065ffb[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f551dac71fd738578ea524d59d065ffb[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f551dac71fd738578ea524d59d065ffb[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f551dac71fd738578ea524d59d065ffb[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f551dac71fd738578ea524d59d065ffb[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 5fb139b51baa9f44e45ab35f1987711b[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 5fb139b51baa9f44e45ab35f1987711b[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 5fb139b51baa9f44e45ab35f1987711b[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 5fb139b51baa9f44e45ab35f1987711b[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 5fb139b51baa9f44e45ab35f1987711b[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 5fb139b51baa9f44e45ab35f1987711b[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 5fb139b51baa9f44e45ab35f1987711b[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: c337e4e87195a279f29f3d466f94020c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: c337e4e87195a279f29f3d466f94020c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: c337e4e87195a279f29f3d466f94020c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: c337e4e87195a279f29f3d466f94020c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: c337e4e87195a279f29f3d466f94020c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: c337e4e87195a279f29f3d466f94020c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: c337e4e87195a279f29f3d466f94020c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 7ee9b5cbac8f96442a5c9847df082b80[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 7ee9b5cbac8f96442a5c9847df082b80[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 7ee9b5cbac8f96442a5c9847df082b80[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 7ee9b5cbac8f96442a5c9847df082b80[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 7ee9b5cbac8f96442a5c9847df082b80[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 7ee9b5cbac8f96442a5c9847df082b80[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 7ee9b5cbac8f96442a5c9847df082b80[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 634bbaf8030c33cb33b4bddb0428f4cf[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 634bbaf8030c33cb33b4bddb0428f4cf[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 634bbaf8030c33cb33b4bddb0428f4cf[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 634bbaf8030c33cb33b4bddb0428f4cf[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 634bbaf8030c33cb33b4bddb0428f4cf[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 634bbaf8030c33cb33b4bddb0428f4cf[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 634bbaf8030c33cb33b4bddb0428f4cf[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: eb15bc3f51312cf858ace0c2d939db85[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: eb15bc3f51312cf858ace0c2d939db85[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: eb15bc3f51312cf858ace0c2d939db85[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: eb15bc3f51312cf858ace0c2d939db85[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: eb15bc3f51312cf858ace0c2d939db85[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: eb15bc3f51312cf858ace0c2d939db85[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: eb15bc3f51312cf858ace0c2d939db85[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 354355bb3e98944d8c3cef67b93bd533[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 354355bb3e98944d8c3cef67b93bd533[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 354355bb3e98944d8c3cef67b93bd533[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 354355bb3e98944d8c3cef67b93bd533[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 354355bb3e98944d8c3cef67b93bd533[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 354355bb3e98944d8c3cef67b93bd533[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 354355bb3e98944d8c3cef67b93bd533[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: c8efe6ab0c62de56dd7faf212e72944d[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: c8efe6ab0c62de56dd7faf212e72944d[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: c8efe6ab0c62de56dd7faf212e72944d[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: c8efe6ab0c62de56dd7faf212e72944d[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: c8efe6ab0c62de56dd7faf212e72944d[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: c8efe6ab0c62de56dd7faf212e72944d[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: c8efe6ab0c62de56dd7faf212e72944d[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f03762c55847c67cd72908e2c25e9e87[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: f03762c55847c67cd72908e2c25e9e87[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f03762c55847c67cd72908e2c25e9e87[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f03762c55847c67cd72908e2c25e9e87[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f03762c55847c67cd72908e2c25e9e87[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f03762c55847c67cd72908e2c25e9e87[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f03762c55847c67cd72908e2c25e9e87[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6fd159f104d45be6e11619058ff7e9ba[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 6fd159f104d45be6e11619058ff7e9ba[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6fd159f104d45be6e11619058ff7e9ba[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6fd159f104d45be6e11619058ff7e9ba[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6fd159f104d45be6e11619058ff7e9ba[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6fd159f104d45be6e11619058ff7e9ba[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6fd159f104d45be6e11619058ff7e9ba[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 3119273b14a14ca6504e10d4abd12551[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 3119273b14a14ca6504e10d4abd12551[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 3119273b14a14ca6504e10d4abd12551[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 3119273b14a14ca6504e10d4abd12551[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 3119273b14a14ca6504e10d4abd12551[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 3119273b14a14ca6504e10d4abd12551[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 3119273b14a14ca6504e10d4abd12551[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 2ba1ca3cec188e746d20eff558909706[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 2ba1ca3cec188e746d20eff558909706[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 2ba1ca3cec188e746d20eff558909706[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 2ba1ca3cec188e746d20eff558909706[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 2ba1ca3cec188e746d20eff558909706[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 2ba1ca3cec188e746d20eff558909706[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 2ba1ca3cec188e746d20eff558909706[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6dd2ae9da966a15b8d5213c4a1de463f[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 6dd2ae9da966a15b8d5213c4a1de463f[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6dd2ae9da966a15b8d5213c4a1de463f[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6dd2ae9da966a15b8d5213c4a1de463f[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6dd2ae9da966a15b8d5213c4a1de463f[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6dd2ae9da966a15b8d5213c4a1de463f[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6dd2ae9da966a15b8d5213c4a1de463f[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+---------------------------------------------------------------
+[ 2019-09-23T13:41:11+08:00 ] 127.0.0.1 GET /Members/address.html?1=1&page=1
+[ info ] www.jsg.co/Members/address.html?1=1&page=1 [运行时间：0.181011s][吞吐率：5.52req/s] [内存消耗：3,320.22kb] [文件加载：53]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'Members',
+    2 => 'address',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://www.jsg.co/Members/address.html?1=1&page=2',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=hn2fgopgn7qk2pd9jnhea6qis4',
+)
+[ info ] [ PARAM ] array (
+  0 => '1',
+  'page' => '1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mcenter\controller\Members->address[ D:\wamp\work\zsh\apps\mcenter\controller\Members.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ../template/mcenter/members\address.php [ array (
+  0 => 'userInfo',
+  1 => 'keytel',
+  2 => 'lists',
+  3 => 'nlists',
+  4 => 'slists',
+  5 => 'clists',
+  6 => 'qlists',
+  7 => 'xlists',
+  8 => 'jlists',
+  9 => 'dlists',
+  10 => 'arealist',
+  11 => 'stagelist',
+  12 => 'stagealist',
+  13 => 'pageStr',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.016001s ] mysql:host=47.110.135.172;port=3306;dbname=jsg;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_users` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `js_users` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users` ORDER BY id DESC LIMIT 0,20 [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_users_address` [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_system_area` [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT `code`,`area` FROM `js_system_area` WHERE  `status` = 1 [ RunTime:0.019001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_system_stage` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT `code`,`area` FROM `js_system_stage` WHERE  `status` = 1 [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_system_stage` WHERE  `status` = 1 [ RunTime:0.008001s ]
+[ error ] [8]未定义数组索引: user_name[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:34]
+[ error ] [8]未定义数组索引: bcd9349557ed5baf817c37bc6ad0c8e9[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: bcd9349557ed5baf817c37bc6ad0c8e9[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: bcd9349557ed5baf817c37bc6ad0c8e9[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: bcd9349557ed5baf817c37bc6ad0c8e9[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: bcd9349557ed5baf817c37bc6ad0c8e9[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: bcd9349557ed5baf817c37bc6ad0c8e9[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: bcd9349557ed5baf817c37bc6ad0c8e9[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6a92f395908068001205bf885c3c9012[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 6a92f395908068001205bf885c3c9012[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6a92f395908068001205bf885c3c9012[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6a92f395908068001205bf885c3c9012[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6a92f395908068001205bf885c3c9012[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6a92f395908068001205bf885c3c9012[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6a92f395908068001205bf885c3c9012[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f1bb277619fb3fd8a35b14ff01648178[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: f1bb277619fb3fd8a35b14ff01648178[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f1bb277619fb3fd8a35b14ff01648178[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f1bb277619fb3fd8a35b14ff01648178[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f1bb277619fb3fd8a35b14ff01648178[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f1bb277619fb3fd8a35b14ff01648178[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f1bb277619fb3fd8a35b14ff01648178[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 49ddbda7ac3b9e705690c79c65e79b0c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 49ddbda7ac3b9e705690c79c65e79b0c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 49ddbda7ac3b9e705690c79c65e79b0c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 49ddbda7ac3b9e705690c79c65e79b0c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 49ddbda7ac3b9e705690c79c65e79b0c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 49ddbda7ac3b9e705690c79c65e79b0c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 49ddbda7ac3b9e705690c79c65e79b0c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 72021f4d937d7aafda2e3e67792e7e48[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 72021f4d937d7aafda2e3e67792e7e48[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 72021f4d937d7aafda2e3e67792e7e48[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 72021f4d937d7aafda2e3e67792e7e48[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 72021f4d937d7aafda2e3e67792e7e48[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 72021f4d937d7aafda2e3e67792e7e48[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 72021f4d937d7aafda2e3e67792e7e48[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 948746b9e946836474cb4e9b8ca01991[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 948746b9e946836474cb4e9b8ca01991[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 948746b9e946836474cb4e9b8ca01991[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 948746b9e946836474cb4e9b8ca01991[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 948746b9e946836474cb4e9b8ca01991[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 948746b9e946836474cb4e9b8ca01991[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 948746b9e946836474cb4e9b8ca01991[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 02bc8e3ca7bd6fae36b6496f0700e103[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 02bc8e3ca7bd6fae36b6496f0700e103[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 02bc8e3ca7bd6fae36b6496f0700e103[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 02bc8e3ca7bd6fae36b6496f0700e103[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 02bc8e3ca7bd6fae36b6496f0700e103[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 02bc8e3ca7bd6fae36b6496f0700e103[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 02bc8e3ca7bd6fae36b6496f0700e103[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+---------------------------------------------------------------
+[ 2019-09-23T13:41:24+08:00 ] 127.0.0.1 GET /Members/address.html?1=1&page=2
+[ info ] www.jsg.co/Members/address.html?1=1&page=2 [运行时间：0.194011s][吞吐率：5.15req/s] [内存消耗：3,374.47kb] [文件加载：53]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'Members',
+    2 => 'address',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://www.jsg.co/Members/address.html?1=1&page=1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=hn2fgopgn7qk2pd9jnhea6qis4',
+)
+[ info ] [ PARAM ] array (
+  0 => '1',
+  'page' => '2',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mcenter\controller\Members->address[ D:\wamp\work\zsh\apps\mcenter\controller\Members.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ../template/mcenter/members\address.php [ array (
+  0 => 'userInfo',
+  1 => 'keytel',
+  2 => 'lists',
+  3 => 'nlists',
+  4 => 'slists',
+  5 => 'clists',
+  6 => 'qlists',
+  7 => 'xlists',
+  8 => 'jlists',
+  9 => 'dlists',
+  10 => 'arealist',
+  11 => 'stagelist',
+  12 => 'stagealist',
+  13 => 'pageStr',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.016001s ] mysql:host=47.110.135.172;port=3306;dbname=jsg;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_users` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `js_users` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users` ORDER BY id DESC LIMIT 20,20 [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_users_address` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_system_area` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT `code`,`area` FROM `js_system_area` WHERE  `status` = 1 [ RunTime:0.018002s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_system_stage` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT `code`,`area` FROM `js_system_stage` WHERE  `status` = 1 [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_system_stage` WHERE  `status` = 1 [ RunTime:0.007001s ]
+[ error ] [8]未定义数组索引: user_name[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:34]
+[ error ] [8]未定义数组索引: 55aaed675dc374863b780a8f3a75a2f1[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 55aaed675dc374863b780a8f3a75a2f1[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 55aaed675dc374863b780a8f3a75a2f1[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 55aaed675dc374863b780a8f3a75a2f1[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 55aaed675dc374863b780a8f3a75a2f1[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 55aaed675dc374863b780a8f3a75a2f1[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 55aaed675dc374863b780a8f3a75a2f1[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 23fae79a25f99cb6858a8d6e7b1722e5[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 23fae79a25f99cb6858a8d6e7b1722e5[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 23fae79a25f99cb6858a8d6e7b1722e5[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 23fae79a25f99cb6858a8d6e7b1722e5[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 23fae79a25f99cb6858a8d6e7b1722e5[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 23fae79a25f99cb6858a8d6e7b1722e5[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 23fae79a25f99cb6858a8d6e7b1722e5[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: a49bf877a78caa4c7381c02f38e46878[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: a49bf877a78caa4c7381c02f38e46878[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: a49bf877a78caa4c7381c02f38e46878[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: a49bf877a78caa4c7381c02f38e46878[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: a49bf877a78caa4c7381c02f38e46878[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: a49bf877a78caa4c7381c02f38e46878[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: a49bf877a78caa4c7381c02f38e46878[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f551dac71fd738578ea524d59d065ffb[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: f551dac71fd738578ea524d59d065ffb[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f551dac71fd738578ea524d59d065ffb[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f551dac71fd738578ea524d59d065ffb[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f551dac71fd738578ea524d59d065ffb[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f551dac71fd738578ea524d59d065ffb[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f551dac71fd738578ea524d59d065ffb[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 5fb139b51baa9f44e45ab35f1987711b[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 5fb139b51baa9f44e45ab35f1987711b[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 5fb139b51baa9f44e45ab35f1987711b[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 5fb139b51baa9f44e45ab35f1987711b[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 5fb139b51baa9f44e45ab35f1987711b[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 5fb139b51baa9f44e45ab35f1987711b[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 5fb139b51baa9f44e45ab35f1987711b[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: c337e4e87195a279f29f3d466f94020c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: c337e4e87195a279f29f3d466f94020c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: c337e4e87195a279f29f3d466f94020c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: c337e4e87195a279f29f3d466f94020c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: c337e4e87195a279f29f3d466f94020c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: c337e4e87195a279f29f3d466f94020c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: c337e4e87195a279f29f3d466f94020c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 7ee9b5cbac8f96442a5c9847df082b80[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 7ee9b5cbac8f96442a5c9847df082b80[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 7ee9b5cbac8f96442a5c9847df082b80[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 7ee9b5cbac8f96442a5c9847df082b80[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 7ee9b5cbac8f96442a5c9847df082b80[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 7ee9b5cbac8f96442a5c9847df082b80[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 7ee9b5cbac8f96442a5c9847df082b80[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 634bbaf8030c33cb33b4bddb0428f4cf[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 634bbaf8030c33cb33b4bddb0428f4cf[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 634bbaf8030c33cb33b4bddb0428f4cf[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 634bbaf8030c33cb33b4bddb0428f4cf[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 634bbaf8030c33cb33b4bddb0428f4cf[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 634bbaf8030c33cb33b4bddb0428f4cf[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 634bbaf8030c33cb33b4bddb0428f4cf[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: eb15bc3f51312cf858ace0c2d939db85[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: eb15bc3f51312cf858ace0c2d939db85[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: eb15bc3f51312cf858ace0c2d939db85[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: eb15bc3f51312cf858ace0c2d939db85[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: eb15bc3f51312cf858ace0c2d939db85[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: eb15bc3f51312cf858ace0c2d939db85[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: eb15bc3f51312cf858ace0c2d939db85[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 354355bb3e98944d8c3cef67b93bd533[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 354355bb3e98944d8c3cef67b93bd533[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 354355bb3e98944d8c3cef67b93bd533[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 354355bb3e98944d8c3cef67b93bd533[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 354355bb3e98944d8c3cef67b93bd533[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 354355bb3e98944d8c3cef67b93bd533[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 354355bb3e98944d8c3cef67b93bd533[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: c8efe6ab0c62de56dd7faf212e72944d[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: c8efe6ab0c62de56dd7faf212e72944d[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: c8efe6ab0c62de56dd7faf212e72944d[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: c8efe6ab0c62de56dd7faf212e72944d[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: c8efe6ab0c62de56dd7faf212e72944d[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: c8efe6ab0c62de56dd7faf212e72944d[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: c8efe6ab0c62de56dd7faf212e72944d[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f03762c55847c67cd72908e2c25e9e87[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: f03762c55847c67cd72908e2c25e9e87[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f03762c55847c67cd72908e2c25e9e87[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f03762c55847c67cd72908e2c25e9e87[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f03762c55847c67cd72908e2c25e9e87[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f03762c55847c67cd72908e2c25e9e87[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f03762c55847c67cd72908e2c25e9e87[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6fd159f104d45be6e11619058ff7e9ba[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 6fd159f104d45be6e11619058ff7e9ba[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6fd159f104d45be6e11619058ff7e9ba[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6fd159f104d45be6e11619058ff7e9ba[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6fd159f104d45be6e11619058ff7e9ba[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6fd159f104d45be6e11619058ff7e9ba[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6fd159f104d45be6e11619058ff7e9ba[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 3119273b14a14ca6504e10d4abd12551[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 3119273b14a14ca6504e10d4abd12551[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 3119273b14a14ca6504e10d4abd12551[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 3119273b14a14ca6504e10d4abd12551[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 3119273b14a14ca6504e10d4abd12551[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 3119273b14a14ca6504e10d4abd12551[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 3119273b14a14ca6504e10d4abd12551[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 2ba1ca3cec188e746d20eff558909706[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 2ba1ca3cec188e746d20eff558909706[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 2ba1ca3cec188e746d20eff558909706[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 2ba1ca3cec188e746d20eff558909706[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 2ba1ca3cec188e746d20eff558909706[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 2ba1ca3cec188e746d20eff558909706[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 2ba1ca3cec188e746d20eff558909706[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6dd2ae9da966a15b8d5213c4a1de463f[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 6dd2ae9da966a15b8d5213c4a1de463f[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6dd2ae9da966a15b8d5213c4a1de463f[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6dd2ae9da966a15b8d5213c4a1de463f[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6dd2ae9da966a15b8d5213c4a1de463f[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6dd2ae9da966a15b8d5213c4a1de463f[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6dd2ae9da966a15b8d5213c4a1de463f[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+---------------------------------------------------------------
+[ 2019-09-23T13:41:36+08:00 ] 127.0.0.1 GET /Members/address.html?1=1&page=1
+[ info ] www.jsg.co/Members/address.html?1=1&page=1 [运行时间：0.183010s][吞吐率：5.46req/s] [内存消耗：3,320.22kb] [文件加载：53]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'Members',
+    2 => 'address',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://www.jsg.co/Members/address.html?1=1&page=2',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=hn2fgopgn7qk2pd9jnhea6qis4',
+)
+[ info ] [ PARAM ] array (
+  0 => '1',
+  'page' => '1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mcenter\controller\Members->address[ D:\wamp\work\zsh\apps\mcenter\controller\Members.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ../template/mcenter/members\address.php [ array (
+  0 => 'userInfo',
+  1 => 'keytel',
+  2 => 'lists',
+  3 => 'nlists',
+  4 => 'slists',
+  5 => 'clists',
+  6 => 'qlists',
+  7 => 'xlists',
+  8 => 'jlists',
+  9 => 'dlists',
+  10 => 'arealist',
+  11 => 'stagelist',
+  12 => 'stagealist',
+  13 => 'pageStr',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.017001s ] mysql:host=47.110.135.172;port=3306;dbname=jsg;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_users` [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `js_users` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users` ORDER BY id DESC LIMIT 0,20 [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_users_address` [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users_address` ORDER BY id  DESC [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_system_area` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT `code`,`area` FROM `js_system_area` WHERE  `status` = 1 [ RunTime:0.017001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_system_stage` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT `code`,`area` FROM `js_system_stage` WHERE  `status` = 1 [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_system_stage` WHERE  `status` = 1 [ RunTime:0.006000s ]
+[ error ] [8]未定义数组索引: user_name[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:34]
+[ error ] [8]未定义数组索引: bcd9349557ed5baf817c37bc6ad0c8e9[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: bcd9349557ed5baf817c37bc6ad0c8e9[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: bcd9349557ed5baf817c37bc6ad0c8e9[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: bcd9349557ed5baf817c37bc6ad0c8e9[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: bcd9349557ed5baf817c37bc6ad0c8e9[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: bcd9349557ed5baf817c37bc6ad0c8e9[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: bcd9349557ed5baf817c37bc6ad0c8e9[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6a92f395908068001205bf885c3c9012[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 6a92f395908068001205bf885c3c9012[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6a92f395908068001205bf885c3c9012[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6a92f395908068001205bf885c3c9012[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6a92f395908068001205bf885c3c9012[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6a92f395908068001205bf885c3c9012[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 6a92f395908068001205bf885c3c9012[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f1bb277619fb3fd8a35b14ff01648178[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: f1bb277619fb3fd8a35b14ff01648178[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f1bb277619fb3fd8a35b14ff01648178[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f1bb277619fb3fd8a35b14ff01648178[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f1bb277619fb3fd8a35b14ff01648178[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f1bb277619fb3fd8a35b14ff01648178[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: f1bb277619fb3fd8a35b14ff01648178[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 49ddbda7ac3b9e705690c79c65e79b0c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 49ddbda7ac3b9e705690c79c65e79b0c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 49ddbda7ac3b9e705690c79c65e79b0c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 49ddbda7ac3b9e705690c79c65e79b0c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 49ddbda7ac3b9e705690c79c65e79b0c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 49ddbda7ac3b9e705690c79c65e79b0c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 49ddbda7ac3b9e705690c79c65e79b0c[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 72021f4d937d7aafda2e3e67792e7e48[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 72021f4d937d7aafda2e3e67792e7e48[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 72021f4d937d7aafda2e3e67792e7e48[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 72021f4d937d7aafda2e3e67792e7e48[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 72021f4d937d7aafda2e3e67792e7e48[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 72021f4d937d7aafda2e3e67792e7e48[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 72021f4d937d7aafda2e3e67792e7e48[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 948746b9e946836474cb4e9b8ca01991[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 948746b9e946836474cb4e9b8ca01991[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 948746b9e946836474cb4e9b8ca01991[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 948746b9e946836474cb4e9b8ca01991[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 948746b9e946836474cb4e9b8ca01991[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 948746b9e946836474cb4e9b8ca01991[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 948746b9e946836474cb4e9b8ca01991[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 02bc8e3ca7bd6fae36b6496f0700e103[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:154]
+[ error ] [8]未定义数组索引: 02bc8e3ca7bd6fae36b6496f0700e103[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 02bc8e3ca7bd6fae36b6496f0700e103[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 02bc8e3ca7bd6fae36b6496f0700e103[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 02bc8e3ca7bd6fae36b6496f0700e103[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 02bc8e3ca7bd6fae36b6496f0700e103[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: [D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+[ error ] [8]未定义数组索引: 02bc8e3ca7bd6fae36b6496f0700e103[D:\wamp\work\zsh\runtime\temp\61f94477eadb0d93ebee04378add5af8.php:155]
+---------------------------------------------------------------
+[ 2019-09-23T13:44:11+08:00 ] 127.0.0.1 GET /orders/index.html
+[ info ] www.jsg.co/orders/index.html [运行时间：0.202012s][吞吐率：4.95req/s] [内存消耗：3,332.91kb] [文件加载：53]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'orders',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://www.jsg.co/Members/address.html?1=1&page=1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=hn2fgopgn7qk2pd9jnhea6qis4',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mcenter\controller\Orders->index[ D:\wamp\work\zsh\apps\mcenter\controller\Orders.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ../template/mcenter/orders\index.php [ array (
+  0 => 'userInfo',
+  1 => 'statusArr',
+  2 => 'paytypeArr',
+  3 => 'keyword',
+  4 => 'status',
+  5 => 'lists',
+  6 => 'pageStr',
+  7 => 'stagelist',
+  8 => 'user',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.016001s ] mysql:host=47.110.135.172;port=3306;dbname=jsg;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_order` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `js_order` LIMIT 1 [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order` ORDER BY id DESC LIMIT 0,20 [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_order_goods` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909231510000' ORDER BY addtime DESC [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909221510001' ORDER BY addtime DESC [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909221510000' ORDER BY addtime DESC [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909201510001' ORDER BY addtime DESC [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909201510000' ORDER BY addtime DESC [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909191510001' ORDER BY addtime DESC [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909191510000' ORDER BY addtime DESC [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909181510006' ORDER BY addtime DESC [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909171510003' ORDER BY addtime DESC [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909171510001' ORDER BY addtime DESC [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909171510000' ORDER BY addtime DESC [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909161510000' ORDER BY addtime DESC [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_system_stage` [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT `code`,`area` FROM `js_system_stage` WHERE  `status` = 1 [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_users` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users` WHERE  `status` = 1 [ RunTime:0.007001s ]
+[ error ] [8]未定义数组索引: user_name[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:35]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义变量: typeArr[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:246]
+[ error ] [2]Invalid argument supplied for foreach()[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:246]
+---------------------------------------------------------------
+[ 2019-09-23T13:44:11+08:00 ] 127.0.0.1 GET /images/20190912/yy01.jpg
+[ info ] www.jsg.co/images/20190912/yy01.jpg [运行时间：0.036002s][吞吐率：27.78req/s] [内存消耗：1,609.45kb] [文件加载：39]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'images',
+    2 => '20190912',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://www.jsg.co/orders/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=hn2fgopgn7qk2pd9jnhea6qis4',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-09-23T13:44:11+08:00 ] 127.0.0.1 GET /images/20190912/xfx0.jpg
+[ info ] www.jsg.co/images/20190912/xfx0.jpg [运行时间：0.038002s][吞吐率：26.31req/s] [内存消耗：1,609.45kb] [文件加载：39]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'images',
+    2 => '20190912',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://www.jsg.co/orders/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=hn2fgopgn7qk2pd9jnhea6qis4',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-09-23T13:44:13+08:00 ] 127.0.0.1 GET /Orders/inf/id/71.html
+[ info ] www.jsg.co/Orders/inf/id/71.html [运行时间：0.140008s][吞吐率：7.14req/s] [内存消耗：3,190.66kb] [文件加载：53]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'Orders',
+    2 => 'inf',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://www.jsg.co/orders/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=hn2fgopgn7qk2pd9jnhea6qis4',
+)
+[ info ] [ PARAM ] array (
+  'id' => '71',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mcenter\controller\Orders->inf[ D:\wamp\work\zsh\apps\mcenter\controller\Orders.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ../template/mcenter/orders\inf.php [ array (
+  0 => 'userInfo',
+  1 => 'statusArr',
+  2 => 'paytypeArr',
+  3 => 'info',
+  4 => 'inum',
+  5 => 'glist',
+  6 => 'arealist',
+  7 => 'stagelist',
+  8 => 'stagealist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.017001s ] mysql:host=47.110.135.172;port=3306;dbname=jsg;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_order` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order` WHERE  (  id=71 ) LIMIT 1 [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_order_goods` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909231510000' ORDER BY addtime DESC [ RunTime:0.009001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_system_area` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT `code`,`area` FROM `js_system_area` WHERE  `status` = 1 [ RunTime:0.018001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_system_stage` [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT `code`,`area` FROM `js_system_stage` WHERE  `status` = 1 [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_system_stage` WHERE  `status` = 1 [ RunTime:0.007000s ]
+[ error ] [8]未定义数组索引: user_name[D:\wamp\work\zsh\runtime\temp\c3f2f88961524f85c2e45bc4deeb0d62.php:41]
+[ error ] [8]未定义变量: typeArr[D:\wamp\work\zsh\runtime\temp\c3f2f88961524f85c2e45bc4deeb0d62.php:215]
+[ error ] [2]Invalid argument supplied for foreach()[D:\wamp\work\zsh\runtime\temp\c3f2f88961524f85c2e45bc4deeb0d62.php:215]
+---------------------------------------------------------------
+[ 2019-09-23T13:44:13+08:00 ] 127.0.0.1 GET /images/20190912/yy01.jpg
+[ info ] www.jsg.co/images/20190912/yy01.jpg [运行时间：0.035002s][吞吐率：28.57req/s] [内存消耗：1,609.45kb] [文件加载：39]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'images',
+    2 => '20190912',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://www.jsg.co/Orders/inf/id/71.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=hn2fgopgn7qk2pd9jnhea6qis4',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-09-23T13:44:31+08:00 ] 127.0.0.1 GET /orders/index.html
+[ info ] www.jsg.co/orders/index.html [运行时间：0.204011s][吞吐率：4.90req/s] [内存消耗：3,333.06kb] [文件加载：53]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'orders',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://www.jsg.co/Members/address.html?1=1&page=1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=hn2fgopgn7qk2pd9jnhea6qis4',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mcenter\controller\Orders->index[ D:\wamp\work\zsh\apps\mcenter\controller\Orders.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ../template/mcenter/orders\index.php [ array (
+  0 => 'userInfo',
+  1 => 'statusArr',
+  2 => 'paytypeArr',
+  3 => 'keyword',
+  4 => 'status',
+  5 => 'lists',
+  6 => 'pageStr',
+  7 => 'stagelist',
+  8 => 'user',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:host=47.110.135.172;port=3306;dbname=jsg;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_order` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `js_order` LIMIT 1 [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order` ORDER BY id DESC LIMIT 0,20 [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_order_goods` [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909231510000' ORDER BY addtime DESC [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909221510001' ORDER BY addtime DESC [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909221510000' ORDER BY addtime DESC [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909201510001' ORDER BY addtime DESC [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909201510000' ORDER BY addtime DESC [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909191510001' ORDER BY addtime DESC [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909191510000' ORDER BY addtime DESC [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909181510006' ORDER BY addtime DESC [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909171510003' ORDER BY addtime DESC [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909171510001' ORDER BY addtime DESC [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909171510000' ORDER BY addtime DESC [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909161510000' ORDER BY addtime DESC [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_system_stage` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT `code`,`area` FROM `js_system_stage` WHERE  `status` = 1 [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_users` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users` WHERE  `status` = 1 [ RunTime:0.007000s ]
+[ error ] [8]未定义数组索引: user_name[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:35]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义变量: typeArr[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:246]
+[ error ] [2]Invalid argument supplied for foreach()[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:246]

@@ -1,0 +1,21 @@
+<div class="col-md-1 main_left"> 
+  <ul class="ui_navbar" id="navbarlist">
+
+    <li>
+      <div><i class="iconfont icon-iconfontshezhi"></i>分类管理</div>
+      <ul>
+        <li><a href="<?php echo url('category/index');?>">分类管理</a></li>
+        <li><a href="<?php echo url('category/spec');?>">分类规格</a></li>
+        <li><a href="<?php echo url('category/attr');?>">分类属性</a></li>
+        <li><a href="<?php echo url('category/attri');?>">分类属性值</a></li>
+      </ul>
+    </li>
+    <li>
+      <div><i class="iconfont icon-search"></i>商品管理</div>
+      <ul>
+        <li tabindex="archex"><a href="<?php echo url('good/index');?>">商品列表</a></li>
+      </ul>
+    </li>
+
+  </ul>
+</div>

@@ -1,0 +1,359 @@
+@charset "UTF-8";
+
+/**header**/
+.top-login .tar.main-body a{
+	font-size: 12px;
+	margin:0 24px;
+}
+.login .tar.main-body a{
+	font-size: 12px;
+	margin:0 24px;
+}
+
+.nav-border{
+	/* border:none; */
+}
+.footer{
+	margin-top:0px;
+}
+/**登录**/
+.banner{
+	width:100%;
+	min-width: 1140px;
+	min-height: 700px;
+	margin:auto;
+	background:url(../../company/img/website-index/login_a.jpg) no-repeat top center;
+}
+/**首页**/
+.platform a{
+	width:33.33%;
+}
+.index-news{
+	background: #fbfbfb;
+	padding-bottom: 60px;
+}
+.platform a+a+a .m-img-new{
+	background-position: -446px 0;
+}
+/**刷脸理念**/
+.liniantu{
+	width:1086px;
+	margin:0 auto;
+}
+.liniantu img{
+	width:1086px;
+}
+/**刷脸产品**/
+.m-banner-text .m-title{
+	color:#ff333e;
+}
+.m-banner-text{
+	width: 470px;
+}
+.m-intro{
+	line-height:30px;
+	width: 430px;
+}
+.m-product-iwrap1{
+	height: 634px;
+    background: url(../img/website-index/pic_pro_p1.jpg?ver=201703241059) no-repeat center;
+    padding-bottom: 0;
+}
+.m-product-iwrap2{
+	height: 646px;
+    background: url(../img/website-index/pic_pro_p2.jpg?ver=201703241059) no-repeat center;
+    padding-top: 0;
+}
+.m-product-iwrap3 .m-head .m-exp span.pd{
+	padding-right: 104px;
+}
+.m-product-one{
+	width: 1250px;
+}
+.m-product-one .m-head .m-exp{
+	padding-right: 152px;
+	line-height: 30px;
+	font-weight: normal;
+}
+.m-product-iwrap3 .m-head .m-exp span{
+	font-family: "Microsoft YaHei";
+	font-weight: normal;
+}
+.m-product-one .m-head .m-exps{
+	padding-right: 0;
+	line-height: 30px;
+}
+.m-product-iwrap3{
+	height: 644px;
+    background: url(../img/website-index/pic_pro_p3.jpg?ver=201703241059) no-repeat center;
+    padding-bottom: 0;
+}
+/**关于我们**/
+.m-intro-main{
+	width:100%;
+}
+.m-banner-about{
+	width:100%;
+	background:#f7f7f7;
+}
+.m-global-fff{
+	background:#fff;
+}
+.m-team-title .m-tit1{
+    line-height: 40px;
+    font-size: 36px;
+    color: #d23940;
+    font-weight: bold;
+    text-shadow:none;
+    font-family: "Microsoft YaHei";
+}
+.m-team-part .m-intro{
+	color:#626262;
+}
+.m-banner-title{
+	margin-bottom: 20px;
+    padding-left: 40px;
+    line-height: 40px;
+    font-size: 36px;
+    color: #d23940;
+    font-weight: bold;
+}
+/*海外登陆*/
+.overseasLogin{
+	display: none;
+}
+.overseasLoginEntrance{
+	height: 24px;
+	line-height: 55px;
+	text-align: right;
+	color: #576b95;
+	cursor: pointer;
+}
+.overseasLoginInput{
+	width:324px;
+	display: -webkit-inline-flex;
+	display: -moz-inline-flex;
+	display: -o-inline-flex;
+	display: inline-flex;
+	-webkit-justify-content:flex-start;
+	-moz-justify-content:flex-start;
+	-o-justify-content:flex-start;
+	justify-content:flex-start;
+	-webkit-align-items: center;
+	-moz-align-items: center;
+	-o-align-items: center;
+	align-items: center;
+}
+
+.overseasLoginInput{
+	position: relative;
+}
+.countryList{
+	position: absolute;
+	left: 54px;
+	top: 43px;
+	width: 300px;
+	max-height: 200px;
+	background: #fff;
+	z-index: 1000;
+	overflow: hidden;
+	overflow-y: auto;
+	box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.35);
+	display: none;
+}
+.countryList::-webkit-scrollbar-track-piece {
+	background-color: rgba(0, 0, 0, 0);
+	border-left: 1px solid rgba(0, 0, 0, 0);
+}
+.countryList::-webkit-scrollbar {
+	width: 5px;
+	height: 13px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.countryList::-webkit-scrollbar-thumb {
+	background-color: rgba(0, 0, 0, 0.1);
+	background-clip: padding-box;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	min-height: 28px;
+}
+.countryList::-webkit-scrollbar-thumb:hover {
+	background-color: rgba(0, 0, 0, 0.1);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.indexArrowBox{
+	cursor: pointer;
+	font-size:12px;
+	max-width: 120px;
+	padding-right: 8px;
+	display: -webkit-inline-flex;
+	display: -moz-inline-flex;
+	display: -o-inline-flex;
+	display: inline-flex;
+	-webkit-justify-content:flex-start;
+	-moz-justify-content:flex-start;
+	-o-justify-content:flex-start;
+	justify-content:flex-start;
+	-webkit-align-items: center;
+	-moz-align-items: center;
+	-o-align-items: center;
+	align-items: center;
+	color: #666;
+	border-right:1px solid #ccc;
+}
+.indexArrowBox em{
+	font-style: normal;
+}
+.indexArrowBox span:nth-of-type(1){
+	max-width: 62px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.indexArrowBox span:nth-of-type(2){
+	max-width: 46px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.overseasLoginInput input{
+	width: 68%!important;
+	padding-left:14px;
+}
+.indexArrow{
+	display: inline-block;
+	width: 13px;
+	height:6px;
+	margin-left: 8px;
+}
+.indexArrow.arrowUp{
+	background: url("../img/indexarrowup.png") no-repeat;
+	-webkit-background-size:contain;
+	-moz-background-size:contain;
+	-o-background-size:contain;
+	background-size:contain;
+}
+.indexArrow.arrowDown{
+	background: url("../img/indexarrwodown.png") no-repeat;
+	-webkit-background-size:contain;
+	-moz-background-size:contain;
+	-o-background-size:contain;
+	background-size:contain;
+}
+
+.countryList li{
+	cursor: pointer;
+	font-size: 12px;
+	width:100%;
+	height: 36px;
+	line-height: 36px;
+	padding-left:12px;
+	color: #333;
+}
+.countryList li:hover{
+	color: #fff;
+	background:#ccc;
+}
+.countryName{
+	padding-right:10px;
+}
+/*区号样式*/
+.countryAreaBox{
+	color: #666;
+	font-size:12px;
+	display: -webkit-inline-flex;
+	display: -moz-inline-flex;
+	display: -o-inline-flex;
+	display: inline-flex;
+	-webkit-justify-content:flex-start;
+	-moz-justify-content:flex-start;
+	-o-justify-content:flex-start;
+	justify-content:flex-start;
+	-webkit-align-items: center;
+	-moz-align-items: center;
+	-o-align-items: center;
+	align-items: center;
+	/*border: 1px solid #ccc;*/
+	cursor: pointer;
+	position: relative;
+}
+.countryAreaMsg{
+	height: 23px;
+	margin-left:8px;
+	padding-right:8px;
+	display: -webkit-inline-flex;
+	display: -moz-inline-flex;
+	display: -o-inline-flex;
+	display: inline-flex;
+	-webkit-justify-content:flex-start;
+	-moz-justify-content:flex-start;
+	-o-justify-content:flex-start;
+	justify-content:flex-start;
+	-webkit-align-items: center;
+	-moz-align-items: center;
+	-o-align-items: center;
+	align-items: center;
+	border-right: 1px solid #ccc;
+	position:relative;
+}
+.countryAreaInput{
+	width:261px!important;
+	border:1px solid #ccc!important;
+	/*border-left: 0!important;*/
+	outline: none;
+}
+.countryAreaMsg span:nth-of-type(1){
+	max-width: 59px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.countryAreaMsg span:nth-of-type(2){
+	max-width: 44px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.countryArrow{
+	display: inline-block;
+	width: 13px;
+	height:6px;
+	margin-left: 8px;
+}
+.countryArrow.arrowUp{
+	background: url("../img/indexarrowup.png") no-repeat;
+	-webkit-background-size:contain;
+	-moz-background-size:contain;
+	-o-background-size:contain;
+	background-size:contain;
+}
+.countryArrow.arrowDown{
+	background: url("../img/indexarrwodown.png") no-repeat;
+	-webkit-background-size:contain;
+	-moz-background-size:contain;
+	-o-background-size:contain;
+	background-size:contain;
+}
+.countryList li span{
+	display: inline-block!important;
+}
+.countryAreaBox .countryList{
+	left: 8px!important;
+	top: 40px!important;
+}
+.joinmsgcountainer{
+	line-height: 50px;
+	border:1px solid #ccc;
+	border-right:0!important;
+}
+.countryAreaInput .error{
+	border:none!important;
+}
+#jform-register input.error{
+	border-color: #ccc!important;
+}

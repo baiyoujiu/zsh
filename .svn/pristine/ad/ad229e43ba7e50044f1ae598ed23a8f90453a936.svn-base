@@ -1,0 +1,109 @@
+﻿.personself h1{ border-bottom: 1px solid #ccc;padding-bottom: 8px;padding-top:10px;}
+.personself h1 i{ display: inline-block;background: url(../img/LittleHead.png) no-repeat;width: 24px;height: 24px;background-position: 0px 0px;vertical-align: middle;margin-right: 8px;}
+.personself h1 a{font-weight:bold;font-family:'微软雅黑';font-size:14px;color:#353535}
+.personself{ border: 1px solid #cccccc;background-color: #fff;}
+.personselftitle {border:solid 1px #ffbcbe;padding:5px 20px; margin-top:20px;}
+.personselftitle-one {padding:20px 0px;height: 100px;}
+.personselftitle-one dl > dt img{border:1px solid #ccc;border-radius:50%;padding:5px;width:103px;height:103px;}
+.personselftitle-one dl > dt {float:left;padding-right:23px;width:103px;height:103px;}
+.personselftitle-one dl > dd {margin-left:26px;padding-bottom:10px;color:#989898}
+.Call {padding-right:37px;font-family:'微软雅黑';font-size:16px;font-weight:600;color:#353535;}
+.Calla {font-family:'Arial';font-size:16px;font-weight:600;color:#353535;}
+.Callc {font-family:'微软雅黑';font-size:14px;color:#353535;margin-right:15px;}
+.Callb{font-family:'微软雅黑';font-size:14px;font-weight:600;color:#353535;}
+.Callb-a{font-family:'微软雅黑';font-size:14px;font-weight:600;color:#353535;padding-right:25px;}
+Calld {color:#a3a3a3;font-family:'微软雅黑';font-size:14px;padding-bottom:30px;padding-bottom:25px;}
+.personselftitle-two {background-color:#ff5256;width:90px;height:28px;color:#ffffff;float:right;margin-top:-55px;margin-right:36px;text-align:center;font-size:14px;line-height:28px;}
+.personselftitle-three {background-color:#3fb5f9;width:137px;height:28px;float:right;margin-top:-57px;margin-right:36px;text-align:center;font-size:12px;line-height:28px;}
+.personselftitle-two a, .personselftitle-three a {color:#ffffff;}
+.personselftitle-two:hover{background-color:#ff744f;}
+.BtnSty:hover{background:#ff744f; color:#fff;}
+
+
+.MyZiliao {padding-top:23px;float:left;padding-right:35px;}
+.ZiLiaoHead {vertical-align:middle;padding:5px 20px;height:55px;}
+.ZiLiaoHead a{  font-weight: bold;font-family: '微软雅黑';font-size: 16px;color: #353535;}
+.MyZiliao i{ display: inline-block;background: url(../img/LittleHead.png) no-repeat;width: 24px;height: 24px;background-position: 0px -40px;vertical-align: middle;margin-right: 8px;}
+.JinDuTiao {width:102px;height: 8px;font-size: 0;background-color: #eeeeee;float:left;margin-top:27px;margin-right:10px;}
+.JinDuTiao p{height: 8px;font-size: 0;background-color: #ff524f;}
+.AnQuan {float:left;padding-top:23px;padding-right:8px;font-size:12px;}
+.Aqdj {padding-top:23px;padding-right:14px;color:#ffa467;font-size:14px;float:left;padding-top:22px;}
+.TiSheng a {padding-top:23px;color:#3d93e3;font-size:14px;float:left;padding-top:22px;}
+
+.webset{border: #dbdbdb 1px solid;padding: 20px; min-height:300px;position:relative;}
+.webset dl{padding:5px 0; font-size:14px;}
+.webset table tr{border: #dbdbdb 1px solid;height:40px;text-align: center;}
+.webset table .lilu th,.webset table .lilu td{border: #dbdbdb 1px solid; padding: 0 2px;}
+.webset table td .input-text-style-1{width:45px;}
+.webset dl textarea{background-color: #fff;border: 1px solid #d8d8d8;border-radius: 3px;line-height: 24px;padding: 0 10px;}
+
+
+.BDmobile .newphonenum { border-radius: 3px;  height: 36px;  line-height: 24px;  background-color: #fff;  font: -webkit-small-control;  color: initial;  letter-spacing: normal;word-spacing: normal;  text-transform: none;  text-indent: 0px;  text-shadow: none;  display: inline-block;  text-align: start;  padding: 0 10px;  border: 1px solid #cfcfcf;}
+.BDmobile .newphonebtn{ display: inline-block;  float: inherit;  text-decoration: none;  background: #fe7e00;  color: #fff;  border: 1px solid #eb6a05;  border-radius: 2px;  font-size: 12px;  height: 34px;  line-height: 34px;  padding: 0 20px;}
+.BDmobile tr th,.Enterpsw tr th,.TXpsw tr th,BDemail tr th,.forgerpsw label {text-align:right;padding-right:25px;width:100px;}
+.IMF {border:#dbdbdb 1px solid;padding:26px;}
+.IMFone dt{background: url(../img/Little.png) no-repeat;background-position:0px 0px;width:40px;height:40px;padding:5px;position:absolute;top:12px;left:43px;}
+.IMFone,.IMFthree,.IMFfour,.IMFfive,.IMFsix {position:relative;height:90px;border-bottom:1px solid #dbdbdb;}
+.IMFoneO,.IMFthreeO,.IMFfourO,.IMFfiveO,.IMFsixO {font-size:16px;color:#535353;font-weight:900;font-family: "微软雅黑";padding-left:139px;padding-top:40px;padding-right:28px;}
+.IMFoneT,.IMFthreeT,.IMFfourT,.IMFfiveT ,.IMFsixT {font-size:14px;padding-top:42px;}
+.IMFtwo {font-size:12px;padding-left:139px;padding-top:15px;}
+.IMFonea,.IMFthreea,.IMFfoura,.IMFfivea,.IMFsixa {padding-top:13px;}
+.aa{padding:10px 10px;}
+.IMFonec a,.IMFthreec a,.IMFfourc a,.IMFfivec a,.IMFsixc a {float:right;width:90px;height:24px;background:#ff5256;color:white;line-height:25px;text-align:center;margin-right:63px;margin-top:-42px;}
+.IMFoneb,.IMFthreeb,.IMFfourb,.IMFfiveb,.IMFsixb {margin-top:3px;color:#989898;}
+.Shiming:hover{background-color:#ff744f;}
+
+.IMFthree dt{background: url(../img/Little.png) no-repeat;background-position:0px -105px;width:40px;height:40px;padding:5px;position:absolute;top:12px;left:43px;}
+.IMFfour dt{background: url(../img/Little.png) no-repeat;background-position:0px -225px;width:40px;height:40px;padding:5px;position:absolute;top:12px;left:43px;}
+.IMFfive dt{background: url(../img/Little.png) no-repeat;background-position:0px -322px;width:40px;height:40px;padding:5px;position:absolute;top:12px;left:43px;}
+.IMFsix dt{background: url(../img/Little.png) no-repeat;background-position:0px -435px;width:40px;height:40px;padding:5px;position:absolute;top:12px;left:43px;}
+
+.IMFsixT, IMFtwo {color:red;}
+.IMFimg {background: url(../img/LittleHead.png) no-repeat;background-position:0px -78px;width:10px;height:15px;padding:5px;position:absolute;top:12px;left:283px;}
+.IMFthree, .IMFfour, .IMFfive, .IMFsix {margin-top:30px;}
+.IMFsix {border-bottom:none;position:relative}
+
+/*快捷键弹出层*/
+.md_pop{z-index:1000;width: 100%;height: 100%;bottom: 0px;left: 0;display: none;position:fixed;}
+.pop_close{position: absolute;right: 150px;top: 150px;width: 16px;height: 16px;}
+.shortcut_keyboard, .BDmobile, .BDemail,.Enterpsw,.TXpsw,.forgerpsw{display: none;overflow: hidden;width: 700px;height: auto;background-color: #fff;box-shadow: 0px 0px 20px #333;margin:  auto;padding:25px;position:relative;}
+.Closebtn {background-image: url('../img/CloseIfm.png');background-repeat: no-repeat;position: absolute;top: 3px;right: 3px;height: 23px;width: 23px;cursor: pointer;background-color: white;}
+.Closebtn:hover{border:1px solid #ff5256;}
+.CloseStockbtn ,.ClosebtnAmount,.ClosebtnWin{background-image: url('../img/CloseIfm.png');background-repeat: no-repeat;position: absolute;top: 3px;right: 3px;height: 23px;width: 23px;cursor: pointer;background-color: white;}
+.CloseStockbtn:hover,ClosebtnAmount:hover{border:1px solid #ff5256;}
+* tr>th{line-height: 50px;vertical-align: inherit;font-style: normal;font-weight: normal;padding-right:5px;}
+.JianJu {padding-right:25px;}
+.BtnSty {text-align: center; display: inline-block; float: inherit;text-decoration: none;background: #ff5256;color: #fff;border: 1px solid #eb6a05;border-radius: 2px;font-size: 12px;height:20px;line-height:20px; margin:3px 5px;}
+.BrdHei {border-radius: 3px;height:36px;line-height: 24px;background-color: #fff;font: -webkit-small-control;color: initial;letter-spacing: normal;word-spacing: normal;text-transform: none;text-indent: 0px;text-shadow: none;display: inline-block;text-align: start;padding: 0 10px;border:1px solid #cfcfcf;}
+* input:hover {border: 1px solid #ff5256;}
+.SCimg {height: 180px;width: 250px;display: block;margin-top:20px;}
+.user-box-con-1 h1,.BDmobile h1,.BDemail h1,.Enterpsw h1,.TXpsw h1,.forgerpsw h1{padding-bottom: 10px;font-size: 22px;background-color: #f7f7f7;color: #e43737;padding-left: 25px;padding-top: 10px;}
+
+.upload-card-btn{display:block; border:dashed 1px #dcdcdc; width:300px; height:220px; overflow:hidden;}
+.upload-card-btn:hover{ border:solid 1px #dcdcdc;}
+.uploading-wrap{width: 302px;height: 222px;position: absolute;left: 0px;top: 16px; z-index:98;}
+.uploading-bg{width: 302px;height: 222px;background: #000;position: absolute;z-index: 99;opacity: 0.6;}
+.uploading-txt{position: relative;z-index: 100;color: #fff;text-align: center;top: 24%;}
+.uploading-txt h2{ font-size:60px;}
+
+.input-v-code{ width:160px;}
+.vcode-img{border:solid 1px #dedede; vertical-align:top;}
+.disable[type="button"]{ background-color:#eee !important; color:#999 !important; border:1px solid #eee !important;}
+.forgerpsw table tr .label,.BDemail table tr .label {width:100px;padding-right:20px;text-align:right;}
+
+.pointStockTitle{ text-align:left; background-color:#CCC; margin-bottom:3px; line-height:25px; height:25px; padding:5px;}
+.hengruibao_in_box .table_tab thead th{ text-align:center;}
+.hengruibao_in_box .table_tab td{ padding:5px;line-height: 35px; border-bottom:1px #CCC solid;}
+.pointStockInfo p{ background:#f1f1f1; float:left; padding-left:8px;text-align:left; line-height:45px; border-right:1px #CCC solid; height:110px;}
+.addStrategy{ text-align:right; widows:100%; padding:10px;}
+#rollin{ line-height:30px; height:30px;}
+.searchForm{ padding:10px 0px;}
+.searchText{ border: 1px #999 solid; margin-right:20px; height:25px;line-height: 25px;}
+.btn-submit{float: right;width: 90px;height: 24px;background: #ff5256;color: white;line-height: 25px;text-align: center;margin-right: 63px;border: 1px #ff5256 solid;}
+.table_tab td{ text-align:center;}
+
+.pointStockTitle{ text-align:left; background-color:#CCC;margin-top:3px;margin-bottom:0px;line-height:25px; height:25px; padding:5px;}
+.hengruibao_in_box .user-box-2 td{ padding:0px;font-size: 14px;}
+.pointStockInfo{}
+.pointStockInfo p{ background:#f1f1f1; float:left; padding:4px;text-align:center; line-height:40px; border-right:1px #CCC solid; height:85px;}
+.show_StockAccount,.addAmountUser,.toWinUser,.toenddiv{z-index: 1000;width: 100%;height: 100%;bottom: 0px;left: 0;display: none;position: fixed;}

@@ -1,0 +1,295 @@
+/* 主色调 */
+/* 鼠标悬停状态 */
+/* 鼠标点击状态 */
+/* 成功状态 */
+/*错误/失败状态*/
+/* 警告提示 */
+/* 链接状态*/
+/* 重要状态 */
+/* 常规状态 */
+/* 次要状态 */
+/* 弱化/不可用状态*/
+/* 分割线/描边*/
+/* 背景颜色*/
+/*用于深色背景 */
+/* lg按钮高度*/
+/* sm 按钮高度 */
+/* 按钮文字大小 */
+.aui_outer {
+  min-width: 462px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  box-shadow: -1px 0 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+.aui_border {
+  width: 100%;
+}
+.aui_dialog {
+  width: 100%;
+}
+.aui_titleBar {
+  width: 100%;
+  padding: 17px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+.aui_titleBar .aui_close {
+  font-weight: normal;
+  color: #999;
+}
+.aui_close {
+  position: absolute;
+  right: 5px;
+  top: 12px;
+  width: 30px;
+  height: 30px;
+  font-size: 24px;
+  line-height: 30px;
+  color: #999;
+}
+/* 弹窗 关闭按钮 focus样式去除下划线 */
+.aui_close:hover,
+.aui_close:focus {
+  color: #999;
+  text-decoration: none;
+}
+.aui_main {
+  /* padding: 20px 0; */
+  border-top: 1px solid #dfdfdf;
+}
+.aui_content {
+  font-size: 14px;
+  padding: 32px 24px!important;
+}
+.aui_content form .control-label {
+  text-align: right;
+  font-weight: normal;
+}
+.aui_content form select.form-control,
+.aui_content form input.form-control {
+  width: 100%;
+  height: 32px;
+  border-color: #dfdfdf;
+}
+.aui_content form select.form-control {
+  color: #666;
+}
+.aui_content form .form-group {
+  margin-bottom: 24px;
+}
+.aui_content form .form-group:last-child {
+  margin-bottom: 0;
+}
+.aui_buttons {
+  width: 100%;
+  padding: 0 22px 24px 22px;
+  padding-top: 0;
+  text-align: right;
+}
+.aui_buttons button {
+  background: #fff;
+  border: 0;
+  margin: 0 5px;
+  padding: 5.5px 23px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+.aui_buttons button.aui_state_highlight {
+  background-color: #e85352;
+  border: 1px solid #e85352;
+  color: #fff;
+}
+.aui_buttons button.aui_state_highlight:hover {
+  background-color: #ea6564;
+  color: #fff;
+}
+.aui_buttons button.aui_state_highlight:active {
+  background-color: #d04b4a;
+  color: #fff;
+}
+.aui_buttons button:nth-of-type(2) {
+  border: 1px solid #ccc;
+  color: #666;
+}
+.aui_buttons button:nth-of-type(2):hover {
+  border-color: #e85352;
+  color: #e85352;
+}
+.aui_buttons button:nth-of-type(2):active {
+  border-color: #c44d4c;
+  color: #c44d4c;
+}
+.aui_buttons button:last-child {
+  margin-right: 0;
+}
+.aui_buttons button[disabled] {
+  border-color: #ddd;
+  color: #999;
+}
+button {
+  outline: none;
+}
+/* toast 成功提示 */
+.tips-toast {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: none;
+  z-index: 99999;
+}
+.tips-toast .toast-box {
+  display: -webkit-box;
+  height: 100%;
+  width: 100%;
+  max-width: 80%;
+  margin: auto;
+  -webkit-box-align: start;
+  -webkit-box-pack: center;
+}
+.tips-toast .toast-msg {
+  padding: 16px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: -1px 0 6px rgba(0, 0, 0, 0.3);
+  display: table;
+}
+.tips-toast .toast-msg .toast-icon {
+  font-size: 24px;
+  padding-right: 13px;
+  display: table-cell;
+  vertical-align: middle;
+}
+.tips-toast .toast-msg .toast-icon.status-success {
+  color: #56c538;
+}
+.tips-toast .toast-msg .toast-icon.status-error {
+  color: #fa5454;
+}
+.tips-toast .toast-msg .toast-icon.status-warr {
+  color: #ffab00;
+}
+.tips-toast .toast-msg .toast-text {
+  font-size: 14px;
+  display: table-cell;
+  vertical-align: middle;
+}
+.tips-toast .toast-msg .toast-text .title {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.m-art-click {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.m-art-click .m-artinfo {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+}
+/*
+less文件中定义的函数
+Animation 动画 
+@animation-name规定需要绑定到选择器的 keyframe 名称
+@animation-duration规定完成动画所花费的时间，以秒或毫秒计,默认是 0。
+@animation-timing-function规定动画的速度曲线。默认是 "ease"。
+@animation-delay规定在动画开始之前的延迟。默认是 0。
+@animation-iteration-count规定动画应该播放的次数。默认是 1。
+@animation-direction规定是否应该轮流反向播放动画。默认是 "normal"。
+*/
+.tipBoxSlideDown {
+  -moz-animation: tipsMoveDowm 300ms ease 0s forwards normal;
+  -webkit-animation: tipsMoveDowm 300ms ease 0s forwards normal;
+  -o-animation: tipsMoveDowm 300ms ease 0s forwards normal;
+  animation: tipsMoveDowm 300ms ease 0s forwards normal;
+}
+.tipBoxSlideUp {
+  -moz-animation: tipsMoveUp 400ms ease 0s forwards normal;
+  -webkit-animation: tipsMoveUp 400ms ease 0s forwards normal;
+  -o-animation: tipsMoveUp 400ms ease 0s forwards normal;
+  animation: tipsMoveUp 400ms ease 0s forwards normal;
+}
+@keyframes tipsMoveDowm {
+  from {
+    margin-top: 0;
+  }
+  to {
+    margin-top: 18px;
+  }
+}
+@-webkit-keyframes tipsMoveDowm {
+  from {
+    margin-top: 0;
+  }
+  to {
+    margin-top: 18px;
+  }
+}
+@-moz-keyframes tipsMoveDowm {
+  from {
+    margin-top: 0;
+  }
+  to {
+    margin-top: 18px;
+  }
+}
+@-o-keyframes tipsMoveDowm {
+  from {
+    margin-top: 0;
+  }
+  to {
+    margin-top: 18px;
+  }
+}
+@keyframes tipsMoveUp {
+  from {
+    margin-top: 18px;
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+  to {
+    margin-top: -30px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+}
+@-webkit-keyframes tipsMoveUp {
+  from {
+    margin-top: 18px;
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+  to {
+    margin-top: -30px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+}
+@-moz-keyframes tipsMoveUp {
+  from {
+    margin-top: 18px;
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+  to {
+    margin-top: -30px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+}
+@-o-keyframes tipsMoveUp {
+  from {
+    margin-top: 18px;
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+  to {
+    margin-top: -30px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+}

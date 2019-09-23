@@ -1,0 +1,185 @@
+<?php
+/* 商城网站首页
+ * @author Bill
+ * @data 21090218
+ */
+namespace app\mall\controller;
+use think\Controller;
+
+class Index extends Controller{
+	public function __construct() {
+		//if(isMobile()){
+			config('template.view_path','../template/mallm/');
+		//}
+		parent::__construct();
+		$userinfo = session('userinfo');
+		if(!empty($userinfo)){
+			$this->assign('userinfo',$userinfo);
+		}
+		//网站SEO标题   “勤阅读，读好书，读经典”
+		$keywords = $description = '租书会，中小学必读经典图书租借平台。读好书，租经典，养成勤阅读的好习惯。';
+		$webseo = ['title'=>'租书会-读好书，租经典','keywords'=>$keywords,'description'=>$description];
+		$this->assign('webseo',$webseo);
+	}
+	/************************ 调试用 ***************************/
+	public function a(){
+		/* echo cookie('zcUser');
+		cookie('zcUser','qqwq');
+		echo cookie('zcUser'); */
+		
+		//
+		//$wheres = ['cid'=>1];
+		$wheres['id']= ['>',13];
+		//id
+		$lists = db('good_inf')->where($wheres)->select();
+		foreach ($lists as $val){
+			/* $picarr = json_decode(base64_decode($val['pic']),true);
+			//print_r($picarr);
+			foreach ($picarr as $k=>$v){
+				$firstr = substr($v, 0,1);
+				if($firstr == 'h'){
+					echo substr($v, 23).'<br>>>>>';
+					$picarr[$k] = substr($v, 23);
+				}
+			}
+			$newpic = base64_encode(json_encode($picarr));
+			$data = ['pic'=>$newpic]; */
+			//db('good')->where('id',$val['id'])->update($data);
+			
+			//exit;
+			
+			//$desc = str_replace("http://img.zushuhui.com","",$val['desc']);
+			//$data = ['desc'=>$desc];
+			//db('good_inf')->where('id',$val['id'])->update($data);
+		}
+		
+		exit;
+	
+	}
+	/************************ 调试用 ***************************/
+	/* 首页
+	 * @author Bill
+	 * @data 21090218
+	 */
+	public function index(){
+		
+		//$this->redirect(url('list/cat'));
+		
+		/* $wxAppid = config('configset.WXJSQAPPID');
+		$wxSecret = config('configset.WXJSQSECRET');
+		$wxBUrl = config('configset.WXJSQCALLBACK_URL'); */
+		/*微信登陆
+		 appid	是	应用唯一标识
+		redirect_uri	是	请使用urlEncode对链接进行处理
+		response_type	是	填code
+		scope	是	应用授权作用域，拥有多个作用域用逗号（,）分隔，网页应用目前仅填写snsapi_login即
+		state	否	用于保持请求和回调的状态，授权请求后原样带回给第三方。该参数可用于防止csrf攻击（跨站请求伪造攻击），建议第三方带上该参数，可设置为简单的随机数加session进行校验
+		*/
+		/* $wxState = md5('wx'.rand(10000,99999).time());
+		
+		session('wxLoginToken',$wxState);
+		$urlArr = ['response_type'=>'code','scope'=>'snsapi_login',
+		'appid'=>$wxAppid,'redirect_uri'=>$wxBUrl,'state'=>$wxState];
+		$wxUrl = 'https://open.weixin.qq.com/connect/qrconnect?'.http_build_query($urlArr);
+		$this->assign('wxUrl',$wxUrl); */
+		/****************** 微信三方登陆结束  ********/
+		
+		$listscat = db('good_category')->where("status=2")->order('weight DESC')->select();
+		$this->assign('listscat',$listscat);
+		
+		//查询分类下的商品
+		$catgoods = [];
+		foreach ($listscat as $k=>$v){
+			$catgoods[$k] = db('good')->where("status=2 and cid=".$v['id'])->order('weight DESC')->limit(8)->select();
+		}
+		$this->assign('catgoods',$catgoods);
+		
+		
+		//热搜词
+		$hotserchkey = get_config(1003);
+		$this->assign('hotserchkey',$hotserchkey);
+		
+		if(isMobile()){
+			return view();
+		}else{
+			return view('indexpc');
+		}
+		
+    }
+    //上传处理
+    public function upload(){
+    	$imagesRoot = 'images';
+    	// 获取表单上传文件 例如上传了001.jpg
+    	$file = request()->file('userfile');
+    	// 移动到框架应用根目录/public/uploads/ 目录下
+    	if($file){
+    		//$info = $file->move(ROOT_PATH . 'public' . DS . 'uploads');
+    		$info = $file->move(ROOT_PATH . 'public' . DS .$imagesRoot);
+    		if($info){
+    			// 成功上传后 获取上传信息
+    			/* // 输出 jpg
+    			 echo $info->getExtension();
+    			// 输出 20160820/42a79759f284b767dfcb2a0197904287.jpg
+    			echo $info->getSaveName();
+    			// 输出 42a79759f284b767dfcb2a0197904287.jpg
+    			echo $info->getFilename(); */
+    			 
+    			//{"flag":"SUCCESS","source":"/image/15161682383818665428.jpg","path":"/image/15161682383818665428.jpg","type":"jpg"}
+    			 
+    			//水印处理  及图片压缩处理
+    			$image = \think\Image::open('./'.$imagesRoot.'/'.$info->getSaveName());
+    			// 返回图片的宽度
+    			$width = $image->width();
+    			// 返回图片的高度
+    			$height = $image->height();
+    			 
+    			if($width>500 || $height>750){
+    				$image->thumb(750,500,\think\Image::THUMB_SCALING)->save('./'.$imagesRoot.'/'.$info->getSaveName());
+    			}
+    			echo  json_encode(array('status'=>200,'msg'=>'上传成功！'
+    					,'flag'=>'SUCCESS','source'=>'/'.$imagesRoot.'/'.$info->getSaveName()
+    					,'path'=>'/'.$imagesRoot.'/'.$info->getSaveName(),'type'=>$info->getExtension()
+    			));
+    			exit;
+    		}else{
+    			// 上传失败获取错误信息
+    			//echo $file->getError();
+    			 
+    			return ['status'=>201,'msg'=>'上传失败！'
+    					,'flag'=>'FALSE','info'=>$file->getError()];
+    		}
+    	}
+    }
+    
+    //文章的语音播放-----------------
+    public function yy(){
+    	$slmstxt = input('get.txt/s');
+    	$spd = input('get.spd/d');
+    	$spd = $spd?$spd:5;
+    	$per = input('get.per/d');
+    	$per = $per?$per:0;
+    	if(empty($slmstxt)){
+    		return false;
+    	}
+    	
+	    vendor('bdyy.AipSpeech');
+	    $bdyyAppid = '14674395';
+	    $bdyyAppKey = 'PmqLduKOTeW0SMS5AHVYUHZg';
+	    $bdyySecretKey = 'z0IR2Bnl48baBGOoelsTIvWrqII1no09';
+	    $client = new \AipSpeech($bdyyAppid, $bdyyAppKey, $bdyySecretKey);
+	    
+	    
+	    $encode2 = mb_detect_encoding($slmstxt, array("ASCII",'UTF-8',"GB2312","GBK",'BIG5'));
+	    if ($encode2 == "GBK"){
+	    	$slmstxt = iconv("GBK","UTF-8",$slmstxt);
+	    };
+	    $result = $client->synthesis($slmstxt, 'zh', 1, array(
+	    		'vol' => 5,//音量，取值0-15，默认为5中音量
+	    		'spd' => $spd,//语速，取值0-9，默认为5中语速
+	    		'per' => $per,//发音人选择, 0为女声，1为男声，3为情感合成-度逍遥，4为情感合成-度丫丫，默认为普通女
+	    		'pit' => 5,//音调，取值0-9，默认为5中语调
+	    ));
+	    echo $result;
+    }
+    
+}

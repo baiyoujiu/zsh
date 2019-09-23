@@ -1,0 +1,111 @@
+﻿
+/*解决IE6固定振动问题*/
+*html, *html body { _background-image:url(about:blank); _background-attachment:fixed; }
+/*对话框样式*/
+.db-bg { position:fixed; top:0px; left:0px; _position:absolute; _top:expression(eval(document.documentElement.scrollTop)); background:#000; filter:alpha(opacity=30); opacity:0.3; -moz-opcity:0.3; _background: url(./db-bg.gif) repeat;}
+.db-bg-in{ padding:6px; background:url(./db-bg-in.png) repeat;}
+.db { position:fixed; _position:absolute; _top:expression(eval(document.documentElement.scrollTop+(document.documentElement.clientHeight-this.offsetHeight)/2-30));}
+.db-close { width:18px; height:18px; float:right; margin-top:6px; background:url(./icon.png) no-repeat; _background:url(./icon.png) no-repeat; background-position:-40px -45px; cursor:pointer; }
+.db-alt-close{width:18px; height:18px; position:absolute; top:6px; right:8px; background:url(./icon.png) no-repeat; _background:url(./icon.png) no-repeat; background-position:-40px -45px; cursor:pointer; }
+.db-close:hover, .db-alt-close:hover { background-position:-40px -62px; }
+.db-t { height:30px; line-height:30px; font-size:14px; font-weight:bold; font-style:normal; color:#e43737; border-top:1px solid #EBEBEB; border-bottom:2px solid #e43737; padding:0 10px; background:#DEDEDE; }
+.db-m { padding:20px 20px 20px 20px; background:#F8F8F8;}
+.db-tips { border: 1px solid #F5DBDB;background: #FFF1F3;border-radius: 2px;color: #CB2B37;}
+.db-tips .icon { margin:11px }
+.db-icon{background:url(./icon.png) no-repeat; _background:url(./icon.png) no-repeat; display:inline-block; font-size:0;width:45px; height:45px;}
+.db-icon-info{background-position:0px -130px; }
+.db-icon-help{background-position:0px -199px; }
+.db-icon-error{background-position:0px -267px; }
+.db-icon-ok{background-position:0px -336px; }
+.db-con .lui-form-item{ padding:0 0 17px 100px;}
+.db-con-0 .lui-form-item{ padding:0 0 17px 0px; text-align:center;}
+.db-con-1 .lui-form-item{ text-align:center;}
+.db-con-1 .lui-input {padding: 5px;border: 1px solid #CFCFCF;border-radius: 3px;}
+.db-con-1 .ui-form-text{ padding:0 0 16px 130px;}
+/*提示框样式*/
+.db-p{ position:absolute; border:1px solid #FFBB76; background:#FFFCEF; border-radius: 3px;}
+.db-p-close{position:absolute; top:2px; right:2px; width:13px; height:13px; background: url(../img/common/prompt-close.png) no-repeat; cursor:pointer;}
+.db-p-con{ padding:3px 15px 3px 10px; font-size:12px; line-height:18px; color:#DB7C22;}
+.db-p em, .db-p span{display:inline-block; position:absolute; width:0px; height:0px; font-size:0px; overflow:hidden; border-style:dashed; border-color:transparent;}
+.db-p-0 em{ left:50%; top:-6px; margin-left:-5px; border-bottom-style:solid; border-width:0px 5px 5px; border-bottom-color:#fb7e00;}
+.db-p-0 span{ left:50%; top:-5px; margin-left:-5px; border-bottom-style:solid; border-width:0px 5px 5px; border-bottom-color:#FFFCEF;}
+.db-p-1 em{ right:20px; top:-6px; border-bottom-style:solid; border-width:0px 5px 5px; border-bottom-color:#FFBB76;}
+.db-p-1 span{ right:20px; top:-5px; border-bottom-style:solid; border-width:0px 5px 5px; border-bottom-color:#FFFCEF;}
+.db-p-2 em{ right:-6px; top:50%; margin-top:-5px; border-left-style:solid; border-width:5px 0px 5px 5px; border-left-color:#FFBB76;}
+.db-p-2 span{ right:-5px; top:50%; margin-top:-5px; border-left-style:solid; border-width:5px 0px 5px 5px; border-left-color:#FFFCEF;}
+.db-p-3 em{ right:20px; bottom:-6px; border-top-style:solid; border-width:5px 5px 0px; border-top-color:#FFBB76;}
+.db-p-3 span{ right:20px; bottom:-5px; border-top-style:solid; border-width:5px 5px 0px; border-top-color:#FFFCEF;}
+.db-p-4 em{ left:50%; bottom:-6px; margin-left:-5px; border-top-style:solid; border-width:5px 5px 0px; border-top-color:#FFBB76;}
+.db-p-4 span{ left:50%; bottom:-5px; margin-left:-5px; border-top-style:solid; border-width:5px 5px 0px; border-top-color:#FFFCEF;}
+.db-p-5 em{ left:20px; bottom:-6px; border-top-style:solid; border-width:5px 5px 0px; border-top-color:#FFBB76;}
+.db-p-5 span{ left:20px; bottom:-5px; border-top-style:solid; border-width:5px 5px 0px; border-top-color:#FFFCEF;}
+.db-p-6 em{ left:-6px; top:50%; margin-top:-5px; border-right-style:solid; border-width:5px 5px 5px 0px; border-right-color:#FFBB76;}
+.db-p-6 span{ left:-5px; top:50%; margin-top:-5px; border-right-style:solid; border-width:5px 5px 5px 0px; border-right-color:#FFFCEF;}
+.db-p-7 em{ left:20px; top:-6px; border-bottom-style:solid; border-width:0px 5px 5px; border-bottom-color:#FFBB76;}
+.db-p-7 span{ left:20px; top:-5px; border-bottom-style:solid; border-width:0px 5px 5px; border-bottom-color:#FFFCEF;}
+/*对话框按钮*/
+.btn-d { width:80px; height:30px; line-height:30px; background:url(../img/common/btn-d.jpg) no-repeat; border:0 none; color:#333333; font-size:16px; cursor:pointer; }
+.btn-d:hover { background:url(../img/common/btn-d-1.jpg) no-repeat; }
+/*仿连接的按钮*/
+.btn-a, .btn-a-a { width:78px; height:28px; background-color:#FFFFFF; border:0 none; color:#0088CC; font-size:14px; margin-left:10px; }
+.btn-d-a { width:78px; height:28px; background-color:#EBEBEB; border:1px solid #ACACAC; color:#000000; font-size:16px; }
+/*对话框输入框*/
+.inb { height:24px; font-size:14px; border:1px solid #ABADB3; line-height:24px; color:#676767; padding:3px 5px; }
+/*对话框表单*/
+.d-f-item { margin-bottom:5px; padding:0 0 0 150px; }
+.d-f-item label { width:150px; float:left; text-align:right; margin-right:10px; margin-left:-160px; }
+/*错误页面*/
+.deny-body{text-align:center;padding:100px;border:1px solid #eee;}
+.deny h2
+{
+    font-size: 22px;
+    line-height:200px;
+}
+.deny-img
+{
+    width:215px;
+    height:215px;
+    background:url(../img/common/deny.png) no-repeat 0 0;
+}
+
+.icon { background:url(./dialog-icons.png) no-repeat; _background:url(./dialog-icons.png) no-repeat; display:inline-block; font-size:0; vertical-align:middle;}
+.icon-warning {width:17px; height:17px; background:#eee; background:url(../img/common/dia-rcicons.png) -175px -15px no-repeat;}
+
+/*登录框*/
+.login-box .lui-input{width:237px; padding:10px 5px 10px 30px; background:#FAFAFA;border:1px solid #dcdcdc;border-radius:3px;}
+.login-box .lui-input-pwd{width:237px; padding:10px 5px 10px 30px; border:1px solid #dcdcdc;border-radius:3px;}
+.login-box-in{position:relative; padding-bottom:20px; text-align:center;}
+.login-box-in .head { position:absolute; top:12px; left:20px; _left:6px; width:22px; height:22px; background-position:-66px -105px; }
+.login-box-in .lock { position:absolute; top:12px; left:20px; _left:6px; width:22px; height:22px; background-position:-66px -128px; }
+.login-box-in .login-clear{ right:22px;_right:48px;}
+.login-clear{ position:absolute; right:12px;_right:38px; top:16px; width:11px; height:11px; font-size:0; background:#e25353; cursor:pointer;background-position:0px -11px;}
+.login-clear:hover{ background-position:0px 0px;}
+
+.font-bold {
+    font-weight:bold;
+}
+.text-right {
+    text-align:right;
+}
+
+/*邀请链接*/
+.weibo_box{ overflow: hidden;zoom: 1;padding-top: 20px; padding-bottom: 15px; margin-top:15px; border-top:1px solid #ccc;}
+.logo_col{ float: left;margin-right: 20px;}
+.text_con{float: left;width: 500px;border: 1px solid #ccc;padding: 15px 10px;border-radius: 2px;}
+.share_btn{ background: #ffc600;border-radius: 5px;box-shadow: 0 4px 0 #e8b400;color: #fff;display: block;height: 36px;line-height: 36px;text-align: center;width: 115px;float: left;margin-left: 10px;margin-top: 10px;}
+.share_btn a{ display: block;color: #ffffff;}
+.wexin_con{float: left;width: 500px;}
+
+/*恒瑞宝转入成功*/
+.openwindo{position:fixed;top:30%;width:100%; z-index:1100; left:0; display:none;}
+.openwindo i{font-style:normal}
+.gb_fix{position:fixed;top:0; width:100%; height:100%; z-index:15; left:0; background-color:#000000; opacity:0.7; z-index:1001; display:none;}
+.into_box{width:600px; padding:50px; margin:auto; height:200px; background-color:#fff; border-radius:5px;position: relative;}
+.into_box ul.col_4{ overflow:hidden;}
+.into_box ul.col_4 li{float:left; width:150px; text-align:center; line-height:25px;}
+.into_box ul.mg{margin-top:20px}
+.into_box ul li strong{color:#f00}.into_box ul li span{color:#f00;font-size:18px;font-weight:500;}
+.into_box p{margin-top:40px; text-align:center;}
+.into_box p a{background-color:#e43737; padding:5px 25px; color:#fff; font-size:16px; border-radius:5px;}
+.into_box ul.line{ position: absolute;top: 120px;left: 170px;}
+.into_box ul.line li{ width: 60px;border-bottom: 1px solid #ccc;float: left;margin-right: 90px;}

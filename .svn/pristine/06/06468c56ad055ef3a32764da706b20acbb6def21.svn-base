@@ -1,0 +1,137 @@
+@charset "UTF-8";
+.pagination {
+  font-size: 12px;
+  margin: 0 0 10px 0;
+}
+.pagination > li > a,
+.pagination > li > span {
+  padding: 4px 9px;
+  border-radius: 4px;
+  margin:0 4px;
+}
+.pager li > a,
+.pager li > span {
+  border-radius: 4px;
+  border-color: #dfdfdf;
+}
+.pagination li > a >i,
+.pagination li > span >i{
+  font-size: 12px;
+}
+.pagination input {
+  height: 27px;
+  width: 46px;
+  text-align: center;
+}
+.pagination select {
+  height: 17px;
+  padding: 0;
+  display: block;
+}
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > span,
+.pagination > .active > span:hover,
+.pagination > .active > span:focus {
+  background-color: #515260;
+  border-color: #515260;
+}
+.pagination > .active > a:link{
+   background-color: #515260;
+   border-color: #515260;
+   color: #fff;
+}
+.pagination > .active > a:visited{
+   background-color: #515260;
+   border-color: #515260;
+   color: #fff;
+}
+.pagination > .active > a:hover{
+   background-color: #636470;
+   border-color: #636470;
+   color: #fff;
+}
+.pagination > .active > a:active{
+   background-color: #494a56;
+   border-color: #494a56;
+   color: #fff;
+}
+
+
+
+.pagination > li > span input{
+  outline: none;
+  border-radius: 4px;
+  border: none;
+  border:1px solid #dfdfdf;
+}
+.pagination > li > span:hover{
+  background: #fff;
+}
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+  background-color: #fff;
+  color: #515260;
+  border-color: #515260;
+}
+
+.pagination > li > a:link{
+  background-color: #fff;
+  color: #333;
+}
+.pagination > li > a:visited{
+  background-color: #fff;
+  border-color: #dfdfdf;
+  color: #333;
+}
+.pagination > li > a:hover{
+  background-color: #fff;
+  color: #636470;
+  border-color: #636470;
+}
+.pagination > li > a:active{
+  background-color: #fff;
+  color: #494a56;
+  border-color: #494a56;
+}
+
+.pager {
+  margin: 10px 0;
+  zoom: 1;
+}
+.pager:before,
+.pager:after {
+  display: table;
+  content: "";
+  clear: both;
+}
+.pager .previous > button,
+.pager .previous > a,
+.pager .previous > input {
+  float: left;
+  margin-right: 6px;
+}
+.pager .next > button,
+.pager .next > a,
+.pager .next > input {
+  float: right;
+  margin-left: 6px;
+}
+.pagination>li>.pageOperate{
+  border: none;
+}
+.pagination>li>span{
+  border: none;
+  padding-top: 0;
+}
+.pagination>li>span.pageOperate{
+  padding-top: 0;
+}
+.pagination>li>span.pageBordernone{
+  border: none;
+}
+.pager .disabled>a i, .pager .disabled>a:hover i, .pager .disabled>a:focus i, .pager .disabled>span i{
+    color: #ccc;
+    cursor: not-allowed;
+    background-color: #fff;
+}

@@ -1,0 +1,270 @@
+.font13 {
+    font-size: 13px;
+    line-height: 20px
+}
+
+.from_font12 {
+    color: #333;
+    border: 1px solid #eaeaea;
+    color: #333;
+}
+
+.handle a {
+    font-size: 12px;
+    color: #1d93d1;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.handle a:hover {
+    text-decoration: underline;
+}
+
+.form-group {
+    margin: 18px 0;
+}
+
+.form-control {
+    height: 30px;
+    padding: 0;
+}
+
+
+/*.pager li>a.btn-danger:hover,
+.pager li>a.btn-danger:focus,
+.pager li>a.btn-danger:active,
+.pager li>a.btn-default:hover,
+.pager li>a.btn-default:focus,
+.pager li>a.btn-default:active {
+    background-color: #ff6161;
+    border: 1px solid #e85352;
+    color: #fff;
+}
+*/
+
+.form-horizontal .col-sm-2 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.col-sm-3 {
+    width: 21%;
+}
+
+.shopHelp {
+    float: right;
+    margin-top: -45px;
+    margin-right: 16px;
+}
+
+.marginLeft {
+    margin-bottom: 12px;
+}
+
+.marginBottom {
+    margin-bottom: 20px;
+}
+
+.paddingLeft {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+/*.nav-tabs>li>a {*/
+    /*padding: 0 13px;*/
+/*}*/
+
+/*.nav-tabs>li {*/
+    /*border: 1px solid #eaeaea;*/
+/*}*/
+
+.box .content {
+    padding: 0;
+}
+
+.alert {
+    margin-bottom: 24px;
+}
+
+.btn-small {
+    padding: 6px 14px;
+}
+
+.table {
+    margin-bottom: 60px;
+}
+
+.table thead>tr>th {
+    background: #f7f7f7;
+    line-height: 16px;
+    font-size: 14px;
+    color: #333;
+    font-weight: normal;
+}
+
+.table-bordered,
+.table-bordered>thead>tr>th,
+.table-bordered>tbody>tr>th,
+.table-bordered>tfoot>tr>th,
+.table-bordered>thead>tr>td,
+.table-bordered>tbody>tr>td,
+.table-bordered>tfoot>tr>td {
+    border: none;
+    text-align: center;
+    padding: 16px;
+    font-size: 14px;
+}
+
+.table>tbody>tr {
+    border-bottom: 1px #eaeaea solid;
+}
+
+.table>tbody>tr>td {
+    line-height: 34px;
+    color: #666
+}
+
+.table>tbody>tr>td>p {
+    line-height: 20px;
+}
+
+.handle a {
+    font-size: 14px;
+}
+
+.table-bordered>thead>tr>th:nth-child(1) {
+    padding-left: 36px;
+}
+
+.table-bordered>thead>tr>th:nth-last-child(1) {
+    padding-left: 24px;
+}
+
+.table-bordered>tbody>tr>td:nth-child(1) {
+    padding-left: 36px;
+}
+
+.table>tbody>tr>td>p {
+    width: 195px;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+    -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+    -webkit-line-clamp: 4; /** 显示的行数 **/
+    overflow: hidden;
+}
+
+
+/*.aui_outer {
+    min-width: auto;
+}
+*/
+
+.addPeople1 {
+    color: #666;
+    line-height: 1;
+    margin-left: 93px;
+    padding-top: 8px;
+}
+
+.aui_content form select.form-control {
+    color: #333;
+    padding-left: 4px;
+}
+
+.handleSpan {
+    /*padding-left: 8px;*/
+}
+
+#addAdmin {
+    margin-left: -16px;
+    margin-top: -18px;
+}
+
+#addPeople {
+    margin-left: -16px;
+    margin-top: -18px;
+}
+
+.labelWidth {
+    width: 90px;
+    display: inline-block;
+}
+
+.inputWidth {
+    width: 280px;
+    display: inline-block;
+}
+
+.displayBlock {
+    display: inline-block;
+    margin-right: -14px;
+}
+
+textarea.form-control {
+    width: inherit;
+}
+
+textarea.ui-input {
+    color: #666;
+    font-size: 14px;
+    padding-left: 8px;
+    line-height: 20px;
+    padding-right: 8px;
+    padding-top: 4px;
+}
+
+.ui-input {
+    line-height: 20px;
+}
+
+.textareaWidth {
+    width: 320px;
+    display: inline-block;
+}
+
+.guanwang {
+    margin-left: 10px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.aui_content form .control-label {
+    vertical-align: top;
+    padding-top: 6px;
+}
+
+.aui_content form .jueseName {
+    /*vertical-align: middle;*/
+}
+
+label {
+    margin-bottom: 0;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #ccc!important;
+}
+.noContentPhoto{
+    text-align: center;
+    padding-top: 311px;
+}
+.noContentPhoto img{
+    width: 130px;
+    height: auto;
+    display: inline-block;
+    margin-bottom: 25px;
+}
+.tab-content>.tab-pane{
+    display: block;
+}
+.noManagement td{
+    text-align: center!important;
+}
+#pagination-digg{
+    margin-right: 16px;
+}
+.newColor{
+    color: #dfdfdf;
+}

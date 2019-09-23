@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0">
+<title>网页走失-欢喜房</title>
+<style type="text/css">
+html{font-size:16px;color:#898989;}body{margin:0;}.error-content{width:20rem;position:relative;text-align:center;margin:4rem auto 0;font-family:"Microsoft Yahei";}.error-bg{width:100%;height:18.75rem;background-size:20rem 18.75rem;background-image:url("/static/404.png");}.error-code{position:absolute;top:2rem;left:50%;width:9.5rem;margin-left:-5rem;font-size:2rem;font-family:"Times New Roman";}.error-message{font-size:1.2rem;margin:2rem 0 .5rem;}.fdd-color{color:#f25824;text-decoration:none;}
+</style>
+</head>
+<body>
+  <div class="error-content">
+    <div class="error-bg"></div>
+    <div class="error-code">404</div>
+    <div class="error-message">网址可能错了，<a href="javascript:history.go(-1);" title="返回" class="fdd-color">返回</a></div>
+    <div class="error-message"><a href="https://<?php echo request()->host();?>/" title="租书会" class="fdd-color">租书会，共享阅读</a></div>
+    <div class="error-message"><a href="https://<?php echo request()->host();?>/" title="租书会" class="fdd-color">古今中外经典图书租借平台</a></div>
+    <div class="error-message"><a href="https://<?php echo request()->host();?>/" title="租书会" class="fdd-color">首页</a></div>
+  </div>
+</body>
+</html>

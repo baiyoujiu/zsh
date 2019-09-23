@@ -1,0 +1,183 @@
+{include file="common/header" /}
+		<script>
+			$(function(){
+				$('.yhq_lists li').click(function(){
+					$('.yhq_lists li').removeClass('active');
+					$('.yhq_ym_box nav').hide();
+					$(this).addClass('active');
+					$('.yhq_ym_box nav:eq('+$(this).index()+')').show();
+				})
+			})
+		</script>
+
+		<section class="dd_home">
+			<h2 class="fanhui_head"><a href="javascript:history.back(-1);"><i class="icon-left"></i></a>我的优惠券</h2>
+		</section>
+		<!--占位-->
+		<section class="zhanwei_hei40"></section>
+		<section class="yhq_ym_box">
+			<ol class="yhq_lists clearfix">
+				<li class="fl active">
+					<i>未使用</i>
+				</li>
+				<li class="fl">
+					<i>已使用</i>
+				</li>
+				<li class="fl">
+					<i>已过期</i>
+				</li>
+			</ol>
+			<!--未使用-->
+			<nav style="display:block;">
+				<ul class="yhq_wsy_list">
+					<li>
+						<div class="clearfix">
+							<div class="fl yhq_wsy_left">
+								<h3>有效</h3>
+								<h2>￥520</h2>
+								<h4>满1314.00元使用</h>
+							</div>
+							<span class="up_qiu"></span>
+							<span class="center_xian"></span>
+							<span class="down_qiu"></span>
+							<div class="fl yhq_wsy_right">
+								<h3>母婴跨店满1314减520</h3>
+								<h2>全场通用</h2>
+								<h4 class="clearfix">
+									<p class="fl">2019-06-17&nbsp;&nbsp;24:00:00到期</p>
+								</h4>
+							</div>
+						</div>
+						<div class="yhq_wsy_xq">
+							<span></span>
+							<p>使用时间：2019-06-17 12:25:12至2019-06-27 24:00:00</p>
+						</div>
+					</li>
+					<li>
+						<div class="clearfix">
+							<div class="fl yhq_wsy_left">
+								<h3>有效</h3>
+								<h2>￥520</h2>
+								<h4>满1314.00元使用</h>
+							</div>
+							<span class="up_qiu"></span>
+							<span class="center_xian"></span>
+							<span class="down_qiu"></span>
+							<div class="fl yhq_wsy_right">
+								<h3>母婴跨店满1314减520</h3>
+								<h2>全场通用</h2>
+								<h4 class="clearfix">
+									<p class="fl">2019-06-17&nbsp;&nbsp;24:00:00到期</p>
+								</h4>
+							</div>
+						</div>
+						<div class="yhq_wsy_xq">
+							<span></span>
+							<p>使用时间：2019-06-17 12:25:12至2019-06-27 24:00:00</p>
+						</div>
+					</li>
+				</ul>
+			</nav>
+			<!--已使用-->
+			<nav class="yhq_ysy">
+				<ul class="yhq_wsy_list">
+					<li>
+						<div class="clearfix">
+							<div class="fl yhq_wsy_left">
+								<h3>已使用</h3>
+								<h2>￥520</h2>
+								<h4>满1314.00元使用</h>
+							</div>
+							<span class="up_qiu"></span>
+							<span class="center_xian"></span>
+							<span class="down_qiu"></span>
+							<div class="fl yhq_wsy_right">
+								<h3>母婴跨店满1314减520</h3>
+								<h2>全场通用</h2>
+								<h4 class="clearfix">
+									<p class="fl">2019-06-17&nbsp;&nbsp;24:00:00到期</p>
+								</h4>
+							</div>
+						</div>
+						<div class="yhq_wsy_xq">
+							<span></span>
+							<p>使用时间：2019-06-17 12:25:12至2019-06-27 24:00:00</p>
+						</div>
+					</li>
+					<li>
+						<div class="clearfix">
+							<div class="fl yhq_wsy_left">
+								<h3>已使用</h3>
+								<h2>￥520</h2>
+								<h4>满1314.00元使用</h>
+							</div>
+							<span class="up_qiu"></span>
+							<span class="center_xian"></span>
+							<span class="down_qiu"></span>
+							<div class="fl yhq_wsy_right">
+								<h3>母婴跨店满1314减520</h3>
+								<h2>全场通用</h2>
+								<h4 class="clearfix">
+									<p class="fl">2019-06-17&nbsp;&nbsp;24:00:00到期</p>
+								</h4>
+							</div>
+						</div>
+						<div class="yhq_wsy_xq">
+							<span></span>
+							<p>使用时间：2019-06-17 12:25:12至2019-06-27 24:00:00</p>
+						</div>
+					</li>
+				</ul>
+			</nav>
+			<!--已过期-->
+			<nav class="yhq_ygq">
+				<ul class="yhq_wsy_list">
+					<li>
+						<div class="clearfix">
+							<div class="fl yhq_wsy_left">
+								<h3>已过期</h3>
+								<h2>￥520</h2>
+								<h4>满1314.00元使用</h>
+							</div>
+							<span class="up_qiu"></span>
+							<span class="center_xian"></span>
+							<span class="down_qiu"></span>
+							<div class="fl yhq_wsy_right">
+								<h3>母婴跨店满1314减520</h3>
+								<h2>全场通用</h2>
+								<h4 class="clearfix">
+									<p class="fl">2019-06-17&nbsp;&nbsp;24:00:00到期</p>
+								</h4>
+							</div>
+						</div>
+						<div class="yhq_wsy_xq">
+							<span></span>
+							<p>使用时间：2019-06-17 12:25:12至2019-06-27 24:00:00</p>
+						</div>
+					</li>
+					<li>
+						<div class="clearfix">
+							<div class="fl yhq_wsy_left">
+								<h3>已过期</h3>
+								<h2>￥520</h2>
+								<h4>满1314.00元使用</h>
+							</div>
+							<span class="up_qiu"></span>
+							<span class="center_xian"></span>
+							<span class="down_qiu"></span>
+							<div class="fl yhq_wsy_right">
+								<h3>母婴跨店满1314减520</h3>
+								<h2>全场通用</h2>
+								<h4 class="clearfix">
+									<p class="fl">2019-06-17&nbsp;&nbsp;24:00:00到期</p>
+								</h4>
+							</div>
+						</div>
+						<div class="yhq_wsy_xq">
+							<span></span>
+							<p>使用时间：2019-06-17 12:25:12至2019-06-27 24:00:00</p>
+						</div>
+					</li>
+				</ul>
+			</nav>
+{include file="common/footer" /}

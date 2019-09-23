@@ -1,0 +1,137 @@
+*{
+    padding:0;
+    margin:0;
+}
+
+.card-title .cart-text{
+    display: block;
+    padding-top: 20px;
+    line-height: 20px;
+}
+.sum_title{
+    color: #999;
+    font-size: 12px;
+    line-height: 40px;
+}
+.card-content{
+    padding:0;
+    color: #333;
+}
+.content-add{
+    padding:24px 16px 16px 16px;
+}
+.content-add span{
+    padding-left:16px;
+    color: #999;
+}
+.nav-content{
+    padding:10px 0;
+}
+.table thead>tr>th{
+    background:#f8f8f8;
+    line-height: 16px;
+    font-size: 14px;
+    color: #333;
+    font-weight:normal;
+}
+.table-bordered, 
+.table-bordered>thead>tr>th, 
+.table-bordered>tbody>tr>th, 
+.table-bordered>tfoot>tr>th, 
+.table-bordered>thead>tr>td, 
+.table-bordered>tbody>tr>td, 
+.table-bordered>tfoot>tr>td{
+    border:none;
+    text-align: left;
+    padding:16px;
+}
+.table>tbody>tr{
+    border-bottom: 1px #eaeaea solid;
+}
+.table>tbody>tr:last-child{
+    border:none;
+}
+.table>tbody>tr>td{
+    line-height: 34px;
+    color: #666;
+    padding:5px 16px;
+    font-size:14px;
+}
+.table>tbody>tr>td>p{
+    line-height: 20px;
+}
+
+.aui_content .form-horizontal .col-md-4{
+    text-align: left;
+    width:66px;
+    padding-left: 0;
+}
+.aui_content .form-horizontal .col-md-8{
+    padding:0;
+    margin:0;
+}
+.form-horizontal .form-group{
+    margin-right:0;
+    margin-left:0;
+}
+.form-horizontal .col-md-8{
+    padding:0;
+}
+.aui_buttons{
+    padding:0 24px 24px 24px;
+}
+.error_text{
+    display: none;
+    line-height: 18px !important;
+    color: #e85352;
+    font-size:12px;
+}
+#groupname{
+	width:346px;
+	height:32px;
+	line-height:32px;
+	padding:0 0 0 8px;
+}
+.no_obj{
+    width:100%;
+    height:100px;
+    line-height: 100px;
+    text-align: center !important;
+    color:#999 !important;
+}
+.th_right,.th_rightt{
+    text-align:right !important;
+    padding-right:65px !important; 
+}
+.th_rightt a{
+   padding: 0 0 0 8px;
+}
+.lines{
+    color:#dfdfdf;
+    font-size: 10px;
+    padding:0 5px;
+}
+.btn-link{
+    padding:0;
+}
+.content-add .btn-link{
+    padding-left: 15px;
+    font-size:14px;
+}
+#template button, #template a.btn{
+	margin-top:0px;
+}
+#template{
+	margin-bottom:0 !important;
+}
+#template tr:first-child [data-movedir=up], #template tr:last-child [data-movedir=down]{
+	opacity:0.3;
+}
+.cart-text-min{
+	text-align:right;
+	float:right;
+	font-size:14px;
+}
+input.error{
+	border:1px solid #fa5454 !important;
+}

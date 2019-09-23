@@ -1,0 +1,60 @@
+@charset "utf-8";body{color:#333;font-size: 14px;line-height: 21px;}
+.card-content{color: #333;}
+.content-padding{padding:10px 0 0 0;}
+.assets-info{width:100%;display: table;}
+.assets-info li{width:33.33%;display: table-cell;vertical-align: middle;padding:0 3%;position: relative;}
+.assets-info li .line{position: absolute;height: 100%;width: 1px;right: 0;top: 0;background-color: #eaeaea;}
+.assets-info li .m-warning{font-size: 12px;line-height: 18px;color: #FFAA01;}
+.assets-info li .assets-amount,
+.assets-info li .assets-btn{display: inline-block;vertical-align: middle;}
+.assets-info li .assets-amount{padding-right: 30px;}
+.assets-info li .assets-amount .money{font-size: 30px;line-height: 45px;}
+.assets-info li .assets-amount .text{color: #999;}
+
+.assets-info li .bank{width:100%;}
+.assets-info li .bank .bank-title{font-size: 16px;line-height: 24px;}
+.assets-info li .bank .more{float: right;color: #1d93d1;}
+.assets-info li .bank-main{display: table;padding: 10px 0 0 0;}
+.assets-info li .bank-main .img,
+.assets-info li .bank-main .info{display: table-cell;vertical-align: middle;}
+.assets-info li .bank-main .img{width:42px;height:42px;}
+.assets-info li .bank-main .img img{width:100%;height:100%;border-radius: 50%;}
+.assets-info li .bank-main .info{padding:0 0 0 16px;}
+.assets-info li .bank-main .info .type{padding:0 0 0 48px;}
+.assets-info li .noBank{padding:10px 0 0 0;}
+.assets-info li .noBank a{color: #1d93d1;}
+
+.table{margin-bottom: 0;}
+.table>thead>tr>th, 
+.table>tbody>tr>th, 
+.table>tfoot>tr>th, 
+.table>thead>tr>td, 
+.table>tbody>tr>td, 
+.table>tfoot>tr>td{border-top: 1px solid #dfdfdf;font-size: 14px;line-height: 21px;text-align: left;}
+.table>thead>tr>th, 
+.table>tbody>tr>th, 
+.table>tfoot>tr>th, 
+.table>thead>tr>td, 
+.table>tbody>tr>td, 
+.table>tfoot>tr>td{padding:14px 16px;color:#666;}
+.table>thead>tr>th{border-bottom: none;background-color: #F7F7F7;color:#333;font-weight: normal;text-align: center;}
+.table-width>thead>tr>th{white-space:nowrap;/*标题不换行*/
+}
+.table>tbody>tr>td{padding:24px 16px;word-wrap: break-word;word-break: break-all;text-align: center;}
+.table>tbody>tr:first-child>td{border-top: none;}
+.table>tbody>tr>td.noInfo{/*暂无数据*/
+	text-align: center;height:100px;line-height: 100px;color:#999;}
+
+.detail-tabs {padding-left: 16px;}
+.nav-tabs>li{border: 1px solid #dfdfdf;}
+
+.content-top{width: 100%;margin-bottom: 16px;display: inline-block;}
+.content-top .content-input{display: table;vertical-align: middle;float: left;margin-right: 16px;}
+.content-top .content-input label,.content-top .form-control{display: table-cell;vertical-align: middle;}
+.content-top .content-input label{width:48px;}
+.content-top .form-control{width:100%;}
+.nav-tabs>li>a{border-top-left-radius: 4px;border-top-right-radius: 4px;}
+.triangle-topright:after{content: "";position: absolute;top:0;right: 0;width: 0;height: 0;border-top: 16px solid #e85352;border-left: 18px solid transparent;}
+
+#backReceipt .col-md-8{padding-top:7px;}
+.form-group .show{padding-top:7px;}

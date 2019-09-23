@@ -1,0 +1,256 @@
+{include file="common/header" /}
+<!--收货地址-->
+<section class="shouhuo_dizhi">
+    <section class="dd_home">
+        <h2 class="fanhui_head"><a href="javascript:history.back(-1);"><i class="icon-left"></i></a>收货地址</h2>
+    </section>
+    <section>
+        <ul class="shdz_lists">
+            <?php foreach($lists as $v){?>
+            <li>
+                <div class="shdz_list_user clearfix">
+                    <span class="fl"><?php echo $v['recname'];?></span>
+                    <p class="fl"><?php echo $v['phone'];?></p>
+                    <em class="fr adredit" data-no="<?php echo $v['ano'];?>" data-p="<?php echo $v['phone'];?>" data-n="<?php echo $v['recname'];?>" data-adr="<?php echo $v['address'];?>" data-area="<?php echo $v['area'];?>" data-school="<?php echo $v['school'];?>">编辑</em>
+                </div>
+                <div class="shdz_list_dz">
+                    <p><?php echo $arealist[$v['province']].$arealist[$v['city']].$arealist[$v['area']].$arealist[$v['street']].' '.($v['school']?$arealist[$v['address']]:$v['address']);?></p>
+                </div>
+                <div class="clearfix shdz_list_btns">
+                    <p class="clearfix fl" data-no="<?php echo $v['ano'];?>">
+                        <label>
+                            <input class="fl adrflg" type="radio" name="dizhi"<?php echo $v['flg']?' checked':'';?>/>
+                            <i class="fl">设置为默认地址</i>
+                        </label>
+                    </p>
+                    <span class="fr clearfix" data-no="<?php echo $v['ano'];?>">
+                        <img class="fl" src="__IMG__/shanchu.png" />
+                        <i class="fl">删除</i>
+                    </span>
+                </div>
+            </li>
+            <?php }?>
+            
+        </ul>
+        <div class="add_dizhi">
+            <span>添加新地址</span>
+        </div>
+    </section>
+</section>
+<!--新增地址-->
+<section class="xinzeng_dizhi">
+    <section class="dd_home">
+        <h2 class="fanhui_head"><i class="icon-left"></i><span id="adrtitle">新增收货地址</span></h2>
+    </section>
+    <section>
+        <form id="objform">
+        <input name="ano" type="hidden" id="ano" value=""/>
+        <ul class="add_dizhi_lists">
+            <p>地址信息</p>
+            <li>
+                <input type="text" name="recname" class="recname" placeholder="收货人"/>
+            </li>
+            <li>
+                <input type="text" name="phone" class="phone" placeholder="收货人手机号码"/>
+            </li>
+            <li class="right">
+                <div class="fl add_address_list_sec">
+                  <select class="pro_code" >
+                    <option value="">浙江省杭州市</option>
+                  </select>
+                </div>
+                <div class="add_address_list_sec fl">
+                  <select class="areacode" data-alt="stcode" name="area" >
+                    <option value="">请选择区/县</option>
+                    <?php foreach($alists as $k=>$v){?>
+                      <option value="<?php echo $v['code'];?>"><?php echo $v['area'];?></option>
+                    <?php }?>
+                  </select>
+                </div>
+                <div class="add_address_list_sec fl">
+                  <select class="areacode stcode" data-alt="sccode" name="street">
+                    <option value="">街道/镇</option>
+                  </select>
+                </div>
+                
+              </li>
+              <li class="right">
+                <div class="add_address_list_sec fl">
+                  <select class="sccode" name="sccode">
+                    <option value="0">其它地址</option>
+                  </select>
+                </div>
+              </li>
+            <li class="right">
+                <input type="text" name="address" class="input" id="address" placeholder="请输入详细地址">
+            </li>
+        </ul>
+        </form>
+        <div class="add_dizhi">
+            <span id="savebtn">保存</span>
+        </div>
+    </section>
+    <!--选择地址-->
+    
+</section>
+
+<script>
+	$(function(){
+		$('.shdz_lists li .shdz_list_btns span').click(function(){
+			var ano = $.trim($(this).data('no')),obj=$(this);
+			
+			layer.open({
+				content: '您确定要删除该地址吗？'
+				,btn: ['确定', '取消']
+				,yes: function(index){
+				  layer.close(index);
+				  console.log(ano);
+				  if(ano==''){return false;}
+				  obj.parent('.shdz_list_btns').parent('li').remove();
+				  $.ajax({ 
+						type:"POST", 
+						async:false, 
+						url:"/api/adrdel.html",
+						dataType: "json",
+						data:{ano:ano,i:Math.random()},
+						success:function(result){
+							if(result.status != 200){
+								layer.open({skin:'msg',content: result.msg,time:2});
+							}
+						},
+						error:function(XMLHttpRequest, textStatus, errorThrown){
+							layer.open({skin:'msg',content:'网络异常，请稍后重试！',time:2});
+						}	
+					});
+				}
+			});
+		});
+		$('.shdz_lists li .shdz_list_btns p').click(function(){
+			var ano = $.trim($(this).data('no'));
+			if(ano == ''){return false;}
+			$.ajax({ 
+					type:"POST", 
+					async:false, 
+					url:"/api/adrflg.html",
+					dataType: "json",
+					data:{ano:ano,i:Math.random()},
+					success:function(result){
+						if(result.status != 200){
+							layer.open({skin:'msg',content: result.msg,time:2});
+						}
+					},
+					error:function(XMLHttpRequest, textStatus, errorThrown){
+						layer.open({skin:'msg',content:'网络异常，请稍后重试！',time:2});
+					}	
+			});
+		});
+		/*新增地址显示*/
+		$('.add_dizhi span').click(function(){
+			$('#adrtitle').html('新增收货地址');
+			$('.xinzeng_dizhi').animate({left:'0rem'}, 300);
+			$('.shouhuo_dizhi').hide();
+		});
+		/*新增地址隐藏*/
+		$('.xinzeng_dizhi .icon-left').click(function(){
+			$('.xinzeng_dizhi').animate({left:'32rem'}, 300);
+			$('.shouhuo_dizhi').show();
+		});
+		$('.adredit').click(function(){
+			$('#adrtitle').html('编辑收货地址')
+			$('.xinzeng_dizhi').animate({left:'0rem'}, 300);
+			$('.shouhuo_dizhi').hide();
+			
+			$('.recname').val($(this).data('n'));
+			$('.phone').val($(this).data('p'));
+			$('.areacode').val($(this).data('area'));
+			
+			var ano = $.trim($(this).data('no')),school=parseInt($(this).data('school'));
+			$('#ano').val(ano);
+			if(school<1){
+				$('#address').show();
+				$('#address').val($(this).data('adr'));	
+			}else{
+				$('#address').hide();
+				$('#address').val('');	
+			}
+			$.ajax({ 
+					type:"POST", 
+					async:false, 
+					url:"/api/adred.html",
+					dataType: "json",
+					data:{ano:ano,i:Math.random()},
+					success:function(result){
+						if(result.status == 200){
+							var sthtml='<option value="">街道/镇</option>',schtml='<option value="0">其它地址</option>';
+							sthtml += result.sthtml;
+							schtml += result.schtml;
+							$('.stcode').empty();
+							$('.stcode').html(sthtml);
+							$('.sccode').empty();
+							$('.sccode').html(schtml);
+						}else{
+							layer.open({skin:'msg',content: result.msg,time:2});
+						}
+					},
+					error:function(XMLHttpRequest, textStatus, errorThrown){
+						layer.open({skin:'msg',content:'网络异常，请稍后重试！',time:2});
+					}	
+			});
+		});
+	});
+	
+
+	$(".areacode").change(function () {
+		var code = parseInt($(this).val());
+		var toclass = $.trim($(this).data('alt'));
+		if(code<1){
+			return false;
+		}
+		$.ajax({
+			url:'/api/getchildarea.html',
+			cache: false,
+			data: {code:code,i:Math.random()},
+			type: 'post',
+			dataType: 'json',
+			success: function (data) {
+			  if (data.status == 200) {
+				var areahtml = (toclass=='stcode')?'<option value="">街道/镇</option>':'<option value="0">其它地址</option>';
+				areahtml += data.html;
+				$('.'+toclass).empty();
+				$('.'+toclass).html(areahtml);
+			  }
+			}
+		});
+	});
+	
+	$(".sccode").change(function () {
+		var code = parseInt($(this).val());
+		if(code<1){
+			$('#address').show();
+		}else{
+			$('#address').hide();
+		}
+	});
+	$('#savebtn').click(function(){
+		$.ajax({ 
+			type:"POST", 
+			async:false, 
+			url:"/api/adrsave.html",
+			dataType: "json",
+			data:$("#objform").serialize(),
+			success:function(result){
+				if(result.status == 200){
+					layer.open({skin:'msg',content: result.msg,time:1,end:function(){window.location.reload();}});
+				}else{
+					layer.open({skin:'msg',content: result.msg,time:2});
+				}
+			},
+			error:function(XMLHttpRequest, textStatus, errorThrown){
+				layer.open({skin:'msg',content:'网络异常，请稍后重试！',time:2});
+			}	
+		});
+	});
+	
+</script>        
+	</body>
+</html>

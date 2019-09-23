@@ -1,0 +1,48 @@
+@charset "UTF-8";/**内容start**/
+body {background:#f3f3f3;}
+.content{width: 100%;padding:0;margin:0;}
+.content-info,.content-hot{width:80%;min-width:1000px;margin:0 auto;background: #fff;}
+.content-info{padding:30px 50px;margin-bottom:16px;}
+.information-nav{font-size: 14px;color: #999;line-height: 21px;}
+.information-nav a,.information-nav a:hover,.information-nav a:link,.information-nav a:focus{color:#999;}
+.information-nav a:hover{text-decoration: underline;}
+
+.o2owebsite-footer{clear: both;}
+.information-box{width: 100%;margin:0 auto;padding:30px 0 0 0;overflow: hidden;}
+.information-date,.information-list{float: left;display: inline;}
+.information-date{width:72px;border-top: 3px solid #c5af7f;text-align: center;}
+.information-date-days{font-size: 34px;line-height: 51px;color: #666;}
+.information-date-month{font-size: 14px;line-height: 21px;color: #999;}
+.information-list{width:760px;margin-left: 68px;border-bottom: 1px #999 dashed;padding-bottom: 30px;}
+
+.information-title a{font-size: 22px;line-height: 33px;color: #333;word-wrap: break-word;word-break: break-all;display:block;width:100%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.information-title p{font-size: 14px;line-height: 21px;color: #999;}
+.information-main{padding-top:20px;}
+.information-main-div,.information-main p{font-size: 14px !important;line-height: 21px !important;color: #999 !important;}
+.information-main-div{width:100%;max-height:88px;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 4;-webkit-box-orient: vertical;word-wrap: break-word;word-break: break-all;}
+.read-article a:hover,.information-title a:hover{text-decoration: underline;}
+.read-article{display: block;font-size: 14px;line-height: 21px;color: #333;padding-top:12px;}
+.read-article a{color: #333;}
+.read-article:hover,.read-article:link,.read-article:focus{color: #333;}
+
+/* 详情*/
+.information-pages .information-pages-title{font-size: 22px;color: #333;line-height: 33px;padding-top: 30px;}
+.information-pages .information-pages-info{font-size: 14px;line-height: 21px;color: #999;}
+.information-pages-info span{padding-right:10px;}
+.information-pages{border-bottom: 1px #999 dashed;padding-bottom: 20px;}
+.information-pages .information-pages-main{padding-top:30px;word-wrap: break-word;word-break: break-all;}
+.information-pages .information-pages-main img{max-width: 100% !important;max-height:100% !important;}
+.information-info{padding-top: 26px;font-size: 14px;line-height: 21px;color: #333;}
+.information-info div{padding-bottom: 6px;overflow:hidden;}
+.information-info div:last-child{padding-bottom: 0;}
+.information-info span{line-height: 21px;float: left;display: inline;}
+.information-info a{cursor: pointer;float: left;display: inline;max-width: 368px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.information-info a,.information-info a:hover,.information-info a:link,.information-info a:focus{color: #333;}
+.information-info a:hover{text-decoration: underline;}
+.content-hot{padding:30px 50px;}
+.content-title{border-left: 3px solid #c5af7f;padding-left: 16px;font-size: 14px;line-height: 14px;color: #333;}
+.content-main{padding-top: 30px;font-size: 14px;line-height: 21px;color: #333;}
+.content-main li{padding-bottom: 12px;}
+.content-main li:last-child{padding-bottom: 0;}
+.content-main li a{cursor: pointer;max-width: 368px;display: block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;color: #333;}
+.content-main li a:hover{text-decoration: underline;}

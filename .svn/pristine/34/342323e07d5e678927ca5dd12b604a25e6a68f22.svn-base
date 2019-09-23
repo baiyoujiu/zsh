@@ -1,0 +1,51 @@
+.box{border-top: none;}
+.balance{font-size: 20px;}
+.color999{color: #999!important;}
+.artips-textfa5454{color: #fa5454!important;}
+.artips-text999{color: #999!important;}
+
+.artips-text{display: -webkit-flex;display: -moz-flex;display: -o-flex;display: flex;}
+.artips-text i{font-style: normal;}
+
+.artips-text i.withdrawHelp-iconok,.artips-text i.withdrawHelp-iconerro{margin-right: 7px;margin-top: 1px;display: inline-block;margin-top: 3px;}
+.artips-text i.withdrawHelp-iconerro{color: #e85352;}
+.artips-text i.withdrawHelp-iconok{color: #56c538;}
+.artips-text i.withdrawHelp-text{display: inline-block;margin-top: 4px;}
+.question-answer{color: #666;margin-left: 5px;}
+.bordercolor{border-color: #fa5454;}
+.qa-title{font-size: 16px;padding-bottom: 15px;border-bottom: 1px dashed #dfdfdf;}
+.quesetion-text{// font-weight: bold;padding-bottom: 9px;}
+.quesetion-text:first-child{margin-top:15px;}
+.answer-text{font-size: 12px;padding-bottom: 15px;}
+.answer-text:last-child{padding-bottom: 0;}
+.withdraw-form{}
+.controlHelp-block{margin-bottom: 3px;}
+select.ui-input{width: 324px;}
+.form-group .text-left{text-align: left;margin-left: 100px;margin-bottom: 27px;margin-top: 6px;}
+em{font-style: normal;}
+.balance{display: inline-block;margin-top: 4px;}
+.alert{margin-bottom: 0px;}
+.form-group{margin-bottom: 17px;}
+.btn-link{margin-left: -8px
+}
+.none{display: none!important;}
+#jform .col-sm-2{width:95px;}
+#jform .col-sm-5{width:330px;}
+
+.errorYellow{color:#ffab00;border-color:#ffab00;}
+.errorRed{color:#f95355;border-color:#f95355;}
+.unavail{color: #999;}
+div.money span {display: block;position: absolute;top: 2px;right: 10px;}
+
+/*充值*/
+.zhuanzhang {color:#ff6601;font-size: 16px;vertical-align: middle;}
+.error {color:red;border-color:red;}
+form label.error {margin-left: 10px;display: inline;}
+.Banzhuanzhangonediv{float: left;width:535px;;height: 60px;border: 1px solid #cdcdcd;margin-bottom:10px;padding:5px;}
+.Banzhuanzhangonediv .bankTxt{float:right;top:10px;}
+.Banzhuanzhangonediv .bankTxto em{font-weight:bold;font-size:16px;}
+.pay-qr-wrap{float:left;width:40%}
+.pay-link-wrap{float: right;width:40%; text-align:center;}
+.pay-link-wrap .link{padding:90px 0px;border: solid 1px #ccc;width:240px;margin:10px auto; display:block;text-align:center;}
+.pay-link-wrap .link:hover {border: solid 1px #B20606;}
+.form-group .show{padding-top:7px;}

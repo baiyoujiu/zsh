@@ -1,0 +1,485 @@
+{include file="common/header" /}
+		<link rel="stylesheet" href="../css/demo.css" />
+		<script>
+	        $(document).ready(function(){
+	            var lenInput = $('#erji_search').val().length;
+	            $("#erji_search").keyup(function(){
+	                lenInput = $(this).val().length;
+	                if(lenInput>0){
+	                	$('.ssls_tankuang').animate({
+							left:'0rem'
+						}, 300);
+	                }else{
+	                	$('.ssls_tankuang').animate({
+							left:'32rem'
+						}, 300);
+	                };
+	            });
+	            var lenInput1 = $('#sanji_search').val().length;
+	            $("#sanji_search").keyup(function(){
+	                lenInput1 = $(this).val().length;
+	                if(lenInput1>0){
+	                	$('.guanlian_list').show();
+	                }else{
+	                	$('.guanlian_list').hide();
+	                };
+	            });
+	            var posT = $(".header").height()+$(".banner_one").height();
+	            $(window).scroll(function(){
+			   		if(posT<$(window).scrollTop()){
+			   			$(".term_nav").css({
+			   				"position":"fixed",
+			   				"top":"0rem",
+			   				"display":"block",
+			   			});
+			   			$('.more_lists_ym').hide();
+			   			$('.more_btn img').val('0');
+			   		}
+			   	});
+			   	/*综合筛选*/
+			   	$('.yiji_saixuan').on('click','.yiji_saixuan1',function(event){
+			   		if($(this).val()==0){
+			   			$('.yiji_saixuan3').val('0');
+			   			$('.yiji_saixuan3_lists').hide();
+			   			$('.erji_saixuan_list').hide();
+			   			$('.sousuo_bk2').hide();
+			   			$(this).val('1');
+			   			$('.yiji_saixuan1_lists').show();
+			   			$('.sousuo_bk').show();
+			   			$('body').addClass('overflowHide');
+				   		$(this).find('em').css('color','#ed1814');
+				   		$(this).find('em').find('i').css('color','#ed1814');
+				   		$(this).find('em').find('i').removeClass('icon-solid-down').addClass('icon-solid-up');
+				   		event.stopPropagation();    //  阻止事件冒泡
+			   		}else if($(this).val()==1){
+			   			$(this).val('0');
+			   			$('.sousuo_bk').hide();
+			   			$('.yiji_saixuan1_lists').hide();
+			   			$('body').removeClass('overflowHide');
+				   		$(this).find('em').css('color','#555');
+				   		$(this).find('em').find('i').css('color','#555');
+				   		$(this).find('em').find('i').removeClass('icon-solid-up').addClass('icon-solid-down');
+				   		event.stopPropagation();    //  阻止事件冒泡
+			   		}
+			   	});
+			   	/*服务筛选*/
+			   	$('.yiji_saixuan').on('click','.yiji_saixuan3',function(event){
+			   		if($(this).val()==0){
+			   			$('.yiji_saixuan1').val('0');
+			   			$('.yiji_saixuan1_lists').hide();
+			   			$('.erji_saixuan_list').hide();
+			   			$('.sousuo_bk2').hide();
+			   			$(this).val('1');
+			   			$('.yiji_saixuan3_lists').show();
+			   			$('.sousuo_bk').show();
+			   			$('body').addClass('overflowHide');
+				   		$(this).find('em').css('color','#ed1814');
+				   		$(this).find('em').find('i').css('color','#ed1814');
+				   		$(this).find('em').find('i').removeClass('icon-solid-down').addClass('icon-solid-up');
+				   		event.stopPropagation();    //  阻止事件冒泡
+			   		}else if($(this).val()==1){
+			   			$(this).val('0');
+			   			$('.sousuo_bk').hide();
+			   			$('.yiji_saixuan3_lists').hide();
+			   			$('body').removeClass('overflowHide');
+				   		$(this).find('em').css('color','#555');
+				   		$(this).find('em').find('i').css('color','#555');
+				   		$(this).find('em').find('i').removeClass('icon-solid-up').addClass('icon-solid-down');
+				   		event.stopPropagation();    //  阻止事件冒泡
+			   		}
+			   	});
+			   	/*服务筛选重置*/
+			   	$('.cz_btn').click(function(){
+			   		$('.yiji_saixuan3_lists').find('input').prop('checked',false);
+			   	});
+			   	/*右侧筛选显示*/
+			   	$('.yiji_saixuan').on('click','.yiji_saixuan4',function(event){
+			   		$('.yiji_saixuan1').val('0');
+		   			$('.yiji_saixuan1_lists').hide();
+		   			$('.yiji_saixuan3').val('0');
+		   			$('.yiji_saixuan3_lists').hide();
+		   			$('.sousuo_bk').hide();
+		   			$('.erji_saixuan_list').hide();
+			   		$('.sousuo_bk2').hide();
+		   			$('.yiji_saixuan4_lists').show();
+		   			$('.sousuo_bk1').show();
+		   			$('body').addClass('overflowHide');
+			   		event.stopPropagation();    //  阻止事件冒泡
+			   	});
+			   	/*右侧筛选隐藏*/
+			   	$('.yiji_saixuan4_lists h5 .qx_btn').click(function(){
+			   		$('.sousuo_bk1').hide();
+		   			$('.yiji_saixuan4_lists').hide();
+		   			$('body').removeClass('overflowHide');
+			   	});
+			   	/*二级分类显示*/
+			   	$('.erji_saixuan ul li').click(function(){
+			   		$('.yiji_saixuan1').val('0');
+		   			$('.yiji_saixuan1_lists').hide();
+		   			$('.yiji_saixuan3').val('0');
+		   			$('.yiji_saixuan3_lists').hide();
+		   			$('.sousuo_bk').hide();
+			   		$('.erji_saixuan ul li').removeClass('active');
+			   		$(this).addClass('active');
+			   		$('.erji_saixuan_list').show();
+			   		$('.sousuo_bk2').show();
+			   		$('body').addClass('overflowHide');
+			   	});
+			   	/*二级分类隐藏*/
+			   	$('.erji_saixuan h5 .qr_btn').click(function(){
+			   		$('.erji_saixuan_list').hide();
+			   		$('.sousuo_bk2').hide();
+			   		$('body').removeClass('overflowHide');
+			   	});
+			   	/*二级筛选重置*/
+			   	$('.cz_btn').click(function(){
+			   		$('.erji_saixuan_list').find('input').prop('checked',false);
+			   	});
+			   	/*排序方式*/
+			   	$('.pailie_list').click(function(){
+			   		if($(this).val()==0){
+			   			$('.paixu_lists nav').removeClass('sousuo_lists').addClass('sousuo_lists2');
+			   			$(this).val('1');
+			   			$(this).find('img').attr('src','__IMG__/paixu1.png');
+			   		}else if($(this).val()==1){
+			   			$('.paixu_lists nav').removeClass('sousuo_lists2').addClass('sousuo_lists');
+			   			$(this).val('0');
+			   			$(this).find('img').attr('src','__IMG__/paixu.png');
+			   		}
+			   	});
+	        });
+    	</script>
+		<section class="sslb_tankuang">
+			<div class=" ss_searchss">
+				<div class="clearfix ss_search" id="ss_search" style="position:relative;">
+					<i class="icon-left fl"></i>
+					<input class="fl search_inp" type="text" id="erji_search" placeholder="输入您要搜索的商品"/>
+					<div class="fr more_btn">
+						<img src="__IMG__/more.png"/>
+					</div>
+				</div>
+				<div class="yiji_saixuan">
+					<ul class="clearfix yiji_saixuan_list">
+						<li class="fl yiji_saixuan1" value="0">
+							<em>综合<i class="icon-solid-down"></i></em>
+						</li>
+						<li class="fl yiji_saixuan2"><em>销量</em></li>
+						<li class="fl yiji_saixuan3" value="0">
+							<em>服务<i class="icon-solid-down"></i></em>
+						</li>
+						<li class="fl yiji_saixuan4">筛选<img src="__IMG__/saixuan.png" /></li>
+					</ul>
+					<!--综合筛选-->
+					<div class="yiji_saixuan1_lists">
+						<p>综合</p>
+						<p>最新上架</p>
+						<p>价格最低</p>
+						<p>价格最高</p>
+						<p>评论最多</p>
+					</div>
+					<!--服务筛选-->
+					<div class="yiji_saixuan3_lists">
+						<p>
+							<label class="clearfix">
+								<input class="fl" name="chek_btn" type="checkbox"/>
+								<span class="fl">顺丰包邮</span>
+							</label>
+						</p>
+						<p>
+							<label class="clearfix">
+								<input class="fl" name="chek_btn" type="checkbox"/>
+								<span class="fl">顺丰包邮</span>
+							</label>
+						</p>
+						<p>
+							<label class="clearfix">
+								<input class="fl" name="chek_btn" type="checkbox"/>
+								<span class="fl">顺丰包邮</span>
+							</label>
+						</p>
+						<h3 class="clearfix">
+							<span class="fl cz_btn">重置</span>
+							<span class="fl qr_btn">确定</span>
+						</h3>
+					</div>
+				</div>
+			</div>
+			<!--二级筛选-->
+			<div class="erji_saixuan">
+				<ul class="clearfix">
+					<li class="fl">品牌<i class="icon-down"></i></li>
+					<li class="fl active">顺丰包邮</li>
+					<li class="fl">品牌<i class="icon-down"></i></li>
+					<li class="fl">品牌<i class="icon-down"></i></li>
+					<li class="fl">品牌<i class="icon-down"></i></li>
+					<li class="fl">品牌<i class="icon-down"></i></li>
+				</ul>
+				<div class="erji_saixuan_list">
+					<div class="clearfix erji_saixuan_lists">
+						<p class="fl">
+							<label class="clearfix">
+								<input class="fl" name="chek_btn" type="checkbox"/>
+								<span class="fl">顺丰包邮</span>
+							</label>
+						</p>
+						<p class="fl">
+							<label class="clearfix">
+								<input class="fl" name="chek_btn" type="checkbox"/>
+								<span class="fl">顺丰包邮</span>
+							</label>
+						</p>
+						<p class="fl">
+							<label class="clearfix">
+								<input class="fl" name="chek_btn" type="checkbox"/>
+								<span class="fl">顺丰包邮</span>
+							</label>
+						</p>
+						<p class="fl">
+							<label class="clearfix">
+								<input class="fl" name="chek_btn" type="checkbox"/>
+								<span class="fl">顺丰包邮</span>
+							</label>
+						</p>
+						<p class="fl">
+							<label class="clearfix">
+								<input class="fl" name="chek_btn" type="checkbox"/>
+								<span class="fl">顺丰包邮</span>
+							</label>
+						</p>
+						<p class="fl">
+							<label class="clearfix">
+								<input class="fl" name="chek_btn" type="checkbox"/>
+								<span class="fl">顺丰包邮</span>
+							</label>
+						</p>
+						<p class="fl">
+							<label class="clearfix">
+								<input class="fl" name="chek_btn" type="checkbox"/>
+								<span class="fl">顺丰包邮</span>
+							</label>
+						</p>
+						<p class="fl">
+							<label class="clearfix">
+								<input class="fl" name="chek_btn" type="checkbox"/>
+								<span class="fl">顺丰包邮</span>
+							</label>
+						</p>
+						<p class="fl">
+							<label class="clearfix">
+								<input class="fl" name="chek_btn" type="checkbox"/>
+								<span class="fl">顺丰包邮</span>
+							</label>
+						</p>
+						<p class="fl">
+							<label class="clearfix">
+								<input class="fl" name="chek_btn" type="checkbox"/>
+								<span class="fl">顺丰包邮</span>
+							</label>
+						</p>
+					</div>
+					<h5 class="clearfix">
+						<span class="fl cz_btn">重置</span>
+						<span class="fl qr_btn">确定</span>
+					</h5>
+				</div>
+			</div>
+			<section class="zhanwei_hei01"></section>
+			<!--搜索列表-->
+			<section class="paixu_lists">
+				<!--竖向-->
+				<nav class="sousuo_lists">
+					<ul class="clearfix sp_lists" >
+						<?php foreach($lists as $v){?>
+                        <a href="<?php echo url('goods/'.$v['gno']);?>">
+                        <li class="fl">
+							<img class="sp_img" src="<?php $picarr = json_decode(base64_decode($v['pic']),true);echo $picarr[0];?>" />
+							<div class="sp_lists_word">
+								<h4><?php echo $v['name'];?></h4>
+								<h5><?php echo $v['recommend'];?></h5>
+								<p class="clearfix">
+									<span class="fl"><em>￥<?php echo number_format($v['sales_price']/100,2);?></em>/<?php echo $v['units'];?></span>
+									<img class="fr buy_btn" src="__IMG__/shop_car1.png"></img>
+								</p>
+							</div>
+						</li>
+                        </a>
+						<?php } ?>
+					</ul>
+				</nav>
+			</section>
+		</section>
+		<!--改变排列方式-->
+		<section>
+			<p class="pailie_list" value="0">
+				<img src='__IMG__/paixu.png' />
+			</p>
+			<p class="ym_zuji">
+				<img src='__IMG__/jilu2.png' />
+			</p>
+		</section>
+		<!--搜索弹窗-->
+		<section class="ssls_tankuang">
+			<div class="ss_searchs">
+				<div class="clearfix ss_search">
+					<i class="fl icon-left ss_search_close"></i>
+					<input class="fl search_inp" type="text" id="sanji_search" placeholder="输入您要搜索的商品"/>
+					<span class="fl ">搜索</span>
+				</div>
+				<ul class="guanlian_list">
+					<li>1111</li>
+					<li>2222</li>
+					<li>3333</li>
+					<li>4444</li>
+					<li>1111</li>
+					<li>2222</li>
+					<li>3333</li>
+					<li>4444</li>
+				</ul>
+			</div>
+			<!--搜索历史-->
+			<nav class="lishi_tuijian">
+				<section class="ss_ls" id="ss_ls">
+					<h2 class="ss_ls_tit clearfix">
+						<span class="fl">搜索历史</span>
+						<i class="fr icon-close ss_ls_close"></i>
+					</h2>
+					<ul class="clearfix">
+						<li class="fl">茅台</li>
+						<li class="fl">五粮液</li>
+						<li class="fl">汾酒</li>
+						<li class="fl">二锅头</li>
+						<li class="fl">洋河天之蓝</li>
+						<li class="fl">洋河梦之蓝</li>
+						<li class="fl">茅台</li>
+						<li class="fl">五粮液</li>
+						<li class="fl">汾酒</li>
+						<li class="fl">二锅头</li>
+					</ul>
+				</section>
+				<section class="ss_ls" id="ss_ss">
+					<h2 class="ss_ls_tit clearfix">
+						<span class="fl">实时热搜</span>
+					</h2>
+					<ul class="clearfix">
+						<li class="fl">茅台</li>
+						<li class="fl">五粮液</li>
+						<li class="fl">汾酒</li>
+						<li class="fl">二锅头</li>
+						<li class="fl">洋河天之蓝</li>
+						<li class="fl">洋河梦之蓝</li>
+						<li class="fl">茅台</li>
+						<li class="fl">五粮液</li>
+						<li class="fl">汾酒</li>
+						<li class="fl">二锅头</li>
+					</ul>
+				</section>
+			</nav>
+		</section>
+		<!--更多弹窗-->
+		<section>
+			<div class="more_lists_ym">
+				<ul class="more_lists">
+                    <a href="https://<?php echo request()->host();?>/">
+						<li class="fl">
+							<img src="__IMG__/home3.png"/>
+							<p class="active">首页</p>
+						</li>
+					</a>
+					<a href="<?php echo url('cat/index');?>">
+						<li>
+							<img src="__IMG__/fenlei3.png"/>
+							<p>分类</p>
+						</li>
+					</a>
+					<a href="<?php echo url('cart/index');?>">
+						<li class="foot_lists_car">
+							<img class="shopping-cart" src="__IMG__/shop_car4.png"/>
+							<span id="num">0</span>
+							<p>购物车</p>
+						</li>
+					</a>
+					<a href="<?php echo url('uinf/index');?>">
+						<li>
+							<img src="__IMG__/wode3.png"/>
+							<p>我的</p>
+						</li>
+					</a>
+					<a href="<?php echo url('goods/track');?>">
+						<li>
+							<img src="__IMG__/jilu3.png"/>
+							<p>浏览历史</p>
+						</li>
+					</a>
+				</ul>
+			</div>
+		</section>
+		<!--背景-->
+		<div class="sousuo_bk"></div>
+		<div class="sousuo_bk1"></div>
+		<div class="sousuo_bk2"></div>
+		<!--明细筛选-->
+		<div class="yiji_saixuan4_lists">
+			<section>
+				<div class="saixuan4_over_y">
+					<nav>
+						<h2>品牌</h2>
+						<ul class="clearfix">
+							<li class="fl active">五粮液</li>
+							<li class="fl">五粮液</li>
+							<li class="fl">五粮液</li>
+							<li class="fl">五粮液</li>
+							<li class="fl">五粮液</li>
+							<li class="fl">五粮液</li>
+						</ul>
+					</nav>
+					<nav class="price_sect">
+						<h2>价格</h2>
+						<ul class="clearfix">
+							<li class="fl"><input type="text" placeholder="最低价"/></li>
+							<span class="fl">—</span>
+							<li class="fl"><input type="text" placeholder="最高价"/></li>
+						</ul>
+					</nav>
+					<nav>
+						<h2>产地</h2>
+						<ul class="clearfix">
+							<li class="fl">中国上海</li>
+							<li class="fl">中国香港</li>
+							<li class="fl">中国江苏</li>
+							<li class="fl">中国浙江</li>
+							<li class="fl">中国台湾</li>
+							<li class="fl">中国东北</li>
+						</ul>
+					</nav>
+					<nav>
+						<h2>产地</h2>
+						<ul class="clearfix">
+							<li class="fl">中国上海</li>
+							<li class="fl">中国香港</li>
+							<li class="fl">中国江苏</li>
+							<li class="fl">中国浙江</li>
+							<li class="fl">中国台湾</li>
+							<li class="fl">中国东北</li>
+						</ul>
+					</nav>
+					<nav>
+						<h2>产地</h2>
+						<ul class="clearfix">
+							<li class="fl">中国上海</li>
+							<li class="fl">中国香港</li>
+							<li class="fl">中国江苏</li>
+							<li class="fl">中国浙江</li>
+							<li class="fl">中国台湾</li>
+							<li class="fl">中国东北</li>
+						</ul>
+					</nav>
+					<h6>清除选项</h6>
+				</div>
+				<h5 class="clearfix">
+					<span class="fl qx_btn">取消</span>
+					<span class="fl qr_btn">确认</span>
+				</h5>
+			</section>
+		</div>
+	</body>
+</html>

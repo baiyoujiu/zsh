@@ -1,0 +1,5 @@
+<?php
+function C0($className)
+{
+	return LtObjectUtil::singleton($className);
+}

@@ -1,0 +1,205 @@
+<?php
+/* 用户中心
+ * @author Bill
+ * @data 21090218
+ */
+namespace app\mall\controller;
+use think\Controller;
+
+class Uinf extends Controller{
+	public function __construct() {
+		//if(isMobile()){
+			config('template.view_path','../template/mallm/');
+		//}
+		parent::__construct();
+		$userid = session('userid');
+		if(empty($userid)){
+			$this->redirect(url('login/index'));
+		}
+		$userinfo = session('userinfo');
+		$this->assign('userinfo',$userinfo);
+		
+		//网站SEO标题
+		$keywords = $description = '租书会，专注中小学周边采购。主营：中小学教辅资料、中小学课外读物、文具、校服等';
+		$webseo = ['title'=>'用户中心-租书会','keywords'=>$keywords,'description'=>$description];
+		$this->assign('webseo',$webseo);
+	}
+	
+	/* 校服用户中心
+	 * @author Bill
+	* @data 21090801
+	*/
+	public function indexy(){
+		//最新的用户信息
+		$userid = session('userid');
+		$userinfo = db('users_xf')->where('userid',$userid)->find();
+	
+		$this->assign('userinfo',$userinfo);
+		
+		//查询班级情况
+  		$wheres = ['grade'=>$userinfo['grade'],'class'=>$userinfo['class']];
+		$clists = db('users_xf')->where($wheres)->order('id DESC')->select();
+		$this->assign('clists',$clists);
+		
+		return view();
+	}
+	
+	
+	/* 我的
+	 * @author Bill
+	* @data 21090622
+	*/
+	public function index(){
+		//最新的用户信息
+		$userid = session('userid');
+		$userinfo = db('users')->where('userid',$userid)->find();
+		$userfinfo = db('finance')->where('userid',$userid)->find();
+		$userinfo['balance'] = $userfinfo['balance'];
+		
+		$this->assign('userinfo',$userinfo);
+		return view();
+	}
+	
+	
+	
+	/* 设置
+	 * @author Bill
+	* @data 21090622
+	*/
+	public function uset(){
+		return view();
+	}
+	/* 加入会员
+	 * @author Bill
+	* @data 21090724
+	*/
+	public function tovip(){
+		return view();
+	}
+	
+	
+	/* 我的订单
+	 * @author Bill
+	* @data 21090622
+	*/
+	public function order(){
+		$userid = session('userid');
+		
+		//订单
+		$lists = db('order')->where('userid',$userid)->order('id DESC')->select();
+		$this->assign('lists',$lists);
+		
+		//print_r($lists);
+		
+		//状态:1-下单|2-卖家确认并发货|3-待收货|5-买家确认收货|6-系统收货|8-卖家取消订单|9-系统关闭未付款订单
+		$statusArr = [2=>'待发货',3=>'待收货',5=>'已收货',6=>'已收货',8=>'已关闭',9=>'已关闭'];
+		$this->assign('statusArr',$statusArr);
+		return view();
+	}
+	
+	/* 订单详情
+	 * @author Bill
+	* @data 21090622
+	*/
+	public function orderinf(){
+		$orderno = input('get.no');
+		if(!$orderno){
+			$this->redirect(url('uinf/order'));
+		}
+		$userid = session('userid');
+		$wheres = ['userid'=>$userid,'order_no'=>$orderno];
+		$info = db('order')->where($wheres)->find();
+		if(empty($info)){
+			$this->redirect(url('uinf/order'));
+		}
+		$this->assign('info',$info);
+		
+		//所有有效地区
+		$arealist = db('system_area')->field('code,area')->where('status',1)->select();
+		$arealist = getArrOne($arealist,'area','code');
+		$this->assign('arealist',$arealist);
+		
+		$statusArr = [2=>'待发货',3=>'待收货',5=>'已收货',6=>'已收货',8=>'已关闭',9=>'已关闭'];
+		$this->assign('statusArr',$statusArr);
+		
+		$statusinfArr = [2=>'平台发贷中',3=>'买家待收货',5=>'订单已完成',6=>'订单已完成',8=>'卖家取消订单',9=>'订单超时未支付'];
+		$this->assign('statusinfArr',$statusinfArr);
+	
+		return view();
+	}
+	/* 订单拼购详情
+	 * @author Bill
+	* @data 21090622
+	*/
+	public function orderpinf(){
+		$userid = session('userid');
+		
+		$listchot = db('good')->where('status',2)->order('weight DESC')->limit(10)->select();
+		$this->assign('listchot',$listchot);
+	
+		return view();
+	}
+	
+	/* 用户账单---------无用20190724
+	 * @author Bill
+	* @data 21090723
+	*/
+	public function ubill(){
+		return view();
+	}
+	
+	/* 我的收货地址
+	 * @author Bill
+	* @data 21090622
+	*/
+	public function address(){
+		$userid = session('userid');
+		//地址列表
+		$lists = db('users_address')->where('userid',$userid)->order('id DESC')->select();
+		$this->assign('lists',$lists);
+		
+		//所有有效地区
+		$arealist = db('system_area')->field('code,area')->where('status',1)->select();
+		$arealist = getArrOne($arealist,'area','code');
+		$this->assign('arealist',$arealist);
+		
+		//省市（浙江杭州下的开放区县）
+		$wheres = ['p_code'=>330100,'status'=>1];
+		$alists = db('system_area')->where($wheres)->order('weight DESC')->select();
+		$this->assign('alists',$alists);
+		return view();
+	}
+	
+	/* 优惠劵---------无用20190724
+	 * @author Bill
+	* @data 21090622
+	*/
+	public function coupon(){
+	
+		return view();
+	}
+	
+	/* 收藏
+	 * @author Bill
+	* @data 21090622
+	*/
+	public function collect(){
+		$userid = session('userid');
+		$wheres = ['collect.type'=>0,'collect.userid'=>$userid];
+		$lists = db('users_collect')->alias('collect')->join('js_good good','collect.gno = good.gno')
+					->where($wheres)->order('collect.id desc')->select();
+		$this->assign('lists',$lists);
+		return view();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+    
+    
+}

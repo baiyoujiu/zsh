@@ -1,0 +1,94 @@
+{include file="common/header" /}
+<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xqltRQVqD5bh1G3NPyyQpuuTlgaYv4GR"></script>
+
+<!--新增地址-->
+<section class="xinzeng_dizhi">
+    <section class="dd_home">
+        <h2 class="fanhui_head"><a href="javascript:history.back(-1);"><i class="icon-left"></i></a><span id="adrtitle">租借驿站</span></h2>
+    </section>
+    <section>
+        <ul class="add_dizhi_lists">
+            <li class="right">
+                <div class="fl add_address_list_sec" style=" width:49%">
+                    <select class="pro_code" >
+                        <option value="">浙江省杭州市</option>
+                    </select>
+                </div>
+                <div class="add_address_list_sec fl" style=" width:49%">
+                    <select class="areacode" name="area" id="area">
+                        <?php foreach($alists as $k=>$v){?>
+                            <option value="<?php echo $v['code'];?>"<?php echo $v['code']==$area?"selected='selected'":'';?>><?php echo $v['area'];?></option>
+                        <?php }?>
+                    </select>
+                </div>
+            </li>
+            <?php foreach($lists as $k1 =>$v){ ?>
+                <li class="right">
+                    <div class="stagelists" type="hidden" href="javascript:void(0)" data-lo="<?php echo $v['longitude'];?>" data-la="<?php echo $v['latitude'];?>" data-ar="<?php echo $v['area'];?>" data-ad="<?php echo $v['address'];?>"  data-te="<?php echo $v['tel'];?>" id="xx">
+                        <p><?php echo $v['area'];?> <span class="fr" ><i class="icon-location"></i>地图</span></p>
+                        <p><?php echo $v['address'];?></p>
+                    </div>
+                </li>
+            <?php }?>
+            <div class="mapinf" id="mapinf">
+            </div>
+        </ul>l
+    </section>
+</section>
+    <!--选择地址-->
+
+<script type="text/javascript">
+
+    $('#area').change(function(){
+        var area = $(this).val();
+        window.location.href = '/goods/stage.html?area='+area;
+    })
+
+	$('.stagelists').click(function(){
+        var map = new BMap.Map("mapinf");   //创建地图实例
+        map.enableScrollWheelZoom();        //启用滚轮放大缩小，默认禁用
+        map.enableContinuousZoom();         //启用地图惯性拖拽，默认禁用
+        var longitude=$.trim($(this).data('lo')),latitude=$.trim($(this).data('la')),area=$.trim($(this).data('ar')),address=$.trim($(this).data('ad')),tel=$.trim($(this).data('te'));
+        var point = new BMap.Point(longitude,latitude);     //创建聚焦点（传值点）
+        map.centerAndZoom(point,12);        //中心点和缩放等级
+        var data_info = [
+            <?php foreach($lists as $k=>$v){
+            echo $k?',':'';
+            echo '['.$v['longitude'].','.$v['latitude'].',"'.$v['area'].'<br>'.$v['address'].'<br>驿站图书租还时间(9:00—17:30)"]';
+            }?>
+        ];                                  //打印需要的地图点
+        for(var i=0;i<data_info.length;i++){
+            var marker = new BMap.Marker(new BMap.Point(data_info[i][0],data_info[i][1]));  // 创建标注
+            var content = data_info[i][2];
+            map.addOverlay(marker);         //添加标注
+            addClickHandler(content,marker);
+        }
+        var opts = {         // 创建信息窗口
+            width : 200,     // 信息窗口宽度
+            height: 105,     // 信息窗口高度
+            title :'租借驿站', // 信息窗口标题
+        }
+        function addClickHandler(content,marker){
+            marker.addEventListener("click",function(e){        //添加click事件
+                openInfo(content,e)}
+            );
+        }
+        function openInfo(content,e){
+            var p = e.target;
+            var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+            var infoWindow = new BMap.InfoWindow(content,opts);  // 创建信息窗口对象
+            map.openInfoWindow(infoWindow,point); //开启地图点击信息窗口
+        }
+        var infoWindow = new BMap.InfoWindow(area+'<br>'+address+'<br>驿站图书租还时间(9:00—17:30)',opts);  // 创建信息窗口对象
+        map.openInfoWindow(infoWindow,point); //开启默认信息窗口
+        marker.addEventListener("click", function(){
+            map.openInfoWindow(infoWindow,point); //开启驿站点击信息窗口
+        });
+	});
+
+    $('.stagelists:first').click();
+</script>
+<!--占位-->
+<section class="zhanwei40"></section>
+{include file="common/footer" /}
+

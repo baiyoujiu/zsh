@@ -1,0 +1,774 @@
+---------------------------------------------------------------
+[ 2019-09-21T14:18:52+08:00 ] 127.0.0.1 GET /
+[ info ] www.jsg.co/ [运行时间：0.073004s][吞吐率：13.70req/s] [内存消耗：1,904.85kb] [文件加载：41]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\mcenter\controller\Index->index[ D:\wamp\work\zsh\apps\mcenter\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-09-21T14:18:52+08:00 ] 127.0.0.1 GET /users/index.html
+[ info ] www.jsg.co/users/index.html [运行时间：0.031001s][吞吐率：32.26req/s] [内存消耗：1,968.36kb] [文件加载：44]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'users',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\mcenter\controller\Users->index[ D:\wamp\work\zsh\apps\mcenter\controller\Users.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] ../template/mcenter/users\index.php [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-09-21T14:19:03+08:00 ] 127.0.0.1 POST /users/login.html
+[ info ] www.jsg.co/users/login.html [运行时间：0.063003s][吞吐率：15.87req/s] [内存消耗：3,161.22kb] [文件加载：48]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'users',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'content-length' => '72',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://www.jsg.co',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://www.jsg.co/users/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=6fm6s5vchm2j98b7du4jb83h53',
+)
+[ info ] [ PARAM ] array (
+  '__hash__' => '3e0dfb46e89020409edc6556236f4dec',
+  'username' => 'qwert',
+  'password' => '123456',
+)
+[ info ] [ RUN ] app\mcenter\controller\Users->login[ D:\wamp\work\zsh\apps\mcenter\controller\Users.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:host=47.110.135.172;port=3306;dbname=jsg;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_manages` [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_manages` WHERE  (  status=1 and username='qwert' ) LIMIT 1 [ RunTime:0.007000s ]
+---------------------------------------------------------------
+[ 2019-09-21T14:19:03+08:00 ] 127.0.0.1 GET /good/index.html
+[ info ] www.jsg.co/good/index.html [运行时间：0.100006s][吞吐率：10.00req/s] [内存消耗：3,290.55kb] [文件加载：53]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'good',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://www.jsg.co/users/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=6fm6s5vchm2j98b7du4jb83h53',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mcenter\controller\Good->index[ D:\wamp\work\zsh\apps\mcenter\controller\Good.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ../template/mcenter/good\index.php [ array (
+  0 => 'userInfo',
+  1 => 'groupArr',
+  2 => 'keyword',
+  3 => 'status',
+  4 => 'cid',
+  5 => 'statusArr',
+  6 => 'lists',
+  7 => 'pageStr',
+  8 => 'catlists',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.018001s ] mysql:host=47.110.135.172;port=3306;dbname=jsg;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_good` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `js_good` LIMIT 1 [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_good` ORDER BY id DESC LIMIT 0,10 [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_good_category` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_good_category` WHERE  `level` = 1  AND `status` = 2 ORDER BY weight DESC [ RunTime:0.007001s ]
+[ error ] [8]未定义数组索引: user_name[D:\wamp\work\zsh\runtime\temp\fa85e09f84404f5f1dc64ddd9d024e4a.php:34]
+[ error ] [8]未定义数组下标: 6[D:\wamp\work\zsh\runtime\temp\fa85e09f84404f5f1dc64ddd9d024e4a.php:167]
+[ error ] [8]未定义数组下标: 6[D:\wamp\work\zsh\runtime\temp\fa85e09f84404f5f1dc64ddd9d024e4a.php:167]
+[ error ] [8]未定义数组下标: 6[D:\wamp\work\zsh\runtime\temp\fa85e09f84404f5f1dc64ddd9d024e4a.php:167]
+[ error ] [8]未定义数组下标: 6[D:\wamp\work\zsh\runtime\temp\fa85e09f84404f5f1dc64ddd9d024e4a.php:167]
+---------------------------------------------------------------
+[ 2019-09-21T14:19:07+08:00 ] 127.0.0.1 GET /orders/index.html
+[ info ] www.jsg.co/orders/index.html [运行时间：0.193011s][吞吐率：5.18req/s] [内存消耗：3,299.16kb] [文件加载：53]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'orders',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://www.jsg.co/good/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=6fm6s5vchm2j98b7du4jb83h53',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mcenter\controller\Orders->index[ D:\wamp\work\zsh\apps\mcenter\controller\Orders.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ../template/mcenter/orders\index.php [ array (
+  0 => 'userInfo',
+  1 => 'statusArr',
+  2 => 'paytypeArr',
+  3 => 'keyword',
+  4 => 'status',
+  5 => 'lists',
+  6 => 'pageStr',
+  7 => 'stagelist',
+  8 => 'user',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.017001s ] mysql:host=47.110.135.172;port=3306;dbname=jsg;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_order` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `js_order` LIMIT 1 [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order` ORDER BY id DESC LIMIT 0,20 [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_order_goods` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909201510001' ORDER BY addtime DESC [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909201510000' ORDER BY addtime DESC [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909191510001' ORDER BY addtime DESC [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909191510000' ORDER BY addtime DESC [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909181510006' ORDER BY addtime DESC [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909171510003' ORDER BY addtime DESC [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909171510001' ORDER BY addtime DESC [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909171510000' ORDER BY addtime DESC [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909161510000' ORDER BY addtime DESC [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_system_stage` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT `code`,`area` FROM `js_system_stage` WHERE  `status` = 1 [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_users` [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users` WHERE  `status` = 1 [ RunTime:0.008000s ]
+[ error ] [8]未定义数组索引: user_name[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:35]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义变量: typeArr[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:246]
+[ error ] [2]Invalid argument supplied for foreach()[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:246]
+---------------------------------------------------------------
+[ 2019-09-21T14:19:07+08:00 ] 127.0.0.1 GET /images/20190912/yy01.jpg
+[ info ] www.jsg.co/images/20190912/yy01.jpg [运行时间：0.035002s][吞吐率：28.57req/s] [内存消耗：1,609.45kb] [文件加载：39]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'images',
+    2 => '20190912',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://www.jsg.co/orders/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=6fm6s5vchm2j98b7du4jb83h53',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-09-21T14:19:07+08:00 ] 127.0.0.1 GET /images/20190912/xfx0.jpg
+[ info ] www.jsg.co/images/20190912/xfx0.jpg [运行时间：0.034002s][吞吐率：29.41req/s] [内存消耗：1,609.45kb] [文件加载：39]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'images',
+    2 => '20190912',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://www.jsg.co/orders/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=6fm6s5vchm2j98b7du4jb83h53',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-09-21T14:19:11+08:00 ] 127.0.0.1 GET /members/index.html
+[ info ] www.jsg.co/members/index.html [运行时间：0.088005s][吞吐率：11.36req/s] [内存消耗：3,207.14kb] [文件加载：53]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'members',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://www.jsg.co/orders/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=6fm6s5vchm2j98b7du4jb83h53',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mcenter\controller\Members->index[ D:\wamp\work\zsh\apps\mcenter\controller\Members.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ../template/mcenter/members\index.php [ array (
+  0 => 'userInfo',
+  1 => 'keyid',
+  2 => 'keytel',
+  3 => 'hystatus',
+  4 => 'ztstatus',
+  5 => 'lists',
+  6 => 'pageStr',
+  7 => 'hyArr',
+  8 => 'lyArr',
+  9 => 'ztArr',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.017001s ] mysql:host=47.110.135.172;port=3306;dbname=jsg;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_users` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `js_users` LIMIT 1 [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users` ORDER BY id  DESC LIMIT 0,20 [ RunTime:0.006001s ]
+[ error ] [8]未定义数组索引: user_name[D:\wamp\work\zsh\runtime\temp\a448eeb7675f32b902e1e6fe538432de.php:34]
+---------------------------------------------------------------
+[ 2019-09-21T14:19:13+08:00 ] 127.0.0.1 GET /members/address.html
+[ info ] www.jsg.co/members/address.html [运行时间：0.069004s][吞吐率：14.49req/s] [内存消耗：2,978.84kb] [文件加载：52]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'members',
+    2 => 'address',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://www.jsg.co/members/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=6fm6s5vchm2j98b7du4jb83h53',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mcenter\controller\Members->address[ D:\wamp\work\zsh\apps\mcenter\controller\Members.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.016001s ] mysql:host=47.110.135.172;port=3306;dbname=jsg;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_users` [ RunTime:0.007000s ]
+[ error ] [10501]SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-20,20' at line 1[D:\wamp\work\zsh\thinkphp\library\think\db\Connection.php:388]
+---------------------------------------------------------------
+[ 2019-09-21T14:19:18+08:00 ] 127.0.0.1 GET /members/index.html
+[ info ] www.jsg.co/members/index.html [运行时间：0.085005s][吞吐率：11.76req/s] [内存消耗：3,207.17kb] [文件加载：53]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'members',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://www.jsg.co/orders/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=6fm6s5vchm2j98b7du4jb83h53',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mcenter\controller\Members->index[ D:\wamp\work\zsh\apps\mcenter\controller\Members.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ../template/mcenter/members\index.php [ array (
+  0 => 'userInfo',
+  1 => 'keyid',
+  2 => 'keytel',
+  3 => 'hystatus',
+  4 => 'ztstatus',
+  5 => 'lists',
+  6 => 'pageStr',
+  7 => 'hyArr',
+  8 => 'lyArr',
+  9 => 'ztArr',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.017001s ] mysql:host=47.110.135.172;port=3306;dbname=jsg;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_users` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `js_users` LIMIT 1 [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users` ORDER BY id  DESC LIMIT 0,20 [ RunTime:0.006000s ]
+[ error ] [8]未定义数组索引: user_name[D:\wamp\work\zsh\runtime\temp\a448eeb7675f32b902e1e6fe538432de.php:34]
+---------------------------------------------------------------
+[ 2019-09-21T14:19:23+08:00 ] 127.0.0.1 GET /orders/index.html
+[ info ] www.jsg.co/orders/index.html [运行时间：0.189011s][吞吐率：5.29req/s] [内存消耗：3,299.20kb] [文件加载：53]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'orders',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://www.jsg.co/members/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=6fm6s5vchm2j98b7du4jb83h53',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mcenter\controller\Orders->index[ D:\wamp\work\zsh\apps\mcenter\controller\Orders.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ../template/mcenter/orders\index.php [ array (
+  0 => 'userInfo',
+  1 => 'statusArr',
+  2 => 'paytypeArr',
+  3 => 'keyword',
+  4 => 'status',
+  5 => 'lists',
+  6 => 'pageStr',
+  7 => 'stagelist',
+  8 => 'user',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.018001s ] mysql:host=47.110.135.172;port=3306;dbname=jsg;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_order` [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `js_order` LIMIT 1 [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order` ORDER BY id DESC LIMIT 0,20 [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_order_goods` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909201510001' ORDER BY addtime DESC [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909201510000' ORDER BY addtime DESC [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909191510001' ORDER BY addtime DESC [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909191510000' ORDER BY addtime DESC [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909181510006' ORDER BY addtime DESC [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909171510003' ORDER BY addtime DESC [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909171510001' ORDER BY addtime DESC [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909171510000' ORDER BY addtime DESC [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909161510000' ORDER BY addtime DESC [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_system_stage` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT `code`,`area` FROM `js_system_stage` WHERE  `status` = 1 [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_users` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users` WHERE  `status` = 1 [ RunTime:0.008001s ]
+[ error ] [8]未定义数组索引: user_name[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:35]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义变量: typeArr[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:246]
+[ error ] [2]Invalid argument supplied for foreach()[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:246]
+---------------------------------------------------------------
+[ 2019-09-21T14:19:23+08:00 ] 127.0.0.1 GET /images/20190912/yy01.jpg
+[ info ] www.jsg.co/images/20190912/yy01.jpg [运行时间：0.028002s][吞吐率：35.71req/s] [内存消耗：1,609.45kb] [文件加载：39]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'images',
+    2 => '20190912',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://www.jsg.co/orders/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=6fm6s5vchm2j98b7du4jb83h53',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-09-21T14:19:23+08:00 ] 127.0.0.1 GET /images/20190912/xfx0.jpg
+[ info ] www.jsg.co/images/20190912/xfx0.jpg [运行时间：0.028002s][吞吐率：35.71req/s] [内存消耗：1,609.45kb] [文件加载：39]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'images',
+    2 => '20190912',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://www.jsg.co/orders/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=6fm6s5vchm2j98b7du4jb83h53',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-09-21T14:19:26+08:00 ] 127.0.0.1 GET /Orders/inf/id/67.html
+[ info ] www.jsg.co/Orders/inf/id/67.html [运行时间：0.140008s][吞吐率：7.14req/s] [内存消耗：3,196.64kb] [文件加载：53]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'Orders',
+    2 => 'inf',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://www.jsg.co/orders/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=6fm6s5vchm2j98b7du4jb83h53',
+)
+[ info ] [ PARAM ] array (
+  'id' => '67',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mcenter\controller\Orders->inf[ D:\wamp\work\zsh\apps\mcenter\controller\Orders.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ../template/mcenter/orders\inf.php [ array (
+  0 => 'userInfo',
+  1 => 'statusArr',
+  2 => 'paytypeArr',
+  3 => 'info',
+  4 => 'inum',
+  5 => 'glist',
+  6 => 'arealist',
+  7 => 'stagelist',
+  8 => 'stagealist',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.018001s ] mysql:host=47.110.135.172;port=3306;dbname=jsg;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_order` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order` WHERE  (  id=67 ) LIMIT 1 [ RunTime:0.009001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_order_goods` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909201510000' ORDER BY addtime DESC [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_system_area` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT `code`,`area` FROM `js_system_area` WHERE  `status` = 1 [ RunTime:0.019001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_system_stage` [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT `code`,`area` FROM `js_system_stage` WHERE  `status` = 1 [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_system_stage` WHERE  `status` = 1 [ RunTime:0.008001s ]
+[ error ] [8]未定义数组索引: user_name[D:\wamp\work\zsh\runtime\temp\c3f2f88961524f85c2e45bc4deeb0d62.php:41]
+[ error ] [8]未定义变量: typeArr[D:\wamp\work\zsh\runtime\temp\c3f2f88961524f85c2e45bc4deeb0d62.php:215]
+[ error ] [2]Invalid argument supplied for foreach()[D:\wamp\work\zsh\runtime\temp\c3f2f88961524f85c2e45bc4deeb0d62.php:215]
+---------------------------------------------------------------
+[ 2019-09-21T14:19:26+08:00 ] 127.0.0.1 GET /images/20190912/xfx0.jpg
+[ info ] www.jsg.co/images/20190912/xfx0.jpg [运行时间：0.031002s][吞吐率：32.26req/s] [内存消耗：1,609.45kb] [文件加载：39]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'images',
+    2 => '20190912',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://www.jsg.co/Orders/inf/id/67.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=6fm6s5vchm2j98b7du4jb83h53',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-09-21T14:19:26+08:00 ] 127.0.0.1 GET /images/20190912/yy01.jpg
+[ info ] www.jsg.co/images/20190912/yy01.jpg [运行时间：0.032002s][吞吐率：31.25req/s] [内存消耗：1,609.45kb] [文件加载：39]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'images',
+    2 => '20190912',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://www.jsg.co/Orders/inf/id/67.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=6fm6s5vchm2j98b7du4jb83h53',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-09-21T14:19:41+08:00 ] 127.0.0.1 GET /orders/index.html
+[ info ] www.jsg.co/orders/index.html [运行时间：0.198012s][吞吐率：5.05req/s] [内存消耗：3,299.20kb] [文件加载：53]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'orders',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://www.jsg.co/members/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=6fm6s5vchm2j98b7du4jb83h53',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mcenter\controller\Orders->index[ D:\wamp\work\zsh\apps\mcenter\controller\Orders.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ../template/mcenter/orders\index.php [ array (
+  0 => 'userInfo',
+  1 => 'statusArr',
+  2 => 'paytypeArr',
+  3 => 'keyword',
+  4 => 'status',
+  5 => 'lists',
+  6 => 'pageStr',
+  7 => 'stagelist',
+  8 => 'user',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.018001s ] mysql:host=47.110.135.172;port=3306;dbname=jsg;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_order` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `js_order` LIMIT 1 [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order` ORDER BY id DESC LIMIT 0,20 [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_order_goods` [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909201510001' ORDER BY addtime DESC [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909201510000' ORDER BY addtime DESC [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909191510001' ORDER BY addtime DESC [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909191510000' ORDER BY addtime DESC [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909181510006' ORDER BY addtime DESC [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909171510003' ORDER BY addtime DESC [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909171510001' ORDER BY addtime DESC [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909171510000' ORDER BY addtime DESC [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_order_goods` WHERE  `order_no` = '1909161510000' ORDER BY addtime DESC [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_system_stage` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT `code`,`area` FROM `js_system_stage` WHERE  `status` = 1 [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_users` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_users` WHERE  `status` = 1 [ RunTime:0.008001s ]
+[ error ] [8]未定义数组索引: user_name[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:35]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义数组索引: glist[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:211]
+[ error ] [8]未定义变量: typeArr[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:246]
+[ error ] [2]Invalid argument supplied for foreach()[D:\wamp\work\zsh\runtime\temp\3555755144380ebd318b8f5a9b9f6e39.php:246]
