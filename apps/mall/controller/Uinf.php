@@ -94,8 +94,8 @@ class Uinf extends Controller{
 		
 		//print_r($lists);
 		
-		//状态:1-下单|2-卖家确认并发货|3-待收货|5-买家确认收货|6-系统收货|8-卖家取消订单|9-系统关闭未付款订单
-		$statusArr = [2=>'待发货',3=>'待收货',5=>'已收货',6=>'已收货',8=>'已关闭',9=>'已关闭'];
+		//状态:1-待确认|2-卖家确认并发货|3-待收货|5-买家确认收货|6-系统收货|8-卖家取消订单|9-系统关闭未付款订单
+		$statusArr = [1=>'待发货',2=>'待发货',3=>'待收货',5=>'已收货',6=>'已收货',8=>'已关闭',9=>'已关闭'];
 		$this->assign('statusArr',$statusArr);
 		return view();
 	}
@@ -122,7 +122,7 @@ class Uinf extends Controller{
 		$arealist = getArrOne($arealist,'area','code');
 		$this->assign('arealist',$arealist);
 		
-		$statusArr = [2=>'待发货',3=>'待收货',5=>'已收货',6=>'已收货',8=>'已关闭',9=>'已关闭'];
+		$statusArr = [1=>'待发货',2=>'待发货',3=>'待收货',5=>'已收货',6=>'已收货',8=>'已关闭',9=>'已关闭'];
 		$this->assign('statusArr',$statusArr);
 		
 		$statusinfArr = [2=>'平台发贷中',3=>'买家待收货',5=>'订单已完成',6=>'订单已完成',8=>'卖家取消订单',9=>'订单超时未支付'];

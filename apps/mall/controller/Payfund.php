@@ -178,7 +178,7 @@ class Payfund extends Controller{
     		}
     		//商品购买
     	}else{
-    		$fdata = ['pay_amount'=>$amount,'status'=>2 ,'pay_status'=>2 ,'pay_type'=>$pay_type,'trade_no'=>$trade_no ,'pay_time'=>$nowTime ,'update_time'=>$nowTime];
+    		$fdata = ['pay_amount'=>$amount,'pay_status'=>2 ,'pay_type'=>$pay_type,'trade_no'=>$trade_no ,'pay_time'=>$nowTime ,'update_time'=>$nowTime];
     			
     		$wheres = ['order_no'=>$order_no,'amount'=>$amount];
     			

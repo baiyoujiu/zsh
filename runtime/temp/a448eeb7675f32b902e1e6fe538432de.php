@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:37:"../template/mcenter/members\index.php";i:1567497328;s:52:"D:\wamp\work\zsh\template\mcenter\common\uheader.php";i:1567594450;s:55:"D:\wamp\work\zsh\template\mcenter\common\uheaderNav.php";i:1567501447;s:50:"D:\wamp\work\zsh\template\mcenter\common\usnav.php";i:1568967277;s:52:"D:\wamp\work\zsh\template\mcenter\common\ufooter.php";i:1564996439;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:37:"../template/mcenter/members\index.php";i:1569221767;s:52:"D:\wamp\work\zsh\template\mcenter\common\uheader.php";i:1567594450;s:55:"D:\wamp\work\zsh\template\mcenter\common\uheaderNav.php";i:1567501447;s:50:"D:\wamp\work\zsh\template\mcenter\common\usnav.php";i:1568967277;s:52:"D:\wamp\work\zsh\template\mcenter\common\ufooter.php";i:1564996439;}*/ ?>
 <!DOCTYPE html>
 <!-- saved from url=(0032)http://www.o2osl.com/u/index.htm -->
 <html lang="zh-cn">
@@ -210,27 +210,29 @@
         menuleft("membersindex");
 
         $('.butedit').click(function(){
-            var objid = $.trim($(this).data('na')),status = $.trim($(this).data('s'));
-           $.ajax({
-                type:"POST",
-                async:false,
-                url:"/Members/ustatus.html",
-                dataType: "json",
-                data:{objid : objid,status : status,i: Math.random()},
-                success:function(result){
-                    if(result.status == 200){
-                        window.location.reload();
-                    }else{
-                        art.dialog.alert(result.msg);
-                    }
-                },
-                error:function(XMLHttpRequest, textStatus, errorThrown){
-                    art.dialog.alert('网000络异常，请稍后重试！');
-                }
-            });
+           var objid = $.trim($(this).data('na')),status = $.trim($(this).data('s'));
+		   var hstr = $(this).html();
+		   normalDialog('用户'+hstr, hstr+'用户', "确认", function(t) {
+			   $.ajax({
+					type:"POST",
+					async:false,
+					url:"/Members/ustatus.html",
+					dataType: "json",
+					data:{objid : objid,status : status,i: Math.random()},
+					success:function(result){
+						if(result.status == 200){
+							window.location.reload();
+						}else{
+							art.dialog.alert(result.msg);
+						}
+					},
+					error:function(XMLHttpRequest, textStatus, errorThrown){
+						art.dialog.alert('网000络异常，请稍后重试！');
+					}
+				});
+			}, "取消", null);
         })
     });
-
 </script>
     <div class="footer">
       <p class="version">Copyright@2019 运营管理中心 版权所有，不允许任何形式的转载以及拷贝，违者必究。 &nbsp;&nbsp;</p>

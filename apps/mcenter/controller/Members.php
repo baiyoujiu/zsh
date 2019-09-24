@@ -188,7 +188,13 @@ class Members extends Controller{
 		}
 		$this->assign('keyid',$keyid);
 
-		//拉取需要表单数据
+        //页码控制
+        $count = db('finance_recharge')->where($wheres)->count();
+        $maxPage = ceil($count/$pagesize);
+        $page = $page>$maxPage?$maxPage:$page;
+        $page = $page<1?1:$page;
+
+        //拉取需要表单数据
 		$lists = db('finance_recharge')->where($wheres)->order('id  DESC')
 				->limit(($page-1)*$pagesize,$pagesize)->select();
 		$this->assign('lists',$lists);
@@ -198,11 +204,6 @@ class Members extends Controller{
         $ulists = getArrOne($ulists,'username','userid');
         $this->assign('ulists',$ulists);
 
-        //页码控制
-        $count = db('finance_recharge')->where($wheres)->count();
-        $maxPage = ceil($count/$pagesize);
-        $page = $page>$maxPage?$maxPage:$page;
-        $page = $page<1?1:$page;
 
 		//页码
 		$this->assign('pageStr',get_page_str($count,$urlArr,$page,$pagesize));
@@ -214,67 +215,47 @@ class Members extends Controller{
 	//会员地址
 	public function address(){
 		//接收传值
+        $keyid = input('get.keyid','','addslashes,strip_tags');
+        $keyid = trim($keyid);
 		$keytel = input('get.keytel','','addslashes,strip_tags');
 		$keytel = trim($keytel);
 		$page = input('get.page/d');
 		$pagesize = 20;
 		$urlArr = array();
 		$wheres =[];
-        $swheres =[];
+        $t = db('users')->where('username',$keyid)->order('id DESC')->find();
+
 		//处理传值，以拉取需要的信息（选择）
+        if(!empty($keyid)){
+            $wheres['userid'] = $t['userid'];
+            $urlArr['userid'] = $t['userid'];
+        }
 		if(!empty($keytel)){
-			$wheres['username'] = $keytel;
+			$wheres['phone'] = $keytel;
 			$urlArr['phone'] = $keytel;
 		}
-		$this->assign('keytel',$keytel);
 
+		$this->assign('keytel',$keytel);
+        $this->assign('keyid',$keyid);
 
 		//页码控制
-		$count = db('users')->where('status',1)->count();
+		$count = db('users_address')->count();
 		$maxPage = ceil($count/$pagesize);
 		$page = $page>$maxPage?$maxPage:$page;
 		$page = $page<1?1:$page;
 
-		//用户表
-        $lists = db('users')->where($wheres)->order('id DESC')
+		//数据表
+
+        $lists = db('users_address')->where($wheres)->order('id DESC')
             ->limit(($page-1)*$pagesize,$pagesize)->select();
         $this->assign('lists',$lists);
 
-        if(!empty($keytel)){
-            $swheres['phone']= $keytel;
-        }
-		//收货人姓名
-		$nlists = db('users_address')->order('id  DESC')->select();
-        $nlists = getArrOne($nlists,'recname','userid');
-		$this->assign('nlists',$nlists);
-
-		//省
-		$slists = db('users_address')->where($swheres)->order('id  DESC')->select();
-		$slists = getArrOne($slists,'province','userid');
-		$this->assign('slists',$slists);
-		//城
-		$clists = db('users_address')->where($swheres)->order('id  DESC')->select();
-		$clists = getArrOne($clists,'city','userid');
-		$this->assign('clists',$clists);
-		//区
-		$qlists = db('users_address')->where($swheres)->order('id  DESC')->select();
-		$qlists = getArrOne($qlists,'area','userid');
-		$this->assign('qlists',$qlists);
-		//学校
-		$xlists = db('users_address')->where($swheres)->order('id  DESC')->select();
-		$xlists = getArrOne($xlists,'school','userid');
-		$this->assign('xlists',$xlists);
-		//街道
-		$jlists = db('users_address')->where($swheres)->order('id  DESC')->select();
-		$jlists = getArrOne($jlists,'street','userid');
-		$this->assign('jlists',$jlists);
-		//地址
-		$dlists = db('users_address')->where($swheres)->order('id  DESC')->select();
-		$dlists = getArrOne($dlists,'address','userid');
-		$this->assign('dlists',$dlists);
+        unset($wheres['phone']);
+        $glists = db('users')->where($wheres)->order('id DESC')->select();
+        $this->assign('glists',getArrOne($glists,'username','userid'));
 
 
-		//所有有效地区
+        //所有有效地区
 		$arealist = db('system_area')->field('code,area')->where('status',1)->select();
 		$arealist = getArrOne($arealist,'area','code');
 		$this->assign('arealist',$arealist);

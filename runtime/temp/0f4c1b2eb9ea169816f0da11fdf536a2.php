@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:35:"../template/mcenter/orders\cart.php";i:1568963217;s:52:"D:\wamp\work\zsh\template\mcenter\common\uheader.php";i:1567594450;s:55:"D:\wamp\work\zsh\template\mcenter\common\uheaderNav.php";i:1567501447;s:50:"D:\wamp\work\zsh\template\mcenter\common\usnav.php";i:1568967277;s:52:"D:\wamp\work\zsh\template\mcenter\common\ufooter.php";i:1564996439;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:35:"../template/mcenter/orders\cart.php";i:1569232370;s:52:"D:\wamp\work\zsh\template\mcenter\common\uheader.php";i:1567594450;s:55:"D:\wamp\work\zsh\template\mcenter\common\uheaderNav.php";i:1567501447;s:50:"D:\wamp\work\zsh\template\mcenter\common\usnav.php";i:1568967277;s:52:"D:\wamp\work\zsh\template\mcenter\common\ufooter.php";i:1564996439;}*/ ?>
 <!DOCTYPE html>
 <!-- saved from url=(0032)http://www.o2osl.com/u/index.htm -->
 <html lang="zh-cn">
@@ -121,8 +121,8 @@
                     </tr>
                   </thead>
                   <?php if(empty($lists)){?>
-                  <tr colspan="8">
-                    <th class="food_dingdan"><div class="no_data">
+                  <tr >
+                    <th class="food_dingdan" colspan="5"><div class="no_data">
                         <div class="no_data_w"> <img src="../img/!.png" alt="">
                           <p>您还没有订单哦~</p>
                         </div>

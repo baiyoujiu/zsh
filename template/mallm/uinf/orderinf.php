@@ -10,8 +10,8 @@
 		<!--订单状态-->
 		<section>
 			<div class="dingdan_zt">
-				<h2><?php echo $info['pay_status']==1?'待付款':$statusArr[$info['status']];?></h2>
-				<h3><?php echo $info['pay_status']==1?'订单等待支付':$statusinfArr[$info['status']];?></h3>
+				<h2><?php echo $info['status']==1?($info['pay_status']==1?'待付款':$statusArr[$info['status']]):$statusArr[$info['status']];?></h2>
+				<h3><?php echo $info['status']==1?($info['pay_status']==1?'订单等待支付':$statusinfArr[$info['status']]):$statusinfArr[$info['status']];?></h3>
 			</div>
 		</section>
 		<!--收货地址-->

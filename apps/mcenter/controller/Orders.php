@@ -24,8 +24,10 @@ class Orders extends Controller
 		$userInfo = session('userInfo');
 		$this->assign('userInfo', $userInfo);
 
-		$statusArr = array('1'=>'下单','2'=>'卖家确认','3'=>'已发货','5'=>'买家确认收货','6'=>'系统收货','8'=>'卖家取消订单','9'=>'系统关闭未付款订单');
+		$statusArr = array('1'=>'待付款','2'=>'待确认','3'=>'已确认','4'=>'已发货待收','6'=>'买家确认收货','7'=>'系统收货','9'=>'卖家取消订单','10'=>'系统关闭未付款订单');
 		$this->assign('statusArr',$statusArr);
+		$sstatusArr = array('1'=>'待确认','2'=>'已确认','3'=>'已发货待收','5'=>'买家确认收货','6'=>'系统收货','8'=>'卖家取消订单','9'=>'系统关闭未付款订单');
+		$this->assign('sstatusArr',$sstatusArr);
 
 		$paytypeArr = array('1'=>'余额支付','2'=>'支付宝','3'=>'微信');
 		$this->assign('paytypeArr',$paytypeArr);
@@ -52,12 +54,16 @@ class Orders extends Controller
 			$urlArr['keyword'] = $keyword;
 		}
 		if (!empty($status)) {
-			$wheres['status'] = $status;
+			$wheres['pay_status'] = ($status == 1)?'1':'2';
+			$wheres['status'] = 1;
+		}
+		if ($wheres['pay_status'] == 2) {
+			$wheres['pay_status'] =($status == 10)?'1':'2';
+			$wheres['status'] = $status-1;
 			$urlArr['status'] = $status;
 		}
 		$this->assign('keyword', $keyword);
 		$this->assign('status', $status);
-
 		//页码控制
 		$count = db('order')->where($wheres)->count();
 		$maxPage = ceil($count / $pagesize);
@@ -93,6 +99,54 @@ class Orders extends Controller
 		$user = getArrOne($user,'username','userid');
 		$this->assign('user',$user);
 		return view();
+	}
+	public function upstatus(){
+		//限定需AJAX请求
+		if (!Request()->isAjax()){
+			return ['status'=>220,'msg'=>'非法请求！'];
+		}
+		$rule = [
+		['objid','require','参数不正确'],
+		['status','require|in:2,3,6,8,9','状态不正确|状态不正确'],
+		];
+		$data = request()->post();
+		$validate = new Validate($rule);
+		$result   = $validate->check($data);
+		if(!$result){
+			return ['status'=>201,'msg'=>$validate->getError()];
+		}
+
+		
+		//1-下单，待确认|2-卖家确认|3-已发贷，待收货|5-买家确认收货|6-系统收货|8-卖家取消订单|9-系统关闭未付款订单
+		//更改后的状态是 2896
+
+		$order_no = $data['objid'];
+		$status = $data['status'];
+		
+		//数据组装
+		$nowtimes = date('Y-m-d H:i:s');
+		$udata=['status'=>$status,'update_time'=>$nowtimes];
+		$wheres = ['order_no'=>$order_no];
+		
+		switch ($status) {
+			case 9://系统关闭未付款订单
+			case 2://卖家确认
+			case 8://卖家取消订单
+				$wheres['status'] = 1;
+				break;
+			case 6:
+				$wheres['status'] = 3;
+				$udata['received_time'] = $nowtimes;
+				break;
+			default:
+			break;
+		}
+		$res = db('order')->where($wheres)->update($udata);
+		if($res){
+			return ['status'=>200,'msg'=>'成功！'];
+		}else{
+			return ['status'=>201,'msg'=>'不成功！'];
+		}
 	}
 
 	public function inf()
@@ -142,6 +196,7 @@ class Orders extends Controller
 		}
 		$rule = [
 				['objId', 'require', '参数不正确'],
+				['status','require|in:1,2,3','状态不正确|状态不正确'],
 		];
 
 		$data = request()->post();
@@ -151,19 +206,23 @@ class Orders extends Controller
 			return ['status' => 201, 'msg' => $validate->getError()];
 		}
 		$objId = $data['objId'];
-		unset($data['objId']);
 		$time = date('Y-m-d H:i:s');
 		$data['update_time'] = $time;
-
-		$info = db('order')->where('order_no',$objId)->find();
-		unset($data['objId']);
-		if ($info['status'] == 2) {
-			$data['status'] = 3;
-			db('order')->where('order_no', $objId)->update($data);
-		} else {
-			$data['status'] = 2;
-			db('order')->where('order_no', $objId)->update($data);
+		$data['send_time'] = $time;
+		switch ($data['status']) {
+			case 1://系统关闭未付款订单
+				$data['status'] =2;
+				break;
+			case 2://卖家确认
+				$data['status'] =3;
+				break;
+			case 3://卖家取消订单
+				$data['status'] =6;
+				break;
 		}
+		unset($data['objId']);
+		unset($data['i']);
+		db('order')->where('order_no',$objId)->update($data);
 		return ['status' => 200, 'msg' => '成功'];
 	}
 

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:39:"../template/mcenter/members\address.php";i:1568978944;s:52:"D:\wamp\work\zsh\template\mcenter\common\uheader.php";i:1567594450;s:55:"D:\wamp\work\zsh\template\mcenter\common\uheaderNav.php";i:1567501447;s:50:"D:\wamp\work\zsh\template\mcenter\common\usnav.php";i:1568967277;s:52:"D:\wamp\work\zsh\template\mcenter\common\ufooter.php";i:1564996439;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:39:"../template/mcenter/members\address.php";i:1569233849;s:52:"D:\wamp\work\zsh\template\mcenter\common\uheader.php";i:1567594450;s:55:"D:\wamp\work\zsh\template\mcenter\common\uheaderNav.php";i:1567501447;s:50:"D:\wamp\work\zsh\template\mcenter\common\usnav.php";i:1568967277;s:52:"D:\wamp\work\zsh\template\mcenter\common\ufooter.php";i:1564996439;}*/ ?>
 <!DOCTYPE html>
 <!-- saved from url=(0032)http://www.o2osl.com/u/index.htm -->
 <html lang="zh-cn">
@@ -124,6 +124,7 @@
                             <ul class="newpager">
                                 <li class="previous">
                                     <div class="form-inline text-right marginTop">
+                                        <input class="form-control changeStyle ui-input" type="text" name="keyid"   placeholder="请输入用户名" value="<?php echo $keyid;?>">
                                         <div class="form-group" style="position:relative;">
                                             <input class="form-control changeStyle ui-input" type="text" name="keytel"   placeholder="请输入手机号" value="<?php echo $keytel;?>">
                                             <div class="pull-right searchBtn">
@@ -138,8 +139,10 @@
                             <table class="table table-bordered" id="template">
                                 <thead>
                                 <tr>
-                                    <th>收货人</th>
                                     <th>用户名</th>
+                                    <th>收货人</th>
+                                    <th>收货人电话</th>
+                                    <th>收货驿站</th>
                                     <th>收货地址</th>
                                 </tr>
                                 </thead>
@@ -150,9 +153,11 @@
                                 }else{
                                     foreach($lists as $v){
                                         ?><tr style="height: 55px;">
-                                        <td><?php echo $v['username']?></td>
-                                        <td><?php echo $nlists[$v['userid']]?></td>
-                                        <td><?php echo $arealist[$slists[$v['userid']]].$arealist[$clists[$v['userid']]].$arealist[$qlists[$v['userid']]].(($xlists[$v['userid']] == 1 )?$stagelist[$dlists[$v['userid']]].'('.$stagealist[$dlists[$v['userid']]].')':$arealist[$jlists[$v['userid']]].$dlists[$v['userid']]);?></td>
+                                        <td><?php echo $glists[$v['userid']]?></td>
+                                        <td><?php echo $v['recname']?></td>
+                                        <td><?php echo $v['phone']?></td>
+                                        <td><?php echo ($v['school'] == 1)?$stagelist[$v['address']]:'非驿站'?></td>
+                                        <td><?php echo $arealist[$v['province']].$arealist[$v['city']].$arealist[$v['area']].(($v['school'] == 1)?$stagelist[$v['address']].'('.$stagealist[$v['address']].')':$arealist[$v['street']].$v['address']);?></td>
                                     <?php }?>
                                     </tr>
                                 <?php }?>

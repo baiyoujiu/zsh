@@ -487,7 +487,7 @@ class Order extends Controller{
 		
 		//租借驿站，含服装时，强制运费等于5元。
 		if($havefz){
-			$freightsc = 200;
+			$freightsc = 300;
 		}
 		$this->assign('freightsc',$freightsc);
 		
@@ -599,7 +599,7 @@ class Order extends Controller{
 		//订单商品全为图书租借时，才可使用优惠劵。
 		$onlyrent = 1;
 		
-		//包含服装，1是，0否，含服装时运费，驿站2元，非驿站5元。
+		//包含服装，1是，0否，含服装时运费，驿站3元，非驿站5元。
 		$havefz = 0;
 		
 		/* 数据整理*/
@@ -670,9 +670,9 @@ class Order extends Controller{
 			$data['group'] = 1;
 		}
 		
-		//含服装时，租借驿站，强制运费等于2元;非租借驿站，强制运费等于5元。
+		//含服装时，租借驿站，强制运费等于3元;非租借驿站，强制运费等于5元。
 		if($havefz){
-			$freight = $adrinf['school']?200:500;
+			$freight = $adrinf['school']?300:500;
 		}
 		
 		$amount = $good_amount + $freight;
@@ -704,7 +704,7 @@ class Order extends Controller{
 		if($amount<=0){
 			$data['amount'] = $amount = 0;
 			$data['pay_amount'] = 0;
-			$data['status'] = 2;
+			$data['status'] = 1;
 			$data['pay_status'] = 2;
 			$data['pay_time'] = $nowtimes;
 		}

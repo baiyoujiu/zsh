@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:34:"../template/mcenter/orders\inf.php";i:1568969642;s:52:"D:\wamp\work\zsh\template\mcenter\common\uheader.php";i:1567594450;s:55:"D:\wamp\work\zsh\template\mcenter\common\uheaderNav.php";i:1567501447;s:50:"D:\wamp\work\zsh\template\mcenter\common\usnav.php";i:1568967277;s:52:"D:\wamp\work\zsh\template\mcenter\common\ufooter.php";i:1564996439;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:34:"../template/mcenter/orders\inf.php";i:1569237935;s:52:"D:\wamp\work\zsh\template\mcenter\common\uheader.php";i:1567594450;s:55:"D:\wamp\work\zsh\template\mcenter\common\uheaderNav.php";i:1567501447;s:50:"D:\wamp\work\zsh\template\mcenter\common\usnav.php";i:1568967277;s:52:"D:\wamp\work\zsh\template\mcenter\common\ufooter.php";i:1564996439;}*/ ?>
 <!DOCTYPE html>
 <!-- saved from url=(0032)http://www.o2osl.com/u/index.htm -->
 <html lang="zh-cn">
@@ -24,11 +24,6 @@
 <link rel="stylesheet" type="text/css" href="__CSS__/withdraw-new.css">
 <link rel="stylesheet" type="text/css" href="__CSS__/dsmc.css">
 <link rel="stylesheet" type="text/css" href="__CSS__/prolist-sell.css">
-<script type="text/javascript" charset="utf-8" src="/uedit/ueditor.config.js"></script> 
-<script type="text/javascript" charset="utf-8" src="/uedit/ueditor.all.min.js"> </script> 
-<script type="text/javascript" charset="utf-8" src="/uedit/lang/zh-cn/zh-cn.js"></script> 
-<script type="text/javascript" src="__STATIC__/js/laydate.js"></script> 
-<script type="text/javascript" src="__JS__/ajaxupload3.9.js"></script> 
 </head>
 <body>
     <div class="header">
@@ -52,6 +47,10 @@
     window.location.href = "/users/logout.html";
     }
 </script>
+<style>
+table{ margin-left:10px;}
+table td{ text-align:left;}
+</style>
 <div class="container" id="j-content">
   <div class="row"> 
     <!--left Nav start--> 
@@ -109,85 +108,69 @@
             <ul class="nav nav-tabs" style="margin-top: 16px;padding-left: 16px;">
               <li class="active"><a href="http://www.jsg.co/orders/index.html">订单详情</a></li>
             </ul>
-            <a class="btn btn-major btn-small shopHelp" id="Addadmin" >
-            <?php if($info['pay_status']==2 && $info['status']==1){?>
-            <span class="butedit0" data-order="<?php echo $info['order_no'];?>">确认订单</span>
-            <?php }if($info['pay_status']==2 && $info['status']==2){?>
-            <b class="butedit" data-order="<?php echo $info['order_no'];?>" data-s="<?php echo $statusArr[$info['status']];?>">发货</b>
-            <?php }?>
+            <a class="btn btn-major btn-small shopHelp" id="Addadmin" href="javascript:;">
+              <?php if($info['pay_status']==2 && $info['status']==1){?>
+                <b class="butedit0" data-order="<?php echo $info['order_no'];?>" data-s="<?php echo $info['status'];?>" data-or="<?php echo $info['order_no'];?>">确认订单</b>
+              <?php }if($info['pay_status']==2 && $info['status']==2){?>
+            <b class="butedit" data-order="<?php echo $info['order_no'];?>" data-s="<?php echo $info['status'];?>" data-or="<?php echo $info['order_no'];?>">发货</b>
+            <?php }if($info['pay_status']==2 && $info['status']==3){?>
+                <b class="butedit" data-order="<?php echo $info['order_no'];?>" data-s="<?php echo $info['status'];?>" data-or="<?php echo $info['order_no'];?>">系统收货</b>
+              <?php }?>
             </a> </div>
           <div class="content">
-            <div class="dingdan_detail"> 
-              <!--订单详情-->
-              <ul class="clearfix dingdan_detail_lists">
-                <li class="fl">
-                  <h6>订单信息</h6>
-                  <dl>
-                    <dd><em>订单编号：</em><span><?php echo $info['order_no'];?></span></dd>
-                    <dd><em>订单金额：</em><span>￥<?php echo $info['amount']/100;?></span></dd>
-                    <dd><em>订单状态：</em><span><?php echo $statusArr[$info['status']];?></span></dd>
-                    <dd><em>支付方式：</em><span><?php echo $paytypeArr[$info['pay_type']];?></span></dd>
-                  </dl>
-                </li>
-                <li class="fl">
-                  <h6>配送信息</h6>
-                  <dl>
-                    <dd><em>配送方式：</em><span><?php echo '暂无';?></span></dd>
-                    <dd><em>物流跟踪：</em><span></span></dd>
-                    <dd><em>操作：</em> </dd>
-                  </dl>
-                </li>
-                <li class="fl">
-                  <h6>收货人信息</h6>
-                  <dl>
-                    <dd><em>收&nbsp;货&nbsp;人：</em><span><?php echo $info['address']['recname'];?></span></dd>
-                    <dd><em>手机号码：</em><span><?php echo $info['address']['phone'];?></span></dd>
-                    <dd><em>收货地址：</em><span><?php echo $arealist[$info['address']['province']].$arealist[$info['address']['city']].$arealist[$info['address']['area']].(($info['address']['school'] == 1 )?$stagelist[$info['address']['address']].'('.$stagealist[$info['address']['address']].')':$arealist[$info['address']['street']].$info['address']['address']);?></span></dd>
-                  </dl>
-                </li>
-                <li class="fl">
-                  <h6>发票信息</h6>
-                  <dl>
-                    <dd><em>是否发票：</em><span>暂无</span></dd>
-                    <dd><em>发票抬头：</em><span>暂无</span></dd>
-                  </dl>
-                </li>
-              </ul>
-              <!--订单备注-->
-              <div class="dingdan_detail_beizhu">
-                <h6>订单备注： <span><?php echo nl2br($info['remark']);?></span> </h6>
-              </div>
-              <!--订单商品详情-->
-              <div class="dingdan_detail_shops">
-                <h6>订单商品详情</h6>
-                <div>
-                  <table>
-                    <thead>
-                      <tr>
-                        <td>商品信息</td>
-                        <td>单价</td>
-                        <td>数量</td>
-                        <td>状态</td>
-                      </tr>
-                    </thead>
-                  </table>
-                  <ul class="dingdan_detail_shops_lists">
-                    <?php foreach($glist as $k=>$v){?>
-                    <li class="clearfix">
-                      <div class="fl food_name">
-                        <img class="fl" src="<?php echo $v['pic'];?>"/>
-                        <section class="fl">
-                          <p><?php echo $v['name'];?></p>
-                          <div class="food_name_fenlei"><span><?php echo '&nbsp'.'&nbsp'.$v['keyv'];?></span></div>
-                        </section>
-                      </div>
-                      <div class="fl food_pic">￥<?php echo $v['price']/100;?></div>
-                      <div class="fl food_mun"><?php echo $inum[$v['order_no']];?></div>
-                      <div class="fl food_state"><?php echo $statusArr[$info['status']];?></div>
-                    </li>
-                    <?php }?>
-                  </ul>
-                </div>
+            <table border="1">
+              <tr>
+                <td>订单编号：<b class="clr-attention"><?php echo $info['order_no'].'（'.($info['group']?'拼购':'普通').'）';?></b></td>
+                <td>支付状态：<b class="clr-attention"><?php echo $info['pay_status']==1?'未付款':'已付款';?></b></td>
+                <td>订单状态：<b class="clr-attention"><?php echo $sstatusArr[$info['status']];?></b></td>
+              </tr>
+              <tr>
+                <td>商品金额：<?php echo number_format($info['good_amount']/100,2).'<b class="clr-attention">（'.$info['goodnum'].'件）</b>';?></td>
+                <td>运　　费：<?php echo number_format($info['freight']/100,2);?></td>
+                <td>优惠金额：<?php echo number_format($info['camount']/100,2);?></td>
+              </tr>
+              <tr>
+                <td>应付金额：<?php echo number_format($info['amount']/100,2);?></td>
+                <td>实付金额：<b class="clr-attention"><?php echo number_format($info['pay_amount']/100,2);?></b></td>
+                <td>支付方式：<b class="clr-attention"><?php echo $info['pay_status']==2?$paytypeArr[$info['pay_type']].'('.$info['trade_no'].')':'未付款';?></b></td>
+              </tr>
+              <tr>
+                <td>下单时间：<?php echo $info['order_time'];?></td>
+                <td>付款时间：<?php echo $info['pay_time'];?></td>
+                <td>发货时间：<?php echo $info['send_time'];?></td>
+              </tr>
+              <tr>
+                <td colspan="2">订单备注：<b class="clr-attention"><?php echo $info['remark'];?></b></td>
+                <td>收货时间：<?php echo $info['received_time'];?></td>
+              </tr>
+              <tr>
+                <td colspan="3"> 收货人：<?php echo $info['address']['recname'].'('.$info['address']['phone'].')';?> <?php echo $arealist[$info['address']['province']].$arealist[$info['address']['city']].$arealist[$info['address']['area']].(($info['address']['school'] == 1 )?$stagelist[$info['address']['address']].'('.$stagealist[$info['address']['address']].')':$arealist[$info['address']['street']].$info['address']['address']);?></td>
+              </tr>
+            </table>
+            <!--订单商品详情-->
+            <div class="dingdan_detail_shops">
+              <h6>订单商品详情</h6>
+              <div>
+                <table>
+                  <thead>
+                    <tr>
+                      <td>商品信息</td>
+                      <td>单价</td>
+                      <td>数量</td>
+                    </tr>
+                  </thead>
+                </table>
+                <ul class="dingdan_detail_shops_lists">
+                  <?php foreach($glist as $k=>$v){?>
+                  <li class="clearfix">
+                    <div class="fl food_name"> <img class="fl" src="<?php echo $v['pic'];?>"/>
+                      <p class="fl"><?php echo $v['name'].'<br>'.$v['keyv'];?></p>
+                    </div>
+                    <div class="fl food_pic">￥<?php echo $v['price']/100;?></div>
+                    <div class="fl food_mun"><?php echo $v['num'];?></div>
+                  </li>
+                  <?php }?>
+                </ul>
               </div>
             </div>
           </div>
@@ -196,11 +179,13 @@
     </div>
   </div>
 </div>
+</div>
 
 <!-- 添加 -->
 <div id="addAdmin" style="display:none;width: 500px;">
   <form class="form-horizontal" role="form" id="addLabel">
     <input type="hidden" id="objId" name="objId" value="0">
+    <input type="hidden" id="status" name="status" value="0">
     <div class="form-group">
       <label class="col-md-4 control-label" for="groupname">订单编号</label>
       <div class="col-md-8">
@@ -231,35 +216,33 @@ $(function(){
     menuleft("ordersindex");
 
 	$(function() {
-
-        $('.butedit0').click(function(){
-            var objId = $.trim($(this).data('order')),status = $.trim($(this).data('s'));
-            $('#objId').val(objId);
-            $('#objId1').val(objId);
-            $.ajax({
-                type:"POST",
-                async:false,
-                url:"/Orders/hnavsave.html",
-                dataType: "json",
-                data:$("#addLabel").serialize(),
-                success:function(result){
-                    if(result.status == 200){
-                        window.location.reload();
-                    }else{
-                        art.dialog.alert(result.msg);
-                    }
-                },
-                error:function(XMLHttpRequest, textStatus, errorThrown){
-                    art.dialog.alert('网络异常，请稍后重试！');
-                }
-            });
-        })
+      $('.butedit0').click(function(){
+        var objId = $.trim($(this).data('order')),status = $.trim($(this).data('s'));
+        $.ajax({
+          type:"POST",
+          async:false,
+          url:"/Orders/hnavsave.html",
+          dataType: "json",
+          data:{objId:objId,status:status,i: Math.random()},
+          success:function(result){
+            if(result.status == 200){
+              window.location.reload();
+            }else{
+              art.dialog.alert(result.msg);
+            }
+          },
+          error:function(XMLHttpRequest, textStatus, errorThrown){
+            art.dialog.alert('网络异常，请稍后重试！');
+          }
+        });
+      })
 
 		$('.butedit').click(function(){
-			var objId = $.trim($(this).data('order')),status = $.trim($(this).data('s'));
-			$('#objId').val(objId);
-			$('#objId1').val(objId);
-			toAddAdmin();
+          var objId = $.trim($(this).data('order')),status = $.trim($(this).data('s')),objId1 = $.trim($(this).data('or'));
+          $('#objId').val(objId);
+          $('#objId1').val(objId1);
+          $('#status').val(status);
+          toAddAdmin();
 		})
 	});
 

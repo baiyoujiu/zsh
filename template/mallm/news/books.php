@@ -12,8 +12,8 @@
   <div class="keben_lunbo">
     <div class="swiper-container">
       <ul class="swiper-wrapper">
-      	<?php for($p=1; $p<=$info['booknum']; $p++){?>
-        <li class="swiper-slide"><img src="/images/keben/<?php $p = '00'.$p;echo $info['pic'].substr($p,-3);?>.jpg" alt="<?php echo $webseo['title'];?>"></li>
+      	<?php for($p=0; $p<=$info['booknum']; $p++){?>
+        <li class="swiper-slide"><img src="/images/keben/<?php echo $info['pic'].$p;?>.jpg" alt="<?php echo $webseo['title'];?>"></li>
         <?php } ?>
       </ul>
       <div class="swiper-pagination"></div>

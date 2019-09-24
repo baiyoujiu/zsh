@@ -121,26 +121,28 @@
         menuleft("membersindex");
 
         $('.butedit').click(function(){
-            var objid = $.trim($(this).data('na')),status = $.trim($(this).data('s'));
-           $.ajax({
-                type:"POST",
-                async:false,
-                url:"/Members/ustatus.html",
-                dataType: "json",
-                data:{objid : objid,status : status,i: Math.random()},
-                success:function(result){
-                    if(result.status == 200){
-                        window.location.reload();
-                    }else{
-                        art.dialog.alert(result.msg);
-                    }
-                },
-                error:function(XMLHttpRequest, textStatus, errorThrown){
-                    art.dialog.alert('网000络异常，请稍后重试！');
-                }
-            });
+           var objid = $.trim($(this).data('na')),status = $.trim($(this).data('s'));
+		   var hstr = $(this).html();
+		   normalDialog('用户'+hstr, hstr+'用户', "确认", function(t) {
+			   $.ajax({
+					type:"POST",
+					async:false,
+					url:"/Members/ustatus.html",
+					dataType: "json",
+					data:{objid : objid,status : status,i: Math.random()},
+					success:function(result){
+						if(result.status == 200){
+							window.location.reload();
+						}else{
+							art.dialog.alert(result.msg);
+						}
+					},
+					error:function(XMLHttpRequest, textStatus, errorThrown){
+						art.dialog.alert('网000络异常，请稍后重试！');
+					}
+				});
+			}, "取消", null);
         })
     });
-
 </script>
 {include file="common/ufooter" /}

@@ -32,8 +32,8 @@
                     </tr>
                   </thead>
                   <?php if(empty($lists)){?>
-                  <tr colspan="8">
-                    <th class="food_dingdan"><div class="no_data">
+                  <tr >
+                    <th class="food_dingdan" colspan="5"><div class="no_data">
                         <div class="no_data_w"> <img src="../img/!.png" alt="">
                           <p>您还没有订单哦~</p>
                         </div>
