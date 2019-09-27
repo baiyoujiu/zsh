@@ -24,34 +24,28 @@ class Index extends Controller{
 	/************************ 调试用 ***************************/
 	public function a(){
 		/* echo cookie('zcUser');
-		cookie('zcUser','qqwq');
-		echo cookie('zcUser'); */
+		cookie('zcUser','qqwq');echo cookie('zcUser'); */
 		
 		//
 		//$wheres = ['cid'=>1];
-		$wheres['id']= ['>',13];
+		$wheres['code']= ['between',[800190,800203]];
 		//id
-		$lists = db('good_inf')->where($wheres)->select();
+		$lists = db('aschool')->where($wheres)->select();
+		
 		foreach ($lists as $val){
-			/* $picarr = json_decode(base64_decode($val['pic']),true);
-			//print_r($picarr);
-			foreach ($picarr as $k=>$v){
-				$firstr = substr($v, 0,1);
-				if($firstr == 'h'){
-					echo substr($v, 23).'<br>>>>>';
-					$picarr[$k] = substr($v, 23);
-				}
-			}
-			$newpic = base64_encode(json_encode($picarr));
-			$data = ['pic'=>$newpic]; */
-			//db('good')->where('id',$val['id'])->update($data);
+			$data['city_code'] = 330100;
+			$data['area_code'] = 330100;
+			$data['school'] = $val['school'];
 			
-			//exit;
+			$data['area'] = $val['school'].'租借驿站';
 			
-			//$desc = str_replace("https://img.zushuhui.com","",$val['desc']);
-			//$data = ['desc'=>$desc];
-			//db('good_inf')->where('id',$val['id'])->update($data);
+			$data['updatetime'] = date('Y-m-d H:i:s');
+			
+			db('system_stage')->insert($data);
 		}
+		//print_r($wheres);
+		
+		
 		
 		exit;
 	

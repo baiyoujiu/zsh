@@ -63,8 +63,8 @@
             <section class="diandan_beizhu">
                 <ul class="diandan_beizhu_lists">
 					<li class="clearfix diandan_beizhu_list2">
-						<span class="fl">订单备注</span>
-						<input class="fr beizhu_word" type="text" name="remark" placeholder="订单备注，选填"/>
+						<span class="fl"><?php echo $havefz?'姓名/班级':'订单备注';?></span>
+						<input class="fr beizhu_word" type="text" name="remark" placeholder="<?php echo $havefz?'请备注学生姓名及班级':'订单备注，选填';?>"/>
 					</li>
                     <li class="diandan_beizhu_list">
                         <p class="clearfix">
@@ -91,7 +91,7 @@
 						<p class="fr">￥<?php echo number_format($amount/100,2);?></p>
 					</li>
 					<li class="clearfix">
-						<span class="fl">运费</span>
+						<span class="fl">运费（租书，驿站地址免邮）</span>
 						<p class="fr freight">￥<?php echo $adrinf['school']?number_format($freightsc/100,2):number_format($freight/100,2);?></p>
 					</li>
 					<li class="clearfix">

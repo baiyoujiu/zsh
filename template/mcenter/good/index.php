@@ -82,7 +82,9 @@
                     <td><?php echo substr($v['addtime'],0,11);?></td>
                     <td><?php echo $statusArr[$v['status']];?></td>
                     <td>
-                        <a class="btn-link" href="<?php echo '/good/edit.html?objNo='.$v['gno'];?>">编辑</a>
+                        <a class="btn-link" href="<?php echo '/good/edit.html?objNo='.$v['gno'];?>">编辑商品</a>
+                        <a class="btn-link" href="<?php echo '/good/edit2.html?objNo='.$v['gno'];?>">编辑价格</a>
+                        <a class="btn-link" href="<?php echo '/good/edit3.html?objNo='.$v['gno'];?>">编辑详情</a>
                         <?php if($v['status'] == 1){?>
                           &nbsp;|&nbsp;
                             <a class="btn-link goodpass" href="javascript:void(0);" alt="<?php echo $v['id'];?>">上架</a>
@@ -90,6 +92,8 @@
                           &nbsp;|&nbsp;
                             <a class="btn-link goodfail" href="javascript:void(0);" alt="<?php echo $v['id'];?>">下架</a>
                         <?php }?>
+                          &nbsp;|&nbsp;
+                            <a class="btn-link barcode" href="javascript:void(0);" data-n="<?php echo $v['gno'];?>">编辑条码号</a>
                      </td>
                   </tr>
                   <?php }}?>
@@ -104,6 +108,25 @@
   </div>
 </div>
 
+<!-- 添加条码号 -->
+<div id="addAdmin" style="display:none;width:400px;">
+  <form class="form-horizontal" role="form" id="addobj">
+    <div>
+      <span>商品编号：</span>
+      <input style="border:none;" id="objId" name="objId"  >
+    </div>
+
+    <div class="old ">
+      <div class="sp_lists"></div>
+      <button id="hide" type="button">添加</button>
+    </div>
+
+    <div class="new">
+      <label  for="nbarcode">请输入：</label>
+        <input id="nbarcode" name="nbarcode" type="text" class="form-control form-plugInput ui-input" placeholder="请输入条码号">
+    </div>
+  </form>
+</div>
 <script type="text/javascript">
 $(function() {
   menuleft("archex");
@@ -183,7 +206,6 @@ $(function() {
     });
   })
 
-
   $('.actdel').click(function () {
     var $this = $(this), id = $this.data('id'), title = $this.data('t');
     normalDialog("提示", "确定要删除　" + title + "　吗？", "确定", function (t) {
@@ -226,6 +248,58 @@ $(function() {
       }
     });
   })
+
+  //添加条码号
+  $('.barcode').click(function () {
+    var objId = $(this).data('n'),barcode = $(this).data('b');
+    $(".old").show();
+    $(".new").hide();
+    $('#objId').val(objId);
+    $('#barcode').val(barcode);
+    $('#objId').attr("disabled","disabled");
+    $.ajax({
+      url: "/good/barcode.html",
+      data: {objId:objId,i:Math.random()},
+      type: "post",
+      dataType: "json",
+      success: function(data) {
+        if(data.status == 200){
+          $('.sp_lists').html(data.html);
+        }else{
+          layer.open({skin:'msg',content: data.msg,time:2});
+        }
+      }
+    })
+    toAddAdmin();
+  });
+
+  $("#hide").click(function(){
+    $(".old").hide();
+    $(".new").show();
+  });
+
+  function toAddAdmin() {
+    normalDialog("条码号", document.getElementById("addAdmin"), "确认", function(t) {
+      $('#objId').removeAttr("disabled");
+      $.ajax({
+        type:"POST",
+        async:false,
+        url:"/good/nbarcode.html",
+        dataType: "json",
+        data:$("#addobj").serialize(),
+        success:function(result){
+          if(result.status == 200){
+            window.location.reload();
+          }else{
+            art.dialog.alert(result.msg);
+          }
+        },
+        error:function(XMLHttpRequest, textStatus, errorThrown){
+          art.dialog.alert('网络异常，请稍后重试！');
+        }
+      });
+    }, "取消", null);
+  }
 
 })
 

@@ -6,7 +6,7 @@
 </section>
 
 <!--占位-->
-<section class="zhanwei_hei40"></section>
+<section class="zhanwei_hei35"></section>
 <!--轮播-->
 <section>
   <div class="keben_lunbo">

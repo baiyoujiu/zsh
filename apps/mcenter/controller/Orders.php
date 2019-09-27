@@ -32,15 +32,12 @@ class Orders extends Controller
 		$paytypeArr = array('1'=>'余额支付','2'=>'支付宝','3'=>'微信');
 		$this->assign('paytypeArr',$paytypeArr);
 	}
-
-
-
+	
 	/* 分类管理
 	 * @author Bill
 	* @date 20190731
 	*/
-	public function index()
-	{
+	public function index(){
 		$status = input('get.status/d');
 		$keyword = input('get.keyword','','addslashes,strip_tags');
 		$keyword = trim($keyword);
@@ -82,7 +79,6 @@ class Orders extends Controller
 				$buynum += $v1['num'];
 			}
 			$lists[$k]['glists'] = $glists;
-
 		}
 
 		$this->assign('lists', $lists);
@@ -149,8 +145,7 @@ class Orders extends Controller
 		}
 	}
 
-	public function inf()
-	{
+	public function inf(){
 		//获取路由参数
 		$newsNo = request()->route('id');
 		if (empty($newsNo)) {
@@ -189,8 +184,7 @@ class Orders extends Controller
 		return view();
 	}
 
-	public function hnavsave()
-	{
+	public function hnavsave(){
 		if (!Request()->isAjax()) {
 			return ['status' => 220, 'msg' => '非法请求！'];
 		}
@@ -226,25 +220,8 @@ class Orders extends Controller
 		return ['status' => 200, 'msg' => '成功'];
 	}
 
-	public function address(){
-		$userid = session('recname');
-		//地址列表
-		$lists = db('users_address')->where('userid',$userid)->order('id DESC')->select();
-		$this->assign('lists',$lists);
-
-		//所有有效地区
-
-
-		//省市（浙江杭州下的开放区县）
-		$wheres = ['p_code'=>330100,'status'=>1];
-		$alists = db('system_area')->where($wheres)->order('weight DESC')->select();
-		$this->assign('alists',$alists);
-		return view();
-	}
-
 	//购物车
-	public function cart()
-	{
+	public function cart(){
 		$key = input('get.key','','addslashes,strip_tags');
 
 		$key = trim($key);
@@ -276,21 +253,40 @@ class Orders extends Controller
 
 		$this->assign('lists', $lists);
 
-
 		//页码
 		$this->assign('pageStr', get_page_str($count, $urlArr, $page, $pagesize));
-
-
-		//驿站地址
-		$stagelist = db('system_stage')->field('code,area')->where('status',1)->select();
-		$stagelist = getArrOne($stagelist,'area','code');
-		$this->assign('stagelist',$stagelist);
 
 		//用户名
 		$ulists = db('users')->where('status',1)->order('id DESC')->select();
 		$ulists = getArrOne($ulists,'username','userid');
 		$this->assign('ulists',$ulists);
 
+		return view();
+	}
+	
+	/*配送单打印
+	 * 只能打 已确认的订单
+	 */
+	public function peihuo(){
+		//待配货订单
+		$wheres = ['status'=>2,'pay_status'=>2];
+		$lists = db('order')->where($wheres)->order('id DESC')->select();
+		$this->assign('lists',$lists);
+		
+		//所有有效地区
+		$arealist = db('system_area')->field('code,area')->where('status',1)->select();
+		$arealist = getArrOne($arealist,'area','code');
+		$this->assign('arealist',$arealist);
+		
+		//驿站地址
+		$stagelist = db('system_stage')->field('code,area')->where('status',1)->select();
+		$stagelist = getArrOne($stagelist,'area','code');
+		$this->assign('stagelist',$stagelist);
+		
+		//驿站名称
+		$stagealist = db('system_stage')->where('status',1)->select();
+		$stagealist = getArrOne($stagealist,'address','code');
+		$this->assign('stagealist',$stagealist);
 		return view();
 	}
 

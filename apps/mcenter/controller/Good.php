@@ -66,13 +66,9 @@ class Good extends Controller{
 			
 		$lists = db('good')->where($wheres)->order('id DESC')
 							->limit(($page-1)*$pagesize,$pagesize)->select();
-
-
-
 		$this->assign('lists',$lists);
+
 		$this->assign('pageStr',get_page_str($count,$urlArr,$page,$pagesize));
-		
-		
 		$wheres = ['level'=>1,'status'=>2];
 		$catlists = db('good_category')->where($wheres)->order('weight DESC')->select();
 		
@@ -80,7 +76,64 @@ class Good extends Controller{
 
 		return view();
     }
-    
+
+	public function barcode() {
+		//限定需AJAX请求
+		if (!Request()->isAjax()){
+			return ['status'=>220,'msg'=>'非法请求！'];
+		}
+		$rule = [
+				['objId','require','参数错误'],
+		];
+		$data = request()->post();
+		$validate = new Validate($rule);
+		$result   = $validate->check($data);
+
+		if(!$result){
+			return ['status'=>201,'msg'=>$validate->getError()];
+		}
+
+		$blists = db('good_barcode')->where('gno',$data['objId'])->order('id DESC')->select();
+		$html = '';
+		foreach ($blists as $k1=> $v1){
+			$html .= '<p>条码号'.($k1+1).':　'.$v1['barcode'].'</p>';
+		}
+		return ['status'=>200,'msg'=>'成功','html'=>$html];
+	}
+
+	public function nbarcode() {
+		//限定需AJAX请求
+		if (!Request()->isAjax()){
+			return ['status'=>220,'msg'=>'非法请求！'];
+		}
+		$rule = [
+				['objId','require','参数错误'],
+				['nbarcode','require|number|length:4,25','条码号不能为空|条码号应为数字|条码号应在4-25位之间']
+		];
+		$data = request()->post();
+		$validate = new Validate($rule);
+		$result   = $validate->check($data);
+
+		if(!$result){
+			return ['status'=>201,'msg'=>$validate->getError()];
+		}
+
+		$data['gno'] = $data['objId'];
+		$data['barcode'] = $data['nbarcode'];
+		unset($data['objId']);
+		unset($data['nbarcode']);
+		$time = date('Y-m-d H:i:s');
+		$data['updatetime'] = $time;
+		$res = db('good_barcode')->insert($data);
+		if($res){
+			return ['status'=>200,'msg'=>'成功！'];
+		}else{
+			return ['status'=>208,'msg'=>'不成功！'];
+		}
+	}
+
+
+
     public function gpass(){
     	if (!Request()->isAjax()){
     		return ['status'=>220,'msg'=>'非法请求！'];
@@ -347,11 +400,7 @@ class Good extends Controller{
     
     	return view();
     }
-
-
-
 	public function savep() {
-		 
 		//限定需AJAX请求
 		if (!Request()->isAjax()){
 			return ['status'=>220,'msg'=>'非法请求！'];
@@ -441,22 +490,8 @@ class Good extends Controller{
 			//编辑商品
 			$rs = db('good')->where('gno',$gno)->update($gdata);
 			if(!$rs){
-				throw new \Exception("商品介绍更新失败");
+				throw new \Exception("商品更新失败");
 			}
-			
-			$gidata = ['desc'=>htmlspecialchars($_POST['editorValue']),'updatetime'=>$time];
-			$inf = db('good_inf')->where('gno',$gno)->find();
-			if($inf){
-				$rs = db('good_inf')->where('gno',$gno)->update($gidata);
-			}else{
-				$gidata['gno'] = $gno;
-				$gidata['addtime'] = $time;
-				$rs = db('good_inf')->insert($gidata);
-			}
-			if(!$rs){
-				throw new \Exception("商品介绍更新失败");
-			}
-			
 			// 提交事务
 			db()->commit();
 		} catch (\Exception $e) {
@@ -464,10 +499,61 @@ class Good extends Controller{
 			db()->rollback();;
 			return ['status'=>206,'msg'=>$e->getMessage()];
 		}
-		return ['status'=>200,'msg'=>'成功！'];
+		return ['status'=>200,'msg'=>'成功！','gno'=>$gno];
+	}
+	
+	/* 商品规格编辑
+	 * @author Bill
+	* @date 21080105
+	*/
+	public function edit3(){
+		$gno = Input('get.objNo/d');
+		if(empty($gno)){
+			$this->redirect(url('good/index'));
+		}
+		$info = db('good')->where(['gno'=>$gno])->find();
+		if(empty($info)){
+			$this->redirect(url('good/index'));
+		}
+		$info = db('good_inf')->where(['gno'=>$gno])->find();
+		//商品介绍
+		$this->assign('info',$info);
+	
+		return view();
+	}
+	public function saveinf() {
+		//限定需AJAX请求
+		if (!Request()->isAjax()){
+			return ['status'=>220,'msg'=>'非法请求！'];
+		}
+		$data = request()->post();
+		//商品编号
+		$gno = $data['gno'];
+		$info = db('good')->where('gno='.$gno)->find();
+		if(empty($info)){
+			return ['status'=>201,'msg'=>'商品不存在！'];
+		}
+		
+		$time = date('Y-m-d H:i:s');
+		$data['updatetime'] = $time;
+		
+		$gidata = ['desc'=>htmlspecialchars($_POST['editorValue']),'updatetime'=>$time];
+		$inf = db('good_inf')->where('gno',$gno)->find();
+		if($inf){
+			$rs = db('good_inf')->where('gno',$gno)->update($gidata);
+		}else{
+			$gidata['gno'] = $gno;
+			$gidata['addtime'] = $time;
+			$rs = db('good_inf')->insert($gidata);
+		}
+		if($rs){
+			return ['status'=>200,'msg'=>'成功！'];
+		}else{
+			return ['status'=>208,'msg'=>'不成功！'];
+		}
 	}
 
-
+	//列表商品权重保存
 	public function wsave(){
 		if (!Request()->isAjax()){
 			return ['status'=>220,'msg'=>'非法请求！'];

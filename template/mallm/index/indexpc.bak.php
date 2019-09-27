@@ -31,11 +31,12 @@ body{ max-width:1080px; margin:0 auto;}
     <div class="home_lunbo">
       <div class="swiper-container">
         <ul class="swiper-wrapper">
-          <li class="swiper-slide"> <a href="<?php echo url('zt/1001');?>" title="一年级必读经典书目-租书会"><img src="__IMG__/banner1.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
-          <li class="swiper-slide"> <a href="<?php echo url('zt/1002');?>" title="二年级必读经典书目-租书会"><img src="__IMG__/banner2.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
-          <li class="swiper-slide"> <a href="<?php echo url('zt/1003');?>" title="三年级必读经典书目-租书会"><img src="__IMG__/banner3.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
-          <li class="swiper-slide"> <a href="<?php echo url('zt/1004');?>" title="四年级必读经典书目-租书会"><img src="__IMG__/banner4.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
-          <li class="swiper-slide"> <a href="<?php echo url('zt/1005');?>" title="五年级必读经典书目-租书会"><img src="__IMG__/banner5.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
+          <li class="swiper-slide"> <img src="/images/books/bookszjlc.jpg" alt="<?php echo $webseo['title'];?>"> </li>
+          <li class="swiper-slide"> <a href="<?php echo url('zt/1001');?>" title="一年级必读经典书目-租书会"><img src="__IMG__/banner01.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
+          <li class="swiper-slide"> <a href="<?php echo url('zt/1002');?>" title="二年级必读经典书目-租书会"><img src="__IMG__/banner02.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
+          <li class="swiper-slide"> <a href="<?php echo url('zt/1003');?>" title="三年级必读经典书目-租书会"><img src="__IMG__/banner03.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
+          <li class="swiper-slide"> <a href="<?php echo url('zt/1004');?>" title="四年级必读经典书目-租书会"><img src="__IMG__/banner04.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
+          <li class="swiper-slide"> <a href="<?php echo url('zt/1005');?>" title="五年级必读经典书目-租书会"><img src="__IMG__/banner05.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
           <li class="swiper-slide"> <a href="<?php echo url('zt/1006');?>" title="六年级必读经典书目-租书会"><img src="__IMG__/banner6.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
         </ul>
         <div class="swiper-pagination"></div>

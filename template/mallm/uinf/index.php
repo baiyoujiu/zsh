@@ -113,6 +113,9 @@
             </a>
         </ul>
     </section>
+    <section>
+    <img src="/images/books/bookszjlc.jpg"/>
+    </section>
     <?php if($userinfo['utype']==1){?>
     <section>
     <a href="<?php echo url('uinf/tovip');?>">
@@ -120,6 +123,7 @@
     </a>
     </section>
     <?php }?>
+    
     <!--退出登录-->
     <section>
         <div class="grzx_tcdl">

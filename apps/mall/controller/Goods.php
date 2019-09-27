@@ -130,8 +130,9 @@ class goods extends Controller{
 		$area = input('get.area/d');
 		$area = $area ? $area : 330108;
 		$this->assign('area',$area);
-
-		$lists = db('system_stage')->where('area_code',$area)->select();
+		
+		$wheres = ['area_code'=>$area,'status'=>1];
+		$lists = db('system_stage')->where($wheres)->order('weight DESC')->select();
 		$this->assign('lists',$lists);
 
 		//省市（浙江杭州下的开放区县）

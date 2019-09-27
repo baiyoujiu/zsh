@@ -21,33 +21,34 @@
                     </select>
                 </div>
             </li>
-            <?php foreach($lists as $k1 =>$v){ ?>
+            <?php foreach($lists as $k =>$v){ ?>
                 <li class="right">
-                    <div class="stagelists" data-pic="<?php echo $v['pic'];?>">
-                        <p><?php echo $v['area'];?> <span class="fr" ><i class="icon-location"></i>地图</span></p>
+                    <div class="stagelists" data-pic="<?php echo $k;?>">
+                        <p><b><?php echo $v['area'];?></b> <span class="fr" ><i class="icon-location"></i>地图</span></p>
                         <p><?php echo $v['address'];?></p>
                     </div>
                 </li>
-            <?php }?>
+                <?php if($v['pic']){?>
+                <li class="picshow pic<?php echo $k;?>" style="display:none;"><img src="<?php echo $v['pic'];?>" /></li>
+            <?php }}?>
         </ul>
     </section>
     <section class="zhanwei_hei01"></section>
-    <section>
-        <div id="mapinf"><img src="/images/stages/zjyz1001.png" /></div>
-    </section>
+
 
     <!--选择地址-->
 
 <script type="text/javascript">
-
+	$('.picshow').hide();
     $('#area').change(function(){
         var area = $(this).val();
         window.location.href = '/goods/stage.html?area='+area;
     })
+	
 
 	$('.stagelists').click(function(){
-        $('#mapinf img').attr('src',$(this).data('pic'));
-		
+		$('.picshow').hide();
+        $('.pic'+$(this).data('pic')).show();
 	});
 
     $('.stagelists:first').click();

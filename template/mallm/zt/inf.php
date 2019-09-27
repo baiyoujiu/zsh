@@ -6,6 +6,8 @@
     <!--分类-->
     <section class="home_jiu">
         <img src="<?php echo $info['icon'];?>" alt="<?php echo $webseo['title'];?>">
+        
+        <img src="/images/books/bookszjlc.jpg"/>
 		<?php foreach($lists as $v){?>
 			<nav class="home_baijiu">
 				<img src="<?php echo $v['icon'];?>" alt="<?php echo $webseo['title'];?>">

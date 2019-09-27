@@ -1,7 +1,4 @@
 {include file="common/uheader" /}
-<script type="text/javascript" charset="utf-8" src="/uedit/ueditor.myconfig.js"></script>
-<script type="text/javascript" charset="utf-8" src="/uedit/ueditor.all.min.js"> </script>
-<script type="text/javascript" charset="utf-8" src="/uedit/lang/zh-cn/zh-cn.js"></script>
 <style>
 	.box {border-top: none;}
 	input {border:1px solid #dfdfdf!important;}
@@ -107,13 +104,6 @@
 										</ul>
 									</div>
 								</div>
-
-                                <div class="form-group alipay">
-									<label for="bankcard" class="col-sm-2 control-label"><b class="clr-attention">*</b>商品介绍：</label>
-									<div class="col-sm-8">
-                                        <script id="content" type="text/plain" style="width:100%;height:500px;"></script>
-									</div>
-								</div>
                                 
 								<div class="form-group">
                                 	<label for="bankcard" class="col-sm-2 control-label">&nbsp;</label>
@@ -129,7 +119,6 @@
 		</div>
 	</div>
 </div>
-<textarea id="contentdiv" style="display:none"><?php echo htmlspecialchars_decode($info['desc']);?></textarea>
 
 
 <script type="text/javascript">
@@ -231,16 +220,6 @@ $('#gspecibtn').click(function(){
 })
 
 
-
-//实例化编辑器
-//建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
-var ue = UE.getEditor('content');
-var content = $("#contentdiv").val();
-ue.ready(function() {
-	ue.setContent(content);
-});
-
-
 $(function(){
 	menutop("websys");
     menuleft("archex");
@@ -250,7 +229,7 @@ $(function(){
 			function(data){
 				if (data.status == 200) {
 					$('.saveBtn').attr('disabled',true);
-					window.location.href = '/good/index.html';
+					window.location.href = '/good/edit3.html?objNo='+data.gno;
 				} else {
 					art.dialog.alert(data.msg);
 				}
