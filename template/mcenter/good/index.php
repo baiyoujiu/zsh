@@ -116,6 +116,7 @@
       <input style="border:none;" id="objId" name="objId"  >
     </div>
 
+
     <div class="old ">
       <div class="sp_lists"></div>
       <button id="hide" type="button">添加</button>
@@ -277,6 +278,30 @@ $(function() {
     $(".old").hide();
     $(".new").show();
   });
+
+  //删除条码号
+  $(".sp_lists").on('click', ".delete", function(){
+    var delobj = $(this).data('bar');
+    if(confirm("确认")){
+      $.ajax({
+        url: "/good/delbarcode.html",
+        data: {delobj:delobj,i:Math.random()},
+        type: "post",
+        dataType: "json",
+        success: function(result) {
+          if(result.status == 200){
+            window.location.reload();
+          }else{
+            art.dialog.alert(result.msg);
+          }
+        },
+        error:function(XMLHttpRequest, textStatus, errorThrown){
+          art.dialog.alert('网络异常，请稍后重试！');
+        }
+      })
+    }
+  });
+
 
   function toAddAdmin() {
     normalDialog("条码号", document.getElementById("addAdmin"), "确认", function(t) {

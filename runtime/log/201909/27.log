@@ -24869,3 +24869,448 @@
 )
 [ info ] [ RUN ] app\mcenter\controller\Good->nbarcode[ D:\wamp\work\zsh\apps\mcenter\controller\Good.php ]
 [ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-09-27T18:05:27+08:00 ] 127.0.0.1 GET /system/stage.html
+[ info ] www.jsg.co/system/stage.html [运行时间：0.068004s][吞吐率：14.71req/s] [内存消耗：2,938.17kb] [文件加载：52]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'system',
+    2 => 'stage',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://www.jsg.co/good/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=h06kfja98a14169q2dcfptmrf5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mcenter\controller\System->stage[ D:\wamp\work\zsh\apps\mcenter\controller\System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:host=47.110.135.172;port=3306;dbname=zshuh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_system_stage` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `js_system_stage` LIMIT 1 [ RunTime:0.006000s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'order clause'[D:\wamp\work\zsh\thinkphp\library\think\db\Connection.php:388]
+---------------------------------------------------------------
+[ 2019-09-27T18:05:57+08:00 ] 127.0.0.1 GET /good/index.html
+[ info ] www.jsg.co/good/index.html [运行时间：0.100005s][吞吐率：10.00req/s] [内存消耗：3,327.55kb] [文件加载：53]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'good',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://www.jsg.co/good/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=h06kfja98a14169q2dcfptmrf5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mcenter\controller\Good->index[ D:\wamp\work\zsh\apps\mcenter\controller\Good.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ../template/mcenter/good\index.php [ array (
+  0 => 'userInfo',
+  1 => 'groupArr',
+  2 => 'keyword',
+  3 => 'status',
+  4 => 'cid',
+  5 => 'statusArr',
+  6 => 'lists',
+  7 => 'pageStr',
+  8 => 'catlists',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.017001s ] mysql:host=47.110.135.172;port=3306;dbname=zshuh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_good` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `js_good` LIMIT 1 [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_good` ORDER BY id DESC LIMIT 0,10 [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_good_category` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_good_category` WHERE  `level` = 1  AND `status` = 2 ORDER BY weight DESC [ RunTime:0.007001s ]
+[ error ] [8]未定义数组索引: user_name[D:\wamp\work\zsh\runtime\temp\fa85e09f84404f5f1dc64ddd9d024e4a.php:34]
+[ error ] [8]未定义数组下标: 35[D:\wamp\work\zsh\runtime\temp\fa85e09f84404f5f1dc64ddd9d024e4a.php:167]
+[ error ] [8]未定义数组下标: 35[D:\wamp\work\zsh\runtime\temp\fa85e09f84404f5f1dc64ddd9d024e4a.php:167]
+[ error ] [8]未定义数组下标: 35[D:\wamp\work\zsh\runtime\temp\fa85e09f84404f5f1dc64ddd9d024e4a.php:167]
+[ error ] [8]未定义数组下标: 34[D:\wamp\work\zsh\runtime\temp\fa85e09f84404f5f1dc64ddd9d024e4a.php:167]
+[ error ] [8]未定义数组下标: 34[D:\wamp\work\zsh\runtime\temp\fa85e09f84404f5f1dc64ddd9d024e4a.php:167]
+[ error ] [8]未定义数组下标: 33[D:\wamp\work\zsh\runtime\temp\fa85e09f84404f5f1dc64ddd9d024e4a.php:167]
+[ error ] [8]未定义数组下标: 33[D:\wamp\work\zsh\runtime\temp\fa85e09f84404f5f1dc64ddd9d024e4a.php:167]
+[ error ] [8]未定义数组下标: 31[D:\wamp\work\zsh\runtime\temp\fa85e09f84404f5f1dc64ddd9d024e4a.php:167]
+[ error ] [8]未定义数组下标: 31[D:\wamp\work\zsh\runtime\temp\fa85e09f84404f5f1dc64ddd9d024e4a.php:167]
+[ error ] [8]未定义数组下标: 32[D:\wamp\work\zsh\runtime\temp\fa85e09f84404f5f1dc64ddd9d024e4a.php:167]
+---------------------------------------------------------------
+[ 2019-09-27T18:07:09+08:00 ] 127.0.0.1 GET /system/stage.html
+[ info ] www.jsg.co/system/stage.html [运行时间：0.080004s][吞吐率：12.50req/s] [内存消耗：2,938.20kb] [文件加载：52]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'system',
+    2 => 'stage',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://www.jsg.co/good/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=h06kfja98a14169q2dcfptmrf5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mcenter\controller\System->stage[ D:\wamp\work\zsh\apps\mcenter\controller\System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.017001s ] mysql:host=47.110.135.172;port=3306;dbname=zshuh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_system_stage` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `js_system_stage` LIMIT 1 [ RunTime:0.007000s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'order clause'[D:\wamp\work\zsh\thinkphp\library\think\db\Connection.php:388]
+---------------------------------------------------------------
+[ 2019-09-27T18:17:38+08:00 ] 127.0.0.1 GET /system/stage.html
+[ info ] www.jsg.co/system/stage.html [运行时间：0.106007s][吞吐率：9.43req/s] [内存消耗：3,137.13kb] [文件加载：53]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'system',
+    2 => 'stage',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://www.jsg.co/good/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=h06kfja98a14169q2dcfptmrf5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mcenter\controller\System->stage[ D:\wamp\work\zsh\apps\mcenter\controller\System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ../template/mcenter/system\stage.php [ array (
+  0 => 'acode',
+  1 => 'ccode',
+  2 => 'keyword',
+  3 => 'status',
+  4 => 'statusArr',
+  5 => 'lists',
+  6 => 'pageStr',
+  7 => 'alists',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012001s ] mysql:host=47.110.135.172;port=3306;dbname=zshuh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_system_stage` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `js_system_stage` LIMIT 1 [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_system_stage` LIMIT 0,20 [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_system_area` [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT * FROM `js_system_area` WHERE  `p_code` = 330100  AND `status` = 1 ORDER BY weight DESC [ RunTime:0.019001s ]
+[ error ] [8]未定义变量: userInfo[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:34]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+---------------------------------------------------------------
+[ 2019-09-27T18:17:52+08:00 ] 127.0.0.1 GET /system/stage.html
+[ info ] www.jsg.co/system/stage.html [运行时间：0.077004s][吞吐率：12.99req/s] [内存消耗：2,938.41kb] [文件加载：52]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'system',
+    2 => 'stage',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://www.jsg.co/good/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=h06kfja98a14169q2dcfptmrf5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mcenter\controller\System->stage[ D:\wamp\work\zsh\apps\mcenter\controller\System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.017001s ] mysql:host=47.110.135.172;port=3306;dbname=zshuh;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_system_stage` [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `js_system_stage` LIMIT 1 [ RunTime:0.006000s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'order clause'[D:\wamp\work\zsh\thinkphp\library\think\db\Connection.php:388]
+---------------------------------------------------------------
+[ 2019-09-27T18:21:48+08:00 ] 127.0.0.1 GET /system/stage.html
+[ info ] www.jsg.co/system/stage.html [运行时间：0.087005s][吞吐率：11.49req/s] [内存消耗：2,938.23kb] [文件加载：52]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'system',
+    2 => 'stage',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://www.jsg.co/good/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=h06kfja98a14169q2dcfptmrf5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mcenter\controller\System->stage[ D:\wamp\work\zsh\apps\mcenter\controller\System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.019001s ] mysql:host=47.110.135.172;port=3306;dbname=jsg;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_system_stage` [ RunTime:0.009001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `js_system_stage` LIMIT 1 [ RunTime:0.007000s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'[D:\wamp\work\zsh\thinkphp\library\think\db\Connection.php:388]
+---------------------------------------------------------------
+[ 2019-09-27T18:22:44+08:00 ] 127.0.0.1 GET /system/stage.html
+[ info ] www.jsg.co/system/stage.html [运行时间：0.114006s][吞吐率：8.77req/s] [内存消耗：3,277.43kb] [文件加载：53]
+[ info ] [ LANG ] D:\wamp\work\zsh\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'mcenter'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'mcenter',
+    1 => 'system',
+    2 => 'stage',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.jsg.co',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://www.jsg.co/good/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=h06kfja98a14169q2dcfptmrf5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'mcenter',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\mcenter\controller\System->stage[ D:\wamp\work\zsh\apps\mcenter\controller\System.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ../template/mcenter/system\stage.php [ array (
+  0 => 'acode',
+  1 => 'ccode',
+  2 => 'keyword',
+  3 => 'status',
+  4 => 'statusArr',
+  5 => 'lists',
+  6 => 'pageStr',
+  7 => 'alists',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.017001s ] mysql:host=47.110.135.172;port=3306;dbname=jsg;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_system_stage` [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `js_system_stage` LIMIT 1 [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_system_stage` WHERE  `status` = 1 [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `js_system_area` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `js_system_area` WHERE  `p_code` = 330100  AND `status` = 1 ORDER BY weight DESC [ RunTime:0.019001s ]
+[ error ] [8]未定义变量: userInfo[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:34]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: latitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]
+[ error ] [8]未定义数组索引: longitude[D:\wamp\work\zsh\runtime\temp\c602f1640b89fd2451ad4edaddb14c17.php:183]

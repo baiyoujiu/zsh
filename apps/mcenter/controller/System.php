@@ -69,8 +69,7 @@ class System extends Controller{
 		$page = $page<1?1:$page;
 
 		//拉取需要表单数据
-		$lists = db('system_stage')->where($wheres)->order('id DESC')
-							->limit(($page-1)*$pagesize,$pagesize)->select();
+		$lists = db('system_stage')->where($wheres)->limit(($page-1)*$pagesize,$pagesize)->select();
 		$this->assign('lists',$lists);
 		//页码
 		$this->assign('pageStr',get_page_str($count,$urlArr,$page,$pagesize));
@@ -90,10 +89,9 @@ class System extends Controller{
 		}
 		$rule = [
 			['area_code','require','请选择驿站所在区域'],
-			['area','require|min:2','请输入驿站名称|驿站名称至少2个字符'],
+			['school','require','请选择驿站所在区域学校全称'],
+			['area','require','请输入驿站名称'],
 			['address','require|min:2','请输入自提驿站地址'],
-			['longitude','require','请选择经纬度'],
-			['latitude','require','请选择经纬度'],
 		];
 		
 		$data = request()->post();

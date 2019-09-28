@@ -96,7 +96,7 @@ class Good extends Controller{
 		$blists = db('good_barcode')->where('gno',$data['objId'])->order('id DESC')->select();
 		$html = '';
 		foreach ($blists as $k1=> $v1){
-			$html .= '<p>条码号'.($k1+1).':　'.$v1['barcode'].'</p>';
+			$html .= '<p>条码号'.($k1+1).':　'.$v1['barcode'].'　'.'<a href="javascript:void(0)" class="delete" data-bar="'.$v1['id'].'">删除</a>'.'</p>';
 		}
 		return ['status'=>200,'msg'=>'成功','html'=>$html];
 	}
@@ -132,7 +132,30 @@ class Good extends Controller{
 		}
 	}
 
+	public function delbarcode() {
+		//限定需AJAX请求
+		if (!Request()->isAjax()){
+			return ['status'=>220,'msg'=>'非法请求！'];
+		}
+		$rule = [
+				['delobj','require','参数不正确']
+		];
+		$data = request()->post();
+		$validate = new Validate($rule);
+		$result   = $validate->check($data);
+		if(!$result){
+			return ['status'=>201,'msg'=>$validate->getError()];
+		}
 
+        unset($data['i']);
+
+		$res = db('good_barcode')->where('id',$data['delobj'])->delete();
+		if($res){
+			return ['status'=>200,'msg'=>'成功！'];
+		}else{
+			return ['status'=>208,'msg'=>'不成功！'];
+		}
+	}
 
     public function gpass(){
     	if (!Request()->isAjax()){

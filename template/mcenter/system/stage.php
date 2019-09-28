@@ -91,7 +91,7 @@
                     <td><?php echo $v['address'];?></td>
                     <td><?php echo ($v['status'])?'发布':'未发布';?></td>
                     <td>
-                        <a href="javascript:void(0)" data-id="<?php echo $v['code'];?>" data-acode="<?php echo $v['area_code'];?>"  data-area="<?php echo $v['area'];?>" data-adr="<?php echo $v['address'];?>"  data-pic="<?php echo $v['pic'];?>"  data-la="<?php echo $v['latitude'];?>"  data-lo="<?php echo $v['longitude'];?>" data-w="<?php echo $v['weight'];?>" data-s="<?php echo $v['status'];?>" class="butedit">编辑</a>　
+                        <a href="javascript:void(0)" data-id="<?php echo $v['code'];?>" data-acode="<?php echo $v['area_code'];?>"  data-area="<?php echo $v['area'];?>" data-adr="<?php echo $v['address'];?>" data-sc="<?php echo $v['school'];?>"  data-pic="<?php echo $v['pic'];?>"  data-re="<?php echo $v['remark'];?>" data-w="<?php echo $v['weight'];?>" data-s="<?php echo $v['status'];?>" class="butedit">编辑</a>　
                      </td>
                   </tr>
                   <?php }}?>
@@ -123,7 +123,13 @@
       </div>
     </div>
     <div class="clearfix zidingyi_css">
-      <label for="groupname" class="control-label fl"><b class="clr-attention">*</b>名称：</label>
+      <label for="groupname" class="control-label fl"><b class="clr-attention">*</b>学校全称：</label>
+      <div class="col-md-6 fl">
+        <input id="school" name="school" type="text" class="form-control form-plugInput ui-input" placeholder="学校全称">
+      </div>
+    </div>
+    <div class="clearfix zidingyi_css">
+      <label for="groupname" class="control-label fl"><b class="clr-attention">*</b>驿站名称：</label>
       <div class="col-md-6 fl">
         <input id="area" name="area" type="text" class="form-control form-plugInput ui-input" placeholder="名称">
       </div>
@@ -141,6 +147,12 @@
       </div>
     </div>
     <div class="clearfix zidingyi_css">
+      <label class="control-label fl" for="remark"><b class="clr-attention">*</b>备注：</label>
+      <div class="col-md-6 fl">
+        <textarea id="remark" name="remark" type="text" rows="5" cols="40" placeholder="输入备注"></textarea>
+      </div>
+    </div>
+    <div class="clearfix zidingyi_css">
       <label for="groupname" class="control-label fl">权 重：</label>
       <div class="col-md-2 fl">
           <input type="text" class="form-control money ui-input" id="weight" name="weight" placeholder="请输入权 重" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" value="">
@@ -151,66 +163,8 @@
           <input type="radio" name="status" value="1" checked="checked">发布 &nbsp; &nbsp;
       </div>
     </div>
-    
-    <div id="allmap"></div>
-    <input name="longitude" type="hidden"  id="longitude"  value="">
-    <input name="latitude" type="hidden"  id="latitude"  value="">
-
   </form>
 </div>
-
-<script type="text/javascript">
-/*// 百度地图API功能
-var map = new BMap.Map("allmap");            
-map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
-map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用 
-      
-//单击获取点击的经纬度
-map.addEventListener("click",function(e){
-	map.clearOverlays(); 
-	point = new BMap.Point(e.point.lng,e.point.lat);
-	var marker = new BMap.Marker(point);// 创建标注
-	map.addOverlay(marker);             // 将标注添加到地图中
-	marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
-	var longitude = e.point.lng ;
-	var latitude =  e.point.lat;
-	$("#longitude").val(e.point.lng);
-	$("#latitude").val(e.point.lat);
-});
-
-//编辑时定位
-var longitude=$("#longitude").val(),latitude=$("#latitude").val();
-if($.trim(longitude) !=''){
-	point = new BMap.Point(longitude,latitude);
-	map.centerAndZoom(point,14);  
-	var marker = new BMap.Marker(point);// 创建标注
-	map.addOverlay(marker);             // 将标注添加到地图中
-	marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
-}else{
-	//商家默认城市
-	map.centerAndZoom('杭州市',14);  	
-}
-*/
-
-
-	/*// 百度地图API功能
-	var map = new BMap.Map("allmap");
-	var point = new BMap.Point(116.417854,39.921988);
-	var marker = new BMap.Marker(point);  // 创建标注
-	map.addOverlay(marker);              // 将标注添加到地图中
-	map.centerAndZoom(point, 15);
-	var opts = {
-	  width : 200,     // 信息窗口宽度
-	  height: 100,     // 信息窗口高度
-	  title : "海底捞王府井店" , // 信息窗口标题
-	  enableMessage:true,//设置允许信息窗发送短息
-	  message:"亲耐滴，晚上一起吃个饭吧？戳下面的链接看下地址喔~"
-	}
-	var infoWindow = new BMap.InfoWindow("地址：北京市东城区王府井大街88号乐天银泰百货八层", opts);  // 创建信息窗口对象 
-	marker.addEventListener("click", function(){          
-		map.openInfoWindow(infoWindow,point); //开启信息窗口
-	});*/
-</script>
 
 <script type="text/javascript">
 $(function(){
@@ -221,81 +175,36 @@ $(function(){
       $('#objno').val('');
       $('#area_code').val('');
 	  $('#area').val('');
+      $('#school').val('');
       $('#address').val('');
 	  $('#pic').val('');
       $('#weight').val(0);
-	  $("#longitude").val('');
-	  $("#latitude").val('');
+      $('#remark').val('');
       $("input[name='status']:eq(1)").attr("checked",'checked');
-	  
-	  var map = new BMap.Map("allmap");            
-	  map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
-	  map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
-	  
-	  //单击获取点击的经纬度
-	map.addEventListener("click",function(e){
-		map.clearOverlays(); 
-		point = new BMap.Point(e.point.lng,e.point.lat);
-		var marker = new BMap.Marker(point);// 创建标注
-		map.addOverlay(marker);             // 将标注添加到地图中
-		marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
-		var longitude = e.point.lng ;
-		var latitude =  e.point.lat;
-		$("#longitude").val(e.point.lng);
-		$("#latitude").val(e.point.lat);
+      toAddAdmin();
 	});
 
-	  //初始化地图
-	  map.centerAndZoom('杭州市',14);
-      toAddAdmin();
-    });
-
     $('.butedit').click(function(){
-      	var objNo = parseInt($(this).data('id')),acode = parseInt($(this).data('acode')),area = $.trim($(this).data('area')),weight = parseInt($(this).data('w')),status = parseInt($(this).data('s')),address=$.trim($(this).data('adr')),pic=$.trim($(this).data('pic')),latitude=$.trim($(this).data('la')),longitude=$.trim($(this).data('lo'));
+      	var objNo = parseInt($(this).data('id')),acode = parseInt($(this).data('acode')),area = $.trim($(this).data('area')),school= $.trim($(this).data('sc')),weight = parseInt($(this).data('w')),status = parseInt($(this).data('s')),address=$.trim($(this).data('adr')),pic=$.trim($(this).data('pic')),remark=$.trim($(this).data('re'));
       	$('#objno').val(objNo);
 		$('#area_code').val(acode);
 	    $('#area').val(area);
+        $('#school').val(school);
         $('#address').val(address);
 	    $('#pic').val(pic);
         $('#weight').val(weight);
-	    $("#longitude").val(longitude);
-	    $("#latitude").val(latitude);
+        $('#remark').val(remark);
         if(status == 1){
         	$("input[name='status'][value=1]").attr("checked",true);
         }else{
         	$("input[name='status'][value=2]").attr("checked",true);
         }
-		var map = new BMap.Map("allmap");            
-	    map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
-	    map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
-		
-		//单击获取点击的经纬度
-		map.addEventListener("click",function(e){
-			map.clearOverlays(); 
-			point = new BMap.Point(e.point.lng,e.point.lat);
-			var marker = new BMap.Marker(point);// 创建标注
-			map.addOverlay(marker);             // 将标注添加到地图中
-			marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
-			var longitude = e.point.lng ;
-			var latitude =  e.point.lat;
-			$("#longitude").val(e.point.lng);
-			$("#latitude").val(e.point.lat);
-		});
-	    
-	    //定位原点并初始地图
-	  	point = new BMap.Point(longitude,latitude);
-		map.centerAndZoom(point,18);  
-		var marker = new BMap.Marker(point);// 创建标注
-		map.addOverlay(marker);             // 将标注添加到地图中
-		marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
-		map.panBy(300,160);//中心点偏移
-		
       	toAddAdmin();
     })
   });
 
   function toAddAdmin() {
-    normalDialog("分类规格", document.getElementById("addAdmin"), "确认", function(t) {
+    normalDialog("自提驿站", document.getElementById("addAdmin"), "确认", function(t) {
       $.ajax({
           type:"POST",
           async:false,
@@ -316,7 +225,6 @@ $(function(){
 
     }, "取消", null);
   }
-
 
 });
 </script>

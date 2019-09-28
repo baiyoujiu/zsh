@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:34:"../template/mcenter/good\index.php";i:1569577198;s:52:"D:\wamp\work\zsh\template\mcenter\common\uheader.php";i:1567594450;s:55:"D:\wamp\work\zsh\template\mcenter\common\uheaderNav.php";i:1567501447;s:50:"D:\wamp\work\zsh\template\mcenter\common\usnav.php";i:1568967277;s:52:"D:\wamp\work\zsh\template\mcenter\common\ufooter.php";i:1564996439;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:34:"../template/mcenter/good\index.php";i:1569659669;s:52:"D:\wamp\work\zsh\template\mcenter\common\uheader.php";i:1567594450;s:55:"D:\wamp\work\zsh\template\mcenter\common\uheaderNav.php";i:1567501447;s:50:"D:\wamp\work\zsh\template\mcenter\common\usnav.php";i:1568967277;s:52:"D:\wamp\work\zsh\template\mcenter\common\ufooter.php";i:1564996439;}*/ ?>
 <!DOCTYPE html>
 <!-- saved from url=(0032)http://www.o2osl.com/u/index.htm -->
 <html lang="zh-cn">
@@ -205,6 +205,7 @@
       <input style="border:none;" id="objId" name="objId"  >
     </div>
 
+
     <div class="old ">
       <div class="sp_lists"></div>
       <button id="hide" type="button">添加</button>
@@ -366,6 +367,30 @@ $(function() {
     $(".old").hide();
     $(".new").show();
   });
+
+  //删除条码号
+  $(".sp_lists").on('click', ".delete", function(){
+    var delobj = $(this).data('bar');
+    if(confirm("确认")){
+      $.ajax({
+        url: "/good/delbarcode.html",
+        data: {delobj:delobj,i:Math.random()},
+        type: "post",
+        dataType: "json",
+        success: function(result) {
+          if(result.status == 200){
+            window.location.reload();
+          }else{
+            art.dialog.alert(result.msg);
+          }
+        },
+        error:function(XMLHttpRequest, textStatus, errorThrown){
+          art.dialog.alert('网络异常，请稍后重试！');
+        }
+      })
+    }
+  });
+
 
   function toAddAdmin() {
     normalDialog("条码号", document.getElementById("addAdmin"), "确认", function(t) {
