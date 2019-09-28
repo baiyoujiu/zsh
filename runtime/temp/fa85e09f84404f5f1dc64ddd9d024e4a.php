@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:34:"../template/mcenter/good\index.php";i:1569659669;s:52:"D:\wamp\work\zsh\template\mcenter\common\uheader.php";i:1567594450;s:55:"D:\wamp\work\zsh\template\mcenter\common\uheaderNav.php";i:1567501447;s:50:"D:\wamp\work\zsh\template\mcenter\common\usnav.php";i:1568967277;s:52:"D:\wamp\work\zsh\template\mcenter\common\ufooter.php";i:1564996439;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:34:"../template/mcenter/good\index.php";i:1569659669;s:52:"D:\wamp\work\zsh\template\mcenter\common\uheader.php";i:1567594450;s:55:"D:\wamp\work\zsh\template\mcenter\common\uheaderNav.php";i:1567501447;s:50:"D:\wamp\work\zsh\template\mcenter\common\usnav.php";i:1569662833;s:52:"D:\wamp\work\zsh\template\mcenter\common\ufooter.php";i:1564996439;}*/ ?>
 <!DOCTYPE html>
 <!-- saved from url=(0032)http://www.o2osl.com/u/index.htm -->
 <html lang="zh-cn">
@@ -71,6 +71,7 @@
       <ul>
         <li tabindex="ordersindex"><a href="<?php echo url('orders/index');?>">订单管理</a></li>
         <li tabindex="orderscart"><a href="<?php echo url('orders/cart');?>">购物车</a></li>
+        <li tabindex="orderscheck"><a href="<?php echo url('orders/check');?>">检货</a></li>
       </ul>
     </li>
     <li>
@@ -96,7 +97,6 @@
         <li tabindex="zhuantizg"><a href="<?php echo url('zhuanti/zg');?>">专题商品</a></li>
       </ul>
     </li>
-
   </ul>
 </div>
     <!--left Nav end-->

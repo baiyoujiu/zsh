@@ -15,7 +15,9 @@
       <div><i class="iconfont icon-search"></i>订单管理</div>
       <ul>
         <li tabindex="ordersindex"><a href="<?php echo url('orders/index');?>">订单管理</a></li>
+        <li tabindex="ordersdaihuan"><a href="<?php echo url('orders/daihuan');?>">待还订单</a></li>
         <li tabindex="orderscart"><a href="<?php echo url('orders/cart');?>">购物车</a></li>
+        <li tabindex="orderscheck"><a href="<?php echo url('orders/check');?>">检货</a></li>
       </ul>
     </li>
     <li>
@@ -41,6 +43,5 @@
         <li tabindex="zhuantizg"><a href="<?php echo url('zhuanti/zg');?>">专题商品</a></li>
       </ul>
     </li>
-
   </ul>
 </div>

@@ -60,6 +60,11 @@ class Uinf extends Controller{
 		$userinfo['balance'] = $userfinfo['balance'];
 		
 		$this->assign('userinfo',$userinfo);
+		
+		//查询用户订单
+		$lists = db('order')->where('userid',$userid)->order('id DESC')->select();
+		$this->assign('olists',$lists);
+		
 		return view();
 	}
 	
@@ -125,7 +130,7 @@ class Uinf extends Controller{
 		$statusArr = [1=>'待发货',2=>'待发货',3=>'待收货',5=>'已收货',6=>'已收货',8=>'已关闭',9=>'已关闭'];
 		$this->assign('statusArr',$statusArr);
 		
-		$statusinfArr = [2=>'平台发贷中',3=>'买家待收货',5=>'订单已完成',6=>'订单已完成',8=>'卖家取消订单',9=>'订单超时未支付'];
+		$statusinfArr = [2=>'发贷处理中',3=>'等待确认收货',5=>'订单已完成',6=>'订单已完成',8=>'卖家取消订单',9=>'订单超时未支付'];
 		$this->assign('statusinfArr',$statusinfArr);
 	
 		return view();

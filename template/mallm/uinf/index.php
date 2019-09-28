@@ -26,6 +26,35 @@
         <?php }?>
     </section>
     <section>
+    	<?php
+            $amun = $unpay = $unsend = $unsh = $end = 0;
+			foreach($olists as $v){
+				$amun++;
+				//1-下单，待确认|2-卖家确认|3-配货完成|4-已发贷，待收货|5-买家确认收货|6-系统收货|8-卖家取消订单|9-系统关闭未付款订单
+				switch ($v['status']) {
+					case 1:
+						if($v['pay_status'] == 1){
+							$unpay++;
+						}
+						break;
+					case 2:
+					case 3:
+						$unsend++;
+						break;
+					case 4:
+						$unsh++;
+						break;
+					case 5:
+					case 6:
+					case 8:
+					case 9:
+						$end++;
+						break;
+					default:
+						break;
+				}
+			}
+			?>
         <ul class="clearfix personal_lists">
             <a href="<?php echo url('uinf/order');?>"><li class="fl">
                 <img src="__IMG__/personal-img5.png">
@@ -34,18 +63,21 @@
             <a href="<?php echo url('uinf/order');?>">
             <li class="fl">
                 <img src="__IMG__/personal-img1.png">
+                <?php echo $unpay?'<span>'.$unpay.'</span>':'';?>
                 <p>待付款</p>
             </li>
             </a>
             <a href="<?php echo url('uinf/order');?>">
             <li class="fl">
                 <img src="__IMG__/personal-img2.png">
+                <?php echo $unsend?'<span>'.$unsend.'</span>':'';?>
                 <p>待发货</p>
             </li>
             </a>
             <a href="<?php echo url('uinf/order');?>">
             <li class="fl">
                 <img src="__IMG__/personal-img3.png">
+                <?php echo $unsh?'<span>'.$unsh.'</span>':'';?>
                 <p>待收货</p>
             </li>
             </a>
@@ -76,6 +108,14 @@
                 <em class="fr">￥&nbsp;<b><?php echo number_format($userinfo['balance']/100,2);?></b></em>
             </li>
             <?php }?>
+            
+            <a href="<?php echo url('uinf/shuben');?>">
+                <li class="clearfix">
+                    <img class="fl" src="__IMG__/shuben.png"/>
+                    <p class="fl">待还图书</p>
+                    <i class="fr icon-right"></i>
+                </li>
+            </a>
             <a href="<?php echo url('uinf/coupon');?>">
                 <li class="clearfix">
                     <img class="fl" src="__IMG__/youhuijuan.png"/>

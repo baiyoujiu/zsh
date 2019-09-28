@@ -69,7 +69,7 @@ class System extends Controller{
 		$page = $page<1?1:$page;
 
 		//拉取需要表单数据
-		$lists = db('system_stage')->where($wheres)->limit(($page-1)*$pagesize,$pagesize)->select();
+		$lists = db('system_stage')->order('code DESC')->where($wheres)->limit(($page-1)*$pagesize,$pagesize)->select();
 		$this->assign('lists',$lists);
 		//页码
 		$this->assign('pageStr',get_page_str($count,$urlArr,$page,$pagesize));

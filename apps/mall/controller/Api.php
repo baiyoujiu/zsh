@@ -421,4 +421,42 @@ class Api extends Controller{
 	    	return ['status'=>210,'msg'=>'记录保存失败'];
 	    }
     }
+    
+    /********************************订单收货
+     * @author Bill
+    * @data 21090925
+    */
+    public function received(){
+    	$userid = session('userid');
+    	if(empty($userid)){
+    		return ['status'=>221,'msg'=>'请先登陆'];
+    	}
+    	$rule = [
+    	['ono','require|number','订单业务不存在|订单业务不存在']
+    	];
+    	$data = request()->post();
+    	$validate = new Validate($rule);
+    	$result   = $validate->check($data);
+    	if(!$result){
+    		return ['status'=>201,'msg'=>$validate->getError()];
+    	}
+    	
+    	$order_no = $data['ono'];
+    	////1-下单，待确认|2-卖家确认|3-配货完成|4-已发贷，待收货|5-买家确认收货|6-系统收货|8-卖家取消订单|9-系统关闭未付款订单
+    	$wheres = ['order_no'=>$order_no,'status'=>4];
+    	$inf = db('order')->where($wheres)->find();
+    	if(empty($inf)){
+    		return ['status'=>202,'msg'=>'业务不存在,或已收货'];
+    	}
+    	
+    	//押金金额
+    	$nowtimes = date('Y-m-d H:i:s');
+		$udata=['status'=>5,'received_time'=>$nowtimes,'update_time'=>$nowtimes];
+		$rs = db('order')->where($wheres)->update($udata);
+    	if($rs){
+    		return ['status'=>200,'msg'=>'收货成功'];
+    	}else{
+    		return ['status'=>210,'msg'=>'系统繁忙'];
+    	}
+    }
 }

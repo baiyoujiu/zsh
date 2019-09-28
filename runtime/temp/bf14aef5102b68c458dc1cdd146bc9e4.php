@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:36:"../template/mcenter/orders\index.php";i:1569548331;s:52:"D:\wamp\work\zsh\template\mcenter\common\uheader.php";i:1567594450;s:55:"D:\wamp\work\zsh\template\mcenter\common\uheaderNav.php";i:1567501447;s:50:"D:\wamp\work\zsh\template\mcenter\common\usnav.php";i:1569662833;s:52:"D:\wamp\work\zsh\template\mcenter\common\ufooter.php";i:1564996439;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:38:"../template/mcenter/orders\daihuan.php";i:1569667247;s:52:"D:\wamp\work\zsh\template\mcenter\common\uheader.php";i:1567594450;s:55:"D:\wamp\work\zsh\template\mcenter\common\uheaderNav.php";i:1567501447;s:50:"D:\wamp\work\zsh\template\mcenter\common\usnav.php";i:1569664258;s:52:"D:\wamp\work\zsh\template\mcenter\common\ufooter.php";i:1564996439;}*/ ?>
 <!DOCTYPE html>
 <!-- saved from url=(0032)http://www.o2osl.com/u/index.htm -->
 <html lang="zh-cn">
@@ -69,6 +69,7 @@
       <div><i class="iconfont icon-search"></i>订单管理</div>
       <ul>
         <li tabindex="ordersindex"><a href="<?php echo url('orders/index');?>">订单管理</a></li>
+        <li tabindex="ordersdaihuan"><a href="<?php echo url('orders/daihuan');?>">待还订单</a></li>
         <li tabindex="orderscart"><a href="<?php echo url('orders/cart');?>">购物车</a></li>
         <li tabindex="orderscheck"><a href="<?php echo url('orders/check');?>">检货</a></li>
       </ul>
@@ -105,8 +106,6 @@
           <div class="box">
             <div class="title help-course-f">
               <ul class="nav nav-tabs" style="margin-top: 16px;padding-left: 16px;">
-                
-                <!--          这个为什么后面不(能)加.html   因为用了url 就变成地址了吗？不用的话就是完整网址     -->
                 <li class="active"><a href="<?php echo url('orders/index');?>">订单列表</a></li>
               </ul>
               <a class="btn btn-major btn-small shopHelp" id="toprint">打印</a>
@@ -115,15 +114,6 @@
               <ul class="newpager">
                 <li class="previous">
                   <div class="form-inline text-right marginTop">
-                    <div class="form-group"> 
-                      <!--搜索     -->
-                      <select class="form-control" name="status" id="status">
-                        <option value="0">状态</option>
-                        <?php foreach($statusArr as $k=>$v){?>
-                        <option value="<?php echo $k;?>" <?php echo ($status == $k)?'selected="selected"':'';?>><?php echo $v;?></option>
-                        <?php }?>
-                      </select>
-                    </div>
                     <div class="form-group" style="position:relative;">
                       <input class="form-control changeStyle ui-input" type="text" name="keyword" placeholder="请输入订单编号" value="<?php echo $keyword;?>">
                       <div class="pull-right searchBtn">
@@ -143,10 +133,9 @@
                       <th class="food_price">单价</th>
                       <th class="food_number">数量</th>
                       <th class="food_prices">小计</th>
-                      <th class="food_holeprice">订单总价</th>
-                      <th class="food_price">驿站地址</th>
-                      <th class="food_state">交易状态</th>
-                      <th class="food_transaction">交易操作</th>
+                      <th class="food_prices">租借时间</th>
+                      <th class="food_prices">租借商品状态</th>
+                      <th class="food_transaction">操作</th>
                     </tr>
                   </thead>
                   <?php if(empty($lists)){?>
@@ -181,37 +170,11 @@
                       <td class="food_prices"><div class="food_prices_list">
                           <p class="xj">￥<?php echo number_format($price_each = $v1['num'] * $v1['price']/100,2);?></p>
                         </div></td>
-                      <?php if($k1<1){?>
-                      <td class="food_holeprice" rowspan="<?php echo count($v['glists']);?>">
-                          <p class="xj">￥<?php echo number_format($v['amount']/100,2);?></p></td>
-                      <td class="food_holeprice" rowspan="<?php echo count($v['glists']);?>">
-                          <p class="yz">
-                            <?php $address = json_decode(base64_decode($v['address']),true); echo ($address['school'] == 1)? $stagelist[$address['address']]:'非驿站';?>
-                          </p></td>
-                      <td class="food_state" rowspan="<?php echo count($v['glists']);?>">
-                          <?php echo $v['pay_status']==1?'待付款':$sstatusArr[$v['status']];?>
-                          <a href="<?php echo '/Orders/inf/id/'.$v['id'].'.html';?>"><p class="">订单详情</p></a></td>
-                      <td class="food_transaction" rowspan="<?php echo count($v['glist']);?>">
-                          <?php 
-						  //1-下单，待确认|2-卖家已确认|3-已发贷，待收货|5-买家确认收货|6-系统收货|8-卖家取消订单|9-系统关闭未付款订单
-						  if($v['pay_status']==1){
-							  if($v['status']==1){
-						  ?>
-                          <p class="upbtn" data-no="<?php echo $v['order_no'];?>" data-s="9">系统关闭</p>
-						  <?php 
-						  	}
-						  }else{ //已付款订单操作
-							if($v['status']==1){ 
-						   ?>
-                           <p class="upbtn" data-no="<?php echo $v['order_no'];?>" data-s="2">卖家确认</p>
-                           <p class="upbtn" data-no="<?php echo $v['order_no'];?>" data-s="8">取消订单</p>
-                           <?php }else if($v['status']==2){ ?>
-                           <p class="upbtn" data-no="<?php echo $v['order_no'];?>" data-s="3">发货</p>
-                           <?php }else if($v['status']==3){ ?>
-                           <p class="upbtn" data-no="<?php echo $v['order_no'];?>" data-s="6">系统收货</p>
-                          <?php }}?>
-                        </td>
-                      <?php }?>
+                        <?php if($k1<1){?>
+                        <td class="rent" rowspan="<?php echo count($v['glists']);?>"><?php echo '租借：'.$v1['rentstart'].'<br>'.'归还：'.$v1['rentend'];?></td>
+                        <td class="st" rowspan="<?php echo count($v['glists']);?>"><?php echo $statusbrr[$v1['status']];?></td>
+                        <td rowspan="<?php echo count($v['glists']);?>"><a href="javascript:void(0);" class="yh" data-id="<?php echo $v1['order_no'];?>">确认已还</a></td>
+                        <?php }?>
                     </tr>
                     <?php }}}?>
                   </tbody>
@@ -225,119 +188,36 @@
   </div>
 </div>
 <!-- body end! --> 
-<!-- 添加 -->
-<div id="addAdmin" style="display:none;width: 500px;">
-  <form class="form-horizontal" role="form" id="addLabel">
-    <input type="hidden" id="objId" name="objId" value="0">
-      <input type="hidden" id="status" name="status" value="0">
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="groupname">订单编号</label>
-      <div class="col-md-8">
-        <input id="objId1" name="objId1" type="text" class="form-control form-plugInput ui-input" disabled>
-      </div>
-    </div>
-    <!--物流公司选择，没有对应的物流表-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="groupname"><b class="clr-attention">*</b>物流公司选择：</label>
-      <div class="col-md-8">
-        <select class="form-control" >
-          <option value="">请选择物流公司</option>
-          <?php foreach($typeArr as $k=>$v){?>
-          <option value="<?php echo $v['com'];?>"><?php echo $v['name'];?></option>
-          <?php }?>
-        </select>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="groupname"><b class="clr-attention">*</b>物流编号：</label>
-      <div class="col-md-8">
-        <input  type="text" class="form-control form-plugInput ui-input"  placeholder="输入物流编号">
-      </div>
-    </div>
-  </form>
-</div>
-<script type="text/javascript">
-	menuleft("ordersindex");
 
-//    实现编辑，CLICK事件    物流信息
-	$('#toprint').click(function(){
-		var status = $('#status').val();
-		if(status == 3){
-			window.open("<?php echo url('orders/peihuo');?>?status="+status); 
-		}else{
-			art.dialog.alert('只能打已确认的订单！');
-			return false;	
-		}
+<script type="text/javascript">
+	menuleft("ordersdaihuan");
+
+	$('.yh').click(function(){
+		var objId =$(this).data('id');
+        $.ajax({
+            type:"POST",
+            async:false,
+            url:"/orders/huanshu.html",
+            dataType: "json",
+            data:{objId:objId,i: Math.random()},
+            success:function(result){
+                if(result.status == 200){
+                    window.location.reload();
+                }else{
+                    art.dialog.alert(result.msg);
+                }
+            },
+            error:function(XMLHttpRequest, textStatus, errorThrown){
+                art.dialog.alert('网络异常，请稍后重试！');
+            }
+        })
 	})
 
-    $(function() {
-		$('.upbtn').click(function(){
-			var hstr = $(this).html();
-			var objid = $.trim($(this).data('no')),status = $.trim($(this).data('s'));
-			normalDialog(hstr, hstr, "确认", function(t) {
-				 $.ajax({ 
-					type:"POST", 
-					async:false, 
-					url:"/Orders/upstatus.html",
-					dataType: "json",
-					data:{objid : objid,status : status,i: Math.random()},
-					success:function(result){
-						if(result.status == 200){
-							window.location.reload();
-						}else{
-							art.dialog.alert(result.msg);
-						}
-					},
-					error:function(XMLHttpRequest, textStatus, errorThrown){
-						art.dialog.alert('网络异常，请稍后重试！');
-					}	
-				});
-				 
-			}, "取消", null);
-			
-		})
-		
-		
-		
-		$('.butedit').click(function(){
-//    预显示
-			var objId = $.trim($(this).data('order')),status = $.trim($(this).data('s'));
-			$('#objId').val(objId);
-			$('#objId1').val(objId);
-            $('#status').val(status);
-			toAddAdmin();
-		})
-    });
-
     function toAddAdmin() {
-//      所有class = error 的  title  元素？
-        $("title.error").remove();
-        $("title.error").hide();
-
-//      单独var  id 是干嘛用的()路由参数？？？
-        var id;
-
-//      这一行干哈的？（添加数据到 document.getElementById("addAdmin")  确认后触发事件）
         normalDialog("物流信息", document.getElementById("addAdmin"), "确认", function(t) {
 			$("title.error").remove();
 			$("title.error").hide();
-				$.ajax({ 
-					type:"POST", 
-					async:false, 
-					url:"/Orders/hnavsave.html",
-					dataType: "json",
-					data:$("#addLabel").serialize(),
-					success:function(result){
-						if(result.status == 200){
-							window.location.reload();
-						}else{
-							art.dialog.alert(result.msg);
-						}
-					},
-					error:function(XMLHttpRequest, textStatus, errorThrown){
-						art.dialog.alert('网络异常，请稍后重试！');
-					}	
-				});
+				;
         }, "取消", null);
     }
 	

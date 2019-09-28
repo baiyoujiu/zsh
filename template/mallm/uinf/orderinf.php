@@ -11,7 +11,7 @@
 		<section>
 			<div class="dingdan_zt">
 				<h2><?php echo $info['status']==1?($info['pay_status']==1?'待付款':$statusArr[$info['status']]):$statusArr[$info['status']];?></h2>
-				<h3><?php echo $info['status']==1?($info['pay_status']==1?'订单等待支付':$statusinfArr[$info['status']]):$statusinfArr[$info['status']];?></h3>
+				<h3><?php echo $info['status']==1?($info['pay_status']==1?'订单等待支付':$statusinfArr[$info['status']]):($info['status']==4?'物流：'.$info['wuliu']:$statusinfArr[$info['status']]);?></h3>
 			</div>
 		</section>
 		<!--收货地址-->
@@ -75,10 +75,7 @@
 					<span class="fl">订单编号</span>
 					<p class="fr"><?php echo $info['order_no'];?></p>
 				</li>
-				<li class="clearfix">
-					<span class="fl">下单时间</span>
-					<p class="fr"><?php echo $info['order_time'];?></p>
-				</li>
+				
 				<li class="clearfix">
 					<span class="fl">商品金额</span>
 					<p class="fr">￥<?php echo number_format($info['good_amount']/100,2);?></p>
@@ -91,17 +88,60 @@
 					<h6 class="fr">￥<?php echo number_format($info['amount']/100,2);?></h6>
 					<h5 class="fr">总价：</h5>
 				</li>
+                <li class="clearfix">
+                <hr>
+					<span class="fl">下单时间</span>
+					<p class="fr"><?php echo $info['order_time'];?></p>
+				</li>
+                <li class="clearfix">
+					<span class="fl">付款时间</span>
+					<p class="fr"><?php echo $info['pay_time'];?></p>
+				</li>
+                <li class="clearfix">
+					<span class="fl">发货时间</span>
+					<p class="fr"><?php echo $info['send_time'];?></p>
+				</li>
+                <li class="clearfix">
+					<span class="fl">收货时间</span>
+					<p class="fr"><?php echo $info['received_time'];?></p>
+				</li>
 			</ul>
 		</section>
+       
 		<!--占位-->
 		<section class="zhanwei_hei50"></section>
 		<section class="dingdan_queren_btn clearfix">
-			<em class="fr">再次购买</em>
-			<span class="fr">删除订单</span>
+        	<?php if($info['status']==4){?>
+            <em class="fr oreceived" data-no="<?php echo $info['order_no'];?>">收货</em>
+            <a href="javascript:history.back(-1);"><span class="fr">返回列表</span></a>
+            <?php }else{?>
+            <a href="javascript:history.back(-1);"><em class="fr">返回列表</em></a>
+            <?php }?>
 		</section>
     <script>
 	//图片懒加载 effect(特效),值有show(直接显示),fadeIn(淡入),slideDown(下拉)等,常用fadeIn
 	$("img.lazy").lazyload({effect: "fadeIn"});
+	
+	$('.oreceived').click(function(){
+		var ono = $(this).data('no');
+		$.ajax({ 
+			type:"POST", 
+			async:false, 
+			url:"/api/received.html",
+			dataType: "json",
+			data:{ono:ono,i:Math.random()},
+			success:function(result){
+				if(result.status == 200){
+					layer.open({skin:'msg',content: result.msg,time:1,end:function(){window.location.reload();}});
+				}else{
+					layer.open({skin:'msg',content: result.msg,time:2});
+				}
+			},
+			error:function(XMLHttpRequest, textStatus, errorThrown){
+				layer.open({skin:'msg',content:'网络异常，请稍后重试！',time:2});
+			}	
+		});
+	});
 	</script>
 	</body>
 </html>
