@@ -286,7 +286,7 @@
 					<a href="<?php echo url('goods/track');?>">
 						<li>
 							<img src="__IMG__/jilu3.png"/>
-							<p>浏览历史</p>
+							<p>足迹</p>
 						</li>
 					</a>
 				</ul>

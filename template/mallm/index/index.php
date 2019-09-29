@@ -75,7 +75,7 @@
             <!--足迹-->
             <section>
                 <p class="pailie_list">
-                    <a href="<?php echo url('goods/track');?>"><img src='__IMG__/jilu2.png' alt="浏览历史-租书会" /></a>
+                    <a href="<?php echo url('goods/track');?>"><img src='__IMG__/jilu2.png' alt="足迹-租书会" /></a>
                 </p>
             </section>
             

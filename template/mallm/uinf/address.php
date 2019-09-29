@@ -10,8 +10,8 @@
             <li>
                 <div class="shdz_list_user clearfix">
                     <span class="fl"><?php echo $v['recname'];?></span>
-                    <p class="fl"><?php echo $v['phone'];?></p>
-                    <em class="fr adredit" data-no="<?php echo $v['ano'];?>" data-p="<?php echo $v['phone'];?>" data-n="<?php echo $v['recname'];?>" data-adr="<?php echo $v['address'];?>" data-area="<?php echo $v['area'];?>" data-school="<?php echo $v['school'];?>" data-stage="<?php echo $v['school']?$stagels[$v['address']]['area']:'';?>" data-sadress="<?php echo $v['school']?$stagels[$v['address']]['address']:'';?>" data-pic="<?php echo $v['school']?$stagels[$v['address']]['pic']:'';?>">编辑</em>
+                    <p class="fl"><?php echo decryptd($v['phone']);?></p>
+                    <em class="fr adredit" data-no="<?php echo $v['ano'];?>" data-p="<?php echo decryptd($v['phone']);?>" data-n="<?php echo $v['recname'];?>" data-adr="<?php echo $v['address'];?>" data-area="<?php echo $v['area'];?>" data-school="<?php echo $v['school'];?>" data-stage="<?php echo $v['school']?$stagels[$v['address']]['area']:'';?>" data-sadress="<?php echo $v['school']?$stagels[$v['address']]['address']:'';?>" data-pic="<?php echo $v['school']?$stagels[$v['address']]['pic']:'';?>">编辑</em>
                 </div>
                 <div class="shdz_list_dz">
                     <p><?php echo $arealist[$v['province']].$arealist[$v['city']].$arealist[$v['area']].' '.($v['school']?'<b>'.$stagels[$v['address']]['area'].'</b><br>('.$stagels[$v['address']]['address'].')':$arealist[$v['street']].$v['address']);?></p>

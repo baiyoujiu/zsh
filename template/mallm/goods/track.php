@@ -3,7 +3,7 @@
 		<section class="dd_home">
 			<h2 class="fanhui_head">
 				<a href="javascript:history.back(-1);"><i class="icon-left"></i></a>
-				浏览历史
+				足迹
 				<span class="more_btn">
 					<img src="__IMG__/more.png" />
 				</span>
@@ -87,7 +87,7 @@
 					<a href="<?php echo url('goods/track');?>">
 						<li>
 							<img src="__IMG__/jilu3.png"/>
-							<p>浏览历史</p>
+							<p>足迹</p>
 						</li>
 					</a>
 				</ul>

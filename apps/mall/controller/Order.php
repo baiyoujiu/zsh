@@ -722,7 +722,7 @@ class Order extends Controller{
 		
 		//订单商品
 		$ogdata = [];
-		$ogddata = ['userid'=>$userid,'order_no'=>$order_no,'addtime'=>$nowtimes];
+		$ogddata = ['userid'=>$userid,'order_no'=>$order_no,'addtime'=>$nowtimes,'updatetime'=>$nowtimes];
 		foreach ($order_good as $v){
 			$ogdata[] = array_merge($ogddata,$v);
 		}

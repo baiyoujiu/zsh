@@ -70,7 +70,7 @@
                     <li>
 						<a href="<?php echo url('uinf/orderinf').'?no='.$v['order_no'];?>">
                         <h3 class="clearfix">
-							<span class="fl"><?php echo substr($v['order_time'],0,10);?></span>
+							<span class="fl"><?php echo '【'.$v['order_no'].'】'.substr($v['order_time'],0,10);?></span>
 							<em class="fr"><?php echo $v['pay_status']==1?'待付款':$statusArr[$v['status']];?></em>
 						</h3>
                         <?php $goodarr = json_decode(base64_decode($v['order_good']),true);foreach($goodarr as $gv){?>
@@ -107,7 +107,7 @@
 					<?php foreach($unpayls as $v){?>
                     <li>
 						<h3 class="clearfix">
-							<span class="fl"><?php echo substr($v['order_time'],0,10);?></span>
+							<span class="fl"><?php echo '【'.$v['order_no'].'】'.substr($v['order_time'],0,10);?></span>
 							<em class="fr"><?php echo $v['pay_status']==1?'待付款':$statusArr[$v['status']];?></em>
 						</h3>
                         <?php $goodarr = json_decode(base64_decode($v['order_good']),true);foreach($goodarr as $gv){?>
@@ -138,7 +138,7 @@
 					<?php foreach($unsendls as $v){?>
                     <li>
 						<h3 class="clearfix">
-							<span class="fl"><?php echo substr($v['order_time'],0,10);?></span>
+							<span class="fl"><?php echo '【'.$v['order_no'].'】'.substr($v['order_time'],0,10);?></span>
 							<em class="fr"><?php echo $v['pay_status']==1?'待付款':$statusArr[$v['status']];?></em>
 						</h3>
                         <?php $goodarr = json_decode(base64_decode($v['order_good']),true);foreach($goodarr as $gv){?>
@@ -168,7 +168,7 @@
 					<?php foreach($unshls as $v){?>
                     <li>
 						<h3 class="clearfix">
-							<span class="fl"><?php echo substr($v['order_time'],0,10);?></span>
+							<span class="fl"><?php echo '【'.$v['order_no'].'】'.substr($v['order_time'],0,10);?></span>
 							<em class="fr"><?php echo $v['pay_status']==1?'待付款':$statusArr[$v['status']];?></em>
 						</h3>
                         <?php $goodarr = json_decode(base64_decode($v['order_good']),true);foreach($goodarr as $gv){?>
@@ -198,7 +198,7 @@
 					<?php foreach($endls as $v){?>
                     <li>
 						<h3 class="clearfix">
-							<span class="fl"><?php echo substr($v['order_time'],0,10);?></span>
+							<span class="fl"><?php echo '【'.$v['order_no'].'】'.substr($v['order_time'],0,10);?></span>
 							<em class="fr"><?php echo $v['pay_status']==1?'待付款':$statusArr[$v['status']];?></em>
 						</h3>
                         <?php $goodarr = json_decode(base64_decode($v['order_good']),true);foreach($goodarr as $gv){?>

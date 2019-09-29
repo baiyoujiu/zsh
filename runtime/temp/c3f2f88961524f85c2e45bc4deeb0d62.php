@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:34:"../template/mcenter/orders\inf.php";i:1569237935;s:52:"D:\wamp\work\zsh\template\mcenter\common\uheader.php";i:1567594450;s:55:"D:\wamp\work\zsh\template\mcenter\common\uheaderNav.php";i:1567501447;s:50:"D:\wamp\work\zsh\template\mcenter\common\usnav.php";i:1568967277;s:52:"D:\wamp\work\zsh\template\mcenter\common\ufooter.php";i:1564996439;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:34:"../template/mcenter/orders\inf.php";i:1569663963;s:52:"D:\wamp\work\zsh\template\mcenter\common\uheader.php";i:1567594450;s:55:"D:\wamp\work\zsh\template\mcenter\common\uheaderNav.php";i:1567501447;s:50:"D:\wamp\work\zsh\template\mcenter\common\usnav.php";i:1569664258;s:52:"D:\wamp\work\zsh\template\mcenter\common\ufooter.php";i:1564996439;}*/ ?>
 <!DOCTYPE html>
 <!-- saved from url=(0032)http://www.o2osl.com/u/index.htm -->
 <html lang="zh-cn">
@@ -71,7 +71,9 @@ table td{ text-align:left;}
       <div><i class="iconfont icon-search"></i>订单管理</div>
       <ul>
         <li tabindex="ordersindex"><a href="<?php echo url('orders/index');?>">订单管理</a></li>
+        <li tabindex="ordersdaihuan"><a href="<?php echo url('orders/daihuan');?>">待还订单</a></li>
         <li tabindex="orderscart"><a href="<?php echo url('orders/cart');?>">购物车</a></li>
+        <li tabindex="orderscheck"><a href="<?php echo url('orders/check');?>">检货</a></li>
       </ul>
     </li>
     <li>
@@ -97,7 +99,6 @@ table td{ text-align:left;}
         <li tabindex="zhuantizg"><a href="<?php echo url('zhuanti/zg');?>">专题商品</a></li>
       </ul>
     </li>
-
   </ul>
 </div> 
     <!--left Nav end-->
@@ -108,15 +109,25 @@ table td{ text-align:left;}
             <ul class="nav nav-tabs" style="margin-top: 16px;padding-left: 16px;">
               <li class="active"><a href="http://www.jsg.co/orders/index.html">订单详情</a></li>
             </ul>
-            <a class="btn btn-major btn-small shopHelp" id="Addadmin" href="javascript:;">
-              <?php if($info['pay_status']==2 && $info['status']==1){?>
-                <b class="butedit0" data-order="<?php echo $info['order_no'];?>" data-s="<?php echo $info['status'];?>" data-or="<?php echo $info['order_no'];?>">确认订单</b>
-              <?php }if($info['pay_status']==2 && $info['status']==2){?>
-            <b class="butedit" data-order="<?php echo $info['order_no'];?>" data-s="<?php echo $info['status'];?>" data-or="<?php echo $info['order_no'];?>">发货</b>
-            <?php }if($info['pay_status']==2 && $info['status']==3){?>
-                <b class="butedit" data-order="<?php echo $info['order_no'];?>" data-s="<?php echo $info['status'];?>" data-or="<?php echo $info['order_no'];?>">系统收货</b>
-              <?php }?>
-            </a> </div>
+            <?php 
+			  ////1-下单，待确认|2-卖家确认|3-配货完成|4-已发贷，待收货|5-买家确认收货|6-系统收货|8-卖家取消订单|9-系统关闭未付款订单
+			  if($info['pay_status']==1){
+				  if($info['status']==1){
+			  ?>
+			  <b class="btn btn-major btn-small shopHelp upbtn" data-no="<?php echo $info['order_no'];?>" data-s="9">系统关闭</b>
+			  <?php 
+				}
+			  }else{ //已付款订单操作
+				if($info['status']==1){ 
+			   ?>
+			   <b class="btn btn-major btn-small shopHelp upbtn" data-no="<?php echo $info['order_no'];?>" data-s="2">卖家确认</b>
+			   <b class="btn btn-major btn-small shopHelp upbtn" data-no="<?php echo $info['order_no'];?>" data-s="8">取消订单</b>
+			   <?php }else if($info['status']==2){ ?>
+			   <b class="btn btn-major btn-small shopHelp butedit" data-no="<?php echo $info['order_no'];?>" data-s="4">发货</b>
+			   <?php }else if($info['status']==4){ ?>
+			   <b class="btn btn-major btn-small shopHelp upbtn" data-no="<?php echo $info['order_no'];?>" data-s="6">系统收货</b>
+			  <?php }}?>
+          </div>
           <div class="content">
             <table border="1">
               <tr>
@@ -182,31 +193,19 @@ table td{ text-align:left;}
 </div>
 
 <!-- 添加 -->
-<div id="addAdmin" style="display:none;width: 500px;">
-  <form class="form-horizontal" role="form" id="addLabel">
-    <input type="hidden" id="objId" name="objId" value="0">
-    <input type="hidden" id="status" name="status" value="0">
+<div id="addAdmin" style="display:none;width:400px;">
+  <form class="form-horizontal" role="form" id="tosend">
+    <input type="hidden" id="objid" name="objid" value="0">
     <div class="form-group">
       <label class="col-md-4 control-label" for="groupname">订单编号</label>
       <div class="col-md-8">
-        <input id="objId1" name="objId1" type="text" class="form-control form-plugInput ui-input" disabled>
+        <input id="objid1" type="text" class="form-control form-plugInput ui-input" disabled>
       </div>
     </div>
     <div class="form-group">
-      <label class="col-md-4 control-label" for="groupname"><b class="clr-attention">*</b>物流公司选择：</label>
+      <label class="col-md-4 control-label" for="groupname"><b class="clr-attention">*</b>物　　流：</label>
       <div class="col-md-8">
-        <select class="form-control" >
-          <option value="">请选择物流公司</option>
-          <?php foreach($typeArr as $k=>$v){?>
-          <option value="<?php echo $v['com'];?>"><?php echo $v['name'];?></option>
-          <?php }?>
-        </select>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="groupname"><b class="clr-attention">*</b>物流编号：</label>
-      <div class="col-md-8">
-        <input  type="text" class="form-control form-plugInput ui-input"  placeholder="输入物流编号">
+        <input  type="text" name="wuliu" class="form-control form-plugInput ui-input"  placeholder="物流及编号">
       </div>
     </div>
   </form>
@@ -216,49 +215,47 @@ $(function(){
     menuleft("ordersindex");
 
 	$(function() {
-      $('.butedit0').click(function(){
-        var objId = $.trim($(this).data('order')),status = $.trim($(this).data('s'));
-        $.ajax({
-          type:"POST",
-          async:false,
-          url:"/Orders/hnavsave.html",
-          dataType: "json",
-          data:{objId:objId,status:status,i: Math.random()},
-          success:function(result){
-            if(result.status == 200){
-              window.location.reload();
-            }else{
-              art.dialog.alert(result.msg);
-            }
-          },
-          error:function(XMLHttpRequest, textStatus, errorThrown){
-            art.dialog.alert('网络异常，请稍后重试！');
-          }
-        });
-      })
-
+      $('.upbtn').click(function(){
+			var hstr = $(this).html();
+			var objid = $.trim($(this).data('no')),status = $.trim($(this).data('s'));
+			normalDialog(hstr, hstr, "确认", function(t) {
+				 $.ajax({ 
+					type:"POST", 
+					async:false, 
+					url:"/orders/upstatus.html",
+					dataType: "json",
+					data:{objid : objid,status : status,i: Math.random()},
+					success:function(result){
+						if(result.status == 200){
+							window.location.reload();
+						}else{
+							art.dialog.alert(result.msg);
+						}
+					},
+					error:function(XMLHttpRequest, textStatus, errorThrown){
+						art.dialog.alert('网络异常，请稍后重试！');
+					}	
+				});
+				 
+			}, "取消", null);
+			
+		})
 		$('.butedit').click(function(){
-          var objId = $.trim($(this).data('order')),status = $.trim($(this).data('s')),objId1 = $.trim($(this).data('or'));
-          $('#objId').val(objId);
-          $('#objId1').val(objId1);
-          $('#status').val(status);
+          var objid = $.trim($(this).data('no'));
+          $('#objid').val(objid);
+          $('#objid1').val(objid);
           toAddAdmin();
 		})
 	});
 
 	function toAddAdmin() {
-		$("title.error").remove();
-		$("title.error").hide();
-		var id;
 		normalDialog("物流信息", document.getElementById("addAdmin"), "确认", function(t) {
-			$("title.error").remove();
-			$("title.error").hide();
 			$.ajax({
 				type:"POST",
 				async:false,
-				url:"/Orders/hnavsave.html",
+				url:"/Orders/tosend.html",
 				dataType: "json",
-				data:$("#addLabel").serialize(),
+				data:$("#tosend").serialize(),
 				success:function(result){
 					if(result.status == 200){
 						window.location.reload();

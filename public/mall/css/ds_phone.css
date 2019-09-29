@@ -8,7 +8,7 @@ html{
     width: 100%;
 }
 .red{
-	color:red; font-weight:bold;
+	color:#ed1814; font-weight:bold;
 }
 
 /*登录*/
@@ -1023,7 +1023,7 @@ html{
 	color: #333;
 }
 .qbdd_lists li h3 em{
-	color:#888;
+	color:#ed1814; font-weight:bold;
 }
 .qbdd_lists_word{
 	padding:0.5rem 0;
@@ -1358,7 +1358,7 @@ html{
 	width:100%;
 }
 .mapshow{ line-height:3.5rem;width:100%;}
-.mapinf{height:32rem; }
+.mapinf{height:20rem; }
 .right {
     flex: 1;
     padding-right: 0.5rem;

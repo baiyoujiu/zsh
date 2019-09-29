@@ -65,6 +65,11 @@ class Uinf extends Controller{
 		$lists = db('order')->where('userid',$userid)->order('id DESC')->select();
 		$this->assign('olists',$lists);
 		
+		//未来七天有无待还图书
+		$day7 = date("Y-m-d H:i:s",strtotime("+8days",strtotime(date('Y-m-d'))));
+		$wheres = ['userid'=>$userid,'rent'=>1,'rentend'=>['<',$day7]];
+		$glists = db('order_goods')->where($wheres)->order('rentend ASC')->select();
+		$this->assign('glists',$glists);
 		return view();
 	}
 	
@@ -147,6 +152,26 @@ class Uinf extends Controller{
 	
 		return view();
 	}
+	/* 租借台
+	 * @author Bill
+	* @data 21090929
+	*/
+	public function rental(){
+		$userid = session('userid');
+		$wheres = ['userid'=>$userid,'rent'=>1];
+		$lists = db('order_goods')->where($wheres)->order('order_no DESC,id ASC')->select();
+		$this->assign('lists',$lists);
+		
+		//状态:0-待还|1-待验入库|2-异常|5-已还
+		$statusArr = ['待还','待验入库','异常',8=>'已还'];
+		$this->assign('statusArr',$statusArr);
+		
+		$statusStr = ['应还','还书','还书',8=>'入库'];
+		$this->assign('statusStr',$statusStr);
+		return view();
+	}
+	
+	
 	
 	/* 用户账单---------无用20190724
 	 * @author Bill

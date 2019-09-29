@@ -68,7 +68,7 @@ class Login extends Controller{
 		//$wheres = ['username|phone'=>$userName,'source'=>request()->host(),'status'=>1];
 		//$userinfo = db('users')->where($wheres)->find();
 		$userinfo = db('users')->where("(username=:name or phone=:name2)")
-		->bind(['name'=>$userName,'name2'=>encryptd($userName)])->find();
+		->bind(['name'=>encryptd($userName),'name2'=>encryptd($userName)])->find();
 		if($userinfo){
 			if(empty($userinfo['status'])){
 				exit(json_encode(array('status'=>206,'msg'=>'账号被封，请联系管理员')));
@@ -97,7 +97,7 @@ class Login extends Controller{
 		$loginDatas['web'] = request()->host();
 		$loginDatas['userid'] = $userinfo['userid'];
 		$loginDatas['username'] = $userinfo['username'];
-		$loginDatas['phone'] = decryptd($userinfo['phone']);
+		$loginDatas['phone'] = $userinfo['phone'];
 		$loginDatas['login_client'] = 'WEB';
 		$loginDatas['save_time'] = $nowtimes;
 		db('users_loginlog')->insert($loginDatas);
@@ -106,6 +106,7 @@ class Login extends Controller{
 		unset($userinfo['password']);
 		unset($userinfo['random']);
 	
+		$userinfo['username'] = decryptd($userinfo['username']);
 		$userinfo['phone'] = decryptd($userinfo['phone']);
 		
 		//cookie浏览记录加数据库
@@ -282,7 +283,7 @@ class Login extends Controller{
 		*/
 		$nowtimes = date('Y-m-d H:i:s');
 		$data = array();
-		$data['username'] = $phone;
+		$data['username'] = encryptd($phone);
 		$data['phone'] = encryptd($phone);
 			
 		$random = create_salt(6);

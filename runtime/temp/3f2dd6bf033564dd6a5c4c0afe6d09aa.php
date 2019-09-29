@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:36:"../template/mcenter/orders\check.php";i:1569667762;s:52:"D:\wamp\work\zsh\template\mcenter\common\uheader.php";i:1567594450;s:55:"D:\wamp\work\zsh\template\mcenter\common\uheaderNav.php";i:1567501447;s:50:"D:\wamp\work\zsh\template\mcenter\common\usnav.php";i:1569664258;s:52:"D:\wamp\work\zsh\template\mcenter\common\ufooter.php";i:1564996439;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:36:"../template/mcenter/orders\check.php";i:1569753847;s:52:"D:\wamp\work\zsh\template\mcenter\common\uheader.php";i:1567594450;s:55:"D:\wamp\work\zsh\template\mcenter\common\uheaderNav.php";i:1567501447;s:50:"D:\wamp\work\zsh\template\mcenter\common\usnav.php";i:1569749584;s:52:"D:\wamp\work\zsh\template\mcenter\common\ufooter.php";i:1564996439;}*/ ?>
 <!DOCTYPE html>
 <!-- saved from url=(0032)http://www.o2osl.com/u/index.htm -->
 <html lang="zh-cn">
@@ -71,9 +71,9 @@
       <div><i class="iconfont icon-search"></i>订单管理</div>
       <ul>
         <li tabindex="ordersindex"><a href="<?php echo url('orders/index');?>">订单管理</a></li>
-        <li tabindex="ordersdaihuan"><a href="<?php echo url('orders/daihuan');?>">待还订单</a></li>
-        <li tabindex="orderscart"><a href="<?php echo url('orders/cart');?>">购物车</a></li>
+        <li tabindex="ordersdaihuan"><a href="<?php echo url('orders/daihuan');?>">待还书目</a></li>
         <li tabindex="orderscheck"><a href="<?php echo url('orders/check');?>">检货</a></li>
+        <li tabindex="orderscart"><a href="<?php echo url('orders/cart');?>">购物车</a></li>
       </ul>
     </li>
     <li>
@@ -99,134 +99,50 @@
         <li tabindex="zhuantizg"><a href="<?php echo url('zhuanti/zg');?>">专题商品</a></li>
       </ul>
     </li>
+
   </ul>
 </div>
         <!--left Nav end-->
         <div class="col-md-11 main_right">
             <div class="row">
+                <form class="form-horizontal withdraw-form" role="form" id="objForm" method="post">
                 <div class="box">
-                    <input type="text" id="ddbh" name="ddbh" placeholder="条码号">
-                        <!--订单商品详情-->
-                        <div class="dingdan_detail_shops">
-                            <h6>订单商品详情</h6>
-                            <table border="1">
-                                <tr>订单编号：<?php echo $ddbh;?></tr>
-                                <?php foreach($lists as $k=>$v){?>
-                                    <tr>
-                                        <td>商品名称：<b class="clr-attention"><?php echo $info['order_no'].'（'.($info['group']?'拼购':'普通').'）';?></b></td>
-                                        <td>数量：<b class="clr-attention"><?php echo $info['pay_status']==1?'未付款':'已付款';?></b></td>
-                                        <td>已检：<b class="clr-attention"><?php echo $sstatusArr[$info['status']];?></b></td>
-                                    </tr>
-                                <?php }?>
-                            </table>
-                        </div>
-                    </div>
+                    <input id="hiddenText" type="text" style="display:none" />
+                    <input type="text" id="tmh" name="tmh"  placeholder="条码号">
+                    <div class="sp_lists"></div>
                 </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
-</div>
-
-<!-- 添加 -->
-<div id="addAdmin" style="display:none;width: 500px;">
-    <form class="form-horizontal" role="form" id="addLabel">
-        <input type="hidden" id="objId" name="objId" value="0">
-        <input type="hidden" id="status" name="status" value="0">
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="groupname">订单编号</label>
-            <div class="col-md-8">
-                <input id="objId1" name="objId1" type="text" class="form-control form-plugInput ui-input" disabled>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="groupname"><b class="clr-attention">*</b>物流公司选择：</label>
-            <div class="col-md-8">
-                <select class="form-control" >
-                    <option value="">请选择物流公司</option>
-                    <?php foreach($typeArr as $k=>$v){?>
-                        <option value="<?php echo $v['com'];?>"><?php echo $v['name'];?></option>
-                    <?php }?>
-                </select>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="groupname"><b class="clr-attention">*</b>物流编号：</label>
-            <div class="col-md-8">
-                <input  type="text" class="form-control form-plugInput ui-input"  placeholder="输入物流编号">
-            </div>
-        </div>
-    </form>
-</div>
 <script type="text/javascript">
+    document.getElementById("tmh").focus();
     $(function(){
         menuleft("orderscheck");
         document.onkeydown = function(e){
             var ev = document.all ? window.event : e;
             if(ev.keyCode==13) {
-                alert(66666);
+                $.ajax({
+                    type:"POST",
+                    async:false,
+                    url:"/orders/checktwo.html",
+                    dataType: "json",
+                    data:$("#objForm").serialize(),
+                    success: function(data) {
+                        if(data.status == 200){
+                            $('.sp_lists').html(data.html);
+                        }else{
+                            layer.open({skin:'msg',content: data.msg,time:2});
+                        }
+                    },
+                    error:function(XMLHttpRequest, textStatus, errorThrown){
+                        art.dialog.alert('网络异常，请稍后重试！');
+                    }
+                });
+                $("#tmh").val("");
             }
         }
-
-        $(function() {
-            $('.butedit0').click(function(){
-                var objId = $.trim($(this).data('order')),status = $.trim($(this).data('s'));
-                $.ajax({
-                    type:"POST",
-                    async:false,
-                    url:"/Orders/hnavsave.html",
-                    dataType: "json",
-                    data:{objId:objId,status:status,i: Math.random()},
-                    success:function(result){
-                        if(result.status == 200){
-                            window.location.reload();
-                        }else{
-                            art.dialog.alert(result.msg);
-                        }
-                    },
-                    error:function(XMLHttpRequest, textStatus, errorThrown){
-                        art.dialog.alert('网络异常，请稍后重试！');
-                    }
-                });
-            })
-
-            $('.butedit').click(function(){
-                var objId = $.trim($(this).data('order')),status = $.trim($(this).data('s')),objId1 = $.trim($(this).data('or'));
-                $('#objId').val(objId);
-                $('#objId1').val(objId1);
-                $('#status').val(status);
-                toAddAdmin();
-            })
-        });
-
-        function toAddAdmin() {
-            $("title.error").remove();
-            $("title.error").hide();
-            var id;
-            normalDialog("物流信息", document.getElementById("addAdmin"), "确认", function(t) {
-                $("title.error").remove();
-                $("title.error").hide();
-                $.ajax({
-                    type:"POST",
-                    async:false,
-                    url:"/Orders/hnavsave.html",
-                    dataType: "json",
-                    data:$("#addLabel").serialize(),
-                    success:function(result){
-                        if(result.status == 200){
-                            window.location.reload();
-                        }else{
-                            art.dialog.alert(result.msg);
-                        }
-                    },
-                    error:function(XMLHttpRequest, textStatus, errorThrown){
-                        art.dialog.alert('网络异常，请稍后重试！');
-                    }
-                });
-
-            }, "取消", null);
-        }
-
     });
 </script>
     <div class="footer">

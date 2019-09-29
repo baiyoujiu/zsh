@@ -16,7 +16,7 @@
 				<div class="clearfix dingdan_dizhi">
 					<?php if(count($lists)){?>
                     <div class="fl dingdan_dizhi_xinxi">
-						<h1><?php $adrinf = $lists[0];echo $adrinf['recname'];?>　<em><?php echo $adrinf['phone'];?></em></h1>
+						<h1><?php $adrinf = $lists[0];echo $adrinf['recname'];?>　<em><?php echo decryptd($adrinf['phone']);?></em></h1>
 						<p><?php echo $arealist[$adrinf['province']].$arealist[$adrinf['city']].$arealist[$adrinf['area']].'　'.($adrinf['school']?'<b>'.$stagels[$adrinf['address']]['area'].'</b><br>('.$stagels[$adrinf['address']]['address'].')':$arealist[$adrinf['street']].$adrinf['address']);?></p>
 					</div>
 					<i class="icon-right fr qrdd_xgdz"></i>
@@ -129,13 +129,13 @@
 					<div class="fl shdz_lists_left">
 						<div class="shdz_list_user clearfix">
 							<span class="fl"><?php echo $v['recname'];?></span>
-							<p class="fl"><?php echo $v['phone'];?></p>
+							<p class="fl"><?php echo decryptd($v['phone']);?></p>
 						</div>
 						<div class="shdz_list_dz">
 							<p><?php echo $arealist[$v['province']].$arealist[$v['city']].$arealist[$v['area']].'　'.($v['school']?'<b>'.$stagels[$v['address']]['area'].'</b><br>('.$stagels[$v['address']]['address'].')':$arealist[$v['street']].$v['address']);?></p>
 						</div>
 					</div>
-					<div class="fr shdz_lists_right adredit" data-no="<?php echo $v['ano'];?>" data-p="<?php echo $v['phone'];?>" data-n="<?php echo $v['recname'];?>" data-adr="<?php echo $v['address'];?>" data-area="<?php echo $v['area'];?>" data-school="<?php echo $v['school'];?>" data-stage="<?php echo $v['school']?$stagels[$v['address']]['area']:'';?>" data-sadress="<?php echo $v['school']?$stagels[$v['address']]['address']:'';?>" data-pic="<?php echo $v['school']?$stagels[$v['address']]['pic']:'';?>">编辑</div>
+					<div class="fr shdz_lists_right adredit" data-no="<?php echo $v['ano'];?>" data-p="<?php echo decryptd($v['phone']);?>" data-n="<?php echo $v['recname'];?>" data-adr="<?php echo $v['address'];?>" data-area="<?php echo $v['area'];?>" data-school="<?php echo $v['school'];?>" data-stage="<?php echo $v['school']?$stagels[$v['address']]['area']:'';?>" data-sadress="<?php echo $v['school']?$stagels[$v['address']]['address']:'';?>" data-pic="<?php echo $v['school']?$stagels[$v['address']]['pic']:'';?>">编辑</div>
 				</li>
                 <?php }?>
 			</ul>

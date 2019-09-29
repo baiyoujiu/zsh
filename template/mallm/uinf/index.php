@@ -8,7 +8,7 @@
     <section class="ds_wode_back">
         <div class="clearfix ds_wode_uname">
             <img class="fl" src="__IMG__/userdef.png" />
-            <p class="fl"><?php echo $userinfo['username'];?><br><?php echo $userinfo['utype']==1?'非租书会成员':'租书会成员<img src="__IMG__/zshvip.png">';?></p>
+            <p class="fl"><?php echo decryptd($userinfo['username']);?><br><?php echo $userinfo['utype']==1?'非租书会成员':'租书会成员<img src="__IMG__/zshvip.png">';?></p>
         </div>
         <?php if($userinfo['utype']==1){?>
         <a  href="<?php echo url('uinf/tovip');?>">
@@ -102,24 +102,24 @@
             </a>
             <?php }else{?>
             <li class="clearfix">
-                <img class="fl" src="__IMG__/zhangdan.png"/>
+                <img class="fl" src="__IMG__/icoyj.png"/>
                 <p class="fl">图书租借押金</p>
                 
                 <em class="fr">￥&nbsp;<b><?php echo number_format($userinfo['balance']/100,2);?></b></em>
             </li>
             <?php }?>
             
-            <a href="<?php echo url('uinf/shuben');?>">
+            <a href="<?php echo url('uinf/rental');?>">
                 <li class="clearfix">
                     <img class="fl" src="__IMG__/shuben.png"/>
-                    <p class="fl">待还图书</p>
+                    <p class="fl">租借台<?php echo $glists?'　<b class="red">'.substr($glists[0]['rentend'],0,10).'前待还'.count($glists).'本</b>':''?></p>
                     <i class="fr icon-right"></i>
                 </li>
             </a>
             <a href="<?php echo url('uinf/coupon');?>">
                 <li class="clearfix">
-                    <img class="fl" src="__IMG__/youhuijuan.png"/>
-                    <p class="fl">我的优惠券</p>
+                    <img class="fl" src="__IMG__/icoyh.png"/>
+                    <p class="fl">优惠券</p>
                     <i class="fr icon-right"></i>
                 </li>
             </a>
@@ -132,8 +132,8 @@
             </a>
             <a href="<?php echo url('uinf/collect');?>">
             <li class="clearfix">
-                <img class="fl" src="__IMG__/guanzhu.png"/>
-                <p class="fl">我的收藏</p>
+                <img class="fl" src="__IMG__/icosc.png"/>
+                <p class="fl">收藏</p>
                 <i class="fr icon-right"></i>
             </li>
             </a>
@@ -146,7 +146,7 @@
             </a>
             <a href="<?php echo url('goods/stage');?>">
             <li class="clearfix">
-                <img class="fl" src="__IMG__/shouhuo.png"/>
+                <img class="fl" src="__IMG__/icoyz.png"/>
                 <p class="fl">租借驿站</p>
                 <i class="fr icon-right"></i>
             </li>

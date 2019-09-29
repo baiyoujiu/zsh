@@ -178,12 +178,12 @@ class Api extends Controller{
 		}
 		
 		$wheres = ['area_code'=>$code,'status'=>1];
-		$arealist = db('system_stage')->field('code,area,address,pic,longitude,latitude')
+		$arealist = db('system_stage')->field('code,area,address,pic')
 								->where($wheres)->order('weight desc')->select();
 		
 		$schtml = '';
 		foreach ($arealist as $v){
-			$schtml .= '<option value="'.$v['code'].'" inf="'.$v['address'].'" pic="'.$v['pic'].'" longitude="'.$v['longitude'].'" latitude="'.$v['latitude'].'">'.$v['area'].'</option>';
+			$schtml .= '<option value="'.$v['code'].'" inf="'.$v['address'].'" pic="'.$v['pic'].'">'.$v['area'].'</option>';
 		}
 		return ['status'=>200,'msg'=>'成功','html'=>$html,'schtml'=>$schtml];
 	}
@@ -221,6 +221,7 @@ class Api extends Controller{
 		
 		$data['updatetime'] = $nowtimes;
 		$data['userid'] = $userid;
+		$data['phone'] = encryptd($data['phone']);
 		$data['province'] = 330000;
 		$data['city'] = 330100;
 		$data['school'] = 0;
@@ -273,13 +274,12 @@ class Api extends Controller{
     	$schools = get_child_area($info['street'],$field = 'code,area');
     	
     	$wheres = ['area_code'=>$info['area'],'status'=>1];
-    	$stagelist = db('system_stage')->field('code,area,address,pic,longitude,latitude')
+    	$stagelist = db('system_stage')->field('code,area,address,pic')
     				->where($wheres)->order('weight desc')->select();
-    	
     	
     	$stagehtml = '';
     	foreach ($stagelist as $v){
-    		$stagehtml .= '<option value="'.$v['code'].'" inf="'.$v['address'].'" pic="'.$v['pic'].'" longitude="'.$v['longitude'].'" latitude="'.$v['latitude'].'" '.(($info['address']==$v['code'])?' selected="selected"':'').'>'.$v['area'].'</option>';
+    		$stagehtml .= '<option value="'.$v['code'].'" inf="'.$v['address'].'" pic="'.$v['pic'].'" '.(($info['address']==$v['code'])?' selected="selected"':'').'>'.$v['area'].'</option>';
     	}
     	return ['status'=>200,'msg'=>'成功！','sthtml'=>$streethtml,'schtml'=>$stagehtml];
     }
@@ -459,4 +459,43 @@ class Api extends Controller{
     		return ['status'=>210,'msg'=>'系统繁忙'];
     	}
     }
+    
+    /********************************还书早请
+     * @author Bill
+    * @data 21090929
+    */
+    public function rental(){
+    	$userid = session('userid');
+    	if(empty($userid)){
+    		return ['status'=>221,'msg'=>'请先登陆'];
+    	}
+    	$rule = [
+    	['ono','require|number','订单业务不存在|订单业务不存在']
+    	];
+    	$data = request()->post();
+    	$validate = new Validate($rule);
+    	$result   = $validate->check($data);
+    	if(!$result){
+    		return ['status'=>201,'msg'=>$validate->getError()];
+    	}
+    	 
+    	$order_no = $data['ono'];
+    	//状态:0-待还|1-待验入库|2-异常|5-已还
+    	$wheres = ['order_no'=>$order_no,'status'=>0];
+    	$inf = db('order_goods')->where($wheres)->find();
+    	if(empty($inf)){
+    		return ['status'=>202,'msg'=>'业务不存在,或已收货'];
+    	}
+    	 
+    	//押金金额
+    	$nowtimes = date('Y-m-d H:i:s');
+    	$udata=['status'=>1,'tobacktime'=>$nowtimes,'updatetime'=>$nowtimes];
+    	$rs = db('order_goods')->where($wheres)->update($udata);
+    	if($rs){
+    		return ['status'=>200,'msg'=>'还书成功，请及时还至租借驿站'];
+    	}else{
+    		return ['status'=>210,'msg'=>'系统繁忙'];
+    	}
+    }
+    
 }
