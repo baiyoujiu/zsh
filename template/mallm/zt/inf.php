@@ -31,9 +31,6 @@
 			</nav>
 		<?php }?>
 	</section>
-    <!--占位-->
-    <section class="zhanwei_hei45"></section>
-
 	<script type="text/javascript" src="__JS__/jweixin-1.4.0.js" ></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -47,7 +44,7 @@
 			//自定义"分享给朋友"及"分享到QQ"按钮的分享内容（1.4.0）
 			//自定义"分享到朋友圈"及"分享到QQ空间"按钮的分享内容（1.4.0）
 			var wxtitle = '<?php echo $webseo['title'];?>',wxdesc = '<?php echo $webseo['description'];?>';
-			var wximgUrl = '<?php echo 'https://'.request()->host().'/mall/img/icon.png';?>',wxlink = '<?php echo 'https://'.request()->host().'/';?>';
+			var wximgUrl = '<?php echo 'https://'.request()->host().'/mall/img/icon300.png';?>',wxlink = '<?php echo 'https://'.request()->host().'/';?>';
 			wx.config({
 				//debug: true,
 				appId: '<?php echo $wxsignPackage["appId"];?>',

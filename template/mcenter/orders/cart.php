@@ -44,7 +44,7 @@
                                     foreach($lists as $v){
                                     ?>
                   <tr>
-                    <th class="food_dingdan" colspan="8"> <div class="clearfix"> <b class="fl"><?php echo $ulists[$v['userid']];?></b> </div>
+                    <th class="food_dingdan" colspan="8"> <div class="clearfix"> <b class="fl"><?php echo decryptd($ulists[$v['userid']]);?></b> </div>
                     </th>
                   </tr>
                   <tbody class="food_list_lists">

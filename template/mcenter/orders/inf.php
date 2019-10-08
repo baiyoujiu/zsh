@@ -65,7 +65,7 @@ table td{ text-align:left;}
                 <td>收货时间：<?php echo $info['received_time'];?></td>
               </tr>
               <tr>
-                <td colspan="3"> 收货人：<?php echo $info['address']['recname'].'('.$info['address']['phone'].')';?> <?php echo $arealist[$info['address']['province']].$arealist[$info['address']['city']].$arealist[$info['address']['area']].(($info['address']['school'] == 1 )?$stagelist[$info['address']['address']].'('.$stagealist[$info['address']['address']].')':$arealist[$info['address']['street']].$info['address']['address']);?></td>
+                <td colspan="3"> 收货人：<?php echo $info['address']['recname'].'('.decryptd($info['address']['phone']).')';?> <?php echo $arealist[$info['address']['province']].$arealist[$info['address']['city']].$arealist[$info['address']['area']].(($info['address']['school'] == 1 )?$stagelist[$info['address']['address']].'('.$stagealist[$info['address']['address']].')':$arealist[$info['address']['street']].$info['address']['address']);?></td>
               </tr>
             </table>
             <!--订单商品详情-->

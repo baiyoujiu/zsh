@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:34:"../template/mcenter/orders\inf.php";i:1569663963;s:52:"D:\wamp\work\zsh\template\mcenter\common\uheader.php";i:1567594450;s:55:"D:\wamp\work\zsh\template\mcenter\common\uheaderNav.php";i:1567501447;s:50:"D:\wamp\work\zsh\template\mcenter\common\usnav.php";i:1569664258;s:52:"D:\wamp\work\zsh\template\mcenter\common\ufooter.php";i:1564996439;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:34:"../template/mcenter/orders\inf.php";i:1570494110;s:52:"D:\wamp\work\zsh\template\mcenter\common\uheader.php";i:1567594450;s:55:"D:\wamp\work\zsh\template\mcenter\common\uheaderNav.php";i:1567501447;s:50:"D:\wamp\work\zsh\template\mcenter\common\usnav.php";i:1569749584;s:52:"D:\wamp\work\zsh\template\mcenter\common\ufooter.php";i:1564996439;}*/ ?>
 <!DOCTYPE html>
 <!-- saved from url=(0032)http://www.o2osl.com/u/index.htm -->
 <html lang="zh-cn">
@@ -71,9 +71,9 @@ table td{ text-align:left;}
       <div><i class="iconfont icon-search"></i>订单管理</div>
       <ul>
         <li tabindex="ordersindex"><a href="<?php echo url('orders/index');?>">订单管理</a></li>
-        <li tabindex="ordersdaihuan"><a href="<?php echo url('orders/daihuan');?>">待还订单</a></li>
-        <li tabindex="orderscart"><a href="<?php echo url('orders/cart');?>">购物车</a></li>
+        <li tabindex="ordersdaihuan"><a href="<?php echo url('orders/daihuan');?>">待还书目</a></li>
         <li tabindex="orderscheck"><a href="<?php echo url('orders/check');?>">检货</a></li>
+        <li tabindex="orderscart"><a href="<?php echo url('orders/cart');?>">购物车</a></li>
       </ul>
     </li>
     <li>
@@ -99,6 +99,7 @@ table td{ text-align:left;}
         <li tabindex="zhuantizg"><a href="<?php echo url('zhuanti/zg');?>">专题商品</a></li>
       </ul>
     </li>
+
   </ul>
 </div> 
     <!--left Nav end-->
@@ -155,7 +156,7 @@ table td{ text-align:left;}
                 <td>收货时间：<?php echo $info['received_time'];?></td>
               </tr>
               <tr>
-                <td colspan="3"> 收货人：<?php echo $info['address']['recname'].'('.$info['address']['phone'].')';?> <?php echo $arealist[$info['address']['province']].$arealist[$info['address']['city']].$arealist[$info['address']['area']].(($info['address']['school'] == 1 )?$stagelist[$info['address']['address']].'('.$stagealist[$info['address']['address']].')':$arealist[$info['address']['street']].$info['address']['address']);?></td>
+                <td colspan="3"> 收货人：<?php echo $info['address']['recname'].'('.decryptd($info['address']['phone']).')';?> <?php echo $arealist[$info['address']['province']].$arealist[$info['address']['city']].$arealist[$info['address']['area']].(($info['address']['school'] == 1 )?$stagelist[$info['address']['address']].'('.$stagealist[$info['address']['address']].')':$arealist[$info['address']['street']].$info['address']['address']);?></td>
               </tr>
             </table>
             <!--订单商品详情-->

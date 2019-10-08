@@ -83,7 +83,7 @@ class Order extends Controller{
 			
 			$cartArr[$gno.$skey] = ['gno'=>$gno,'name'=>$ginf['name'],'cid'=>$ginf['cid'],'pic'=>$gpicar[0],'key'=>$skey,'keyv'=>$keyv
 									,'mprice'=>$gspinf['market_price'],'price'=>$gspinf['price'],'sku'=>$gspinf['sku']
-									,'rent'=>$rent,'num'=>$data['num']];
+									,'rent'=>$rent,'num'=>$data['num'],'gnum'=>$ginf['gnum']];
 			$cartArr['cgnokey'][] = $gno.$skey;
 		}
 		
@@ -122,7 +122,8 @@ class Order extends Controller{
 		
 		
 		//网站SEO标题
-		$keywords = $description = '租书会，中小学必读经典书目租借平台。读好书，租经典，养成勤阅读的好习惯。';
+		$keywords = '儿童绘本出租平台,童书租赁平台,租书网站,租书app';
+		$description = '租书会，纸质图书出租服务平台。普及中外经典好文化，出租实物童书：经典儿童绘本、校荐1-9年级课外阅读图书、中外经典图书。';
 		$webseo = ['title'=>'购物车-租书会','keywords'=>$keywords,'description'=>$description];
 		$this->assign('webseo',$webseo);
 		return view();
@@ -290,7 +291,7 @@ class Order extends Controller{
 			
 		$unowbuy = ['gno'=>$gno,'name'=>$ginf['name'],'cid'=>$ginf['cid'],'pic'=>$gpicar[0],'key'=>$skey,'keyv'=>$keyv
 		,'mprice'=>$gspinf['market_price'],'price'=>($pingou?$gspinf['gprice']:$gspinf['price']),'sku'=>$gspinf['sku']
-		,'pingo'=>$pingo,'rent'=>$rent,'num'=>$data['num']];
+		,'pingo'=>$pingo,'rent'=>$rent,'num'=>$data['num'],'gnum'=>$ginf['gnum']];
 		
 		//如有租阅图书，检查会员等级及已租阅图书本数 ,查询用户的的最新信息
 		if($rent){
@@ -419,6 +420,12 @@ class Order extends Controller{
 		//包含服装，1是，0否，含服装时运费，驿站5元，非驿站5元。
 		$havefz = 0;
 		
+		//拼购订单
+		$pingo = 0;
+		
+		//订单商品重量(克)
+		$gnum = 0;
+		
 		//购物车
 		if($cart){
 			$ocart = db('order_cart')->where('userid',$userid)->find();
@@ -445,6 +452,8 @@ class Order extends Controller{
 					$goodslist[] = $v;
 						
 					$good_amount += $v['price']*$v['num'];
+					
+					$gnum += $v['gnum']*$v['num'];
 				}
 			}
 		//拼购、立刻购买
@@ -465,6 +474,10 @@ class Order extends Controller{
 			
 			$goodslist[] = $unowbuy;
 			$good_amount = $unowbuy['price'] * $unowbuy['num'];
+			
+			$gnum += $unowbuy['gnum'] * $unowbuy['num'];
+			
+			$pingo = $unowbuy['pingo'];
 		}
 		$this->assign('goodslist',$goodslist);
 		
@@ -472,21 +485,28 @@ class Order extends Controller{
 		
 		$this->assign('cart',$cart);
 		
-		//非租借驿站，低于最小购买金额加邮费 5元
-		$conf_minamount = get_config(1002);
-		$freight = ($good_amount < $conf_minamount)?500:0;
-		
-		//非租借驿站，含服装时，强制运费等于5元。
+		/*运费计算公式如：'start'=>500,'renewal'=>100
+		 * 低于首重的起步价，
+		 */
+		$freighttmp = get_config(1004);
+		//非租借驿站，含服装时，强制运费起步等于5元。
 		if($havefz){
-			$freight = 500;
+			$freighttmp['start'] = 500;
+		}
+		$freight = ($gnum<1000)?$freighttmp['start']:$freighttmp['start'] + ceil(($gnum - 1000)/1000) * $freighttmp['renewal'];
+		
+		//不含服装，非租借驿站，满额包邮
+		if(!$havefz){
+			$conf_minamount = get_config(1002);
+			$freight = ($good_amount < $conf_minamount)?$freight:0;
 		}
 		$this->assign('freight',$freight);
 		
-		//租借驿站，商品总金额低于5元时，加运费补足5元
-		$freightsc = $good_amount<500?500-$good_amount:0;
+		//租借驿站，商品总金额低于6元时，加运费补足6元
+		$freightsc = $good_amount<600?600-$good_amount:0;
 		
-		//租借驿站，含服装时，强制运费等于5元。
-		if($havefz){
+		//租借驿站，含服装时，(非拼购)强制运费等于5元。
+		if($havefz && !$pingo){
 			$freightsc = 500;
 		}
 		$this->assign('freightsc',$freightsc);
@@ -533,12 +553,13 @@ class Order extends Controller{
 		//订单商品全为图书租借时，才可使用优惠劵。
 		if($onlyrent){
 			$couponwheres = ['userid'=>$userid,'status'=>1];
-			$couponinf = db('coupon_record')->field('id,amount')->where($couponwheres)->order('amount desc')->find();
+			$couponinf = db('coupon_record')->field('id,amount')->where($couponwheres)->order('endtime asc,amount desc')->find();
 			$this->assign('couponinf',$couponinf);
 		}
 		
 		//网站SEO标题
-		$keywords = $description = '租书会，中小学必读经典书目租借平台。读好书，租经典，养成勤阅读的好习惯。';
+		$keywords = '儿童绘本出租平台,童书租赁平台,租书网站,租书app';
+		$description = '租书会，纸质图书出租服务平台。普及中外经典好文化，出租实物童书：经典儿童绘本、校荐1-9年级课外阅读图书、中外经典图书。';
 		$webseo = ['title'=>'订单结算-租书会','keywords'=>$keywords,'description'=>$description];
 		$this->assign('webseo',$webseo);
 		return view();
@@ -591,9 +612,10 @@ class Order extends Controller{
 		
 		//拼购、立刻购买
 		$unowbuy = session('unowbuy');
-		if($unowbuy && $unowbuy['pingo'] && $unowbuy['rent']){
+		//if($unowbuy && $unowbuy['pingo'] && $unowbuy['rent']){
+		if($unowbuy && $unowbuy['pingo']){
 			if(!$adrinf['school']){
-				return ['status'=>202,'msg'=>'拼租图书时，只能选自提配送点'];
+				return ['status'=>202,'msg'=>'拼购订单，地址只能选租借驿站'];
 			}
 		}
 		
@@ -601,8 +623,10 @@ class Order extends Controller{
 		//订单商品全为图书租借时，才可使用优惠劵。
 		$onlyrent = 1;
 		
-		//包含服装，1是，0否，含服装时运费，驿站3元，非驿站5元。
+		//包含服装，1是，0否，含服装时运费5元。
 		$havefz = 0;
+		//订单商品重量(克)
+		$gnum = 0;
 		
 		/* 数据整理*/
 		$nowtimes = date('Y-m-d H:i:s');
@@ -641,15 +665,41 @@ class Order extends Controller{
 						
 					$goodnum += $v['num'];
 					$good_amount += $v['price']*$v['num'];
+					
+					$gnum += $v['gnum']*$v['num'];
 				}
 			}
+			
+			//租借驿站，商品总金额低于6元时，加运费补足6元
+			if($adrinf['school']){
+				$freight = $good_amount<600?600-$good_amount:0;
 				
+				//租借驿站，含服装时，强制运费等于5元。
+				if($havefz){
+					$freight = 500;
+				}
 			//非配送点，低于最小购买金额加邮费 5元
-			$conf_minamount = get_config(1002);
-			$freight = (!$adrinf['school'] && $good_amount < $conf_minamount)?500:0;
-		//拼购、立刻购买
+			}else {
+				/*运费计算公式(分)如：'start'=>500,'renewal'=>100
+				 * 低于首重的起步价，
+				*/
+				$freighttmp = get_config(1004);
+				//非租借驿站，含服装时，强制运费起步等于5元。
+				if($havefz){
+					$freighttmp['start'] = 500;
+				}
+				$freight = ($gnum<1000)?$freighttmp['start']:$freighttmp['start'] + ceil(($gnum - 1000)/1000) * $freighttmp['renewal'];
+				
+				//不含服装，非租借驿站，满额包邮
+				if(!$havefz){
+					$conf_minamount = get_config(1002);
+					$freight = ($good_amount < $conf_minamount)?$freight:0;
+				}
+			}
+			
+		//立刻购买,拼购
 		}else{
-			//拼购、立刻购买
+			//立刻购买,拼购
 			//$unowbuy = session('unowbuy');
 			
 			if($unowbuy['rent']<1){
@@ -667,18 +717,42 @@ class Order extends Controller{
 			$order_good[] = $unowbuy;
 			$goodnum = $unowbuy['num'];
 			$good_amount = $unowbuy['price'] * $unowbuy['num'];
-			$freight = 0;
 			
-			$data['group'] = 1;
+			$gnum += $unowbuy['gnum']*$unowbuy['num'];
+			
+			//租借驿站，商品总金额低于6元时，加运费补足6元
+			if($adrinf['school']){
+				$freight = $good_amount<600?600-$good_amount:0;
+			
+				//租借驿站，含服装时,非拼购，强制运费等于5元。
+				if($havefz && !$unowbuy['pingo']){
+					$freighttmp['start'] = 500;
+				}
+				//非配送点，低于最小购买金额加邮费 5元
+			}else {
+				/*运费计算公式(分)如：'start'=>500,'renewal'=>100
+				 * 低于首重的起步价，
+				*/
+				$freighttmp = get_config(1004);
+				//非租借驿站，含服装时，强制运费起步等于5元。
+				if($havefz){
+					$freighttmp['start'] = 500;
+				}
+				$freight = ($gnum<1000)?$freighttmp['start']:$freighttmp['start'] + ceil(($gnum - 1000)/1000) * $freighttmp['renewal'];
+			
+				//不含服装，非租借驿站，满额包油
+				if(!$havefz){
+					$conf_minamount = get_config(1002);
+					$freight = ($good_amount < $conf_minamount)?$freight:0;
+				}
+			}
+			
+			
+			$data['group'] = $unowbuy['pingo'];
 		}
 		//含校服时，统一配送到学校。
 		if($havefz && empty($remark)){
 			return ['status'=>204,'msg'=>'校服，请备注学生姓名及班级'];
-		}
-		
-		//含服装时，租借驿站，强制运费等于5元;非租借驿站，强制运费等于5元。
-		if($havefz){
-			$freight = $adrinf['school']?500:500;
 		}
 		
 		$amount = $good_amount + $freight;

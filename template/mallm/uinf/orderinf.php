@@ -19,7 +19,7 @@
 			<div class="clearfix dingdan_dizhi">
 				<div class="fl dingdan_dizhi_xinxi">
 					<h1><?php $adrinf = json_decode(base64_decode($info['address']),true); echo $adrinf['recname'];?>　<em><?php echo decryptd($adrinf['phone']);?></em></h1>
-					<p><?php echo $arealist[$adrinf['province']].$arealist[$adrinf['city']].$arealist[$adrinf['area']].$arealist[$adrinf['street']].'　'.($adrinf['school']?$arealist[$adrinf['address']]:$adrinf['address']);?></p>
+					<p><?php echo $arealist[$adrinf['province']].$arealist[$adrinf['city']].$arealist[$adrinf['area']].' '.($adrinf['school']?'<b>'.$stagels[$adrinf['address']]['area'].'</b><br>('.$stagels[$adrinf['address']]['address'].')':$arealist[$adrinf['street']].$adrinf['address']);?></p>
 				</div>
 			</div>
 		</section>
@@ -53,7 +53,7 @@
 				</li>
 			</ol>
 		</section>
-        <?php if($info['group']){?>
+        <?php if($info['group']>8){?>
 		<!--订单拼团人员-->
 		<section class="xq_pt_lists">
 			<div class="clearfix">
@@ -75,7 +75,10 @@
 					<span class="fl">订单编号</span>
 					<p class="fr"><?php echo $info['order_no'];?></p>
 				</li>
-				
+                <li class="clearfix">
+					<span class="fl">订单备注</span>
+					<p class="fr"><?php echo $info['remark'];?></p>
+				</li>
 				<li class="clearfix">
 					<span class="fl">商品金额</span>
 					<p class="fr">￥<?php echo number_format($info['good_amount']/100,2);?></p>
@@ -84,7 +87,13 @@
 					<span class="fl">运费</span>
 					<p class="fr">￥<?php echo number_format($info['freight']/100,2);?></p>
 				</li>
+                <?php if($info['camount']){?>
 				<li class="clearfix">
+					<span class="fl">优惠劵</span>
+					<p class="fr">￥<?php echo number_format($info['camount']/100,2);?></p>
+				</li>
+                <?php }?>
+                <li class="clearfix">
 					<h6 class="fr">￥<?php echo number_format($info['amount']/100,2);?></h6>
 					<h5 class="fr">总价：</h5>
 				</li>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:37:"../template/mcenter/members\index.php";i:1569221767;s:52:"D:\wamp\work\zsh\template\mcenter\common\uheader.php";i:1567594450;s:55:"D:\wamp\work\zsh\template\mcenter\common\uheaderNav.php";i:1567501447;s:50:"D:\wamp\work\zsh\template\mcenter\common\usnav.php";i:1568967277;s:52:"D:\wamp\work\zsh\template\mcenter\common\ufooter.php";i:1564996439;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:37:"../template/mcenter/members\index.php";i:1570519343;s:52:"D:\wamp\work\zsh\template\mcenter\common\uheader.php";i:1567594450;s:55:"D:\wamp\work\zsh\template\mcenter\common\uheaderNav.php";i:1567501447;s:50:"D:\wamp\work\zsh\template\mcenter\common\usnav.php";i:1569749584;s:52:"D:\wamp\work\zsh\template\mcenter\common\ufooter.php";i:1564996439;}*/ ?>
 <!DOCTYPE html>
 <!-- saved from url=(0032)http://www.o2osl.com/u/index.htm -->
 <html lang="zh-cn">
@@ -46,8 +46,7 @@
     }
 </script>
 <style>
-    .form-group{ display:inline-block;
-    }<!-- 增加下边界-->
+    .form-group{ display:inline-block;}<!-- 增加下边界-->
 
           .clearfix:before,.clearfix:after {content:"";display:table;}
     .clearfix:after {clear:both;overflow:hidden;}
@@ -59,12 +58,12 @@
     .zidingyi_css .control-label{width:120px; text-align:right; font-size:15px;}
     .zidingyi_css .col-md-6{margin-top:5px;}
 </style>
-<!-- header end -->
+<!-- header end --> 
 <!-- body -->
 <div class="container" id="j-content">
-    <div class="row">
-        <!--left Nav start-->
-        <div class="col-md-1 main_left"> 
+  <div class="row"> 
+    <!--left Nav start--> 
+    <div class="col-md-1 main_left"> 
   <ul class="ui_navbar" id="navbarlist">
 
     <li>
@@ -81,6 +80,8 @@
       <div><i class="iconfont icon-search"></i>订单管理</div>
       <ul>
         <li tabindex="ordersindex"><a href="<?php echo url('orders/index');?>">订单管理</a></li>
+        <li tabindex="ordersdaihuan"><a href="<?php echo url('orders/daihuan');?>">待还书目</a></li>
+        <li tabindex="orderscheck"><a href="<?php echo url('orders/check');?>">检货</a></li>
         <li tabindex="orderscart"><a href="<?php echo url('orders/cart');?>">购物车</a></li>
       </ul>
     </li>
@@ -109,102 +110,101 @@
     </li>
 
   </ul>
-</div>
-        <!--left Nav end-->
-        <div class="col-md-11 main_right">
-            <div class="row">
-                <form id="formPage" method="get">
-                    <div class="box">
-                        <div class="title help-course-f">
-                            <ul class="nav nav-tabs" style="margin-top: 16px;padding-left: 16px;">
-                                <li class="active"><a href="<?php echo url('members/index');?>">用户管理</a></li>
-                            </ul>
+</div> 
+    <!--left Nav end-->
+    <div class="col-md-11 main_right">
+      <div class="row">
+        <form id="formPage" method="get">
+          <div class="box">
+            <div class="title help-course-f">
+              <ul class="nav nav-tabs" style="margin-top: 16px;padding-left: 16px;">
+                <li class="active"><a href="<?php echo url('members/index');?>">用户管理</a></li>
+              </ul>
+            </div>
+            <div class="content" style="position:relative;">
+              <ul class="newpager">
+                <li class="previous">
+                  <div class="form-inline text-right marginTop"> 
+                    <!--                                       <!--搜索-->
+                    <div class="form-group">
+                      <select class="form-control" name="hystatus">
+                        <option value="0">会员类型</option>
+                        <?php foreach($hyArr as $k => $v){?>
+                        <option value="<?php echo $k;?>" <?php echo ($hystatus == $k)?'selected="selected"':'';?>><?php echo $v;?></option>
+                        <?php }?>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <select class="form-control" name="ztstatus">
+                        <option value="0">状态</option>
+                        <?php foreach($ztArr as $k => $v){?>
+                        <option value="<?php echo $k;?>" <?php echo ($ztstatus == $k)?'selected="selected"':'';?>><?php echo $v;?></option>
+                        <?php }?>
+                      </select>
+                    </div>
+                    <div class="form-group" style="position:relative;">
+                      <input class="form-control changeStyle ui-input" type="text" name="keyid"    placeholder="请输入用户名" value="<?php echo $keyid;?>">
+                    </div>
+                    <div class="form-group" style="position:relative;">
+                      <input class="form-control changeStyle ui-input" type="text" name="keytel"   placeholder="请输入手机号" value="<?php echo $keytel;?>">
+                      <div class="pull-right searchBtn">
+                        <div class="searchBtnStyle"> <span class="addBorder"></span> <i class="iconfont icon-seach"></i>
+                          <button type="submit" class="btn btnSearch">搜索</button>
                         </div>
-                        <div class="content" style="position:relative;">
-                            <ul class="newpager">
-                                <li class="previous">
-                                    <div class="form-inline text-right marginTop">
-<!--                                       <!--搜索-->
-                                        <div class="form-group">
-                                            <select class="form-control" name="hystatus">
-                                                <option value="0">会员类型</option>
-                                                <?php foreach($hyArr as $k => $v){?>
-                                                    <option value="<?php echo $k;?>" <?php echo ($hystatus == $k)?'selected="selected"':'';?>><?php echo $v;?></option>
-                                                <?php }?>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <select class="form-control" name="ztstatus">
-                                                <option value="0">状态</option>
-                                                <?php foreach($ztArr as $k => $v){?>
-                                                    <option value="<?php echo $k;?>" <?php echo ($ztstatus == $k)?'selected="selected"':'';?>><?php echo $v;?></option>
-                                                <?php }?>
-                                            </select>
-                                        </div>
-                                        <div class="form-group" style="position:relative;">
-                                            <input class="form-control changeStyle ui-input" type="text" name="keyid"    placeholder="请输入用户名" value="<?php echo $keyid;?>">
-                                        </div>
-                                        <div class="form-group" style="position:relative;">
-                                            <input class="form-control changeStyle ui-input" type="text" name="keytel"   placeholder="请输入手机号" value="<?php echo $keytel;?>">
-                                            <div class="pull-right searchBtn">
-                                                <div class="searchBtnStyle"> <span class="addBorder"></span> <i class="iconfont icon-seach"></i>
-                                                    <button type="submit" class="btn btnSearch">搜索</button>
-                                                </div>
-                                            </div>
-
-                                    </div>
-                                </li>
-                            </ul>
-                            <table class="table table-bordered" id="template">
-                                <thead>
-                                <tr>
-                                    <th>用户昵称</th>
-                                    <th>手机号</th>
-                                    <th>会员类型</th>
-                                    <th>qq号</th>
-                                    <th>微信号</th>
-                                    <th>微博uid</th>
-                                    <th>注册时间</th>
-                                    <th>状态</th>
-                                    <th>操作</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <?php if(empty($lists)){?>
-                                    <tr><td colspan="5" class="text-center">暂无内容</td></tr>
-                                    <?php
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <table class="table table-bordered" id="template">
+                <thead>
+                  <tr>
+                    <th>UID</th>
+                    <th>用户昵称</th>
+                    <th>手机号</th>
+                    <th>会员类型</th>
+                    <th>邀请人ID</th>
+                    <th>qq号</th>
+                    <th>微信号</th>
+                    <th>微博uid</th>
+                    <th>注册时间</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php if(empty($lists)){?>
+                  <tr>
+                    <td colspan="11" class="text-center">暂无内容</td>
+                  </tr>
+                  <?php
                                 }else{
                                     foreach($lists as $v){
                                         ?>
-                                        <tr style="height: 55px;">
-                                            <td><?php echo $v['username'];?></td>
-                                            <td><?php echo decryptd($v['phone']);?></td>
-                                            <td><?php echo $v['utype'] == 1?'普通买家':'会员买家';?></td>
-                                            <td><?php echo $v['qq'];?></td>
-                                            <td><?php echo $v['wx'];?></td>
-                                            <td><?php echo $v['wb'];?></td>
-                                            <td><?php echo $v['addtime'];?></td>
-                                            <td><?php echo $v['status'] == 1?'有效':'无效';?></td>
-                                            <td>
-                                                <div>
-                                                    <span class="butedit" data-na = "<?php echo $v['userid'];?>"  data-s ="<?php echo $v['status']?0:1;?>"><?php echo $v['status']?'关闭':'启用';?></span>
-                                                </div>
-                                            </td>
-                                        <?php }?>
-                                        </tr>
-                                    <?php }?>
-                                </tbody>
-                            </table>
-                            <?php echo $pageStr;?>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
+                  <tr style="height: 55px;">
+                    <td><?php echo $v['id'];?></td>
+                    <td><?php echo decryptd($v['username']);?></td>
+                    <td><?php echo decryptd($v['phone']);?></td>
+                    <td><?php echo $v['utype'] == 1?'普通买家':'会员买家';?></td>
+                    <td><?php echo $v['invite_code']?$v['invite_code']:'';?></td>
+                    <td><?php echo $v['qq'];?></td>
+                    <td><?php echo $v['wx'];?></td>
+                    <td><?php echo $v['wb'];?></td>
+                    <td><?php echo $v['addtime'];?></td>
+                    <td><?php echo $v['status'] == 1?'有效':'无效';?></td>
+                    <td><div> <span class="butedit" data-na = "<?php echo $v['userid'];?>"  data-s ="<?php echo $v['status']?0:1;?>"><?php echo $v['status']?'关闭':'启用';?></span> </div></td>
+                    <?php }?>
+                  </tr>
+                  <?php }?>
+                </tbody>
+              </table>
+              <?php echo $pageStr;?> </div>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </div>
-
-
 <script type="text/javascript">
     $(function(){
         menuleft("membersindex");
@@ -233,7 +233,7 @@
 			}, "取消", null);
         })
     });
-</script>
+</script> 
     <div class="footer">
       <p class="version">Copyright@2019 运营管理中心 版权所有，不允许任何形式的转载以及拷贝，违者必究。 &nbsp;&nbsp;</p>
     </div>

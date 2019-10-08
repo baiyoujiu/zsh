@@ -137,6 +137,12 @@
 									<div class="col-sm-3">
 										<input class="form-control ui-input input-short-3" type="text" placeholder="输入单位" name="units" value="<?php echo $info['units'];?>">
 									</div>
+                                    <label for="bankcard" class="col-sm-2 control-label"><b class="clr-attention">*</b>重量（克）：</label>
+									<div class="col-sm-3">
+										<input class="form-control ui-input input-short-3" type="text" placeholder="输入重量（克）" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" name="gnum" value="<?php echo $info['gnum']?$info['gnum']:1;?>">
+									</div>
+								</div>
+                                <div class="form-group">
                                     <label for="bankcard" class="col-sm-2 control-label">权　　重：</label>
 									<div class="col-sm-3">
 										<input class="form-control ui-input input-short-2" type="text" placeholder="输入权重" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" name="weight" value="<?php echo $info['weight']?$info['weight']:0;?>">　大者居前

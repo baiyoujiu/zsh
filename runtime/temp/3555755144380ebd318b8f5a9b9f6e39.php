@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:36:"../template/mcenter/orders\index.php";i:1569666390;s:52:"D:\wamp\work\zsh\template\mcenter\common\uheader.php";i:1567594450;s:55:"D:\wamp\work\zsh\template\mcenter\common\uheaderNav.php";i:1567501447;s:50:"D:\wamp\work\zsh\template\mcenter\common\usnav.php";i:1569737757;s:52:"D:\wamp\work\zsh\template\mcenter\common\ufooter.php";i:1564996439;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:36:"../template/mcenter/orders\index.php";i:1570526002;s:52:"D:\wamp\work\zsh\template\mcenter\common\uheader.php";i:1567594450;s:55:"D:\wamp\work\zsh\template\mcenter\common\uheaderNav.php";i:1567501447;s:50:"D:\wamp\work\zsh\template\mcenter\common\usnav.php";i:1569749584;s:52:"D:\wamp\work\zsh\template\mcenter\common\ufooter.php";i:1564996439;}*/ ?>
 <!DOCTYPE html>
 <!-- saved from url=(0032)http://www.o2osl.com/u/index.htm -->
 <html lang="zh-cn">
@@ -70,7 +70,8 @@
       <ul>
         <li tabindex="ordersindex"><a href="<?php echo url('orders/index');?>">订单管理</a></li>
         <li tabindex="ordersdaihuan"><a href="<?php echo url('orders/daihuan');?>">待还书目</a></li>
-        <li tabindex="orderscart"><a href="<?php echo url('orders/cart');?>">书包</a></li>
+        <li tabindex="orderscheck"><a href="<?php echo url('orders/check');?>">检货</a></li>
+        <li tabindex="orderscart"><a href="<?php echo url('orders/cart');?>">购物车</a></li>
       </ul>
     </li>
     <li>
@@ -106,7 +107,7 @@
           <div class="box">
             <div class="title help-course-f">
               <ul class="nav nav-tabs" style="margin-top: 16px;padding-left: 16px;">
-
+                
                 <!--          这个为什么后面不(能)加.html   因为用了url 就变成地址了吗？不用的话就是完整网址     -->
                 <li class="active"><a href="<?php echo url('orders/index');?>">订单列表</a></li>
               </ul>
@@ -116,7 +117,7 @@
               <ul class="newpager">
                 <li class="previous">
                   <div class="form-inline text-right marginTop">
-                    <div class="form-group">
+                    <div class="form-group"> 
                       <!--搜索     -->
                       <select class="form-control" name="status" id="status">
                         <option value="0">状态</option>
@@ -160,13 +161,14 @@
                   </tr>
                   <?php }else{
 							foreach($lists as $v){
+                  $glists = json_decode(base64_decode($v['order_good']),true);
 								?>
                   <tr>
-                    <th class="food_dingdan" colspan="8"> <div class="clearfix"> <b class="fl"><?php echo $v['order_time'].'&nbsp'.'&nbsp'.'&nbsp'.'用户名:'.$user[$v['userid']];?></b> <span class="fr">订单号: <?php echo $v['order_no'];?><b class="clr-attention">（<?php echo $v['pay_status']==1?'待付款-'.$sstatusArr[$v['status']]:$sstatusArr[$v['status']];?>）</b></span> </div>
+                    <th class="food_dingdan" colspan="8"> <div class="clearfix"> <b class="fl"><?php echo $v['order_time'].'&nbsp'.'&nbsp'.'&nbsp'.'用户名:'.($user[$v['userid']]);?></b> <span class="fr">订单号: <?php echo $v['order_no'];?><b class="clr-attention">（<?php echo $v['pay_status']==1?'待付款-'.$sstatusArr[$v['status']]:$sstatusArr[$v['status']];?>）</b></span> </div>
                     </th>
                   </tr>
                   <tbody class="food_list_lists">
-                    <?php foreach($v['glists'] as $k1=>$v1){?>
+                    <?php foreach($glists as $k1=>$v1){?>
                     <tr>
                       <td class="food_name"><div class="clearfix"> <img class="fl grzx_food_img" src="<?php echo $v1['pic'];?>" />
                           <section class="fl">
@@ -193,16 +195,16 @@
                           <?php echo $v['pay_status']==1?'待付款':$sstatusArr[$v['status']];?>
                           <a href="<?php echo '/Orders/inf/id/'.$v['id'].'.html';?>"><p class="">订单详情</p></a></td>
                       <td class="food_transaction" rowspan="<?php echo count($v['glist']);?>">
-                          <?php
+                          <?php 
 						  ////1-下单，待确认|2-卖家确认|3-配货完成|4-已发贷，待收货|5-买家确认收货|6-系统收货|8-卖家取消订单|9-系统关闭未付款订单
 						  if($v['pay_status']==1){
 							  if($v['status']==1){
 						  ?>
                           <p class="upbtn" data-no="<?php echo $v['order_no'];?>" data-s="9">系统关闭</p>
-						  <?php
+						  <?php 
 						  	}
 						  }else{ //已付款订单操作
-							if($v['status']==1){
+							if($v['status']==1){ 
 						   ?>
                            <p class="upbtn" data-no="<?php echo $v['order_no'];?>" data-s="2">卖家确认</p>
                            <p class="upbtn" data-no="<?php echo $v['order_no'];?>" data-s="8">取消订单</p>

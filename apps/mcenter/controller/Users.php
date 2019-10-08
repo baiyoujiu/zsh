@@ -20,7 +20,7 @@ class Users extends Controller{
 	public function index(){
 		$mid = session('mid');
 		if(!empty($mid)){
-			$this->redirect(url('good/index'));
+			$this->redirect(url('orders/index'));
 		}
 
 		$a = 3214;

@@ -38,7 +38,7 @@ return [
     'cart/index'        =>  ['order/cart'],
     'newsinf/:id'        =>  ['news/inf'],
 	'books/:id'        =>  ['news/books'],
-    'zt/:id'        =>  ['zt/inf'],
+    'ztinf/:id'        =>  ['zt/inf'],
     
 
     //系统

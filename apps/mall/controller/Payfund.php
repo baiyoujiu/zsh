@@ -123,10 +123,9 @@ class Payfund extends Controller{
     		$reinf = db('finance_recharge')->where($wheres)->find();
     		
     		/*发放体验优惠劵
-    		 * 押金：100，一张5元，无门槛红包
-    		* 押金：100，两张10元，无门槛红包
+    		* 押金：300，1张10元，无门槛红包
     		*/
-    		$couponid = ($amount>10000)?2:1;
+    		$couponid = ($amount>10000)?2:0;
     		$fieldstr = 'cno,name,amount,remark,rules,days';
     		$couponinf = db('coupon')->field($fieldstr)->where('id',$couponid)->find();
     		
@@ -158,14 +157,12 @@ class Payfund extends Controller{
     				throw new \Exception("充值业务更新失败");
     			}
     			
-    			
-    			//体验优惠劵
-    			$rs = db('coupon_record')->insert($couponinf);
-    			if(!$rs){
-    				throw new \Exception("体验优惠劵添加失败");
-    			}
     			if($couponid>1){
-    				$rs = db('coupon_record')->insert($couponinf);
+	    			//体验优惠劵
+	    			$rs = db('coupon_record')->insert($couponinf);
+	    			if(!$rs){
+	    				throw new \Exception("体验优惠劵添加失败");
+	    			}
     			}
     			
     			

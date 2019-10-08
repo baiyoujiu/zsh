@@ -17,8 +17,9 @@ class Index extends Controller{
 			$this->assign('userinfo',$userinfo);
 		}
 		//网站SEO标题   “勤阅读，读好书，读经典”
-		$keywords = $description = '租书会，中小学必读经典图书租借平台。读好书，租经典，养成勤阅读的好习惯。';
-		$webseo = ['title'=>'租书会-读好书，租经典','keywords'=>$keywords,'description'=>$description];
+		$keywords = '儿童绘本出租平台,童书租赁平台,租书网站,租书app';
+		$description = '租书会，纸质图书出租服务平台。普及中外经典好文化，出租实物童书：经典儿童绘本、校荐1-9年级课外阅读图书、中外经典图书。';
+		$webseo = ['title'=>'租书会-租好书，好读书','keywords'=>$keywords,'description'=>$description];
 		$this->assign('webseo',$webseo);
 	}
 	/************************ 调试用 ***************************/
@@ -28,20 +29,12 @@ class Index extends Controller{
 		
 		//
 		//$wheres = ['cid'=>1];
-		$wheres['code']= ['between',[800190,800203]];
+		$wheres['id']= ['between',[56,86]];
 		//id
-		$lists = db('aschool')->where($wheres)->select();
-		
-		foreach ($lists as $val){
-			$data['city_code'] = 330100;
-			$data['area_code'] = 330100;
-			$data['school'] = $val['school'];
+		$lists = db('order')->where($wheres)->select();
+		//echo encryptd(15336538030).'<>';
+		foreach ($lists as $v){
 			
-			$data['area'] = $val['school'].'租借驿站';
-			
-			$data['updatetime'] = date('Y-m-d H:i:s');
-			
-			db('system_stage')->insert($data);
 		}
 		//print_r($wheres);
 		
@@ -56,6 +49,8 @@ class Index extends Controller{
 	 * @data 21090218
 	 */
 	public function index(){
+		
+		
 		
 		//$this->redirect(url('list/cat'));
 		
@@ -108,6 +103,7 @@ class Index extends Controller{
 		}
 		
     }
+	
     //上传处理
     public function upload(){
     	$imagesRoot = 'images';

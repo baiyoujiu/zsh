@@ -23,7 +23,7 @@
                     <?php }else{?>
                     <div class="fl dingdan_dizhi_xinxi">
 						<h1>无收货地址</h1>
-                        <p class="add_dizhi" style="margin-top:0;"><span>添加新地址</span></p>
+                        <p class="add_dizhi" style="margin-top:0;"><span class="addbtn">添加新地址</span></p>
 					</div>
                     <?php }?>
 				</div>
@@ -183,7 +183,7 @@
 					<li class="right">
                         <div class="add_address_list_sec fl">
                           <select class="sccode" name="sccode">
-                            <option value="0">其它地址</option>
+                            <option value="0">非驿站地址</option>
                           </select>
                         </div>
                       </li>
@@ -235,7 +235,7 @@
 					$('.stcode').empty();
 					$('.stcode').html('<option value="">街道/镇</option>');
 					$('.sccode').empty();
-					$('.sccode').html('<option value="0">其它地址</option>');
+					$('.sccode').html('<option value="0">非驿站地址</option>');
 					$('#address').val('');	
 					$('#address').show();
 					
@@ -311,7 +311,7 @@
 							data:{ano:ano,i:Math.random()},
 							success:function(result){
 								if(result.status == 200){
-									var sthtml='<option value="">街道/镇</option>',schtml='<option value="0">其它地址</option>';
+									var sthtml='<option value="">街道/镇</option>',schtml='<option value="0">非驿站地址</option>';
 									sthtml += result.sthtml;
 									schtml += result.schtml;
 									$('.stcode').empty();
@@ -344,7 +344,7 @@
 						  if (data.status == 200) {
 							$('.mapshow').hide();
 							$('#address').show();
-							var stcode = '<option value="">街道/镇</option>',sccode = '<option value="0">其它地址</option>';
+							var stcode = '<option value="">街道/镇</option>',sccode = '<option value="0">非驿站地址</option>';
 							stcode += data.html;
 							$('.stcode').empty();
 							$('.stcode').html(stcode);
@@ -368,7 +368,9 @@
 						$('#address').hide();
 						$('.mapshow').show();
 						var adsites = $(".sccode option:selected");
-						$('.mapinf img').data('pic',adsites.attr('pic'));
+						console.log(adsites.attr('pic'));
+						$('.adrinf').html(adsites.attr('inf'));
+						$('#mapinf img').attr('src',adsites.attr('pic'));
 						$('.mapinf').show();
 					}
 				});

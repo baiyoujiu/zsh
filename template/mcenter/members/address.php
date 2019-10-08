@@ -64,10 +64,10 @@
                                 }else{
                                     foreach($lists as $v){
                                         ?><tr style="height: 55px;">
-                                        <td><?php echo $glists[$v['userid']]?></td>
-                                        <td><?php echo $v['recname']?></td>
-                                        <td><?php echo $v['phone']?></td>
-                                        <td><?php echo ($v['school'] == 1)?$stagelist[$v['address']]:'非驿站'?></td>
+                                        <td><?php echo decryptd($glists[$v['userid']]);?></td>
+                                        <td><?php echo $v['recname'];?></td>
+                                        <td><?php echo decryptd($v['phone']);?></td>
+                                        <td><?php echo ($v['school'] == 1)?$stagelist[$v['address']]:'非驿站';?></td>
                                         <td><?php echo $arealist[$v['province']].$arealist[$v['city']].$arealist[$v['area']].(($v['school'] == 1)?$stagelist[$v['address']].'('.$stagealist[$v['address']].')':$arealist[$v['street']].$v['address']);?></td>
                                     <?php }?>
                                     </tr>

@@ -64,7 +64,7 @@
                                     foreach($lists as $k =>$v){
                                         ?>
                                         <tr style="height: 55px;">
-                                        <td><?php echo $ulists[$v['userid']];?></td>
+                                        <td><?php echo decryptd($ulists[$v['userid']]);?></td>
                                         <td><?php echo $v['recharge_no'];?></td>
                                         <td><?php echo $v['recharge_note'];?></td>
                                         <td><?php echo number_format($v['amount']/100,2);?></td>

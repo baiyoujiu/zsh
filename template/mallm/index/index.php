@@ -15,13 +15,14 @@
 					<div class="swiper-container">
 						<ul class="swiper-wrapper">
                         
-                          <li class="swiper-slide"> <img src="/images/books/bookszjlc.jpg" alt="<?php echo $webseo['title'];?>"> </li>
-				          <li class="swiper-slide"> <a href="<?php echo url('zt/1001');?>" title="一年级必读经典书目-租书会"><img src="__IMG__/banner01.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
-                          <li class="swiper-slide"> <a href="<?php echo url('zt/1002');?>" title="二年级必读经典书目-租书会"><img src="__IMG__/banner02.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
-                          <li class="swiper-slide"> <a href="<?php echo url('zt/1003');?>" title="三年级必读经典书目-租书会"><img src="__IMG__/banner03.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
-                          <li class="swiper-slide"> <a href="<?php echo url('zt/1004');?>" title="四年级必读经典书目-租书会"><img src="__IMG__/banner04.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
-                          <li class="swiper-slide"> <a href="<?php echo url('zt/1005');?>" title="五年级必读经典书目-租书会"><img src="__IMG__/banner05.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
-                          <li class="swiper-slide"> <a href="<?php echo url('zt/1006');?>" title="六年级必读经典书目-租书会"><img src="__IMG__/banner6.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
+                          <li class="swiper-slide"><a href="<?php echo url('goods/stage');?>" title="租借驿站-租书会"><img src="/images/books/bookszjlc.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
+                          <li class="swiper-slide"> <a href="<?php echo url('goods/191005100');?>" title="租书vip年卡/半年卡/季卡-租书会"><img src="__IMG__/banner00.jpg" alt="租书vip年卡/半年卡/季卡-租书会"></a> </li>
+				          <li class="swiper-slide"> <a href="<?php echo url('ztinf/1001');?>" title="一年级必读经典书目-租书会"><img src="__IMG__/banner01.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
+                          <li class="swiper-slide"> <a href="<?php echo url('ztinf/1002');?>" title="二年级必读经典书目-租书会"><img src="__IMG__/banner02.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
+                          <li class="swiper-slide"> <a href="<?php echo url('ztinf/1003');?>" title="三年级必读经典书目-租书会"><img src="__IMG__/banner03.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
+                          <li class="swiper-slide"> <a href="<?php echo url('ztinf/1004');?>" title="四年级必读经典书目-租书会"><img src="__IMG__/banner04.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
+                          <li class="swiper-slide"> <a href="<?php echo url('ztinf/1005');?>" title="五年级必读经典书目-租书会"><img src="__IMG__/banner05.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
+                          <li class="swiper-slide"> <a href="<?php echo url('ztinf/1006');?>" title="六年级必读经典书目-租书会"><img src="__IMG__/banner6.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
 						</ul>
 						<div class="swiper-pagination"></div>
 					</div>
@@ -70,8 +71,6 @@
 				</nav>
                 <?php }?>
 			</section>
-			<!--占位-->
-			<section class="zhanwei_hei45"></section>
             <!--足迹-->
             <section>
                 <p class="pailie_list">
@@ -189,7 +188,7 @@
 			//自定义"分享给朋友"及"分享到QQ"按钮的分享内容（1.4.0）
 			//自定义"分享到朋友圈"及"分享到QQ空间"按钮的分享内容（1.4.0）
 			var wxtitle = '<?php echo $webseo['title'];?>',wxdesc = '<?php echo $webseo['description'];?>';
-			var wximgUrl = '<?php echo 'https://'.request()->host().'/mall/img/icon.png';?>',wxlink = '<?php echo 'https://'.request()->host().'/';?>';
+			var wximgUrl = '<?php echo 'https://'.request()->host().'/mall/img/icon300.png';?>',wxlink = '<?php echo 'https://'.request()->host().'/';?>';
 			wx.config({
 				//debug: true,
 				appId: '<?php echo $wxsignPackage["appId"];?>',

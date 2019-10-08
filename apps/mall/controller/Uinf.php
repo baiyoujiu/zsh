@@ -23,7 +23,8 @@ class Uinf extends Controller{
 		$this->assign('userinfo',$userinfo);
 		
 		//网站SEO标题
-		$keywords = $description = '租书会，中小学必读经典书目租借平台。读好书，租经典，养成勤阅读的好习惯。';
+		$keywords = '儿童绘本出租平台,童书租赁平台,租书网站,租书app';
+		$description = '租书会，纸质图书出租服务平台。普及中外经典好文化，出租实物童书：经典儿童绘本、校荐1-9年级课外阅读图书、中外经典图书。';
 		$webseo = ['title'=>'用户中心-租书会','keywords'=>$keywords,'description'=>$description];
 		$this->assign('webseo',$webseo);
 	}
@@ -65,11 +66,16 @@ class Uinf extends Controller{
 		$lists = db('order')->where('userid',$userid)->order('id DESC')->select();
 		$this->assign('olists',$lists);
 		
-		//未来七天有无待还图书
-		$day7 = date("Y-m-d H:i:s",strtotime("+8days",strtotime(date('Y-m-d'))));
-		$wheres = ['userid'=>$userid,'rent'=>1,'rentend'=>['<',$day7]];
+		//未来待还图书
+		$wheres = ['userid'=>$userid,'rent'=>1];
 		$glists = db('order_goods')->where($wheres)->order('rentend ASC')->select();
 		$this->assign('glists',$glists);
+		//print_r($glists);
+		
+		//优惠劵
+		$couponwheres = ['userid'=>$userid,'status'=>1];
+		$couponinf = db('coupon_record')->field('id,amount,endtime')->where($couponwheres)->order('endtime asc,amount desc')->find();
+		$this->assign('couponinf',$couponinf);
 		return view();
 	}
 	
@@ -104,8 +110,8 @@ class Uinf extends Controller{
 		
 		//print_r($lists);
 		
-		//状态:1-待确认|2-卖家确认并发货|3-待收货|5-买家确认收货|6-系统收货|8-卖家取消订单|9-系统关闭未付款订单
-		$statusArr = [1=>'待发货',2=>'待发货',3=>'待收货',5=>'已收货',6=>'已收货',8=>'已关闭',9=>'已关闭'];
+		//状态:状态:1-下单，待确认|2-卖家已确认|3-配货完成|4-已发贷，待收货|5-买家确认收货|6-系统收货|8-卖家取消订单|9-系统关闭未付款订单|10-买家取消未付款订单
+		$statusArr = [1=>'待发货',2=>'待发货',3=>'待发货',4=>'待收货',5=>'已收货',6=>'已收货',8=>'已关闭',9=>'已关闭',10=>'已关闭'];
 		$this->assign('statusArr',$statusArr);
 		return view();
 	}
@@ -132,10 +138,18 @@ class Uinf extends Controller{
 		$arealist = getArrOne($arealist,'area','code');
 		$this->assign('arealist',$arealist);
 		
-		$statusArr = [1=>'待发货',2=>'待发货',3=>'待收货',5=>'已收货',6=>'已收货',8=>'已关闭',9=>'已关闭'];
+		//所有租借驿站
+		$stagelists = db('system_stage')->where('status',1)->select();
+		$stagels = [];
+		foreach ($stagelists as $v){
+			$stagels[$v['code']] = $v;
+		}
+		$this->assign('stagels',$stagels);
+		
+		$statusArr = [1=>'待发货',2=>'待发货',3=>'待发货',4=>'待收货',5=>'已收货',6=>'已收货',8=>'已关闭',9=>'已关闭',10=>'已关闭'];
 		$this->assign('statusArr',$statusArr);
 		
-		$statusinfArr = [2=>'发贷处理中',3=>'等待确认收货',5=>'订单已完成',6=>'订单已完成',8=>'卖家取消订单',9=>'订单超时未支付'];
+		$statusinfArr = [1=>'发贷处理中',2=>'发贷处理中',3=>'发贷处理中',4=>'等待确认收货',5=>'订单已完成',6=>'订单已完成',8=>'卖家取消订单',9=>'订单超时未支付',10=>'买家取消订单'];
 		$this->assign('statusinfArr',$statusinfArr);
 	
 		return view();
@@ -235,6 +249,30 @@ class Uinf extends Controller{
 		$this->assign('lists',$lists);
 		return view();
 	}
+	
+	/* 邀请有奖
+	 * @author Bill
+	* @data 21091005
+	*/
+	public function invite(){
+		if(isWeixin()){
+			// 微信分享
+			import('Jssdk', EXTEND_PATH);
+			$jssdk = new \JSSDK(config('configset.WXAPPID'), config('configset.WXAppSecret'));
+			$wxsignPackage = $jssdk->GetSignPackage();
+			$this->assign('wxsignPackage',$wxsignPackage);
+		}
+	
+		//网站SEO标题   "勤阅读，读好书，读经典"
+		$keywords = '儿童绘本出租平台,童书租赁平台,租书网站,租书app';
+		$description = '租书会vip月卡，领取后可免费租5本图书30天';;
+		$webseo = ['title'=>'送你租书会vip月卡，免费租5本图书30天','keywords'=>$keywords,'description'=>$description];
+		$this->assign('webseo',$webseo);
+		return view();
+	}
+	
+	
+	
 	
 	
 	

@@ -42,6 +42,14 @@ class Pay extends Controller{
 			$arealist = db('system_area')->field('code,area')->where('status',1)->select();
 			$arealist = getArrOne($arealist,'area','code');
 			$this->assign('arealist',$arealist);
+			
+			//所有租借驿站
+			$stagelists = db('system_stage')->where('status',1)->select();
+			$stagels = [];
+			foreach ($stagelists as $v){
+				$stagels[$v['code']] = $v;
+			}
+			$this->assign('stagels',$stagels);
 		}
 		$this->assign('info',$info);
 		

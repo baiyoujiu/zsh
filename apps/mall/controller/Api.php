@@ -6,6 +6,7 @@
 namespace app\mall\controller;
 use think\Controller;
 use think\Validate;
+use think\console\Input;
 
 class Api extends Controller{
 	public function __construct() {
@@ -156,6 +157,39 @@ class Api extends Controller{
 								</p>
 							</div>
 						</li></a>';
+		}
+		return ['status'=>200,'msg'=>'成功','html'=>$html];
+	}
+	
+	/********************************邀请页的商品
+	 * @author Bill
+	* @data 21091007
+	*/
+	public function getglists(){
+		//年级属性值
+		$gn = input('post.gn/d');
+		$wheres = ['attriid'=>$gn];
+		$gnolists = db('good_attr')->where($wheres)->select();
+		$gnoarr = getArrOne($gnolists,'gno');
+		 
+		//商品列表
+		$gwheres = ['status'=>2,'gno'=>['in',$gnoarr]];
+		$lists = db('good')->where($gwheres)->limit(3)->order('RAND()')->select();
+		 
+		 
+		$html = '';
+		foreach ($lists as $v){
+			$picarr = json_decode(base64_decode($v['pic']),true);
+			$html .= '<a href="'.url('goods/'.$v['gno']).'"><li class="fl">
+							   <img class="sp_img lazy" data-original="'.$picarr[0].'" />
+							   <div class="sp_lists_word">
+									<h4>'.$v['name'].'</h4><h5>'.$v['recommend'].'</h5>
+									<p class="clearfix">
+										<span class="fl"><em>￥'.number_format($v['sales_price']/100,2).'</em>/'.$v['units'].'</span>
+										<img class="fr buy_btn" src="/mall/img/shop_car1.png"></img>
+									</p>
+								</div>
+							</li></a>';
 		}
 		return ['status'=>200,'msg'=>'成功','html'=>$html];
 	}
@@ -442,8 +476,13 @@ class Api extends Controller{
     	}
     	
     	$order_no = $data['ono'];
-    	////1-下单，待确认|2-卖家确认|3-配货完成|4-已发贷，待收货|5-买家确认收货|6-系统收货|8-卖家取消订单|9-系统关闭未付款订单
-    	$wheres = ['order_no'=>$order_no,'status'=>4];
+    	//买家取消未付款订单  10,无时是收货。
+    	$status = $data['s'];
+    	//状态:1-下单，待确认|2-卖家已确认|3-配货完成|4-已发贷，待收货|5-买家确认收货|6-系统收货|8-卖家取消订单|9-系统关闭未付款订单|10-买家取消未付款订单
+    	$wheres = ['order_no'=>$order_no];
+    	
+    	//取消时是待确认，收货时是已发货
+    	$wheres['status'] = $status?1:4; 
     	$inf = db('order')->where($wheres)->find();
     	if(empty($inf)){
     		return ['status'=>202,'msg'=>'业务不存在,或已收货'];
@@ -451,10 +490,25 @@ class Api extends Controller{
     	
     	//押金金额
     	$nowtimes = date('Y-m-d H:i:s');
-		$udata=['status'=>5,'received_time'=>$nowtimes,'update_time'=>$nowtimes];
+		$udata=['update_time'=>$nowtimes];
+		
+		if($status){
+			$udata['status'] = 10;
+		//收货
+		}else{
+			$udata['status'] = 5;
+			$udata['status'] = $nowtimes;
+		}
 		$rs = db('order')->where($wheres)->update($udata);
     	if($rs){
-    		return ['status'=>200,'msg'=>'收货成功'];
+    		$msg = '收货成功';
+    		//8,9,10 时删除订单商品明细表的无效商品明细
+    		if($status){
+    			$wheres = ['order_no'=>$order_no];
+    			db('order_goods')->where($wheres)->delete();
+    			$msg = '取消成功';
+    		}
+    		return ['status'=>200,'msg'=>$msg];
     	}else{
     		return ['status'=>210,'msg'=>'系统繁忙'];
     	}
@@ -497,5 +551,4 @@ class Api extends Controller{
     		return ['status'=>210,'msg'=>'系统繁忙'];
     	}
     }
-    
 }

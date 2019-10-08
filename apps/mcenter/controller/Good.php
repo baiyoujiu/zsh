@@ -299,20 +299,9 @@ class Good extends Controller{
 		['attr0','require|array','请选择商品属性'],
 		//['goodImgs','require|array','请上传商品图片|请上传商品图片'],
 		['group','require','请选择销售模式'],
+		['gnum','require|number','请输入商品重量（克）'],
 		['status','require','请选择商品状态']
 		];
-    	
-    	
-    	/* `gno` int(11) NOT NULL COMMENT '商品编号',
-    	`name` varchar(128) NOT NULL COMMENT '商品名称',
-    	`recommend` varchar(64) NOT NULL COMMENT '摧荐理由',
-    	`group` tinyint(4) NOT NULL DEFAULT '0' COMMENT '模式：0-普通|1-拼购',
-    	`cid` int(11) NOT NULL DEFAULT '0' COMMENT '一级分类',
-    	`pic` text COMMENT '图片，多张base64_encode(json_encode(array))第一个是主图',
-    	`market_price` int(11) NOT NULL COMMENT '在售最高市场价（单位：分）',
-    	`sales_price` int(11) NOT NULL COMMENT '在售最低销售价（单位：分）',
-    	`weight` int(10) NOT NULL DEFAULT '0' COMMENT '权重,大的居前',
-    	`status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '状态:1-下架|2-上架', */
     	
 		$data = request()->post();
 		$validate = new Validate($rule);
@@ -539,6 +528,8 @@ class Good extends Controller{
 			$this->redirect(url('good/index'));
 		}
 		$info = db('good_inf')->where(['gno'=>$gno])->find();
+		
+		$info['gno'] = $info?$info['gno']:$gno;
 		//商品介绍
 		$this->assign('info',$info);
 	
@@ -552,11 +543,11 @@ class Good extends Controller{
 		$data = request()->post();
 		//商品编号
 		$gno = $data['gno'];
-		$info = db('good')->where('gno='.$gno)->find();
+		
+		$info = db('good')->where('gno',$gno)->find();
 		if(empty($info)){
 			return ['status'=>201,'msg'=>'商品不存在！'];
 		}
-		
 		$time = date('Y-m-d H:i:s');
 		$data['updatetime'] = $time;
 		

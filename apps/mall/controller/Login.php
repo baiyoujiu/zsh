@@ -33,7 +33,8 @@ class Login extends Controller{
 		$returnUrl = $_SERVER['HTTP_REFERER'];
 		
 		//网站SEO标题
-		$keywords = $description = '租书会，中小学必读经典书目租借平台。读好书，租经典，养成勤阅读的好习惯。';
+		$keywords = '儿童绘本出租平台,童书租赁平台,租书网站,租书app';
+		$description = '租书会，纸质图书出租服务平台。普及中外经典好文化，出租实物童书：经典儿童绘本、校荐1-9年级课外阅读图书、中外经典图书。';
 		$webseo = ['title'=>'登陆-租书会','keywords'=>$keywords,'description'=>$description];
 		$this->assign('webseo',$webseo);
 		return view();
@@ -222,12 +223,17 @@ class Login extends Controller{
 		if(!empty($userid)){
 			$this->redirect('https://'.request()->host().'/');
 		}
+		
+		//邀请码
+		$i = input('get.i/d');
+		$this->assign('i',$i);
 	
 		$returnUrl = $_SERVER['HTTP_REFERER'];
 		$this->assign('returnUrl',$returnUrl);
 		
 		//网站SEO标题
-		$keywords = $description = '租书会，中小学必读经典书目租借平台。读好书，租经典，养成勤阅读的好习惯。';
+		$keywords = '儿童绘本出租平台,童书租赁平台,租书网站,租书app';
+		$description = '租书会，纸质图书出租服务平台。普及中外经典好文化，出租实物童书：经典儿童绘本、校荐1-9年级课外阅读图书、中外经典图书。';
 		$webseo = ['title'=>'注册-租书会','keywords'=>$keywords,'description'=>$description];
 		$this->assign('webseo',$webseo);
 		return view();
@@ -275,6 +281,8 @@ class Login extends Controller{
 		if(is_numeric($password)){
 			return ['status'=>204,'msg'=>'密码不能是纯数字'];
 		}
+		//邀请人的用户ID, 邀请码 = 用户ID+5000
+		$invite_code = ($data['invite_code']-5000)>0?($data['invite_code']-5000):0;
 	
 		/*注册需要三个表
 		 * js_users
@@ -291,11 +299,24 @@ class Login extends Controller{
 		$data['userpass'] = md5(md5($password).$random);
 		$data['userid'] = md5($phone.$random);
 		
+		//邀请人的用户ID
+		$data['invite_code'] = $invite_code;
+		
 		$data['addtime'] = $nowtimes;
 		$data['source'] = request()->host();
 	
 		//财务表
 		$fdata['userid'] = $data['userid'];
+		
+		//注册送10元租书劵
+		$couponid = 2;
+		$fieldstr = 'cno,name,amount,remark,rules,days';
+		$couponinf = db('coupon')->field($fieldstr)->where('id',$couponid)->find();
+		
+		$couponinf['userid'] = $data['userid'];
+		$couponinf['starttime'] = $couponinf['updatetime'] = $nowtimes;
+		$couponinf['endtime'] = date('Y-m-d H:i:s', strtotime ('+'.$couponinf['days'].' day', strtotime(date('Y-m-d'))));
+		unset($couponinf['days']);
 	
 		// 启动事务
 		db()->startTrans();
@@ -317,6 +338,12 @@ class Login extends Controller{
 			$rs = db('users_info')->insert($fdata);
 			if(!$rs){
 				throw new \Exception("扩展表添加失败");
+			}
+			
+			//体验优惠劵
+			$rs = db('coupon_record')->insert($couponinf);
+			if(!$rs){
+				throw new \Exception("体验优惠劵添加失败");
 			}
 			// 提交事务
 			db()->commit();

@@ -139,7 +139,20 @@ class goods extends Controller{
 		$wheres = ['p_code'=>330100,'status'=>1];
 		$alists = db('system_area')->where($wheres)->order('weight DESC')->select();
 		$this->assign('alists',$alists);
-
+		
+		if(isWeixin()){
+			// 微信分享
+			import('Jssdk', EXTEND_PATH);
+			$jssdk = new \JSSDK(config('configset.WXAPPID'), config('configset.WXAppSecret'));
+			$wxsignPackage = $jssdk->GetSignPackage();
+			$this->assign('wxsignPackage',$wxsignPackage);
+		}
+		
+		//网站SEO标题
+		$keywords = '儿童绘本出租平台,童书租赁平台,租书网站,租书app';
+		$description = '租书会，纸质图书出租服务平台。普及中外经典好文化，出租实物童书：经典儿童绘本、校荐1-9年级课外阅读图书、中外经典图书。';
+		$webseo = ['title'=>'租借驿站-租书会','keywords'=>$keywords,'description'=>$description];
+		$this->assign('webseo',$webseo);
     	return view();
     }
     
@@ -351,7 +364,8 @@ class goods extends Controller{
 	    	//print_r($wxsignPackage);
     	}
     	//网站SEO标题
-    	$keywords = $description = '租书会，中小学必读经典书目租借平台。读好书，租经典，养成勤阅读的好习惯。';
+    	$keywords = '儿童绘本出租平台,童书租赁平台,租书网站,租书app';
+		$description = '租书会，纸质图书出租服务平台。普及中外经典好文化，出租实物童书：经典儿童绘本、校荐1-9年级课外阅读图书、中外经典图书。';
     	$webseo = ['title'=>$ginf['name'].'-租书会','keywords'=>$keywords,'description'=>$description];
     	$this->assign('webseo',$webseo);
  

@@ -84,9 +84,9 @@
 							<img class="fl lazy" data-original='<?php echo $gv['pic'];?>' />
 							<div class="fl">
 								<h4 class="clearfix"><span class="fl"><?php echo '【'.$gv['keyv'].'】'.$gv['name'];?></span><i class="fr">￥<?php echo number_format($gv['price']/100,2);?></i></h4>
-								<p class="clearfix"><span class="fl">应还时间：<b class="red"><?php echo $gv['rentend'];?></b></span><em class="fr">×<?php $booknum += $gv['num'];echo $gv['num'];?></em></p>
+								<p class="clearfix"><span class="fl">应还日期：<b class="red"><?php echo substr($gv['rentend'],0,10);?></b></span><em class="fr">×<?php $booknum += $gv['num'];echo $gv['num'];?></em></p>
                                 <?php if($v['status']){?>
-                                <p class="clearfix"><span class="fl"><?php echo $statusStr[$v['status']];?>时间：<b class="red"><?php echo $gv['backtime']?$gv['backtime']:$gv['tobacktime'];?></b></span></p>
+                                <p class="clearfix"><span class="fl"><?php echo $statusStr[$v['status']];?>日期：<b class="red"><?php echo $gv['backtime']?substr($gv['backtime'],0,10):substr($gv['tobacktime'],0,10);?></b></span></p>
                                 <?php }?>
 							</div>
 						</div>
@@ -120,9 +120,9 @@
 							<img class="fl lazy" data-original='<?php echo $gv['pic'];?>' />
 							<div class="fl">
 								<h4 class="clearfix"><span class="fl"><?php echo '【'.$gv['keyv'].'】'.$gv['name'];?></span><i class="fr">￥<?php echo number_format($gv['price']/100,2);?></i></h4>
-								<p class="clearfix"><span class="fl">应还时间：<b class="red"><?php echo $gv['rentend'];?></b></span><em class="fr">×<?php $booknum += $gv['num'];echo $gv['num'];?></em></p>
+								<p class="clearfix"><span class="fl">应还日期：<b class="red"><?php echo substr($gv['rentend'],0,10);?></b></span><em class="fr">×<?php $booknum += $gv['num'];echo $gv['num'];?></em></p>
                                 <?php if($v['status']){?>
-                                <p class="clearfix"><span class="fl"><?php echo $statusStr[$v['status']];?>时间：<b class="red"><?php echo $gv['backtime']?$gv['backtime']:$gv['tobacktime'];?></b></span></p>
+                                <p class="clearfix"><span class="fl"><?php echo $statusStr[$v['status']];?>日期：<b class="red"><?php echo $gv['backtime']?substr($gv['backtime'],0,10):substr($gv['tobacktime'],0,10);?></b></span></p>
                                 <?php }?>
 							</div>
 						</div>
@@ -153,9 +153,9 @@
 							<img class="fl lazy" data-original='<?php echo $gv['pic'];?>' />
 							<div class="fl">
 								<h4 class="clearfix"><span class="fl"><?php echo '【'.$gv['keyv'].'】'.$gv['name'];?></span><i class="fr">￥<?php echo number_format($gv['price']/100,2);?></i></h4>
-								<p class="clearfix"><span class="fl">应还时间：<b class="red"><?php echo $gv['rentend'];?></b></span><em class="fr">×<?php $booknum += $gv['num'];echo $gv['num'];?></em></p>
+								<p class="clearfix"><span class="fl">应还日期：<b class="red"><?php echo substr($gv['rentend'],0,10);?></b></span><em class="fr">×<?php $booknum += $gv['num'];echo $gv['num'];?></em></p>
                                 <?php if($v['status']){?>
-                                <p class="clearfix"><span class="fl"><?php echo $statusStr[$v['status']];?>时间：<b class="red"><?php echo $gv['backtime']?$gv['backtime']:$gv['tobacktime'];?></b></span></p>
+                                <p class="clearfix"><span class="fl"><?php echo $statusStr[$v['status']];?>日期：<b class="red"><?php echo $gv['backtime']?substr($gv['backtime'],0,10):substr($gv['tobacktime'],0,10);?></b></span></p>
                                 <?php }?>
 							</div>
 						</div>
@@ -185,9 +185,9 @@
 							<img class="fl lazy" data-original='<?php echo $gv['pic'];?>' />
 							<div class="fl">
 								<h4 class="clearfix"><span class="fl"><?php echo '【'.$gv['keyv'].'】'.$gv['name'];?></span><i class="fr">￥<?php echo number_format($gv['price']/100,2);?></i></h4>
-								<p class="clearfix"><span class="fl">应还时间：<b class="red"><?php echo $gv['rentend'];?></b></span><em class="fr">×<?php $booknum += $gv['num'];echo $gv['num'];?></em></p>
+								<p class="clearfix"><span class="fl">应还日期：<b class="red"><?php echo substr($gv['rentend'],0,10);?></b></span><em class="fr">×<?php $booknum += $gv['num'];echo $gv['num'];?></em></p>
                                 <?php if($v['status']){?>
-                                <p class="clearfix"><span class="fl"><?php echo $statusStr[$v['status']];?>时间：<b class="red"><?php echo $gv['backtime']?$gv['backtime']:$gv['tobacktime'];?></b></span></p>
+                                <p class="clearfix"><span class="fl"><?php echo $statusStr[$v['status']];?>日期：<b class="red"><?php echo $gv['backtime']?substr($gv['backtime'],0,10):substr($gv['tobacktime'],0,10);?></b></span></p>
                                 <?php }?>
 							</div>
 						</div>
@@ -217,9 +217,9 @@
 							<img class="fl lazy" data-original='<?php echo $gv['pic'];?>' />
 							<div class="fl">
 								<h4 class="clearfix"><span class="fl"><?php echo '【'.$gv['keyv'].'】'.$gv['name'];?></span><i class="fr">￥<?php echo number_format($gv['price']/100,2);?></i></h4>
-								<p class="clearfix"><span class="fl">应还时间：<b class="red"><?php echo $gv['rentend'];?></b></span><em class="fr">×<?php $booknum += $gv['num'];echo $gv['num'];?></em></p>
+								<p class="clearfix"><span class="fl">应还日期：<b class="red"><?php echo substr($gv['rentend'],0,10);?></b></span><em class="fr">×<?php $booknum += $gv['num'];echo $gv['num'];?></em></p>
                                 <?php if($v['status']){?>
-                                <p class="clearfix"><span class="fl"><?php echo $statusStr[$v['status']];?>时间：<b class="red"><?php echo $gv['backtime']?$gv['backtime']:$gv['tobacktime'];?></b></span></p>
+                                <p class="clearfix"><span class="fl"><?php echo $statusStr[$v['status']];?>日期：<b class="red"><?php echo $gv['backtime']?substr($gv['backtime'],0,10):substr($gv['tobacktime'],0,10);?></b></span></p>
                                 <?php }?>
 							</div>
 						</div>

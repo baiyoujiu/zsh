@@ -41,7 +41,7 @@
 						<input class="fl" type="checkbox" checked=""/>
 						<p class="fl">注册及代表同意《<a href="<?php echo url('newsinf/8');?>"><i class="size_color">租书会注册服务协议</i></a>》</p>
 					</div>
-                    <input name="gclass" id="gclass" type="hidden" value="0" />
+                    <input name="invite_code" type="hidden" value="<?php echo $i;?>" />
 					<input class="zhuce_btn" type="button" value="注册"/>
                     </form>
 				</div>
@@ -155,8 +155,6 @@
 					$(this).parent().find('.inp').val('');
 					$(this).hide();
 				});
-				
-				
 				
 				
 				$('.zhuce_btn').click(function(){

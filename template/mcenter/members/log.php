@@ -2,10 +2,7 @@
 <link rel="stylesheet" type="text/css" href="__CSS__/prolist-sell.css">
 {include file="common/uheaderNav" /}
 <style>
-    .form-group{ display:inline-block;
-    }<!-- 增加下边界-->
-
-          .clearfix:before,.clearfix:after {content:"";display:table;}
+    .form-group{ display:inline-block;}.clearfix:before,.clearfix:after {content:"";display:table;}
     .clearfix:after {clear:both;overflow:hidden;}
     .clearfix {zoom:1; }
 
@@ -48,6 +45,7 @@
                                             </div>
 
                                         </div>
+                                        </div>
                                 </li>
                             </ul>
                             <table class="table table-bordered" id="template">
@@ -67,8 +65,8 @@
                                     foreach($lists as $v){
                                         ?>
                                     <tr style="height: 55px;">
-                                        <td><?php echo $v['username']?></td>
-                                        <td><?php echo $v['phone'];?></td>
+                                        <td><?php echo decryptd($v['username']);?></td>
+                                        <td><?php echo decryptd($v['phone']);?></td>
                                         <td><?php echo $v['login_client'];?></td>
                                         <td><?php echo $v['save_time'];?></td>
                                     <?php }?>

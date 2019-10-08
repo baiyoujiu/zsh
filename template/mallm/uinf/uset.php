@@ -4,7 +4,7 @@
     <section class="ds_home_head">
         <h2><a class="fl" href="javascript:history.back(-1);"><i class="icon-left"></i></a>用户设置</h2>
     </section>
-    <section class="zhanwei_hei30"></section>
+    <section class="zhanwei_hei40"></section>
     <section>
         <ul class="person_lists">
             <li class="clearfix">
@@ -35,6 +35,4 @@
             <a href="<?php echo url('login/logout');?>"><p>退出登录</p></a>
         </div>
     </section>
-    <!--占位-->
-    <section class="zhanwei_hei40"></section>
 {include file="common/footer" /}

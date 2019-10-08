@@ -70,13 +70,14 @@
                   </tr>
                   <?php }else{
 							foreach($lists as $v){
+                  $glists = json_decode(base64_decode($v['order_good']),true);
 								?>
                   <tr>
-                    <th class="food_dingdan" colspan="8"> <div class="clearfix"> <b class="fl"><?php echo $v['order_time'].'&nbsp'.'&nbsp'.'&nbsp'.'用户名:'.$user[$v['userid']];?></b> <span class="fr">订单号: <?php echo $v['order_no'];?><b class="clr-attention">（<?php echo $v['pay_status']==1?'待付款-'.$sstatusArr[$v['status']]:$sstatusArr[$v['status']];?>）</b></span> </div>
+                    <th class="food_dingdan" colspan="8"> <div class="clearfix"> <b class="fl"><?php echo $v['order_time'].'&nbsp'.'&nbsp'.'&nbsp'.'用户名:'.($user[$v['userid']]);?></b> <span class="fr">订单号: <?php echo $v['order_no'];?><b class="clr-attention">（<?php echo $v['pay_status']==1?'待付款-'.$sstatusArr[$v['status']]:$sstatusArr[$v['status']];?>）</b></span> </div>
                     </th>
                   </tr>
                   <tbody class="food_list_lists">
-                    <?php foreach($v['glists'] as $k1=>$v1){?>
+                    <?php foreach($glists as $k1=>$v1){?>
                     <tr>
                       <td class="food_name"><div class="clearfix"> <img class="fl grzx_food_img" src="<?php echo $v1['pic'];?>" />
                           <section class="fl">

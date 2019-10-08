@@ -50,7 +50,7 @@
 		
 	</head>
 	<body>
-    <img style="display:none;" src="__IMG__/icon.png">
+    <img style="display:none;" src="__IMG__/icon300.png">
 		
         
 

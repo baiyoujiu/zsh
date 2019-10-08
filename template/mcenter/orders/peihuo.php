@@ -33,7 +33,7 @@ img{ width:380px;}
   </tr>
   <tr>
     <td class="fonts fr">电　话：</td>
-    <td class="fontm fl"><?php echo sub_str($adress['phone'],12,false);?></td>
+    <td class="fontm fl"><?php echo sub_str(decryptd($adress['phone']),12,false);?></td>
   </tr>
   <tr>
     <td class="fonts fr">地　址：</td>

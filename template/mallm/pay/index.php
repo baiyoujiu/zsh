@@ -11,8 +11,8 @@
 		<section>
 			<div class="clearfix dingdan_dizhi">
 				<div class="fl dingdan_dizhi_xinxi">
-					<h1><?php $adrinf = json_decode(base64_decode($info['address']),true); echo $adrinf['recname'];?>　<em><?php echo $adrinf['phone'];?></em></h1>
-					<p><?php echo $arealist[$adrinf['province']].$arealist[$adrinf['city']].$arealist[$adrinf['area']].$arealist[$adrinf['street']].'　'.($adrinf['school']?$arealist[$adrinf['address']]:$adrinf['address']);?></p>
+					<h1><?php $adrinf = json_decode(base64_decode($info['address']),true); echo $adrinf['recname'];?>　<em><?php echo decryptd($adrinf['phone']);?></em></h1>
+					<p><?php echo $arealist[$adrinf['province']].$arealist[$adrinf['city']].$arealist[$adrinf['area']].$arealist[$adrinf['street']].'　'.($adrinf['school']?'<b>'.$stagels[$adrinf['address']]['area'].'</b><br>('.$stagels[$adrinf['address']]['address'].')':$arealist[$adrinf['street']].$adrinf['address']);?></p>
 				</div>
 			</div>
 		</section>

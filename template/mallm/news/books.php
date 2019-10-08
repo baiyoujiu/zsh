@@ -7,6 +7,7 @@
 
 <!--占位-->
 <section class="zhanwei_hei35"></section>
+<section class="zhanwei_hei01"></section>
 <!--轮播-->
 <section>
   <div class="keben_lunbo">
@@ -71,7 +72,7 @@ if (ua.match(/MicroMessenger/i) == "micromessenger") {
 	//自定义"分享给朋友"及"分享到QQ"按钮的分享内容（1.4.0）
 	//自定义"分享到朋友圈"及"分享到QQ空间"按钮的分享内容（1.4.0）
 	var wxtitle = '<?php echo $webseo['title'];?>',wxdesc = '<?php echo $webseo['description'];?>';
-	var wximgUrl = '<?php echo 'https://'.request()->host().'/mall/img/icon.png';?>',wxlink = '<?php echo url('/books/'.$info['bno']);?>';
+	var wximgUrl = '<?php echo 'https://'.request()->host().'/mall/img/icon300.png';?>',wxlink = '<?php echo url('/books/'.$info['bno']);?>';
 	wx.config({
 		//debug: true,
 		appId: '<?php echo $wxsignPackage["appId"];?>',

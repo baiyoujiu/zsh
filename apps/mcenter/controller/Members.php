@@ -45,11 +45,11 @@ class Members extends Controller{
 		$wheres =[];
 		//处理传值，以拉取需要的信息（选择）
 		if(!empty($keyid)){
-			$wheres['username'] = $keyid;
+			$wheres['username'] = encryptd($keyid);
 			$urlArr['keyid'] = $keyid;
 		}
 		if(!empty($keytel)){
-			$wheres['phone'] = $keytel;
+			$wheres['phone'] = encryptd($keytel);
 			$urlArr['keytel'] = $keytel;
 		}
 		if(!empty($hystatus)){
@@ -142,11 +142,11 @@ class Members extends Controller{
 		$wheres =[];
 		//处理传值，以拉取需要的信息（选择）
 		if(!empty($keyid)){
-			$wheres['username'] = $keyid;
+			$wheres['username'] = encryptd($keyid);
 			$urlArr['keyid'] = $keyid;
 		}
 		if(!empty($keytel)){
-			$wheres['phone'] = $keytel;
+			$wheres['phone'] = encryptd($keytel);
 			$urlArr['keytel'] = $keytel;
 		}
 
@@ -223,15 +223,16 @@ class Members extends Controller{
 		$pagesize = 20;
 		$urlArr = array();
 		$wheres =[];
-        $t = db('users')->where('username',$keyid)->order('id DESC')->find();
+        
 
 		//处理传值，以拉取需要的信息（选择）
         if(!empty($keyid)){
-            $wheres['userid'] = $t['userid'];
-            $urlArr['userid'] = $t['userid'];
+        	$uinf = db('users')->where('username',encryptd($keyid))->order('id DESC')->find();
+            $wheres['userid'] = $uinf['userid'];
+            $urlArr['keyid'] = $keyid;
         }
 		if(!empty($keytel)){
-			$wheres['phone'] = $keytel;
+			$wheres['phone'] = encryptd($keytel);
 			$urlArr['phone'] = $keytel;
 		}
 

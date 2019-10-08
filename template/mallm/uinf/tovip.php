@@ -7,10 +7,6 @@
             </section>
 			<!--选择套餐-->
 			<section>
-            <img src="__IMG__/tovip.png"/>
-			</section>
-			<!--选择套餐-->
-			<section>
 				<ul class="clearfix taocan_list">
 					<h1>押金方案</h1>
 					<li class="fl">

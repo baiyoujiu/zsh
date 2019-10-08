@@ -24,10 +24,10 @@ class Orders extends Controller
 		$userInfo = session('userInfo');
 		$this->assign('userInfo', $userInfo);
 
-		$statusArr = array('1'=>'待付款','2'=>'待确认','3'=>'已确认','4'=>'配货待发','5'=>'已发待收','6'=>'买家确认收货','7'=>'系统收货','9'=>'卖家取消订单','10'=>'系统关闭未付款订单');
+		$statusArr = array('1'=>'待付款','2'=>'待确认','3'=>'已确认','4'=>'配货待发','5'=>'已发待收','6'=>'买家确认收货','7'=>'系统收货','9'=>'卖家取消','10'=>'系统关闭','11'=>'买家取消');
 		$this->assign('statusArr',$statusArr);
 		//1-下单，待确认|2-卖家确认|3-配货完成|4-已发贷，待收货|5-买家确认收货|6-系统收货|8-卖家取消订单|9-系统关闭未付款订单
-		$sstatusArr = array('1'=>'待确认','2'=>'已确认','3'=>'配货待发','4'=>'已发货待收','5'=>'买家确认收货','6'=>'系统收货','8'=>'卖家取消订单','9'=>'系统关闭未付款订单');
+		$sstatusArr = array('1'=>'待确认','2'=>'已确认','3'=>'配货待发','4'=>'已发货待收','5'=>'买家确认收货','6'=>'系统收货','8'=>'卖家取消','9'=>'系统关闭','10'=>'买家取消');
 		$this->assign('sstatusArr',$sstatusArr);
 
 		$paytypeArr = array('1'=>'余额支付','2'=>'支付宝','3'=>'微信');
@@ -51,15 +51,16 @@ class Orders extends Controller
 			$wheres['order_no'] = ['like',"%$keyword%"];
 			$urlArr['keyword'] = $keyword;
 		}
-		if (!empty($status)) {
-			$wheres['pay_status'] = ($status == 1)?'1':'2';
-			$wheres['status'] = 1;
-		}
-		if ($wheres['pay_status'] == 2) {
-			$wheres['pay_status'] =($status == 10)?'1':'2';
+		
+		if(in_array($status,[1,10,11])){
+			$wheres['pay_status'] = 1;
+			$wheres['status'] = $status==1?1:$status-1;
+		}else if(in_array($status,[2,3,4,5,6,7,9])){
+			$wheres['pay_status'] = 2;
 			$wheres['status'] = $status-1;
-			$urlArr['status'] = $status;
 		}
+		$urlArr['status'] = $status;
+		
 		$this->assign('keyword', $keyword);
 		$this->assign('status', $status);
 		//页码控制
@@ -71,16 +72,6 @@ class Orders extends Controller
 		//拉取需要表单数据
 		$lists = db('order')->where($wheres)->order('id DESC')
 				->limit(($page - 1) * $pagesize, $pagesize)->select();
-		foreach ($lists as $k => $v) {
-			$wheres = [];
-			$wheres['order_no'] = $v['order_no'];
-			$glists = db('order_goods')->where($wheres)->order('addtime DESC')->select();
-			$buynum = 0;
-			foreach ($glists as $k1 => $v1) {
-				$buynum += $v1['num'];
-			}
-			$lists[$k]['glists'] = $glists;
-		}
 
 		$this->assign('lists', $lists);
 		//页码
@@ -119,12 +110,12 @@ class Orders extends Controller
 
 		$order_no = $data['objid'];
 		$status = $data['status'];
-		
+
 		//数据组装
 		$nowtimes = date('Y-m-d H:i:s');
 		$udata=['status'=>$status,'update_time'=>$nowtimes];
 		$wheres = ['order_no'=>$order_no];
-		
+
 		switch ($status) {
 			case 9://系统关闭未付款订单
 			case 2://卖家确认
@@ -212,7 +203,7 @@ class Orders extends Controller
 		
 		//1-下单，待确认|2-卖家确认|3-配货完成|4-已发贷，待收货|5-买家确认收货|6-系统收货|8-卖家取消订单|9-系统关闭未付款订单
 		$nowtimes = date('Y-m-d H:i:s');
-		$udata=['status'=>3,'wuliu'=>$data['wuliu'],'send_time'=>$nowtimes,'update_time'=>$nowtimes];
+		$udata=['status'=>4,'wuliu'=>$data['wuliu'],'send_time'=>$nowtimes,'update_time'=>$nowtimes];
 		
 		//租借商品的 租借时间更新
 		$glists = db('order_goods')->where('order_no',$order_no)->select();
@@ -281,6 +272,7 @@ class Orders extends Controller
 			$wheres['order_no'] = ['like',"%$keyword%"];
 			$urlArr['keyword'] = $keyword;
 		}
+		$wheres['rent'] = 1;
 		$this->assign('keyword', $keyword);
 		$count = db('order_goods')->where($wheres)->count();
 		$maxPage = ceil($count / $pagesize);
@@ -353,31 +345,86 @@ class Orders extends Controller
 		if(!$result){
 			return ['status'=>201,'msg'=>$validate->getError()];
 		}
-
 		$gno = $data['tmh'];
 		$info = db('order')->where('order_no',$gno)->find();
+		if($info){
+			$glists= json_decode(base64_decode($info['order_good']),true);
+			$html = '';
+			foreach ($glists as $k=> $v){
+				$html .=
+						'<tr>
+							<td class="rent" id="name">'.$v['name'].'</td>
+							<td class="rent" id="name">'.$v['gno'].'</td>
+							<td class="rent" id="price">'.$v['price'].'</td>
+							<td class="rent" id="num">'.$v['num'].'</td>
+							<td class="rent" id="status" value="0">0</td>
+						</tr>
+						<input type="hidden" id="dd" value="'.$gno.'">
+';
+			}
+			return ['status'=>200,'msg'=>'成功','html'=>$html];
+		}
+		else{
+			return ['status'=>201,'msg'=>'订单不存在！'];
+		}
+	}
+
+	public function checkthree(){
+		if (!Request()->isAjax()){
+			return ['status'=>220,'msg'=>'非法请求！'];
+		}
+		$rule = [
+				['objid','require','参数不正确'],
+		];
+		$data = request()->post();
+		$validate = new Validate($rule);
+		$result   = $validate->check($data);
+		if(!$result){
+			return ['status'=>201,'msg'=>$validate->getError()];
+		}
+
+		$info = db('order')->where('order_no',$data['ddid'])->find();
 		$glists= json_decode(base64_decode($info['order_good']),true);
+		print_r($glists['gon']);
 		$html = '';
-		foreach ($glists as $k=> $v){
-			$html .= '<table>
+		foreach ($glists as $k=> $v) {
+			$gonarr[] =$v['gno'];
+		}
+		if ((in_array($data['objid'], $gonarr))) {
+			foreach ($glists as $k => $v) {
+				if ($v['gno'] == $data['objid']) {
+					$v['yj'] = $data['ztid'] + 1;
+				}else
+				{
+					$v['yj'] = $data['ztid'];
+				}
+				$html .= '<table>
 							<thead>
+							<input type="hidden" id="dd" name="dd" value="' . $data['ddid'] . '">
+							<input type="hidden" id="status" name="status" value="' . $v['yj'] . '">
 							<tr>
-							<th>商品</th>
+							<th>商品编号：' . $v['gno'] . '</th>
 							<th>价格</th>
 							<th>数量</th>
+							<th>已检数量</th>
 							</tr>
 							</thead>
 					<tbody class="food_list_lists">
                       <tr>
-                          <td class="rent" >'.$v['name'].'</td>
-                          <td class="rent" >'.$v['price'].'</td>
-                          <td class="rent" >'.$v['num'].'</td>
+                          <td class="rent" id="name">' . $v['name'] . '</td>
+                          <td class="rent" id="price">' . $v['price'] . '</td>
+                          <td class="rent" id="num">' . $v['num'] . '</td>
+                          <td class="rent" id="status">' . $v['yj'] . '</td>
                       </tr>
                   	</tbody>
                   	</table>
 ';
+			}
+			return ['status' => 200, 'msg' => '成功', 'html' => $html];
 		}
-		return ['status'=>200,'msg'=>'成功','html'=>$html];
+		else{
+				return ['status' => 201, 'msg' => '条形码不匹配'];
+		}
 	}
 
 	//购物车

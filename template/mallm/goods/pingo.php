@@ -36,11 +36,11 @@
 							</ul>
 							<div class="swiper-pagination"></div>
 						</div>
-						<div class="lunbo_box">
+						<!--<div class="lunbo_box">
 							<ul class="box_li">
 								<li class="clearfix"><img src="__IMG__/userdef.png" class="fl"/><span class="fl">水果忍者拼单成功</span></li>
 							</ul>
-						</div>
+						</div>-->
 					</div>
 					<!--商品名，简介-->
 					<div class="xiangqing_jianjie">
@@ -48,15 +48,15 @@
 						<h3><?php echo $ginf['recommend'];?></h3>
 						<h2><em>￥<?php echo number_format($ginf['sales_price']/100,2);?></em>&nbsp;&nbsp;<i>￥<?php echo number_format($ginf['market_price']/100,2);?></i></h2>
 					</div>
-					<div class="clearfix shop_baozheng">
+					<!--<div class="clearfix shop_baozheng">
 						<em class="fl">全场包邮丶</em>
 						<em class="fl">7天退换丶</em>
 						<em class="fl">48小时发货丶</em>
 						<em class="fl">假一赔十</em>
 						<i class="fr icon-right"></i>
-					</div>
+					</div>-->
 				</div>
-				<div class="pindan_gundong">
+				<!--<div class="pindan_gundong">
 					<h3 class="clearfix">
 						<span class="fl">520人在拼单</span>
 						<i class="fr icon-right"></i>
@@ -101,7 +101,7 @@
 							<ul class="swap"></ul>
 						</div>
 					</div>
-				</div>
+				</div>-->
 			</section>
 			<!--<section class="term_box" id="section2">
 				<div class="xiangqing_canshu">
@@ -244,13 +244,13 @@
 				<i class="icon-collect"></i>
 				<h6>收藏</h6>
 			</div>
-			<span class="fl xq_like_btn1 xq_like_btn">
+			<!--<span class="fl xq_like_btn1 xq_like_btn">
 				<i>￥<?php echo number_format($gspec['minp']/100,2);?></i>
-				<h5>单独购买</h5>
-			</span>
-			<div class="fr xq_join_btn1 xq_join_btn">
+				<h5>预定</h5>
+			</span>-->
+			<div class="fr xq_join_btn1 xq_join_btn"  style=" width:70%;">
 				<i>￥<?php echo number_format($gspec['mingp']/100,2);?></i>
-				<h5>发起拼团</h5>
+				<h5>预定</h5>
 			</div>
 		</section>
 		<!--更多弹窗-->

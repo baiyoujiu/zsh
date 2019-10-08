@@ -31,6 +31,7 @@
 					case 6:
 					case 8:
 					case 9:
+					case 10:
 						$end++;
 						$endls[] = $v;
 						break;
@@ -71,7 +72,7 @@
 						<a href="<?php echo url('uinf/orderinf').'?no='.$v['order_no'];?>">
                         <h3 class="clearfix">
 							<span class="fl"><?php echo '【'.$v['order_no'].'】'.substr($v['order_time'],0,10);?></span>
-							<em class="fr"><?php echo $v['pay_status']==1?'待付款':$statusArr[$v['status']];?></em>
+							<em class="fr"><?php echo $v['status']==1?($v['pay_status']==1?'待付款':$statusArr[$v['status']]):$statusArr[$v['status']];?></em>
 						</h3>
                         <?php $goodarr = json_decode(base64_decode($v['order_good']),true);foreach($goodarr as $gv){?>
 						<div class="clearfix qbdd_lists_word">
@@ -87,8 +88,8 @@
 						</div>
                         </a>
 						<div class="clearfix qbdd_lists_btns">
-							<?php if($v['pay_status'] == 1){?>
-                            <a href="<?php echo url('pay/index').'?objno='.$v['order_no'];?>"><span class="fr back_yellow">去付款</span></a>
+							<?php if($v['status'] == 1 && $v['pay_status'] == 1){?>
+                            <a href="<?php echo url('pay/index').'?objno='.$v['order_no'];?>"><span class="fr back_yellow">去付款</span></a><span class="fr oreceived" data-s="10" data-no="<?php echo $v['order_no'];?>">取消订单</span>
                             <?php }else if($v['status'] == 2){?>
                             <span class="fr back_yellow">发货处理中</span>
                             <?php }else if($v['status'] == 4){?>
@@ -108,7 +109,7 @@
                     <li>
 						<h3 class="clearfix">
 							<span class="fl"><?php echo '【'.$v['order_no'].'】'.substr($v['order_time'],0,10);?></span>
-							<em class="fr"><?php echo $v['pay_status']==1?'待付款':$statusArr[$v['status']];?></em>
+							<em class="fr"><?php echo $v['status']==1?($v['pay_status']==1?'待付款':$statusArr[$v['status']]):$statusArr[$v['status']];?></em>
 						</h3>
                         <?php $goodarr = json_decode(base64_decode($v['order_good']),true);foreach($goodarr as $gv){?>
 						<div class="clearfix qbdd_lists_word">
@@ -123,7 +124,7 @@
 							<p class="fr"><i>共<?php echo $v['goodnum']?>件</i><i><?php echo '(商)'.number_format($v['good_amount']/100,2);?><?php echo $v['freight']?' + (运)'.number_format($v['freight']/100,2):'';?><?php echo $v['camount']?' - (惠)'.number_format($v['camount']/100,2):'';?>,合计：<em>￥<?php echo number_format($v['amount']/100,2);?></em></i></p>
 						</div>
 						<div class="clearfix qbdd_lists_btns">
-							<a href="<?php echo url('pay/index').'?objno='.$v['order_no'];?>"><span class="fr back_yellow">去付款</span></a>
+							<a href="<?php echo url('pay/index').'?objno='.$v['order_no'];?>"><span class="fr back_yellow">去付款</span></a><span class="fr oreceived" data-s="10" data-no="<?php echo $v['order_no'];?>">取消订单</span>
 							<!--<span class="fr">删除订单</span>-->
                             <a href="<?php echo url('uinf/orderinf').'?no='.$v['order_no'];?>"><span class="fr">订单详情</span></a>
 						</div>
@@ -139,7 +140,7 @@
                     <li>
 						<h3 class="clearfix">
 							<span class="fl"><?php echo '【'.$v['order_no'].'】'.substr($v['order_time'],0,10);?></span>
-							<em class="fr"><?php echo $v['pay_status']==1?'待付款':$statusArr[$v['status']];?></em>
+							<em class="fr"><?php echo $v['status']==1?($v['pay_status']==1?'待付款':$statusArr[$v['status']]):$statusArr[$v['status']];?></em>
 						</h3>
                         <?php $goodarr = json_decode(base64_decode($v['order_good']),true);foreach($goodarr as $gv){?>
 						<div class="clearfix qbdd_lists_word">
@@ -169,7 +170,7 @@
                     <li>
 						<h3 class="clearfix">
 							<span class="fl"><?php echo '【'.$v['order_no'].'】'.substr($v['order_time'],0,10);?></span>
-							<em class="fr"><?php echo $v['pay_status']==1?'待付款':$statusArr[$v['status']];?></em>
+							<em class="fr"><?php echo $v['status']==1?($v['pay_status']==1?'待付款':$statusArr[$v['status']]):$statusArr[$v['status']];?></em>
 						</h3>
                         <?php $goodarr = json_decode(base64_decode($v['order_good']),true);foreach($goodarr as $gv){?>
 						<div class="clearfix qbdd_lists_word">
@@ -199,7 +200,7 @@
                     <li>
 						<h3 class="clearfix">
 							<span class="fl"><?php echo '【'.$v['order_no'].'】'.substr($v['order_time'],0,10);?></span>
-							<em class="fr"><?php echo $v['pay_status']==1?'待付款':$statusArr[$v['status']];?></em>
+							<em class="fr"><?php echo $v['status']==1?($v['pay_status']==1?'待付款':$statusArr[$v['status']]):$statusArr[$v['status']];?></em>
 						</h3>
                         <?php $goodarr = json_decode(base64_decode($v['order_good']),true);foreach($goodarr as $gv){?>
 						<div class="clearfix qbdd_lists_word">
@@ -305,12 +306,13 @@
 			
 			$('.oreceived').click(function(){
 				var ono = $(this).data('no');
+				var s = $(this).data('s');
 				$.ajax({ 
 					type:"POST", 
 					async:false, 
 					url:"/api/received.html",
 					dataType: "json",
-					data:{ono:ono,i:Math.random()},
+					data:{ono:ono,s:s,i:Math.random()},
 					success:function(result){
 						if(result.status == 200){
 							layer.open({skin:'msg',content: result.msg,time:1,end:function(){window.location.reload();}});

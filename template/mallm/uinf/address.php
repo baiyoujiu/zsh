@@ -77,7 +77,7 @@
               <li class="right">
                 <div class="add_address_list_sec fl">
                   <select class="sccode" name="sccode">
-                    <option value="0">其它地址</option>
+                    <option value="0">非驿站地址</option>
                   </select>
                 </div>
               </li>
@@ -166,7 +166,7 @@ $('#mapinf').hide();$('.mapshow').hide();
 			$('.stcode').empty();
 			$('.stcode').html('<option value="">街道/镇</option>');
 			$('.sccode').empty();
-			$('.sccode').html('<option value="0">其它地址</option>');
+			$('.sccode').html('<option value="0">非驿站地址</option>');
 			$('#address').val('');	
 			$('#address').show();
 			
@@ -222,7 +222,7 @@ $('#mapinf').hide();$('.mapshow').hide();
 					data:{ano:ano,i:Math.random()},
 					success:function(result){
 						if(result.status == 200){
-							var sthtml='<option value="">街道/镇</option>',schtml='<option value="0">其它地址</option>';
+							var sthtml='<option value="">街道/镇</option>',schtml='<option value="0">非驿站地址</option>';
 							sthtml += result.sthtml;
 							schtml += result.schtml;
 							$('.stcode').empty();
@@ -256,7 +256,7 @@ $('#mapinf').hide();$('.mapshow').hide();
 			  if (data.status == 200) {
 				$('.mapshow').hide();
 				$('#address').show();
-				var stcode = '<option value="">街道/镇</option>',sccode = '<option value="0">其它地址</option>';
+				var stcode = '<option value="">街道/镇</option>',sccode = '<option value="0">非驿站地址</option>';
 				stcode += data.html;
 				$('.stcode').empty();
 				$('.stcode').html(stcode);

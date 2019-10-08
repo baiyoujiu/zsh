@@ -58,6 +58,7 @@
         <ul class="clearfix personal_lists">
             <a href="<?php echo url('uinf/order');?>"><li class="fl">
                 <img src="__IMG__/personal-img5.png">
+                <?php echo $amun?'<span>'.$amun.'</span>':'';?>
                 <p>全部订单</p>
             </li></a>
             <a href="<?php echo url('uinf/order');?>">
@@ -84,6 +85,7 @@
             <a href="<?php echo url('uinf/order');?>">
             <li class="fl">
                 <img src="__IMG__/personal-img4.png">
+                <?php echo $end?'<span>'.$end.'</span>':'';?>
                 <p>已完成</p>
             </li>
             </a>
@@ -112,64 +114,97 @@
             <a href="<?php echo url('uinf/rental');?>">
                 <li class="clearfix">
                     <img class="fl" src="__IMG__/shuben.png"/>
-                    <p class="fl">租借台<?php echo $glists?'　<b class="red">'.substr($glists[0]['rentend'],0,10).'前待还'.count($glists).'本</b>':''?></p>
+                    <p class="fl">租借台<?php echo $glists?'　<b class="red">'.substr($glists[0]['rentend'],0,10).'日前待还'.count($glists).'本</b>':''?></p>
                     <i class="fr icon-right"></i>
                 </li>
             </a>
             <a href="<?php echo url('uinf/coupon');?>">
                 <li class="clearfix">
                     <img class="fl" src="__IMG__/icoyh.png"/>
-                    <p class="fl">优惠券</p>
+                    <p class="fl">优惠券<?php echo $couponinf?'　<b class="red">'.($couponinf['amount']/100).'元租书劵　'.substr($couponinf['endtime'],0,10).'日到期</b>':'';?></p>
                     <i class="fr icon-right"></i>
                 </li>
             </a>
-            <a href="<?php echo url('uinf/address');?>">
-                <li class="clearfix">
-                    <img class="fl" src="__IMG__/shouhuo.png"/>
-                    <p class="fl">收货地址</p>
-                    <i class="fr icon-right"></i>
-                </li>
-            </a>
-            <a href="<?php echo url('uinf/collect');?>">
-            <li class="clearfix">
-                <img class="fl" src="__IMG__/icosc.png"/>
-                <p class="fl">收藏</p>
-                <i class="fr icon-right"></i>
-            </li>
-            </a>
-            <a href="<?php echo url('newsinf/7');?>">
-            <li class="clearfix">
-                <img class="fl" src="__IMG__/shouhou.png"/>
-                <p class="fl">客服与售后</p>
-                <i class="fr icon-right"></i>
+          </ul>
+     </section>
+
+     <section>
+     <ul class="clearfix personal_lists">
+            <a href="<?php echo url('uinf/invite');?>">
+            <li class="fl">
+                <img src="__IMG__/invite.png"/>
+                <p>邀请有奖</p>
+                
             </li>
             </a>
             <a href="<?php echo url('goods/stage');?>">
-            <li class="clearfix">
-                <img class="fl" src="__IMG__/icoyz.png"/>
-                <p class="fl">租借驿站</p>
-                <i class="fr icon-right"></i>
+            <li class="fl">
+                <img src="__IMG__/icoyz.png"/>
+                <p>租借驿站</p>
+                
             </li>
             </a>
+            <a href="<?php echo url('uinf/collect');?>">
+            <li class="fl">
+                <img src="__IMG__/icosc.png"/>
+                <p>收藏</p>
+                
+            </li>
+            </a>
+            <a href="<?php echo url('uinf/address');?>">
+                <li class="fl">
+                    <img src="__IMG__/shouhuo.png"/>
+                    <p>收货地址</p>
+                   
+                </li>
+            </a>
+            <a href="<?php echo url('newsinf/7');?>">
+            <li class="fl">
+                <img src="__IMG__/shouhou.png"/>
+                <p>客服与售后</p>
+                
+            </li>
+            </a>
+            
         </ul>
     </section>
-    <section>
-    <img src="/images/books/bookszjlc.jpg"/>
+    <!--轮播-->
+	<section>
+        <div class="home_lunbo">
+            <div class="swiper-container">
+                <ul class="swiper-wrapper">
+                  <li class="swiper-slide"><a href="<?php echo url('goods/stage');?>" title="租借驿站-租书会"><img src="/images/books/bookszjlc.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
+                  <li class="swiper-slide"> <a href="<?php echo url('goods/191005100');?>" title="租书vip年卡/半年卡/季卡-租书会"><img src="__IMG__/banner00.jpg" alt="租书vip年卡/半年卡/季卡-租书会"></a> </li>
+                  <li class="swiper-slide"> <a href="<?php echo url('ztinf/1001');?>" title="一年级必读经典书目-租书会"><img src="__IMG__/banner01.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
+                  <li class="swiper-slide"> <a href="<?php echo url('ztinf/1002');?>" title="二年级必读经典书目-租书会"><img src="__IMG__/banner02.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
+                  <li class="swiper-slide"> <a href="<?php echo url('ztinf/1003');?>" title="三年级必读经典书目-租书会"><img src="__IMG__/banner03.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
+                  <li class="swiper-slide"> <a href="<?php echo url('ztinf/1004');?>" title="四年级必读经典书目-租书会"><img src="__IMG__/banner04.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
+                  <li class="swiper-slide"> <a href="<?php echo url('ztinf/1005');?>" title="五年级必读经典书目-租书会"><img src="__IMG__/banner05.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
+                  <li class="swiper-slide"> <a href="<?php echo url('ztinf/1006');?>" title="六年级必读经典书目-租书会"><img src="__IMG__/banner6.jpg" alt="<?php echo $webseo['title'];?>"></a> </li>
+                </ul>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
     </section>
-    <?php if($userinfo['utype']==1){?>
-    <section>
-    <a href="<?php echo url('uinf/tovip');?>">
-    <img src="__IMG__/tovip.png"/>
-    </a>
-    </section>
-    <?php }?>
-    
     <!--退出登录-->
     <section>
         <div class="grzx_tcdl">
             <a href="<?php echo url('login/logout');?>"><p>退出登录</p></a>
         </div>
     </section>
-    <!--占位-->
-    <section class="zhanwei_hei40"></section>
+<script type="text/javascript">
+	/*轮播*/
+	var swiper = new Swiper('.swiper-container', {
+	  centeredSlides: true,
+	  autoplay: {
+		delay: 4000,
+		disableOnInteraction: false,
+	  },
+	  pagination: {
+		el: '.swiper-pagination',
+		clickable: true,
+	  },
+	});
+</script>
+    
 {include file="common/footer" /}
